@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS</title>
+  <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
+  <link rel="stylesheet" href="../CSS/leonardasf1.css">
+<style>
+.h1 {font-size: 2rem}
+</style>
+    <script src="../JS/jquery.js"></script>
+    <script src="../JS/leoscript.js"></script>
+
+    <link rel="stylesheet" href="../CSS/highlight.css">
+    <script src="../JS/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <div id="headerMenu">
+      <div>
+			 <img src="../icons/css.svg" height="32px">
+			 <span>CSS</span>
+		  </div>
+    </div>
+  </header>
+
+<div id="links">
+  <a href="https://drafts.csswg.org/"><img src="https://drafts.csswg.org/csslogo.ico" alt="csswg"></a>
+  <a href="https://www.w3.org/Style/CSS/"><img src="https://www.w3.org/favicon.ico" alt="w3"></a>
+  <a href="https://css-tricks.com"><img src="https://css-tricks.com/apple-touch-icon.png" alt="css-tricks"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" alt="CSS MDN"></a>
+  <a href="https://ru.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://ru.wikipedia.org/static/favicon/wikipedia.ico" alt="wiki"></a>
+  <a href="https://webref.ru"><img src="https://webref.ru/favicon.ico" alt="webref.ru"></a>
+  <a href="https://jigsaw.w3.org/css-validator/">validator</a>
+  <a href="https://csscompressor.com/">csscompressor</a>
+  <a href="https://www.generateit.net/css-optimize/index.php">generateit.net/css-optimize</a>
+  <a href="http://tools.w3clubs.com/cssmin/">tools.w3clubs.com/cssmin</a>
+  <a href="https://github.com/mrclay/minify">minify</a>
+  <a href="http://uroki-css.ru">uroki-css</a>
+
+</div>
+
+<article>
+<h1 style="text-align: center">Cascading Style Sheets</h1>
+ reshadow 
+ <a href="https://reshadow.dev/"><img src="https://reshadow.dev/public/favicon/favicon.ico" alt=""></a> 
+ <a href="https://github.com/lttb/reshadow"><img src="https://github.githubassets.com/favicon.ico" alt=""></a>
+ 
+ / cssinjs / styled components / BEM (block element modifier) / CSS Modules , пропсы <br>
+    <li><a href="https://habr.com/ru/post/140612/">SCSS — немного практики, часть I</a></li>
+  <a href="http://htmlbook.ru/samcss/napisanie-effektivnogo-koda"><img src="http://htmlbook.ru/favicon.ico"> Написание эффективного кода</a><br>
+  <a href="http://htmlbook.ru/samcss/kaskadirovanie">Cascading</a><br>
+        <pre><code class="CSS">
+внешний: тег link rel="stylesheet" href="*.css"
+в документе: тег style /style
+внутри тега: style=""
+//внешний: @import "*.css"; 
+
+/* comment */
+
+<div class="details">
+
+<details><summary>animation / transition</summary><div>
+  animation: slidein 3s linear 1s infinite running;
+  animation-name: name;
+  animation-duration: 2s;  // длительность цикла
+  animation-timing-function: ease; ease-in; ease-out; ease-in-out; linear; ...
+  animation-delay: 2s; /  2.1s, 480ms;  // single / multiple отсрочка старта
+  animation-iteration-count: 3; infinite;  // кол-во повторений цикла
+  animation-direction: normal | reverse | alternate | alternate-reverse;
+  animation-play-state: running | paused;
+  animation-fill-mode: forwards;
+
+@keyframes important1 {
+  from { margin-top: 50px; }
+  50%  { margin-top: 150px; }
+  to   { margin-top: 100px; }
+}
+
+  transition: width 2s, color 3s; all 4s linear .5s;
+  transition-property  // свойство
+  transition-duration  // длительность
+  transition-timing-function
+  transition-delay  // задержка
+<p class="codepen" data-height="250" data-default-tab="css,result" data-user="leonardasf1" data-slug-hash="VoKNZJ">colorAnimation</p>
+</div></details>
+
+<details><summary>background</summary><div>
+  background: url(*.jpg) | black no-repeat 0 -1px;
+  background-color: rgba(255,255,255,.5) | #000000 | black | hsl(30,100%,50%);
+  background-image: url(*.jpg), url(*.jpg);
+  background-attachment: fixed | scroll | local;
+  background-origin: border-box | padding-box | content-box;
+  background-clip: border-box | padding-box | content-box;
+  -webkit-background-clip
+  background-position: right | bottom center | 100% 100%;
+  background-repeat: repeat-x | repeat-y | repeat | space | round | no-repeat;
+  background-size: <значение> | <проценты> | auto | cover | contain;
+</div></details>
+
+<details><summary>border</summary><div>
+  border: solid 1px black;
+  border-bottom
+  border-left
+  border-right
+  border-top
+
+  border-collapse: collapse | separate;
+
+  border-color:
+  border-bottom-color
+  border-left-color
+  border-right-color
+  border-top-color
+
+  <a href="http://htmlbook.ru/css/border-image">border-image:</a> url() 30 round; (repeat, stretch)
+
+  border-radius: 50px 0 0 50px; 10em/1em;
+  border-bottom-left-radius
+  border-bottom-right-radius
+  border-top-left-radius
+  border-top-right-radius
+
+  border-spacing: Расстояние между ячейками;
+
+  border-style: none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset;
+  border-bottom-style
+  border-left-style
+  border-right-style
+  border-top-style
+
+  border-width:
+  border-bottom-width
+  border-left-width
+  border-right-width
+  border-top-width
+</div></details>
+
+<details><summary>cursor: </summary><div>
+  crosshair
+  e-resize
+  help
+  move
+  n-resize
+  ne-resize
+  nw-resize
+  pointer
+  progress
+  s-resize
+  se-resize
+  sw-resize
+  text
+  w-resize
+  wait
+</div></details>
+
+<details><summary>display:</summary><div>
+  block; делает элемент блочным
+  flex; включает flexbox
+  grid; включает grid
+  inline; делает элемент строчным
+  inline-block
+  inline-table
+  list-item
+  none; скрывает элемент
+  run-in
+  table
+  table-caption заголовок таблицы
+  table-cell д.э. ячейкой таблицы
+  table-column-group
+  table-column
+  table-footer-group
+  table-header-group
+  table-row
+  table-row-group
+</div></details>
+
+<details><summary>filter <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"></a></summary><div>
+filter: blur(5px);
+filter: brightness(0.4);
+filter: contrast(200%);
+filter: drop-shadow(16px 16px 20px blue);
+filter: grayscale(50%);
+filter: hue-rotate(90deg);
+filter: invert(75%);
+filter: opacity(25%); 
+filter: saturate(30%);
+filter: sepia(60%);
+
+filter: url("filters.svg#filter-id");
+</div></details>
+
+<details><summary>FLEXBOX <a href="https://www.w3schools.com/css/css3_flexbox.asp"><img src="https://www.w3schools.com/favicon.ico" alt="w3schools"></a> <a href="https://www.w3.org/TR/css-flexbox-1/"><img src="https://www.w3.org/favicon.ico" alt="w3.org"></a> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="https://css-tricks.com/apple-touch-icon.png"></a> <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Flexible_Box_Layout"></a></summary><div>
+display: flex;
+Контейнер
+  justify-content: center | left | end | space-between | space-around | space-evenly; 
+  /* Позиционное выравнивание */
+justify-content: center;     /* Выравнивание элементов по центру */
+justify-content: end;        /* Выравнивание элементов в конце */
+justify-content: left;       /* Выравнивание элементов по левому краю */
+
+/* Распределенное выравнивание */
+justify-content: space-between; /* Равномерно распределяет все элементы по ширине flex-блока.
+                                   Первый элемент вначале, последний в конце */
+justify-content: space-around;  /* Все элементы имеют полуразмерное пространство
+                                   с обоих концов */
+justify-content: space-evenly;  /* Все элементы имеют равное пространство вокруг */
+
+  flex-direction: row | row-reverse | column | column-reverse
+  flex-wrap: wrap;  // перенос блоков
+  flex-flow:  // column wrap;
+  align-items:  // выравнивает колонки
+  align-content
+Дочерние элементы flex контейнера
+  order // порядок следования блока в контейнере
+  flex-grow // насколько элементу можно увеличиться
+  flex-shrink // насколько элементу можно уменьшиться
+  flex-basis // базовый размер элемента
+  flex
+  align-self
+</div></details>
+
+<details><summary>FLOAT</summary><div>
+float: left | right;
+clear: left | right | both; отменяет действие float
+
+    < style type="text/css">
+        .block {
+            width: 400px;
+            background: #0094ff;
+            padding: 20px;
+            margin: 10px;
+            float: left;
+        }
+    < /style>
+
+    < div>
+        < div class="block">Block 1< /div>
+        < div class="block">Block 2< /div>
+        < div class="block">Block 3< /div>
+        < div class="block">Block 4< /div>
+    < /div>
+</div></details>
+
+<details><summary>font / text</summary><div>
+@font-face {
+    font-family: Pompadur;
+    src: url(fonts/pompadur.ttf);
+}
+font: 0.9em Arial, Helvetica, sans-serif;
+font-family: Arial, Helvetica, sans-serif;
+font-size: *px | <a href="https://learn.javascript.ru/css-units">css-units</a>
+            rem  // относительно root(html)
+            vw, vh, vmin, vmax // относительно размера экрана.
+            1.5em  // относительно родителя
+            150%  // относительно родителя
+            in | 
+            mm  // 1mm (мм) = 3.8px
+            pt  // 1pt (типографский пункт) = 4/3 px
+            pc  // 1pc (типографская пика) = 16px
+
+font-weight: bold | bolder | lighter | normal | 400 | 700;
+font-stretch: ultra-condensed | extra-condensed | condensed | semi-condensed | normal | semi-expanded | expanded | extra-expanded | ultra-expanded
+font-style: normal | italic | oblique;
+font-variant: normal | small-caps
+
+text-align: center | justify | left | right | start | end;
+text-align-last: auto | start | end | left | right | center | justify;
+text-decoration: none | line-through | overline | underline;
+text-decoration-color: #000000;
+text-decoration-line: none | line-through | overline | underline;
+text-decoration-style: solid | double | dotted | dashed | wavy;
+text-indent: *em; отступ 1й строки
+text-overflow: clip | ellipsis; параметры обрезания текста
+text-shadow: 1px 1px 2px black, 0 0 1em red; none;
+text-transform: capitalize | lowercase | uppercase | none;
+
+white-space: normal | nowrap | pre | pre-line | pre-wrap; пробелы и переносы
+word-break: normal | break-all | keep-all; перенос слова
+word-spacing: 10px; рассстояние между словами
+word-wrap: normal | break-word; переносить слова
+
+direction: ltr | rtl;  направление текста
+writing-mode: lr-tb | rl-tb | tb-rl | bt-rl | tb-lr | bt-lr; текст сверху вниз,..
+writing-mode: horizontal-tb | vertical-rl | vertical-lr
+
+letter-spacing: 10px; интервал между символами
+line-height: межстрочный интервал
+
+::first-letter первая буква
+::first-line первая строка текста
+</div></details>
+
+<details><summary>gradient <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients"></a></summary><div>
+linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%)
+radial-gradient(ellipse farthest-corner at 90% 90%, red, yellow 10%, #1e90ff 50%, beige);
+repeating-linear-gradient(-45deg, red, red 5px, blue 5px, blue 10px);
+repeating-radial-gradient
+</div></details>
+
+<details><summary>GRID <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout"></a> <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"><img src="https://css-tricks.com/apple-touch-icon.png" alt="css-tricks"></a> <a href="https://mozilladevelopers.github.io/playground/css-grid/"><img src="https://mozilladevelopers.github.io/playground/static/favicon.d4f1f46b.ico" alt="mozilladevelopers.github"></a></summary><div>
+  display: grid;
+
+    grid-template-columns: 200px repeat(4, 1fr 2fr) minmax(150px, 250px);  // ширины столбцов
+    grid-template-columns: repeat(auto-fill, 300px);  // auto-fill как wrap
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  // auto-fit 
+    grid-template-rows: minmax(200px, auto) 200px 100px;  // высоты рядов
+    grid-template: 200px 150px 100px / 200px 300px 200px; // столбцы и ряды
+    grid-auto-rows: 50px;  // высота для оставшихся элементов
+
+    grid-column-gap: 25px;  // отступы между колонками
+    grid-row-gap: 5px;  // отступы между строками
+    grid-gap: 5px 25px;  // указывает отступ между строками и колонками
+
+    grid-auto-flow;  //  порядок отображения элементов на странице (dense,..)
+    justify-items: start | end | center | stretch;  // горизонтальное выравнивание вложенных элементов
+    align-items: start | end | center | stretch;   // вертикальное выравнивание вложенных элементов
+
+    grid-template-areas: "header" "article" "aside" "footer";  // шаблон для последовательного отображения контента
+    grid-area: header | article | aside | footer;
+
+    grid-column-start: 1;  // начало расположения
+    grid-column-end: 5;  // конец расположения
+    grid-column: 1/6;  // start/end
+    grid-row: 2/3;
+
+    justify-self: start | end | center | stretch;   // выравнивание выбранного элемента по горизонтали
+    align-self: start | end | center | stretch;   // выравнивание выбранного элемента по вертикали
+    place-self:
+  </div></details>
+
+<details><summary>list-style</summary><div>
+  list-style: square outside; списки
+  list-style-image: none | url();
+  list-style-position: inside | outside;
+  list-style-type: circle | disc | square | armenian | decimal | decimal-leading-zero | 
+   georgian | lower-alpha | lower-greek | lower-latin | lower-roman | 
+   upper-alpha | upper-latin | upper-roman | none;
+</div></details>
+
+<details><summary>margin</summary><div>
+  margin: внешний отступ, auto выравнивает по центру
+  margin-bottom
+  margin-left
+  margin-right
+  margin-top
+</div></details>
+
+<details><summary>multi-column-layout (draft)</summary><div>
+  -moz-(-webkit-)columns: 200px auto|3; ширина и кол-во колонок
+  column-count: кол-во колонок
+  column-fill: balance | auto;
+  column-gap: отступы между колонками
+  column-rule: 1px solid #ccc; как border
+  column-rule-width: 35px;
+  column-rule-style: solid;
+  column-rule-color: black;
+  column-span: all;
+  column-width: ширина колонок
+  break-after: column;
+  break-before:
+  break-inside:
+</div></details>
+
+<details><summary>outline</summary><div>
+outline: 1px solid #777; внешняя линия
+outline-color
+outline-style
+outline-width
+outline-offset: -10px; расстояние линии от элемента
+</div></details>
+
+<details><summary>overflow</summary><div>
+overflow: auto | hidden | scroll | visible; содержимое блока
+overflow-x:
+overflow-y:
+</div></details>
+
+<details><summary>padding</summary><div>
+  padding: Поля вокруг текста
+  padding-bottom
+  padding-left
+  padding-right
+  padding-top
+</div></details>
+
+<details><summary>page-break</summary><div>
+page-break-after
+page-break-before
+page-break-inside
+</div></details>
+
+<details><summary>position</summary><div>
+  position: absolute поверх всего, место не резервируется
+  position: fixed фиксированное, место не резервируется
+  position: relative относительное, место резервируется
+  position: static позиционирование
+  position: sticky прилипает к верхнему краю
+</div></details>
+
+<details><summary>scroll</summary><div>
+  scroll-padding-top: 40px;
+  scroll-snap-type: y mandatory; proximity;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal; always;
+</div></details>
+
+<details><summary>scrollbar</summary><div>
+scrollbar-color: #201c29;
+scrollbar-width: 10px;
+scrollbar-gutter: always;
+</div></details>
+
+<details><summary>transform <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><div>
+transform: rotateX(10deg) scaleX(2);
+transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+transform: translate(12px, 50%);
+transform: translate3d(12px, 50%, 3em);
+transform: translateX(2em);
+transform: translateY(3in);
+transform: translateZ(2px);
+transform: scale(2, 0.5);
+transform: scale3d(2.5, 1.2, 0.3);
+transform: scaleX(2);
+transform: scaleY(0.5);
+transform: scaleZ(0.3);
+transform: rotate(0.5turn);
+transform: rotate3d(1, 2.0, 3.0, 10deg);
+transform: rotateX(10deg);
+transform: rotateY(10deg);
+transform: rotateZ(10deg);
+transform: skew(30deg, 20deg);
+transform: skewX(30deg);
+transform: skewY(1.07rad);
+transform: perspective(17px);
+
+transform-origin: 0px 0px; // изменение точки относительно которой будет трансформация
+transform-style: preserve-3d; flat;
+ 
+backface-visibility: hidden; visible;
+perspective: 200px;
+perspective-origin: 0px 0px;
+</div></details></div><div class="details">
+<details><summary><b>Селектор</b> { свойство: значение; }</summary><div>
+* {} для всех элементов веб-страницы
+tagName по тегу
+.class-Name по классу
+#id-Name по ид
+tagName.class-name по тегу с классом
+sel1, sel2 для обоих селекторов
+sel1 sel2 когда sel2 внутри sel1
+sel1>sel2 когда sel2 дочерний к sel1
+sel1+sel2 для sel2 следующего сразу за sel1
+sel1~sel2 когда sel2 родственен sel1 и не предшествует ему
+
+sel[атрибут] для элемента с атрибутом
+[атрибут="значение"] с атрибутом определенного значения
+[атрибут^="значение"] значение атрибута начинается с определённого текста
+[атрибут$="значение"] значение атрибута оканчивается определённым текстом
+[атрибут*="значение"] значение атрибута содержит указанный текст
+[атрибут~="значение"] одно из нескольких значений атрибута
+[атрибут|="значение"] +дефис в значении атрибута
+</div></details>
+
+<details><summary>:<b>Псевдокласс</b></summary><div>
+Селектор:<b>Псевдокласс</b> { Описание правил стиля }
+
+:link {} непосещенная ссылка
+:visited {} посещенная ссылка
+:hover {} наведение курсора
+:active {} нажатый курсор
+:focus {} фокус на элементе
+:focus-within {}
+    a:visited:hover
+
+:first-child {} когда селектор - 1й дочерний элемент
+:last-child {} когда селектор - последнийй дочерний элемент
+:first-of-type {} когда селектор - первый своего типа
+:last-of-type {} когда селектор - последний своего типа
+:nth-child(2n) четные элементы
+:nth-child(even) четные элементы
+:nth-child(2n+1) нечетные элементы
+:nth-child(odd) нечетные элементы
+:nth-child(5) пятый элемент
+:nth-last-child(*) обратная нумерация
+:nth-of-type
+:nth-last-of-type
+:only-child к единственным доч.эл-там
+:only-of-type
+
+:invalid неверное значение поля формы
+:valid
+
+:empty для пустых элементов
+:not не содержит селектор
+:not(селектор) {} элементы не содержат указанный селектор
+:target с id в адресной строке
+:root корневой элемент документа
+
+формы
+:enabled незаблокированые поля
+:disabled заблокированые поля
+:checked выбраные поля
+:read-write которые можно изменять
+:required к полям с атр required
+:optional к полям без атр required
+:read-only поля формы с атр.read-only
+:default элементы формы без оформления
+:indeterminate флажки и переключатели
+</div></details>
+
+<details><summary>:<b>Псевдоэлемент</b></summary><div>
+Селектор:<b>Псевдоэлемент</b> { Описание правил стиля }
+
+::after { content: "*"} в конец элемента
+::before { content: "*"} в начало элемента
+
+::marker 
+
+::selection выделенный фрагмент текста
+::-moz-selection
+
+::-ms-check флажки и переключатели
+::-ms-browse стиль кнопки [обзор]
+::-ms-clear кнопка для очистки поля
+::-ms-expand кнопка раскрытия списка
+::-ms-fill индикатор элемента прогресс
+::-ms-reveal кнопка отображения пароля
+::-ms-value изменять поля формы
+::-moz-placeholder поля формы с атр.placeholder
+::-webkit-input-placeholder
+
+::-webkit-scrollbar
+::-webkit-scrollbar-thumb
+</div></details>
+
+<details><summary>@медиа запросы <a href="http://htmlbook.ru/css/value/media">htmlbook</a></summary><div>
+@import url('');
+
+@media (max-width:*px) {
+    селектор1 {}
+    селектор2 {}
+} или атрибут тега style : media=""
+@media (min-aspect-ratio:600/400) {}
+@media (color) {}
+@media (min-color-index: 256) {}
+@media print and (monochrome) {}
+@media print and (color) {}
+
+@charset для задания кодировки
+</div></details>
+
+</div>
+
+<h3>{ свойство: значение; }</h3>
+
+box-shadow: 2px 2px 2px rgba(255,5,5,.5); inset (тень внутри)
+box-sizing: content-box | border-box | padding-box;
+
+caption-side: top | bottom; расположение заголовка таблицы
+clip: rect(40px, auto, auto, 40px); Прячем часть текста
+color: цвет текста (transparent-прозрачный)
+
+content: строка | attr(параметр) | url(); c :after|:before
+counter-increment: name; / counter(name) // счетчик-переменная
+counter-reset: <a href="http://htmlbook.ru/css/counter-reset">счетчики списка</a>
+
+empty-cells: hide
+
+opacity: прозрачность
+
+orphans: 
+widows:
+
+bottom: Расстояние от нижнего края окна
+top: right: left:
+resize
+quotes: "\00AB" "\00BB"; тип кавычек
+
+tab-size
+table-layout: auto | fixed; ширина ячеек таблицы
+
+unicode-bidi
+user-select: none;
+vertical-align: baseline|bottom|middle|sub|super|text-bottom|text-top|top
+visibility: visible | hidden | collapse; видимость элемента
+
+z-index: число | auto; наложение обьектов
+
+       </code> </pre>
+<hr>
+<h1><a href="http://lesscss.org/features/"><img src="http://lesscss.org/public/ico/favicon.ico" alt="lesscss.org"></a> less</h1>
+<pre><code class="less">
+< link rel="stylesheet/less" type="text/css" href="styles.less" />
+< script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" >< /script>
+48kb nov2018
+
+@size: 10px; // определение переменной
+
+.dude(@x, @y){  // mixin аналог функции
+    color: @x;
+    background: @y;
+}
+
+body {
+  font-size: @size + 7px;
+  .dude();
+}
+.createGradient(@color1, @color2) {
+    background: -webkit-linear-gradient(left, @color1 0%, @color2 100%);
+    background: -moz-linear-gradient(left, @color1 0%, @color2 100%);
+    background: -ms-linear-gradient(left, @color1 0%, @color2 100%);
+    background: linear-gradient(left, @color1 0%, @color2 100%);
+}
+.setDimensions(@height: 200px, @width: 200px) {
+    width: @width;
+    height: @height;
+}
+div.box {
+    .setDimensions();
+    .createGradient(rgb(120, 30, 150), rgb(10, 180, 100));
+}
+
+вложенность правил
+вложенные псевдоклассы &:hover {}
+
+div.class1 {
+    // сделать светлее на 30%
+    background-color: lighten(@base-color, 30%);
+}
+div.class2 {
+    // сделать темнее на 20%
+    background-color: darken(@base-color, 20%);
+}
+div.class3 {
+    // добавить насыщенности
+    background-color: saturate(@base-color, 40%);
+}
+div.class4 {
+    // убрать насыщенность
+    background-color: desaturate(@base-color, 50%);
+
+@images: "../img";
+body {
+  background: url("@{images}/white-sand.png");
+}
+.widget {
+  color: #efefef;
+  background-color: $color;
+}
+
+</code>
+</pre>
+<hr>
+<hr>
+<pre>
+  @for $i from 1 through 30 {
+    .circle:nth-child(#{$i}) {
+        animation-delay: 0.3s * $i;
+    }
+}</pre>
+<hr>
+        <h1>float</h1>
+        <style>
+                div.of {overflow: auto; margin: 10px auto}
+                div.of>div {float: left; width: 30%; height: 100px; border: 1px solid}
+                .d1 {background: red}
+                .d2 {background: yellow}
+                .d3 {background: green}
+        </style>
+        <div class="of" style="width: 100%">overflow: auto
+            <div class="d1">float: left</div>
+            <div class="d2">float: left</div>
+            <div class="d3">float: left</div>
+        </div>
+<hr>
+        <div class="of">overflow: auto
+            <div class="d1">float: left</div>
+            <div class="d2">float: left</div>
+            <div class="d3" style="clear: left">float: left <br>clear: left</div>
+            <div class="d3" style="background: blue">float: left</div>
+        </div>
+<hr>
+        <div>
+            <div style="height: 100px; width: 100%; border: 1px solid"></div>
+            <div class="of" style="height: 500px; width: 100%">overflow: auto
+                <div class="d1" style="height: 100%; width: 30%">float: left</div>
+                <div class="d2" style="height: 100%; width: 50%">float: left</div>
+                <div class="d3" style="height: 100%; width: 20%">float: left</div>
+            </div>
+            <div style="height: 100px; width: 100%; border: 1px solid"></div>
+        </div>
+<hr>
+        <style>
+            .aa1 {
+                position: relative;
+                top: 50px;
+                left: 100px;
+            }
+            .b1 {
+                position: relative;
+                top: 50px;
+                left: 40px;
+            }
+        </style>
+        <div class="aa1" style="background-color: green; width: 300px; height: 300px">position: relative
+            <div class="b1" style="background-color: blue; width: 100px; height: 100px">position: relative</div>
+        </div>
+        <div style="background-color: red; width: 200px; height: 200px">position: static</div>
+<hr>
+
+<style>
+    .shapka, .nav4, .main4, .footer4 {width: 100%}
+    .shapka {height: 150px; background: skyblue}
+    .nav4 {height: 50px; background-color: pink}
+    .main4 {height: 400px; overflow: auto;}
+    .menu4 {width: 20%; float: left; background: lightgreen; height: 100%}
+    .cont4 {width: 80%; float: left; background: gray; height: 100%}
+    .footer4 {height: 100px; background: blue}
+</style>
+        <div>
+            <div class="shapka">Шапка</div>
+            <div class="nav4">Блок навигации</div>
+            <div class="main4">
+                <div class="menu4">Меню</div>
+                <div class="cont4">Контент</div>
+            </div>
+            <div class="footer4">Подвал сайта</div>
+        </div>
+<hr>
+<style>
+    .header123, .col123 {
+      width: 100%;
+      overflow: auto;
+      font-size: 3em;
+      margin: 0 auto;
+    }
+    .header123 {
+      height: 100px;
+      color: white;
+    }
+    .col123 {height: 500px}
+
+    .header123 div, .col123 div {
+      height: 100%;
+      width: 30%;
+      margin: 3px;
+      float: left;
+      border: 2px solid #3c639a;
+      padding: .5em;
+      text-align: center;
+    }
+    #header1 {background: #a65107}
+    #header2 {background: #6d9439}
+    #header3 {background: #3c639a}
+
+    #col1 {background: #f4be90}
+    #col2 {background: #a2dd54}
+    #col3 {background: #6ca5f6}
+</style>
+        <div class="header123">
+            <div id="header1">id="header1"</div>
+            <div id="header2">id="header2"</div>
+            <div id="header3">id="header3"</div>
+        </div>
+        <div class="col123">
+            <div id="col1">id="col1"</div>
+            <div id="col2">id="col2"</div>
+            <div id="col3">id="col3"</div>
+        </div>
+
+  </article>
+
+  <footer></footer>
+
+</body>
+</html>

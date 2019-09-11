@@ -1,0 +1,190 @@
+* {
+	box-sizing: border-box
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+    font-family: -apple-system, RobotoLight, sans-serif;
+    font-size: 16px;
+    background-color: #c0c0c0;
+    -moz-osx-font-smoothing: grayscale
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover, #headerMenu>div:first-child, #footerScrollTop:hover {
+    color: white;
+    filter: drop-shadow(0 2px 2px black);
+}
+
+header {
+	z-index: 1000;
+    position: relative;
+    width: 100%;
+    height: 95px;
+    display: block;
+    background: rgba(0,0,0,0.4);
+}
+
+.fsac , #headerMenu, #headerMenu>div:first-child, #links, #links a, footer {
+    display: flex;
+    align-items: center;
+}
+
+#headerMenu {
+    padding: 31px;
+    width: 100%;
+    max-height: 95px;
+	position: fixed;
+	background: linear-gradient(135deg, #8360c3, #2ebf91);
+    transition: padding .5s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+}
+@media (max-width:800px) {
+    #headerMenu {
+        padding: 31px 2px;
+        flex-wrap: wrap;
+        max-height: 1000px;
+    }
+    #headerMenu > div {
+        margin: 0;
+    }
+    .home {
+        text-align: right;
+        width: calc(96% - 250px);
+    }
+    .home~* {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#headerMenu>div:first-child {
+    min-width: 250px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+#headerMenu>div:first-child>span {
+    margin-left: 10px;
+}
+#headerMenu>div {
+    margin: 0 1%;
+}
+
+.img32 img, #headerMenu img, nav img, nav svg, #links img {height: 32px; }
+
+summary img, ul img {
+    height: 16px;
+    bottom: -2px;
+}
+
+.item {
+    color: black;
+    padding: 12px 16px;
+    font-weight: 700;
+    cursor: pointer
+}
+.item:hover, .item:focus, .submenu, .itvdn {background-color: rgba(0,0,0,0.2)}
+
+.submenu {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+}
+.submenu a {
+    color: white;
+    padding: 12px 16px;
+    display: block
+}
+.submenu a:hover {background: rgba(0,0,0,0.4)}
+
+.content {padding: 0 36px}
+
+.content, .footer {position: relative}
+
+.inner-footer {height: 100px}
+
+#links {
+    background: rgba(0,0,0,0.4);
+    height: 60px;
+    overflow: scroll;
+}
+
+#links a {
+    padding: 5px;
+}
+
+nav, .details {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 26px;
+    line-height: 1.5;
+}
+
+nav>a {
+    display: inline-block;
+    margin-right: 5%;
+    font-weight: 700;
+    font-size: 2rem;
+    color: white;
+    filter: drop-shadow(0 2px 2px black);
+}
+
+article {
+    padding: 0 3%;
+    /*overflow: scroll;*/
+}
+
+.itvdn {
+    display: flex;
+    gap: 10px;
+    padding: 1em
+}
+summary {
+    font-weight: 700;
+    padding: 10px;
+}
+summary:hover {background: rgba(0,0,0,.2);}
+summary+div {
+    background: #514f4f;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+#footerScrollTop {
+    z-index: 100;
+    position: fixed;
+    right: -52px;
+    top: 74px;
+    width: 30px;
+    height: 30px;
+    color: rgba(255,255,255,0.7);
+    transition: right .5s;
+}
+[href*="youtu"] {
+    background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0 0;
+    padding-left: 20px
+}
+[href*="yadi.sk"] {
+    background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0 0;
+    padding-left: 20px
+}
+article [href*="wikipedia.org"] {
+    background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px
+}
+article [href*="developer.mozilla"] {
+    background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px
+}

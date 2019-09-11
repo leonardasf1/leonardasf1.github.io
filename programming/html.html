@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML</title>
+  <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
+  <link rel="stylesheet" href="../CSS/leonardasf1.css">
+  <script src="../JS/jquery.js"></script>
+    <script src="../JS/leoscript.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+  <div id="headerMenu">
+    <div>
+      <img src="../icons/html5.png" alt="html5">
+      <span>HTML</span>
+    </div>
+  </div>
+</header>
+
+<div id="links">
+	<a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" alt="mozilla"></a>
+  <a href="https://www.w3.org/html/"><img src="https://www.w3.org/favicon.ico" alt="w3.org"></a>
+  <a href="https://caniuse.com/"><img src="https://caniuse.com/img/favicon-128.png" alt="caniuse"></a>
+  <a href="http://html5test.com/"><img src="http://html5test.com/images/icons/favicon-32x32.png" alt="html5test"></a>
+  <a href="https://itvdn.com/ru/search?query=html"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a>
+  <a href="http://htmlbook.ru/samhtml"><img src="http://htmlbook.ru/favicon.ico" alt="htmlbook"></a>
+  <a href="https://developers.google.com/web/">dev.google</a>
+  <a href="https://webref.ru">WebRef</a>
+  <a href="https://vk.com/doc166724508_450973233?hash=e71c58d38f7ececc49&dl=64797a3026e3009efb">Пилгрим-М.-Погружение-в-HTML5-2011.djvu 5.6 МБ</a>
+  <a href="https://schema.org/docs/gs.html"><img src="https://schema.org/docs/favicon.ico" alt="schema"></a>
+</div>
+
+<nav>
+  
+</nav>
+
+<article>
+  <a href="http://htmlbook.ru/html/a/rel" target="_blank">attr rel</a> <a href="http://htmlbook.ru/html/value/mime">MIME-типы</a>
+
+  < !--comments-->
+  <hr color="red" width="600px" size="5px" align="left" noshade="noshade"> is obsolete
+  <hr style="color:red; width:600px; height:5px" noshade>
+
+  <center>< center> / is obsolete</center>
+
+  <div><MARQUEE loop="1">< MARQUEE> /</MARQUEE></div>
+
+  <a href="#" id="id" target="_blank" title="title" rel="" accesskey="t" type="text/html" download="">a href="#" id="id" target="_blank" title="title" rel="" accesskey="t" type="text/html" download=""</a><br>
+  <a href="#" target="_self">target="_self"</a><br>
+  <a href="#" target="_top">target="_top"</a> <br>
+  <a href="#" target="_parent">target="_parent"</a> <br>
+<br>
+  href="mailto:asd@mail.com?subject=Hellow%20again" <a href="mailto:asd@mail.com?subject=Hellow%20again">написать письмо</a><br>
+  href="tel:+72346543867" <a href="tel:+72346543867">+7 234 654 38 67</a><br>
+  href="skype:test_login" <a href="skype:test_login">написать в скайп</a><br>
+
+   <a href="#c6">< a href="#c6"> /</a>
+  <a id="c6">< a id="c6"> /</a>
+
+  <pre>
+    < pre> / Lorem ipsum dolor sit amet,
+   consectetur adipisicing elit. 
+  Odio assumenda quis recusandae 
+  laborum ipsa aut quibusdam distinctio? 
+  Hic, nihil nulla veritatis! 
+  Excepturi iure culpa deleniti 
+  molestiae corporis autem maiores, illo!
+  </pre>
+
+  <blockquote>
+    < blockquote> / Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit consectetur libero ducimus ipsa minima incidunt, rem, harum, iure nihil quos illum, sed cumque! Consequuntur eos excepturi qui, ipsam reiciendis recusandae!
+  </blockquote>
+
+< p dir="ltr"> / <p dir="ltr"> bdi  is not supported - указывает фрагмент текста, который должен быть</p><p dir="rtl"> изолирован от изменения направления вывода текста. (HTML5).</p>
+  <pre>
+  Теги физического формирования:
+< b> <b>- придает тексту жирное начертание.</b>
+< bdo dir="rtl"> <bdo dir="rtl">- устанавливает направление вывода текста.</bdo>
+< i> <i>- придает тексту курсивное начертание.</i>
+< s> <s>- отображает текст как перечеркнутый.</s>
+< u> <u>- подчеркнутый текст</u>
+< small> <small>- делает текст на одну условную единицу меньше.</small>
+< big>  is obsolete<big>- делает текст на одну условную единицу больше.</big>
+< sup> <sup>- помещает содержимое в верхний индекс.</sup>
+< sub> <sub>- помещает содержимое в нижний индекс.</sub>
+
+
+  Теги логического формирования: 
+< abbr title="abbr"> / <abbr title="abbr">- аббревиатура</abbr>
+< cite> / <cite>- текст является сноской или цитатой.</cite>
+< code> / <code>- предназначен для хранения текста, который представляет собой программный код.</code>
+< strong> / <strong>- задает тексту жирное начертание.</strong>
+< em> / <em>- задает тексту курсивное начертание.</em>
+< del cite="#" datetime="2019-04-12"> / <del cite="#" datetime="2019">- используется для выделения текста, который был удален в новой версии документа.</del>
+< ins cite="#" datetime="2019-04-12T18:18:18+03:00"> / <ins cite="#" datetime="2019-04-12T18:18:18+03:00">- предназначен для выделения текста, который был добавлен в новую версию документа.</ins>
+< mark> / <mark>- помечает текст как выделенный.</mark>
+< q cite="#"> / <q cite="#">- выделяет текст в цитату.</q>
+< samp> / <samp>- текст, который выводится в результате работы какой-либо программы.</samp>
+< var> / <var>- используется для выделения переменных компьютерных программ.</var>
+
+& lt ; &lt; Знак меньше
+& gt ; &gt; Знак больше
+& nbsp ; &nbsp; Символ неразрывного пробела
+& shy ; &shy; Символ мягкого переноса
+& rdquo ; &rdquo; Правая двойная кавычка
+& ldquo ; &ldquo; Левая двойная кавычка
+& amp ; &amp; Символ амперсанда&
+  </pre>
+  <p align="justify">
+    <img src="../icons/css.svg" alt="" align="right" height="200px" title=" align='right'">
+    <img src="../icons/css.svg" alt="" align="left" height="200px" title="align='left'">
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eligendi ab ipsum totam ratione autem architecto optio minima adipisci ducimus. Hic magnam voluptate porro soluta laudantium perferendis reprehenderit, velit consequuntur.</span>
+    <span>Unde nam fugiat, nobis saepe veritatis quibusdam, voluptates placeat pariatur voluptatum! Pariatur quos vel dolor voluptatibus nostrum. Tempora, assumenda, minima? Nihil ducimus ab ex reiciendis, assumenda est dignissimos dolorum nobis.</span>
+    <span>Quam expedita minima, magni quia a eius exercitationem deserunt excepturi magnam non maxime qui aperiam in, saepe nihil, quos architecto reprehenderit quibusdam est natus, rerum impedit voluptatibus cupiditate repellendus dolores.</span>
+  </p>
+  <hr>
+<pre>
+    < img src="html5.jpg" alt="" align="right" width="100%" usemap="#map1">
+    < map name="map1">
+      < area shape="rect" coords="123, 234, 345, 456" href="" alt="" title="rect">
+      < area shape="circle" coords="123, 430, 100" href="" alt="" title="circle">
+      < area shape="poly" coords="78, 12, 34, 45, 56, 67, 78, 89, 90, 12" href="" alt="" title="poly">
+    < /map></pre>
+    <div>
+    <table border="1" cellspacing="5" cellpadding="3" width="300" height="200">
+      <caption>caption</caption>
+      <thead>
+        <tr>
+          <th>th</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>thead</th>
+          <th>6</th>
+          <th>7</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>tfoot</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>e</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>tbody</td>
+          <td rowspan="2">rowspan</td>
+          <td colspan="5">colspan</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <pre>
+    < table border="1" cellspacing="5" cellpadding="3" width="300" height="200">
+
+      < thead>tr*1>td*7
+      < tfoot>tr*1>td*7
+      < tbody>tr*3>td*7
+    </pre>
+    </div>
+    <table width="450" border="1" rules="groups" cellpadding="4">
+      <colgroup width="100"></colgroup>
+      <colgroup width="50" span="9" align="center">
+        <tr>
+          <td>colgroup</td>
+          <td>2001</td>
+          <td>2002</td>
+          <td>2003</td>
+          <td>2004</td>
+          <td>2005</td>
+          <td>2006</td>
+          <td>2007</td>
+          <td>2008</td>
+          <td>2009</td>
+        </tr>
+        <tr>
+          <td>dssg</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </colgroup>
+    </table>
+    <div style="display: flex">
+    <ul type="circle">
+      <li>< ul type="circle"></li>
+      <li>a</li>
+      <li>z</li>
+      <li>x</li>
+    </ul>
+    <ul type="disc">
+      <li>< ul type="disc"></li>
+      <li>
+        w
+        <ul>
+          <li>вложеный</li>
+          <li>список</li>
+        </ul>
+      </li>
+      <li>e</li>
+      <li>d</li>
+    </ul>
+    <ul type="square">
+      <li>< ul type="square"></li>
+      <li>v</li>
+      <li>r</li>
+      <li>f</li>
+    </ul>
+    <ul type="none">
+      <li>< ul type="none"></li>
+      <li>f</li>
+      <li>v</li>
+      <li>b</li>
+    </ul>
+    <ol type="A">
+      <li>< ol type="A"></li>
+      <li>t</li>
+      <li>y</li>
+      <li>h</li>
+    </ol>
+    <ol type="a">
+      <li>< ol type="a"></li>
+      <li>t</li>
+      <li>y</li>
+      <li>h</li>
+    </ol>
+    <ol type="I">
+      <li>< ol type="I"></li>
+      <li>t</li>
+      <li>y</li>
+      <li>h</li>
+    </ol>
+    <ol reversed>
+      <li>< ol reversed></li>
+      <li>t</li>
+      <li>y</li>
+      <li>h</li>
+    </ol>
+    <ol start="5">
+      <li>ol start="5"</li>
+      <li value="8">li value="8"</li>
+      <li>y</li>
+      <li>h</li>
+    </ol>
+    dl
+    <dl>
+      <dt>dt</dt>
+      <dd>dd</dd>
+      <dt>dt</dt>
+      <dd>dd</dd>
+    </dl>
+    </div>
+<hr>
+    <p contenteditable="true"><span style="color: red">p contenteditable="true"</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore earum officia nisi, laboriosam, laborum nulla numquam esse consequuntur tempora ab natus magni, saepe itaque expedita architecto soluta blanditiis rerum suscipit.</p>
+<hr>
+< figure> < img> < figcaption> text < /figcaption> < /figure> 
+    <figure>
+      <img src="../icons/css.svg" alt="figure" height="200px">
+      <figcaption>figcaption</figcaption>
+    </figure>
+<hr>
+    < details> < summary> / /
+    <details>
+      <summary>summary показать</summary>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nihil laboriosam, ipsa repudiandae harum neque blanditiis unde ex ipsam dicta porro tenetur ad expedita! Unde ducimus tempore, error dolorum consequuntur!</p>
+    </details>
+<hr>
+    < time datetime="2019-04-17"> /
+    <time datetime="2019-04-17">2019-04-17</time>
+<hr>
+    <form oninput="result.value=(cm.value/2.54).toFixed(2)">< form oninput="result.value=(cm.value/2.54).toFixed(2)">
+        <p>
+            Введите длину в сантиметрах:input type="number" name="cm"<input type="number" name="cm">
+        </p>
+        <p>Длина в дюймах: output name="result"<output name="result">0</output></p>
+    </form>
+<hr>
+<div style="display: flex">
+  <p>
+    <ruby>
+      ruby
+      <rp>rp if not support</rp>
+      <rt>rt аннотация</rt>
+    </ruby>
+  </p>
+    <style>
+        .date {
+            font-size: 1.5em;
+        }
+
+        .date ruby {
+            background: #0078c9;
+            color: #fff;
+        }
+
+    .date rt {
+            background: #a0dae8;
+            color: #000;
+            padding: 2px;
+        }
+    </style>
+  <p class="date">
+      <ruby>
+          25<rt>декабрь</rt>
+      </ruby>
+  </p>
+  <p> ruby>rt</p>
+</div>
+
+<hr>
+    <pre> Элемент audio используется для внедрения звукового контента на веб-страницу.
+        Имеет следующие атрибуты:
+            - autoplay - автоматическое воспроизведение аудиофайла.
+            - controls - указывает, что нужно отобразить элементы управления воспроизведением.
+            - loop - циклическое воспроизведение аудиофайла.
+            - muted - выключить звук при воспроизведении.
+            - preload - предварительная загрузка контента. Некоторые браузеры игнорируют. Имеет следующие значения:
+                - auto - загружает файл полностью.
+                - metadata - загружается только небольшая часть файла, чтобы определить основные характеристики.
+                - none - отсутствие автоматической загрузки.
+            - src - содержит путь к аудиофайлу.
+
+    < audio controls> 
+        < source src="../yas.mp3">
+        < source src="../yas.ogg">
+        Браузер не поддерживает воспроизведение звуковых медиафайлов!        
+    < /audio>
+     </pre>
+    <audio controls> 
+        <source src="../flamenco/seguiriya/paco_pena-son_de_campanas-seguriyas.mp3">
+        <source src="../flamenco/seguiriya/paco_pena-son_de_campanas-seguriyas.ogg">
+        Браузер не поддерживает воспроизведение звуковых медиафайлов!        
+    </audio>
+<hr>
+  <pre>
+    Тег video используется для добавления видео контента на веб-станицу.
+        Имеет те же атрибуты что и тег audio, и несколько дополнительных:
+            - height - задает высоту окна для отображения видеоданных.
+            - poster - позволяет задать путь к изображению, которое будет отображаться до воспроизведения видеофайла.
+            - width - задает ширину окна для отображения видеоданных.
+
+    < video controls width="480" preload>
+        < source src="../era.mpg" />
+    < /video>
+  </pre>
+
+        <a href="../flamenco/petenera/EMpetenera.mpg">download</a><br>
+    <video controls width="480" preload>
+        <source src="../flamenco/petenera/EMpetenera.mpg" />
+    </video>
+<hr>
+<h1 style="text-align: center">form</h1>
+      < form action="*.html" method="post | get" enctype="text/plain | multipart/form-data" autocomplete="on" ><br>
+      novalidate -отменяет проверку заполнености и соответствия
+    <form action="" method="post" enctype="text/plain">
+      < input type="checkbox" checked > <input type="checkbox" checked><input type="checkbox"> <br>
+      < input type="color" > <input type="color"> <br>
+      < input type="date" > <input type="date"> <br>
+      < input type="email" placeholder="user@gmail.com" autofocus> <input type="email" placeholder="user@gmail.com" autofocus> <br>
+      < input type="hidden" > <input type="hidden"> <br>
+      < input type="image" > <input type="image"> <br>
+      < input type="month" > <input type="month"> <br>
+      < input type="number" min="10" max="100" step="5" > <input type="number" min="10" max="100" step="5"> <br>
+      < input type="password" placeholder="введите пароль" required > <input type="password" placeholder="введите пароль" required> <br>
+      < input type="password" name="pass" value="password" required > <input type="password" name="pass" value="password" required> <br>
+      < input type="phone" > <input type="phone"> <br>
+      < input type="radio" name="R1" > <input type="radio" name="radio"><input type="radio" name="radio"> дожно совпадать имя<br>
+      < input type="range" > <input type="range"> <br>
+      < input type="reset" > <input type="reset"> <br>
+      < input type="search" > <input type="search"> <br>
+      < input type="submit" > <input type="submit"> <br>
+      < input type="submit" value="отправить" > <input type="submit" value="submit"> <br>
+      < input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" > <input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx"> <br>
+      < input type="text" name="inp" value="some value" > <input type="text" name="inp" value="some value"> <br>
+      < input type="text" name="login" value="login" required> <input type="text" name="login" value="login" required> <br>
+      < input type="time" > <input type="time"> <br>
+      < input type="url" > <input type="url"> <br>
+      < input type="week" > <input type="week"> <br>
+      < textarea cols="30" rows="10" placeholder="оставьте комментарий">< /textarea> <textarea cols="30" rows="10" placeholder="оставьте комментарий"></textarea>
+      <hr>
+<div style="display: flex">
+      <p><pre>
+  < input type="text" list="price" >
+    < datalist id="price" >
+      < option value="10" >
+    < / datalist >
+      </pre></p><p>
+      <input type="text" list="price">
+      <datalist id="price">
+        <option value="10">
+        <option value="20">
+        <option value="30">
+        <option value="40">
+        <option value="50">
+      </datalist></p>
+</div>
+      <hr>
+      <p>
+        <label for="login">< label for="login" > < / label ></label>
+        <input type="text" id="login" value=" < input type='text' id='login' > ">
+      </p>
+      <hr>
+< input type="file" multiple / > <input type="file" multiple />        
+<pre>               Для отправки файла на сервер, у формы должен быть установлен атрибут enctype="multipart/form-data".
+               Атрибуты:
+                - accept    - устанавливает тип файлов, которые допустимы для выбора.
+                - multiple  - позволяет выбирать множество файлов.
+                - required  - требует обязательного выбора файла.</pre>
+
+      <hr>
+<div style="display: flex">
+      <p><pre>
+< select name="w2" multiple>
+  < option selected disabled> выберите < /option>
+  < option value="1">23< /option>
+  < option value="2">34< /option>
+  < optgroup label="iphone">
+     < option value="3"> iphone4 < /option>
+     < option value="4"> iphone5 < /option>
+     < option value="5"> iphone6 < /option>
+  < /optgroup>
+  < option value="6">< /option>
+  < option value="7">< /option>
+< /select></pre></p><p>
+  <select name="w2" multiple>
+      <option selected disabled> выберите </option>
+      <option value="1">23</option>
+      <option value="2">34</option>
+      <optgroup label="iphone">
+        <option value="3"> iphone4 </option>
+        <option value="4"> iphone5 </option>
+        <option value="5"> iphone6 </option>
+      </optgroup>
+      <option value="6"></option>
+      <option value="7"></option>
+  </select></p>
+</div>
+      <hr>
+
+</form>
+
+ < fieldset> < legend> text < /legend> < p> lorem < /p> < /fieldset>
+
+      <fieldset>
+        <legend>text</legend>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime assumenda adipisci, temporibus dignissimos, id animi voluptate repellat modi, facilis non sit fugiat veniam ullam. Ratione accusamus, sunt in quaerat officiis.
+        </p>
+      </fieldset>
+      <hr>
+< meter value="44" max="100" min="0" low="40" high="60" optimum="50"> /  <meter value="44" max="100" min="0" low="40" high="60" optimum="50"></meter><br>
+< progress value="56" max="78"> / <progress value="56" max="78"></progress>
+<hr>
+        meta http-equiv="refresh" content="30" <br>
+        - refresh — время (в секундах), через которое произойдет автоматическая перезагрузка документа или переход на другую html-страницу
+
+    <pre>meta name="robots" content="noindex, nofollow"
+        robots — мета-тег, который отвечает за настройки индексирования страницы. Может иметь следующие значения: 
+            - index — страница индексируется;
+            - noindex — страница не индексируется;
+            - follow — гиперссылки на странице учитываются;
+            - nofollow — гиперссылки на странице не учитываются
+            - all — заменяет «index» и «follow», т.е. страница индексируется и гиперссылки на ней учитываются (действует по умолчанию);
+            - none — заменяет «noindex» и «nofollow», т.е. страница не индексируется и гиперссылки на ней не учитываются.
+    </pre>
+     meta name="author" content="Иван Сидоров"<br>
+     meta name="copyright" content="Права принадлежат Пете Пяточкину."<br>
+     Метатеги author и copyright позволяют указать автора страницы и владельца.
+     <hr>
+
+    < atr contextmenu="name" >< menu type="context" id="name" >< menuitem onclick="" > text < /menuitem >< /menu >
+    <p contextmenu="name"><menu type="context" id="name"><menuitem onclick=""> text </menuitem ></menu>text</p>
+
+        <!--прямоугольник-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:500px; height:200px; display:block;">
+        <rect width="300" 
+            height="100"
+            style="fill: rgb(0,0,255); stroke-width: 1; stroke: rgb(0,0,0)" />
+    </svg>
+
+    <!--круг-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:500px; height:200px; display:block;">
+        <circle cx="100" 
+            cy="50" 
+            r="40" 
+            stroke="black"
+            stroke-width="2" fill="red" />
+    </svg>
+
+    <!--эллипс-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:500px; height:200px; display:block;">
+        <ellipse cx="300" 
+            cy="80" 
+            rx="100" 
+            ry="50"
+            style="fill: yellow; stroke: purple; stroke-width: 2" />
+    </svg>
+
+    <!--Линия-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:500px; height:200px; display:block;">
+        <line x1="0" 
+            y1="0" 
+            x2="200" 
+            y2="200"
+            style="stroke: rgb(255,0,0); stroke-width: 2" />
+    </svg>
+
+        <!--Размытие-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        
+        <defs>
+            <filter id="f1" x="0" y="0">
+                <feGaussianBlur stdDeviation="15" />
+            </filter>
+        </defs>
+
+        <rect width="90" 
+            height="90" 
+            stroke="green" 
+            stroke-width="3"
+            fill="yellow" 
+            filter="url(#f1)" />
+    </svg>
+
+        <!--Градиент-->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <linearGradient id="grad1" 
+                x1="0%" y1="0%" 
+                x2="100%" y2="0%">
+
+                <stop offset="0%" 
+                    style="stop-color: rgb(255,255,0); stop-opacity: 1" />
+
+                <stop offset="100%" 
+                    style="stop-color: rgb(255,0,0); stop-opacity: 1" />
+
+            </linearGradient>
+        </defs>
+
+        <ellipse cx="200" 
+            cy="70" 
+            rx="85" 
+            ry="55" 
+            fill="url(#grad1)" />
+    </svg>
+</article>
+<footer></footer>
+
+</body>
+</html>

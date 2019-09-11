@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Python</title>
+  <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
+  <link rel="stylesheet" href="../CSS/leonardasf1.css">
+    <script src="../JS/jquery.js"></script>
+    <script src="../JS/leoscript.js"></script>
+
+</head>
+
+<body>
+
+<header>
+  <div id="headerMenu">
+    <div>
+      <img src="https://www.python.org/static/favicon.ico">
+			<span>python</span>
+		</div>
+    </div>
+</header>
+
+<div id="links">
+
+</div>
+
+<nav>
+  
+</nav>
+
+<article>
+     
+  <h2>python<a href="http://www.python.org">.org</a></h2>
+  <ul>
+    <li><img src="https://www.jetbrains.com/favicon-16x16.png" alt=""><a href="https://www.jetbrains.com/pycharm/">PyCharm</a></li>
+    <li><a href="http://wombat.org.ua/AByteOfPython/">A Byte of Python</a></li>
+    <li><a href="https://www.mediafire.com/file/ghynhk24dsdndj8">Грокаем Алгоритмы</a></li>
+    <li>JIT (Just In Time)</li>
+    <li><a href="https://youtu.be/gjzOh5V72HM">Как программировать на Python (Skillbox)</a></li>
+    <li><a href="https://youtu.be/axemRoVxkfc">Основы Python для Data Science (Skillbox)</a></li>
+    <li><a href="https://www.youtube.com/watch?v=ahe3WpBMdm4&list=PLvoBekrlHDgROfUUHMbrrdsy_b2y2V_rj">Python Джедай [2016 год] По стандартам США! (Хауди Хо)</a></li>
+    <li><a href="https://www.youtube.com/watch?v=VIy3hktYKwE&list=PLvoBekrlHDgT2t0PH1J1VT_Bk2ziEAWMs">Учим Python Kivy [2018] (Хауди Хо)</a></li>
+    <li><a href="https://youtu.be/KdZ4HF1SrFs">Алгоритмы на Python 3. Лекция №1</a></li>
+    <li><img src="https://www.djangoproject.com/favicon.ico" alt=""> <a href="https://www.djangoproject.com/">Django Project.com</a></li>
+    <li><img src="http://pypy.org/favicon.ico" alt=""><a href="http://pypy.org/">PyPy.org</a></li>
+    <li><a href="https://github.com/jwasham/coding-interview-university">coding-interview-university</a></li>
+    <li><a href="https://pypi.org"></a>pypi.org</li>
+    <li><a href="https://habr.com/ru/post/320360/">flask</a></li>
+    <li><a href="https://2.python-requests.org/en/master/">requests</a></li>
+    <li><a href="https://twistedmatrix.com/trac/">twisted</a></li>
+     
+  </ul>
+  <pre>
+𝟭: Книги: <a href="https://vk.com/topic-84392011_37640354">https://vk.com/topic-84392011_37640354</a>
+𝟮: Проект Эйлера: <a href="http://euler.jakumo.org/">http://euler.jakumo.org/</a>
+𝟯: Awesome Python: <a href="https://github.com/vinta/awesome-python">https://github.com/vinta/awesome-python</a>
+𝟰: Курс по написанию ботов для Telegram: <a href="https://groosha.gitbooks.io/telegram-bot-lessons/content/">https://groosha.gitbooks.io/telegram-...</a>
+
+        IDLE
+        >>> print("")
+
+a = 1 + 1 # integer
+b = 1.0 + 1.0 # float
+string = "John" # string
+string = "John" * 2 # JohnJohn
+string = "John" + 2 # error
+string = "John" + str(2)
+users = ["John", "Artur", "Kate"] #list
+users[0] # John
+users[1] # Artur
+users[2] # Kate
+users[-2] # Artur
+
+true_test = 10 > 5 # True
+false_test = 10 != 5 # True
+false_test = 10 == 5 # false
+
+a = input("1st number >>> ")
+b = input("2nd number >>> ")
+
+if a > b:
+    print(a)
+elif a == b:
+    print("equals")
+else:
+    print(b)
+
+number = 200
+while number < 500:
+    print("Not ready")
+    number += 2
+else:
+    print("ready")
+
+users = ["John", "Artur", "Kate"]
+
+for user in users:
+    print(f"hello, {user}!")
+
+def hello_user(name):     // объявление функции
+    print(f"hello, {name}!")
+
+def hello_all(user_list):
+    for user in user_list:
+        hello_user(user)
+
+hello_all(users)    // запуск функции
+
+def string_multiple(value, count):
+    return value * count
+
+temp_string = string_multiple("Text0", 3)  # Text0Text0Text0
+print(temp_string)
+
+class User:
+    name: str
+
+    def hello(self):
+        print(f"Hello, {self.name}!")
+
+john = User()
+john.name = "John"
+
+john.hello()
+---
+class User:
+    name: str
+
+    def __init__(self, first_name, last_name="Undefined"):
+        self.name = first_name
+        self.last_name = last_name
+
+    def hello(self):
+        print(f"Hello, {self.name}!")
+
+john = User("John", "Doe")
+john.hello()
+artur = User("Artur")
+artur.hello()
+---
+class Human:
+    first_name: str
+    last_name: str
+
+    def __init__(self, first_name, last_name="Undefined"):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def __str__(self):
+        return f"Human: {self.first_name} {self.last_name}"
+
+
+class User(Human):
+    _passport: str = "1234 123123" # _ блокирует извне изменение параметра
+    __pasort: str = "1234 123123" # __ закрытый доступ private *
+
+    def hello(self):
+        print(f"Hello, {self.first_name}!")
+
+
+john = User("John", "Doe")
+# john.hello()
+artur = User("Artur")
+# artur.hello()
+# print(john)
+print(john._passport)
+---
+import requests
+
+response = requests.get('https://jsonplaceholder.typicode.com/users')
+users = response.json()
+
+email = users[0]['email']
+
+print(email)
+
+new_user = {
+    'email': 'john@doe.com',
+    'first_name': 'John'
+}
+
+response = requests.post('https://jsonplaceholder.typicode.com/users', new_user)
+print(response.content)
+---
+
+      </pre>       
+      <a href="https://youtu.be/ygOiHzZigwI">Как программировать на Python</a><br>
+      <a href="https://youtu.be/BJdhu1EuSQM">Основы Python</a><br>
+      <a href="https://youtu.be/1RmrFPmlJNc">Работа с сетью (TCP)</a>
+      <a href="https://github.com/manchenkoff/skillbox-chat">skillbox-chat</a><br>
+<br>
+      <a href="https://www.youtube.com/results?search_query=%23игра_на_Python">Как создать игру на Python</a><br>
+</article>
+
+<footer></footer>
+
+</body>
+</html>
