@@ -17,17 +17,17 @@ $(function() {
         <div>
             <div class="item"><a href="../programming/">programming</a></div>
             <div class="submenu">
-<a href="html.html">HTML</a>
-<a href="css.html">CSS</a>
-<a href="bootstrap.html">Bootstrap</a>
-<a href="javascript.html">JavaScript</a>
-<a href="jquery.html">jQuery</a>
-<a href="webpack.html">webpack</a>
-<a href="angular.html">Angular</a>
-<a href="react.html">React</a>
-<a href="vue.html">Vue.js</a>
-<a href="php.html">php</a>
-<a href="python.html">python</a>
+<a href="../programming/html.html">HTML</a>
+<a href="../programming/css.html">CSS</a>
+<a href="../programming/bootstrap.html">Bootstrap</a>
+<a href="../programming/javascript.html">JavaScript</a>
+<a href="../programming/jquery.html">jQuery</a>
+<a href="../programming/webpack.html">webpack</a>
+<a href="../programming/angular.html">Angular</a>
+<a href="../programming/react.html">React</a>
+<a href="../programming/vue.html">Vue.js</a>
+<a href="../programming/php.html">php</a>
+<a href="../programming/python.html">python</a>
             </div>
         </div>
         <div><a href="../Surf/">Серфинг</a></div>
