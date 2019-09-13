@@ -83,6 +83,7 @@
     echo $varName.'='.$varName;  // конкатенация точкой
     print("text< br>");
     printf("%d", $varName);  // %f- с плавающей точкой, %s- строка
+    print_r($arr);
 
     if , else , elseif , switch;
 
@@ -120,13 +121,15 @@ integer, float, string, array, object, bolean;
 
     strlen($var);  // длину строки в value
     strpos($str,$var);  // возвращает первую позицию $var в строке $str
+    stripos();  // тоже самое ,без учета регистра
     substr($str, -2, 3);  // часть $str с позиции -2 три символа
     substr_count($str,$var,3,17);  // число вхождений $var с позиции3 на 17символов вперед
     explode(" ", $str);  // разбивает в " " строку в массив
     parse_str($str, $obj);  // разобрать строку(запрос) в обьект $obj
     str_repeat($str, 8);  // повторяет $str 8 раз
     echo $rep = str_replace($a,$b,$c);  // в $c заменяет $a на $b
-    
+    str_split($str, 3);  // разбивает строку на элементы массива по 3 символа
+    strrev($str);  // строку наоборот
 
 ?>
   </code></pre>
