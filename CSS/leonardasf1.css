@@ -33,10 +33,15 @@ header {
     display: flex;
     align-items: center;
 }
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
 #headerMenu {
     padding: 31px;
-    width: 100%;
+    width: 100vw;
     max-height: 95px;
 	position: fixed;
 	background: linear-gradient(135deg, #8360c3, #2ebf91);
