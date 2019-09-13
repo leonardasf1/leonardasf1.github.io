@@ -7,13 +7,13 @@ $(function() {
 
     v("#headerMenu").insertAdjacentHTML('beforeend', 
        `<div class="home slide"><a><img src="../icons/favicon.ico"></a></div>
-        <div><a href="../F1_Challenge/" title="formula 1"><img src="../icons/f1.png"></a></div>
+   <!--     <div><a href="../F1_Challenge/" title="formula 1"><img src="../icons/f1.png"></a></div>
         <div><a href="../Alpinism/" title="alpinisme"><img src="../icons/alpinism.png"></a></div>
         <div><a href="../sailing/" title="sailing"><img src="../icons/sailing.png"></a></div>
         <div><a href="../flamenco/" title="flamenco"><img src="../icons/flamenco.png"></a></div>
         <div><a href="../13vek.html" title="medieval"><img src="../icons/medieval.png"></a></div>
         <div><a href="../zdorovie/">Здоровье</a></div>
-        <div><a href="../Skateboard">Лонгборд</a></div>
+   -->     <div><a href="../Skateboard">Лонгборд</a></div>
         <div>
             <div class="item"><a href="../programming/">programming</a></div>
             <div class="submenu">
@@ -31,7 +31,7 @@ $(function() {
             </div>
         </div>
         <div><a href="../Surf/">Серфинг</a></div>
-        <div>
+   <!--     <div>
             <div class="item">старье</div>
             <div class="submenu">
 <a href="../games.html">Games</a>
@@ -41,7 +41,7 @@ $(function() {
 <a href="../zametki.html">Заметки</a>
 <a href="../nu/">nu</a>
             </div>
-        </div>`
+        </div> -->`
     );
 });
 
