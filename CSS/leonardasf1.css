@@ -37,8 +37,8 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
 }
+.flex > div {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)}
 
 #headerMenu {
     padding: 31px;
@@ -51,7 +51,7 @@ header {
 }
 @media (max-width:800px) {
     #headerMenu {
-        padding: 2px;
+        padding: 31px 2px;
         flex-wrap: wrap;
         max-height: 1000px;
     }
