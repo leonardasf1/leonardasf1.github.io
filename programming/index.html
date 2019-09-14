@@ -174,7 +174,7 @@ module.exports = {
 
 <div>
     <h2>Git</h2>
-    <a href="https://git-scm.com/book/ru/v1/Основы-Git">git-scm.com/book/ru/v1/Основы-Git</a><br>
+    <a href="https://git-scm.com/book/ru/v1/Основы-Git"><img src="https://git-scm.com/favicon.ico"> git-scm.com/book/</a><br>
     <a href="https://youtu.be/nRXacgNHNVw">GIT-практикум (ITVDN)</a><br>
     <a href="https://youtu.be/yDSs80lu3ak">Git — инструмент для совместной работы, с нуля и до регламента в команде — Сергей Сергеев</a><br>
     <a href="https://youtu.be/iQqDce_9y3k">Как пользоваться GIT в Phpstorm. Инструкция</a><br>
@@ -224,7 +224,24 @@ collaborate (see also: git help workflows)
 'git help -a' and 'git help -g' list available subcommands and some
 concept guides. See 'git help < command>' or 'git help < concept>'
 to read about a specific subcommand or concept. 
-See 'git help git' for an overview of the system.</pre>
+See 'git help git' for an overview of the system.
+	git config --list
+	git config —global user.name "John Doe" 
+	git config —global user.email johndoe@example.com
+	
+	cd E:  // переходим на нужный диск
+	cd example  // в нужную папку
+	git init  // инициализируем репозиторий
+	git status  // проверяем
+create .gitignore /tmp 
+	git add . // добавляем все в staged area
+	git restore --staged index.html  // убираем файл из staged area
+	git commit -m'комментарий'  // и в мастер ветку
+	git log -2  // показывает два последних коммита
+	git commit -a -m''  // делает сразу add и commit
+	git log -p  // просмотреть разницу
+	enter  //  чтобы продолжить работу
+</pre>
 </div>
 
 <div>
