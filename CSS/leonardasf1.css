@@ -37,20 +37,21 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
 }
 
 #headerMenu {
     padding: 31px;
     width: 100vw;
     max-height: 95px;
-	position: fixed;
-	background: linear-gradient(135deg, #8360c3, #2ebf91);
+    position: fixed;
+    background: linear-gradient(135deg, #8360c3, #2ebf91);
     transition: padding .5s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
 }
 @media (max-width:800px) {
     #headerMenu {
-        padding: 31px 2px;
+        padding: 2px;
         flex-wrap: wrap;
         max-height: 1000px;
     }
