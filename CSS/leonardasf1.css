@@ -118,12 +118,14 @@ summary img, ul img {
 
 .content, .footer {position: relative}
 
-.inner-footer {height: 100px}
+footer {
+    height: 100px;
+    justify-content: space-evenly;
+}
 
 #links {
     background: rgba(0,0,0,0.4);
     height: 60px;
-    overflow: scroll;
 }
 
 #links a {

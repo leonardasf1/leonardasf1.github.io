@@ -58,7 +58,7 @@ window.onscroll = function () {
         footerScrollTop.style.right = "22px";
     }
     if( scrolled < 1000 ) {
-        v('#footerScrollTop').style.right = "-52px";
+        footerScrollTop.style.right = "-52px";
     }
 };
 
@@ -88,4 +88,8 @@ window.onload = function (){
     $('#footerScrollTop').on("click", function () {
         $(window).scrollTop("0");
     });
+
+    let lastMod = document.lastModified;
+
+    v('footer').insertAdjacentHTML('beforeend', `<div>${lastMod} </div>`);
 }
