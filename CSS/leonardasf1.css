@@ -36,9 +36,12 @@ header {
 .flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    grid-gap: 2rem;
 }
-.flex > div {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)}
+.flex > * {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 1rem;
+}
 
 #headerMenu {
     padding: 31px;
