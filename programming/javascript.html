@@ -1185,9 +1185,9 @@ Array.prototype[@@iterator]()
     if ("t" in name) {} //проверка наличия свойства
 
 // циклические итерации
-    while (сравнение) {name++; x;}  пока
-    do {x; name++;} while (сравнение);
-    for (var name = 0; name < 10; name++) {}
+    while (сравнение) {i++; x;}  пока
+    do {x; i++;} while (сравнение);
+    for (var i = 0; i < 10; i++) {}
     for (; ;) {name = x; y;}
     for (var property in name) {x(name[property])}
 
@@ -1289,7 +1289,7 @@ function
 <h2><a href="https://ru.wikipedia.org/wiki/ECMAScript">ECMAScript 2015,...</a></h2>
 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"></a> Деструктурирующее присваивание // Destructuring_assignment
 
-<b>for (i in array) {} // перебор массива</b>
+<b>for (i in array) {...array[i]} // перебор массива</b>
     for (let value of args){} // перебор значений
 for (let [key, value] of Object.entries(object1)) {  // перебор объекта
   console.log(`${key}: ${value}`);
