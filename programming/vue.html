@@ -7,7 +7,11 @@
   <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
   <link rel="stylesheet" href="../CSS/leonardasf1.css">
   <script src="../JS/jquery.js"></script>
-    <script src="../JS/leoscript.js" defer></script>
+    <script src="../JS/leoscript.js"></script>
+
+    <link rel="stylesheet" href="../CSS/highlight.css">
+    <script src="../JS/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 <style>
   .prelogo {color: #41b883}
 </style>
@@ -25,14 +29,107 @@
 </header>
 
 <div id="links">
-  <a href="https://vuejs.org"><img src="https://vuejs.org/images/icons/apple-icon-57x57.png" alt="vuejs.org"></a>
+  <a href="https://vuejs.org"><img src="../icons/vue.svg"></a>
   <a href="https://github.com/vuejs/vue"><img src="https://github.githubassets.com/favicon.ico" alt="github"></a>
-  <a href="https://ru.wikipedia.org/wiki/Vue.js">wiki</a>
+  <a href="https://nuxtjs.org/"><img src="https://nuxtjs.org/logos/nuxt.svg" alt="nuxt"></a>
 </div>
 
 <article>
+  <a href="https://ru.vuejs.org/v2/guide/">vuejs.org/v2/guide</a><br>
+  <a href="https://itvdn.com/ru/video/vuejs">Vue.js Starter (itvdn. 2017)</a><br>
   <a href="https://itvdn.com/ru/blog/article/jquery-to-vuejs">Переход с jQuery на Vue.js (itvdn)</a><br>
-  <a href="https://www.youtube.com/watch?v=IMYO487lpxg&list=PLVfMKQXDAhGWFP61AzOs_PowY7OAaFRHU"> Уроки Vue js (Web Developer Blog)</a>
+  <a href="https://www.youtube.com/watch?v=IMYO487lpxg&list=PLVfMKQXDAhGWFP61AzOs_PowY7OAaFRHU"> Уроки Vue js (Web Developer Blog)</a><br>
+
+  <pre>
+    не использует $ и _
+    <code class="javascript">
+Vue.config.keyCodes = { f1: 112 } 
+
+var sample = new Vue({
+  el: '#app',
+  data: {
+    varName: "text",
+    arrayName: [  // массив объектов
+      { key: value, key: value },
+      { key: value, key: value }
+    ]
+  },
+  methods: {
+    methodName1: function () {},
+    methodName2: function () {},
+  },
+  watch: {
+    methodName1: function () {},
+  }
+});
+
+< div id="app">
+< p v-text="varName">< /p>  // в этом параграфе будет значение varName
+  < ul v-for="x in arrayName">  // перебор массива объектов
+    < li>{{x.key}}, {{x.key}} text< /li>  // вывод нужных значений объектов
+  < /ul>
+< /div>
+
+v-once=""  // отображает только один раз
+v-for="x in arrayName"
+v-text="varName"
+v-html=""
+
+<details><summary>v-bind:style  // стили с переменными</summary><div>
+v-bind:style="styleObj"  // подключаем элементу набор стилей из объекта styleObj
+
+v-bind:style="{color:varName,
+              fontSize:varName}" 
+
+v-bind:style="[styleObj, styleObj2]" 
+
+:style="styleObj"  // сокращенная привязка
+</div></details>
+<details><summary>v-bind:class=""  // динамические классы </summary><div>
+v-bind:class="varName"  // переменная передает имя класса
+
+v-bind:class="[varName, varName2]"
+
+v-bind:class='{"className":true, "className2":false}'
+</div></details>
+v-bind:disable=""
+<details><summary>v-on:click="methodName"  // события</summary><div>
+v-on:click.prevent=""  // отменяет стандартное поведение
+v-on:click.stop=""  // останавливает чужую волну и блокирует собственную
+v-on:click.capture=""  // перехват
+v-on:click.self=""  // защищает элемент от волны события встроенного элемента
+v-on:click.once=""  // событие произойдет один раз
+
+v-on:mousedown/mouseup.left/middle/right=""
+v-on:click.left=""
+v-on:contextmenu=""  // правая кнопка мыши
+v-on:keyup.enter=""  // нажата клавиша enter
+</div></details>
+<details><summary>v-model='' // формы</summary><div>
+v-model='varName'  // значение формы будет записано в переменнную varName,
+  // также можно собрать значения с нескольких инпутов и записать их в массив
+
+v-model.lazy='varName'  // передаёт значение в переменную по событию onchange
+v-model.number='varName'  // преобразует в числа
+v-model.trim='varName'  // убирает лишние пробелы, переносы и табуляции
+
+v-model.lazy.trim=''  // комбинируем
+
+</div></details>
+<details><summary>// встроенные методы</summary><div>
+beforeCreate: function () {},
+created
+beforeMount
+mounted
+beforeUpdate
+updated
+beforeDestroy
+destroyed
+
+function (){ sample.$destroy();}  // удаляет vue
+</div></details>
+  </code></pre>
+
   <div>
     <p><iframe scrolling="no" src="//codepen.io/jeka-muzyka/embed/rKajgM/?height=265&amp;theme-id=0&amp;default-tab=html,result&amp;embed-version=2" style="width: 100%;" title="2" height="265" frameborder="no">See the Pen 2 by Jeka Muzyka (@jeka-muzyka) on CodePen.</iframe></p>
     <p><iframe scrolling="no" src="//codepen.io/jeka-muzyka/embed/xzbqZX/?height=265&amp;theme-id=0&amp;default-tab=html,result&amp;embed-version=2" style="width: 100%;" title="4" height="265" frameborder="no">See the Pen 4 by Jeka Muzyka (@jeka-muzyka) on CodePen.</iframe></p>

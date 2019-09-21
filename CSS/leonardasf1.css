@@ -15,7 +15,7 @@ a {
     color: black;
     text-decoration: none;
 }
-a:hover, #headerMenu>div:first-child, #footerScrollTop:hover {
+a:hover, #headerMenu>div:first-child {
     color: white;
     filter: drop-shadow(0 2px 2px black);
 }
@@ -29,7 +29,7 @@ header {
     background: rgba(0,0,0,0.4);
 }
 
-.fsac , #headerMenu, #headerMenu>div:first-child, #links, #links a, footer {
+.fsac , #headerMenu, #headerMenu>div:first-child, #links, #links a {
     display: flex;
     align-items: center;
 }
@@ -97,30 +97,30 @@ summary img, ul img {
     color: black;
     padding: 12px 16px;
     font-weight: 700;
-    cursor: pointer
+    cursor: pointer;
 }
-.item:hover, .item:focus, .submenu, .itvdn {background-color: rgba(0,0,0,0.2)}
+.item:hover, .item:focus {background-color: rgba(0,0,0,0.2);}
 
 .submenu {
+    background-color: rgba(0,0,0,0.2);
     display: none;
     position: absolute;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .submenu a {
     color: white;
     padding: 12px 16px;
-    display: block
+    display: block;
 }
-.submenu a:hover {background: rgba(0,0,0,0.4)}
+.submenu a:hover {background: rgba(0,0,0,0.4);}
 
-.content {padding: 0 36px}
+.content {padding: 0 36px;}
 
-.content, .footer {position: relative}
+.content {position: relative;}
 
-footer {
-    height: 100px;
-    justify-content: space-evenly;
+article {
+    padding: 0 3%;
 }
 
 #links {
@@ -150,15 +150,11 @@ nav>a {
     filter: drop-shadow(0 2px 2px black);
 }
 
-article {
-    padding: 0 3%;
-    /*overflow: scroll;*/
-}
-
 .itvdn {
+    background-color: rgba(0,0,0,0.2);
     display: flex;
     gap: 10px;
-    padding: 1em
+    padding: 1em;
 }
 summary {
     font-weight: 700;
@@ -181,21 +177,33 @@ summary+div {
     color: rgba(255,255,255,0.7);
     transition: right .5s;
 }
+#footerScrollTop:hover {
+    color: white;
+    filter: drop-shadow(0 2px 2px black);
+}
+
+footer {
+    position: relative
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: space-evenly;
+}
 [href*="youtu"] {
     background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0 0;
-    padding-left: 20px
+    padding-left: 20px;
 }
 [href*="yadi.sk"] {
     background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0 0;
-    padding-left: 20px
+    padding-left: 20px;
 }
 article [href*="wikipedia.org"] {
     background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0 0;
     background-size: 16px;
-    padding-left: 20px
+    padding-left: 20px;
 }
 article [href*="developer.mozilla"] {
     background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
     background-size: 16px;
-    padding-left: 20px
+    padding-left: 20px;
 }

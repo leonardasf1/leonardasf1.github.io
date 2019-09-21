@@ -40,6 +40,106 @@
 </nav>
 
 <article>
+<details><summary>form</summary><div>
+< form action="*.html" method="post | get" enctype="text/plain | multipart/form-data" autocomplete="on" ><br>
+autocomplete="on"<br>
+enctype="multipart/form-data" - Для отправки файла на сервер<br>
+method="post | get"<br>
+novalidate -отменяет проверку заполнености и соответствия<br>
+<form action="" method="post" enctype="text/plain">
+< input type="checkbox" checked > <input type="checkbox" checked><input type="checkbox"> <br>
+< input type="color" > <input type="color"> <br>
+< input type="date" > <input type="date"> <br>
+< input type="datetime-local" > <input type="datetime-local"> <br>
+< input type="email" placeholder="user@gmail.com" autofocus> <input type="email" placeholder="user@gmail.com" autofocus> <br>
+< input type="file" multiple / > <input type="file" multiple /> <br>
+< input type="hidden" > <input type="hidden"> <br>
+< input type="image" > <input type="image"> <br>
+< input type="month" > <input type="month"> <br>
+< input type="number" min="10" max="100" step="5" > <input type="number" min="10" max="100" step="5"> <br>
+< input type="password" placeholder="введите пароль" required > <input type="password" placeholder="введите пароль" required> <br>
+< input type="password" name="pass" value="password" required > <input type="password" name="pass" value="password" required> <br>
+< input type="phone" > <input type="phone"> <br>
+< input type="radio" name="R1" > <input type="radio" name="radio"><input type="radio" name="radio"> дожно совпадать имя<br>
+< input type="range" > <input type="range"> <br>
+< input type="reset" > <input type="reset"> <br>
+< input type="search" > <input type="search"> <br>
+< input type="submit" > <input type="submit"> <br>
+< input type="submit" value="отправить" > <input type="submit" value="submit"> <br>
+< input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" > <input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx"> <br>
+< input type="text" name="inp" value="some value" > <input type="text" name="inp" value="some value"> <br>
+< input type="text" name="login" value="login" required> <input type="text" name="login" value="login" required> <br>
+< input type="time" > <input type="time"> <br>
+< input type="url" > <input type="url"> <br>
+< input type="week" > <input type="week"> <br>
+< textarea cols="30" rows="10" placeholder="оставьте комментарий">< /textarea> <textarea cols="30" rows="10" placeholder="оставьте комментарий"></textarea>
+      <pre>               
+ Атрибуты:
+accept    - устанавливает тип файлов, которые допустимы для выбора.
+autofocus - фокус в инпут
+checked   - выбран
+multiple  - позволяет выбирать множество файлов.
+name=""
+required  - требует обязательного заполнения
+placeholder="" - надпись в поле формы
+value=""</pre>
+      <hr>
+<div style="display: flex">
+      <p><pre>
+  < input type="text" list="price" >
+    < datalist id="price" >
+      < option value="10" >
+    < / datalist >
+      </pre></p><p>
+      <input type="text" list="price">
+      <datalist id="price">
+        <option value="10">
+        <option value="20">
+        <option value="30">
+        <option value="40">
+        <option value="50">
+      </datalist></p>
+</div>
+      <hr>
+      <p>
+        <label for="login">< label for="login" > < / label ></label>
+        <input type="text" id="login" value=" < input type='text' id='login' > ">
+      </p>
+      <hr>     
+<div style="display: flex">
+      <p><pre>
+< select name="w2" multiple>
+  < option selected disabled> выберите < /option>
+  < option value="1">23< /option>
+  < option value="2">34< /option>
+  < optgroup label="iphone">
+     < option value="3"> iphone4 < /option>
+     < option value="4"> iphone5 < /option>
+     < option value="5"> iphone6 < /option>
+  < /optgroup>
+  < option value="6">< /option>
+  < option value="7">< /option>
+< /select></pre></p>
+<p>
+  <select name="w2" multiple>
+      <option selected disabled> выберите </option>
+      <option value="1">23</option>
+      <option value="2">34</option>
+      <optgroup label="iphone">
+        <option value="3"> iphone4 </option>
+        <option value="4"> iphone5 </option>
+        <option value="5"> iphone6 </option>
+      </optgroup>
+      <option value="6"></option>
+      <option value="7"></option>
+  </select>
+</p>
+</div>
+
+</form>
+</div></details>
+
+
   <a href="http://htmlbook.ru/html/a/rel" target="_blank">attr rel</a> <a href="http://htmlbook.ru/html/value/mime">MIME-типы</a>
 
   < !--comments-->
@@ -372,95 +472,6 @@
         <source src="../flamenco/petenera/EMpetenera.mpg" />
     </video>
 <hr>
-<h1 style="text-align: center">form</h1>
-      < form action="*.html" method="post | get" enctype="text/plain | multipart/form-data" autocomplete="on" ><br>
-      novalidate -отменяет проверку заполнености и соответствия
-    <form action="" method="post" enctype="text/plain">
-      < input type="checkbox" checked > <input type="checkbox" checked><input type="checkbox"> <br>
-      < input type="color" > <input type="color"> <br>
-      < input type="date" > <input type="date"> <br>
-      < input type="email" placeholder="user@gmail.com" autofocus> <input type="email" placeholder="user@gmail.com" autofocus> <br>
-      < input type="hidden" > <input type="hidden"> <br>
-      < input type="image" > <input type="image"> <br>
-      < input type="month" > <input type="month"> <br>
-      < input type="number" min="10" max="100" step="5" > <input type="number" min="10" max="100" step="5"> <br>
-      < input type="password" placeholder="введите пароль" required > <input type="password" placeholder="введите пароль" required> <br>
-      < input type="password" name="pass" value="password" required > <input type="password" name="pass" value="password" required> <br>
-      < input type="phone" > <input type="phone"> <br>
-      < input type="radio" name="R1" > <input type="radio" name="radio"><input type="radio" name="radio"> дожно совпадать имя<br>
-      < input type="range" > <input type="range"> <br>
-      < input type="reset" > <input type="reset"> <br>
-      < input type="search" > <input type="search"> <br>
-      < input type="submit" > <input type="submit"> <br>
-      < input type="submit" value="отправить" > <input type="submit" value="submit"> <br>
-      < input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" > <input type="tel" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx"> <br>
-      < input type="text" name="inp" value="some value" > <input type="text" name="inp" value="some value"> <br>
-      < input type="text" name="login" value="login" required> <input type="text" name="login" value="login" required> <br>
-      < input type="time" > <input type="time"> <br>
-      < input type="url" > <input type="url"> <br>
-      < input type="week" > <input type="week"> <br>
-      < textarea cols="30" rows="10" placeholder="оставьте комментарий">< /textarea> <textarea cols="30" rows="10" placeholder="оставьте комментарий"></textarea>
-      <hr>
-<div style="display: flex">
-      <p><pre>
-  < input type="text" list="price" >
-    < datalist id="price" >
-      < option value="10" >
-    < / datalist >
-      </pre></p><p>
-      <input type="text" list="price">
-      <datalist id="price">
-        <option value="10">
-        <option value="20">
-        <option value="30">
-        <option value="40">
-        <option value="50">
-      </datalist></p>
-</div>
-      <hr>
-      <p>
-        <label for="login">< label for="login" > < / label ></label>
-        <input type="text" id="login" value=" < input type='text' id='login' > ">
-      </p>
-      <hr>
-< input type="file" multiple / > <input type="file" multiple />        
-<pre>               Для отправки файла на сервер, у формы должен быть установлен атрибут enctype="multipart/form-data".
-               Атрибуты:
-                - accept    - устанавливает тип файлов, которые допустимы для выбора.
-                - multiple  - позволяет выбирать множество файлов.
-                - required  - требует обязательного выбора файла.</pre>
-
-      <hr>
-<div style="display: flex">
-      <p><pre>
-< select name="w2" multiple>
-  < option selected disabled> выберите < /option>
-  < option value="1">23< /option>
-  < option value="2">34< /option>
-  < optgroup label="iphone">
-     < option value="3"> iphone4 < /option>
-     < option value="4"> iphone5 < /option>
-     < option value="5"> iphone6 < /option>
-  < /optgroup>
-  < option value="6">< /option>
-  < option value="7">< /option>
-< /select></pre></p><p>
-  <select name="w2" multiple>
-      <option selected disabled> выберите </option>
-      <option value="1">23</option>
-      <option value="2">34</option>
-      <optgroup label="iphone">
-        <option value="3"> iphone4 </option>
-        <option value="4"> iphone5 </option>
-        <option value="5"> iphone6 </option>
-      </optgroup>
-      <option value="6"></option>
-      <option value="7"></option>
-  </select></p>
-</div>
-      <hr>
-
-</form>
 
  < fieldset> < legend> text < /legend> < p> lorem < /p> < /fieldset>
 
