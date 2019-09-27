@@ -8,9 +8,13 @@ html, body {
     font-family: -apple-system, RobotoLight, sans-serif;
     font-size: 16px;
     background-color: #c0c0c0;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 2rem;
 }
-
+img { max-width: 98vw; }
+li { 
+  list-style-type: none;
+}
 a {
     color: black;
     text-decoration: none;
@@ -36,15 +40,15 @@ header {
 .flex {
     display: flex;
     flex-wrap: wrap;
-    grid-gap: 2rem;
 }
 .flex > * {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     padding: 1rem;
+    margin: 1rem;
 }
 
 #headerMenu {
-    padding: 31px;
+    padding: 31px 3%;
     width: 100vw;
     max-height: 95px;
     position: fixed;
@@ -54,7 +58,6 @@ header {
 }
 @media (max-width:800px) {
     #headerMenu {
-        padding: 31px 2px;
         flex-wrap: wrap;
         max-height: 1000px;
     }
@@ -95,7 +98,7 @@ summary img, ul img {
 
 .item {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 1vw;
     font-weight: 700;
     cursor: pointer;
 }
@@ -120,12 +123,13 @@ summary img, ul img {
 .content {position: relative;}
 
 article {
-    padding: 0 3%;
+    padding: 0 1%;
 }
 
 #links {
     background: rgba(0,0,0,0.4);
     height: 60px;
+    padding: 0 2%;
 }
 
 #links a {
@@ -134,11 +138,10 @@ article {
 
 nav {
     display: flex;
-    justify-content: left;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 26px;
-    line-height: 1.5;
+    padding: 26px 3% 0;
+    line-height: 2;
 }
 
 nav>a {
@@ -154,12 +157,6 @@ nav>a {
     grid-template-columns: repeat(auto-fill, 330px);
 }
 
-.itvdn {
-    background-color: rgba(0,0,0,0.2);
-    display: flex;
-    gap: 10px;
-    padding: 1em;
-}
 summary {
     font-weight: 700;
     padding: 10px;
@@ -215,5 +212,6 @@ article [href*="developer.mozilla"] {
 }
 article [href*="itvdn"] {
     background: url(../icons/itvdn.svg) no-repeat 0 0;
+    background-size: 16px;
     padding-left: 20px;
 }

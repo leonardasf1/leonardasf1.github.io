@@ -13,7 +13,7 @@ $(function() {
         <div><a href="../flamenco/" title="flamenco"><img src="../icons/flamenco.png"></a></div>
         <div><a href="../13vek.html" title="medieval"><img src="../icons/medieval.png"></a></div>
         <div><a href="../zdorovie/">Здоровье</a></div>
-   -->     <div><a href="../Skateboard">Лонгборд</a></div>
+   -->     <div><div class="item"><a href="../Skateboard">Лонгборд</a></div></div>
         <div>
             <div class="item"><a href="../programming/">programming</a></div>
             <div class="submenu">
@@ -30,7 +30,7 @@ $(function() {
 <a href="../programming/python.html">python</a>
             </div>
         </div>
-        <div><a href="../Surf/">Серфинг</a></div>
+        <div><div class="item"><a href="../Surf/">Серфинг</a></div></div>
    <!--     <div>
             <div class="item">старье</div>
             <div class="submenu">
@@ -49,10 +49,10 @@ window.onscroll = function () {
     var scrolled = $(this).scrollTop();
 
     if( scrolled > 50 ) {
-        headerMenu.style.padding = "2px";
+        headerMenu.style.padding = "2px 3%";
     }
     if( scrolled < 51 ) {
-        headerMenu.style.padding = "31px";
+        headerMenu.style.padding = "31px 3%";
     }
     if( scrolled > 1200 ) {
         footerScrollTop.style.right = "22px";
