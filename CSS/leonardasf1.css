@@ -132,7 +132,7 @@ article {
     padding: 5px;
 }
 
-nav, .details {
+nav {
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
@@ -149,6 +149,10 @@ nav>a {
     color: white;
     filter: drop-shadow(0 2px 2px black);
 }
+.details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 330px);
+}
 
 .itvdn {
     background-color: rgba(0,0,0,0.2);
@@ -162,10 +166,12 @@ summary {
 }
 summary:hover {background: rgba(0,0,0,.2);}
 summary+div {
-    background: #514f4f;
+    background: #2b2a2a;
     border-radius: 10px;
     padding: 10px;
     color: white;
+    position: absolute;
+    left: 20px;
 }
 #footerScrollTop {
     z-index: 100;
@@ -183,7 +189,7 @@ summary+div {
 }
 
 footer {
-    position: relative
+    position: relative;
     display: flex;
     align-items: center;
     height: 100px;
@@ -205,5 +211,9 @@ article [href*="wikipedia.org"] {
 article [href*="developer.mozilla"] {
     background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
     background-size: 16px;
+    padding-left: 20px;
+}
+article [href*="itvdn"] {
+    background: url(../icons/itvdn.svg) no-repeat 0 0;
     padding-left: 20px;
 }

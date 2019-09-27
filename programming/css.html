@@ -311,14 +311,15 @@ repeating-radial-gradient
     grid-template-columns: repeat(auto-fill, 300px);  // auto-fill как wrap
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  // auto-fit 
     grid-template-rows: minmax(200px, auto) 200px 100px;  // высоты рядов
-    grid-template: 200px 150px 100px / 200px 300px 200px; // столбцы и ряды
+    grid-template: 200px 150px 100px / 200px 300px 200px; // rows/columns
     grid-auto-rows: 50px;  // высота для оставшихся элементов
 
     grid-column-gap: 25px;  // отступы между колонками
     grid-row-gap: 5px;  // отступы между строками
     grid-gap: 5px 25px;  // указывает отступ между строками и колонками
 
-    grid-auto-flow;  //  порядок отображения элементов на странице (dense,..)
+    grid-auto-flow;  //  порядок отображения элементов на странице 
+                  // row, column, dense, row dense, column dense
     justify-items: start | end | center | stretch;  // горизонтальное выравнивание вложенных элементов
     align-items: start | end | center | stretch;   // вертикальное выравнивание вложенных элементов
 
@@ -666,115 +667,6 @@ body {
         animation-delay: 0.3s * $i;
     }
 }</pre>
-<hr>
-        <h1>float</h1>
-        <style>
-                div.of {overflow: auto; margin: 10px auto}
-                div.of>div {float: left; width: 30%; height: 100px; border: 1px solid}
-                .d1 {background: red}
-                .d2 {background: yellow}
-                .d3 {background: green}
-        </style>
-        <div class="of" style="width: 100%">overflow: auto
-            <div class="d1">float: left</div>
-            <div class="d2">float: left</div>
-            <div class="d3">float: left</div>
-        </div>
-<hr>
-        <div class="of">overflow: auto
-            <div class="d1">float: left</div>
-            <div class="d2">float: left</div>
-            <div class="d3" style="clear: left">float: left <br>clear: left</div>
-            <div class="d3" style="background: blue">float: left</div>
-        </div>
-<hr>
-        <div>
-            <div style="height: 100px; width: 100%; border: 1px solid"></div>
-            <div class="of" style="height: 500px; width: 100%">overflow: auto
-                <div class="d1" style="height: 100%; width: 30%">float: left</div>
-                <div class="d2" style="height: 100%; width: 50%">float: left</div>
-                <div class="d3" style="height: 100%; width: 20%">float: left</div>
-            </div>
-            <div style="height: 100px; width: 100%; border: 1px solid"></div>
-        </div>
-<hr>
-        <style>
-            .aa1 {
-                position: relative;
-                top: 50px;
-                left: 100px;
-            }
-            .b1 {
-                position: relative;
-                top: 50px;
-                left: 40px;
-            }
-        </style>
-        <div class="aa1" style="background-color: green; width: 300px; height: 300px">position: relative
-            <div class="b1" style="background-color: blue; width: 100px; height: 100px">position: relative</div>
-        </div>
-        <div style="background-color: red; width: 200px; height: 200px">position: static</div>
-<hr>
-
-<style>
-    .shapka, .nav4, .main4, .footer4 {width: 100%}
-    .shapka {height: 150px; background: skyblue}
-    .nav4 {height: 50px; background-color: pink}
-    .main4 {height: 400px; overflow: auto;}
-    .menu4 {width: 20%; float: left; background: lightgreen; height: 100%}
-    .cont4 {width: 80%; float: left; background: gray; height: 100%}
-    .footer4 {height: 100px; background: blue}
-</style>
-        <div>
-            <div class="shapka">Шапка</div>
-            <div class="nav4">Блок навигации</div>
-            <div class="main4">
-                <div class="menu4">Меню</div>
-                <div class="cont4">Контент</div>
-            </div>
-            <div class="footer4">Подвал сайта</div>
-        </div>
-<hr>
-<style>
-    .header123, .col123 {
-      width: 100%;
-      overflow: auto;
-      font-size: 3em;
-      margin: 0 auto;
-    }
-    .header123 {
-      height: 100px;
-      color: white;
-    }
-    .col123 {height: 500px}
-
-    .header123 div, .col123 div {
-      height: 100%;
-      width: 30%;
-      margin: 3px;
-      float: left;
-      border: 2px solid #3c639a;
-      padding: .5em;
-      text-align: center;
-    }
-    #header1 {background: #a65107}
-    #header2 {background: #6d9439}
-    #header3 {background: #3c639a}
-
-    #col1 {background: #f4be90}
-    #col2 {background: #a2dd54}
-    #col3 {background: #6ca5f6}
-</style>
-        <div class="header123">
-            <div id="header1">id="header1"</div>
-            <div id="header2">id="header2"</div>
-            <div id="header3">id="header3"</div>
-        </div>
-        <div class="col123">
-            <div id="col1">id="col1"</div>
-            <div id="col2">id="col2"</div>
-            <div id="col3">id="col3"</div>
-        </div>
 
   </article>
 

@@ -31,22 +31,40 @@
 <div id="links">
   <a href="https://vuejs.org"><img src="../icons/vue.svg"></a>
   <a href="https://github.com/vuejs/vue"><img src="https://github.githubassets.com/favicon.ico" alt="github"></a>
-  <a href="https://nuxtjs.org/"><img src="https://nuxtjs.org/logos/nuxt.svg" alt="nuxt"></a>
+  <a href="https://nuxtjs.org/"><img src="https://nuxtjs.org/logos/nuxt.svg" alt="nuxt">nuxt</a>
 </div>
 
 <article>
   <a href="https://ru.vuejs.org/v2/guide/">vuejs.org/v2/guide</a><br>
   <a href="https://itvdn.com/ru/video/vuejs">Vue.js Starter (itvdn. 2017)</a><br>
+  <a href="https://itvdn.com/ru/video/vuejs-essential">Vue.js Essential</a><br>
+  <a href="https://itvdn.com/ru/channel/video/vuejs">Возможности Vue.js для веб разработчика. 2017</a><br>
   <a href="https://itvdn.com/ru/blog/article/jquery-to-vuejs">Переход с jQuery на Vue.js (itvdn)</a><br>
   <a href="https://www.youtube.com/watch?v=IMYO487lpxg&list=PLVfMKQXDAhGWFP61AzOs_PowY7OAaFRHU"> Уроки Vue js (Web Developer Blog)</a><br>
+  <a href="https://youtu.be/nh6dH6OzmXE">10 вещей о Vue, которые вам стоит знать. 2019</a><br>
+  <a href="https://youtu.be/xot0SjunN2U">Специфика рендеринга vue.js-приложений на сервере. 2019</a><br>
+  <a href="https://youtu.be/Ynhk9GqSsZI">Nuxt.js from the Core. 2019</a><br>
+
 
   <pre>
     не использует $ и _
     <code class="javascript">
 Vue.config.keyCodes = { f1: 112 } 
 
-var sample = new Vue({
+Vue.component('new-component', {  // глобальный компонент
+  data: function () { return { count: 0 } },
+  props: ['name'],
+  template: '<тэг v-on:click="count++">{{ count }}< /тэг>'
+})
+
+var newComponent = {}  // локальный компонент
+
+var vm = new Vue({
   el: '#app',
+  components: {
+    'new-component': newComponent,
+    'new-component2': newComponent2,
+  },
   data: {
     varName: "text",
     arrayName: [  // массив объектов
@@ -54,28 +72,46 @@ var sample = new Vue({
       { key: value, key: value }
     ]
   },
+  computed: {
+    varName: function () {},
+  },
   methods: {
     methodName1: function () {},
     methodName2: function () {},
   },
   watch: {
     methodName1: function () {},
+    deep:true  // наблюдения за вложенными элементами
+  },
+  created: {
+    function () {},
+  },
+  filters: {
+    filterName: function (value) {},
   }
 });
 
 < div id="app">
-< p v-text="varName">< /p>  // в этом параграфе будет значение varName
-  < ul v-for="x in arrayName">  // перебор массива объектов
-    < li>{{x.key}}, {{x.key}} text< /li>  // вывод нужных значений объектов
+  < p v-text="varName">< /p>  // в этом параграфе будет значение varName
+  < ul>
+    < li v-for="x in arrayName">  // перебор массива объектов
+      {{ x.key }}, {{ x.key | filterName }} text  // вывод нужных значений объектов
+    < /li>
   < /ul>
+  < new-component></ new-component>
 < /div>
 
 v-once=""  // отображает только один раз
 v-for="x in arrayName"
 v-text="varName"
 v-html=""
+v-cloak>
+v-if="">
+v-else-if="">
+v-else>
+v-show="true/false">  // display: visible/none;
 
-<details><summary>v-bind:style  // стили с переменными</summary><div>
+<details><summary>v-bind  // динамические атрибуты</summary><div>
 v-bind:style="styleObj"  // подключаем элементу набор стилей из объекта styleObj
 
 v-bind:style="{color:varName,
@@ -84,15 +120,15 @@ v-bind:style="{color:varName,
 v-bind:style="[styleObj, styleObj2]" 
 
 :style="styleObj"  // сокращенная привязка
-</div></details>
-<details><summary>v-bind:class=""  // динамические классы </summary><div>
+
 v-bind:class="varName"  // переменная передает имя класса
 
 v-bind:class="[varName, varName2]"
 
 v-bind:class='{"className":true, "className2":false}'
-</div></details>
+
 v-bind:disable=""
+</div></details>
 <details><summary>v-on:click="methodName"  // события</summary><div>
 v-on:click.prevent=""  // отменяет стандартное поведение
 v-on:click.stop=""  // останавливает чужую волну и блокирует собственную
@@ -126,8 +162,13 @@ updated
 beforeDestroy
 destroyed
 
-function (){ sample.$destroy();}  // удаляет vue
+function (){ vm.$destroy();}  // удаляет vue
+function (){ vue.set(this.arr, 2, 'newValue'); }
 </div></details>
+
+$on(eventName)  // отслеживать событиe
+$emit(eventName)  // создание события
+$refs.
   </code></pre>
 
   <div>
