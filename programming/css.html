@@ -418,6 +418,18 @@ scrollbar-width: 10px;
 scrollbar-gutter: always;
 </div></details>
 
+<details><summary>Shapes</summary><div>
+  // обтекание фигур
+shape-image-threshold: 0.1;
+shape-margin:
+shape-outside: circle(50%);
+              ellipse(130px 140px at 20% 20%);
+              inset(10px 10px 10px 10px);
+              url(/media/examples/round-balloon.png);
+              polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+              linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
+</div></details>
+
 <details><summary>transform <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><div>
 transform: rotateX(10deg) scaleX(2);
 transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
@@ -554,6 +566,8 @@ sel[атрибут] для элемента с атрибутом
 @media (min-color-index: 256) {}
 @media print and (monochrome) {}
 @media print and (color) {}
+@media (prefers-color-scheme: dark) {}
+@media screen and (-ms-high-contrast: white-on-black) {}
 
 @charset для задания кодировки
 </div></details>
@@ -575,6 +589,7 @@ counter-reset: <a href="http://htmlbook.ru/css/counter-reset">счетчики �
 
 empty-cells: hide
 
+mask: url(mask.svg);
 opacity: прозрачность
 
 orphans: 

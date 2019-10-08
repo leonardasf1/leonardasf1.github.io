@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript</title>
+
+    <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
+    <link rel="stylesheet" href="../CSS/leonardasf1.css">
+
+    <link rel="stylesheet" href="../CSS/highlight.css">
+    <script src="../JS/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+	<style>
+
+		.grid { display: grid }
+	</style>
+</head>
+
+<body>
+
+<header>
+    <div id="headerMenu">
+        <div>
+            <img src="../icons/js.svg">
+			<span style="color: yellow">JavaScript</span>
+		</div>
+    </div>
+</header>
+
+<script src="../JS/leoscript.js"></script>
+
+<div id="links">
+    <a href="https://learn.javascript.ru/js"><img src="http://learn.javascript.ru/img/favicon/favicon.png" alt="learn.javascript.ru"></a>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference" style="background: none"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" alt="mozilla"></a>
+    <a href="https://www.ecma-international.org/ecma-262/"><img src="https://www.ecma-international.org/ecma-262/img/favicon.ico" alt="ecma"></a>
+    <a href="https://kangax.github.io/compat-table/"><img src="https://kangax.github.io/compat-table/favicon.ico" alt="es6"></a>
+    <a href="https://jsfiddle.net/"><img src="http://jsfiddle.net/img/favicon.png" alt="jsfiddle"></a>
+    <a href="https://eloquentjavascript.net"><img src="https://eloquentjavascript.net/favicon.ico" alt="EJS"></a>
+    <a href="https://skillbox.ru/media/code/javascript_glavnyy_instrument_frontend/"><img src="https://skillbox.ru/favicon.ico" alt="Skillbox"></a>
+    <a href="https://github.com/azat-io/you-dont-know-js-ru">"Вы не знаете JS"</a>
+    <a href="https://webref.ru/tech/javascript">WebRef</a>
+    <a href="https://vk.com/doc7608079_488265969">Секреты JavaScript Ниндзя</a>
+    <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a>
+</div>
+<article>
+
+<div class="flex">
+<div>Основы
+	<ul class="grid">
+		<li><details><summary>Типы данных</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Преобразование типов</summary>
+			<pre><code class="javascript">
+	parseFloat();  // Kонвертация в вещественное значение
+	parseInt();  // Kонвертация в целочисленное значение
+			</code></pre></details></li>
+		<li><details><summary>Операторы</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Операторы сравнения</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>alert, prompt, confirm</summary>
+			<pre><code class="javascript">
+	alert('message');
+	prompt('question','default'); ok > input.value, cancel > null
+	confirm(); ok > true, cancel > false
+			</code></pre></details></li>
+		<li><details><summary>if, else, '?'</summary>
+			<pre><code class="javascript">
+	if (сравнение) {}  если
+	else if (сравнение) {}
+	else {}
+	name = (сравнение) ? x : y;
+
+	if ("t" in name) {} //проверка наличия свойства
+			</code></pre>
+		</details></li>
+		<li><details><summary>Логические операторы</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Циклы: while, for</summary>
+			<pre><code class="javascript">
+	while (сравнение) {i++; x;}  пока
+	do {x; i++;} while (сравнение);
+	for (var i = 0; i < 10; i++) {}
+	for (; ;) {name = x; y;}
+	for (var property in name) {x(name[property])}
+
+	for (let i in array) {...array[i]} // перебор массива
+
+	for (let value of args){} // перебор значений
+
+	for (let [key, value] of Object.entries(object1)) {  // перебор объекта
+		console.log(`${key}: ${value}`);
+	}
+			</code></pre>
+		</details></li>
+		<li><details><summary>switch ..case</summary>
+			<pre><code class="javascript">
+	switch (varName) {
+		case "varValueA":
+		case "varValueB": {ab} break;
+		case "varValueC": {c} break;
+		default: {} break;
+	}
+	// Тип значения выражения селектора и значений постоянных выражений операторов case должны совпадать.
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>Типы данных
+	<ul>
+		<li><details><summary>Примитивы</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Number</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>String</summary>
+			<pre><code class="javascript">
+	Methods
+
+	String.fromCharCode(e.charCode)  // введеный символ 
+	String​.from​Code​Point()
+	​.anchor()
+	​.big()
+	​.blink()
+	​.bold()
+	​.charAt();      //возвращает символ по указанной позиции
+	​.char​CodeAt()
+	​.code​PointAt()
+	​.concat()
+	​.ends​With()
+	​.fixed()
+	​.fontcolor()
+	​.fontsize()
+	​.includes()
+	​.indexOf("");  //возвращает индекс первого встречающегося в строке указанного символа 
+	​.italics()
+	​.last​IndexOf("");  //возвращает индекс последнего встречающегося в строке указанного символа 
+	​.link()
+	​.locale​Compare()
+	​.match();       // принимает регулярное выражение и возвращает массив с результатами поиска
+	​.matchAll()
+	​.normalize()
+	​.padEnd()
+	​.pad​Start()
+	​.quote()
+	​.repeat()
+	​.replace( , ""); //  производит операцию поиска с заменой
+	​.search(); // возвращает индекс первого найденного символа подстроки по шаблону или -1 если подстрока не найдена
+	​.slice()
+	​.small()
+	​.split("");   //Разбивает строку на подстроки по указанному разделителю и возвращает массив подстрок.
+	​.starts​With()
+	​.strike()
+	​.sub()
+	​.substr(0, 2); //возвращает строку начиная с указанного индекса, указанной длины
+	​.substring(0, 2); //возвращает строку между двумя указанными индексами, не включая индексы
+	​.sup()
+	​.toLocale​Lower​Case()
+	​.toLocale​Upper​Case()
+	​.toLower​Case(); //перевод всех символов в нижний регистр
+	​.toSource()
+	​.toString()
+	​.toUpper​Case(); //перевод всех символов в верхний регистр
+	​.trim()
+	​.trimEnd()
+	​.trim​Start()
+	​.valueOf()
+	String​.prototype​[@@iterator]()
+	String​.raw()
+			</code></pre></details></li>
+		<li><details><summary>Array</summary>
+			<pre><code class="javascript">
+	//массивы
+		var name = Array(1, 2, 3, 4, 5, 6);
+	<span title=" -  создает и возвращает новый массив, содержащий элементы исходного массива, для которого был вызван метод concat(), и значения всех аргументов, переданных методу concat(). .concat(6, 7, [8, 9]) .concat(input) добавляет в массив введенное значение">.concat()</span>
+	.copyWithin()
+	.entries()
+	.every()
+	.fill()
+	.filter()
+	.find()
+	.findIndex()
+	.flat()
+	.flatMap()
+	.forEach(value => { console.log(value); });  // перебор элементов массива
+	.from()
+	.includes()
+	.indexOf()
+	.isArray()
+	.join()  // - преобразует все элементы массива в строки и объединяет их. 
+	// Если метод принимает строковой аргумент, то аргумент станет разделителем вместо запятых.
+	.keys()
+	.lastIndexOf()
+	.length
+	.map()
+	.of()
+	<span title=" - выполняет удаление последнего элемента массива, уменьшает длину массива. (возвращаемое значение - удаленный элемент массива)">.pop()</span>
+	<span title=" - добавление одного или нескольких элементов в конец массива и возвращает его новую длину. (возвращаемое значение - количество элементов в новом массиве)">.push()</span>
+	.reduce()
+	.reduceRight()
+	.reverse()
+	<span title=" - удаляет и возвращает первый элемент массива смещая все последующие элементы на одну позицию вниз, чтобы занять место, освободившееся в начале массива.">.shift()</span>
+	<span title=" - Возвращает фрагмент или подмассив указанного массива. .slice(from, to) // slice(начальный индекс (включительно), конечный индекс (не включительно)); var temp = a.slice(0, 3); // возвращает первые три элемента 1, 2, 3 // slice(начальный индекс); -  возвращает подмассив от указанного индекса до конца массива. temp = a.slice(3); // 4, 5, 6, 7 // Если аргумент отрицательный - он задает позицию относительно конца массива. temp = a.slice(1, -2); // 2, 3, 4, 5, 6">.slice(,);</span>
+	.some()
+	<span title=" - Сортирует элементы массива в алфавитном порядке 
+            (при необходимости временно преобразуя элементы в строки для выполнения сравнения).
+                    .sort(function (a, b) {
+                      if (a.age > b.age) { return 1;}
+                      if (a.age < b.age) { return -1;}
+                      return 0;
+                    });">.sort()</span>
+	<span title=" - универсальный метод для вставки и удаления элементов из массива. Метод возвращает массив из удаленных элементов. arrayObj.splice( start, deleteCount, [elem1[, elem2[, ...[, elemN]]]] ) start - Индекс в массиве, с которого начинать удаление. deleteCount - Кол-во элементов, которое требуется удалить, начиная с индекса start. elem1, elem2, ..., elemN - Добавляемые элементы в массив. Добавление начинается с позиции start.">.splice(,,);</span>
+	.toLocaleString()
+	.toSource()
+	.toString()
+	<span title=" - добавляет элемент в начало массива. Смещает существующие элементы в сторону больших индексов для освобождения места, добавляет элемент или элементы в начало массива и возвращает новую длину массива.">.unshift()</span>
+	.values()
+
+	.split // connect stroke in massive
+
+	Array.prototype[@@iterator]()
+
+	[1, 2, 3, 4, 5, 6];
+	name[1];
+	var name = new Array();
+	document.write(new Array(4).join('xa'));
+			</code></pre></details></li>
+		<li><details><summary>Iterable</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Map, Set</summary>
+			<pre><code class="javascript">
+	Map  // объект без прототипа , любые ключи
+	let myMap = new Map();
+	let keyString = 'a string',
+	    keyObj = {},
+	    keyFunc = function() {};
+	// setting the values
+	myMap.set(keyString, "value associated with 'a string'");
+	myMap.set(keyObj, 'value associated with keyObj');
+	myMap.set(keyFunc, 'value associated with keyFunc');
+	myMap.size; // 3
+	    .clear()
+	    .delete()
+	    .entries()
+	    .forEach()
+	    .get()
+	    .has()
+	    .keys()
+	    .set()
+	    .values()
+	Map.prototype[@@iterator]()
+
+	Set  // массив ,значения не повторяются
+	let mySet = new Set();
+	mySet.add(1); // Set [ 1 ]
+	mySet.add(5); // Set [ 1, 5 ]
+	mySet.add(5); // Set [ 1, 5 ]
+	mySet.add('some text'); // Set [ 1, 5, 'some text' ]
+	let o = {a: 1, b: 2};
+	mySet.add(o);
+	mySet.add({a: 1, b: 2}); // o is referencing a different object so this is okay
+	    .add()
+	    .clear()
+	    .delete()
+	    .entries()
+	    .forEach()
+	    .has()
+	    .values()
+	Set.prototype[@@iterator]()
+			</code></pre></details></li>
+		<li><details><summary>WeakMap, WeakSet</summary>
+			<pre><code class="javascript">
+	WeakMap  // ключи только объекты
+    let wm2 = new WeakMap();
+
+    let o1 = {},
+    o2 = function() {},
+    o3 = window;
+	// a value can be anything, including an object or a function
+    wm2.set(o1, o2);
+    wm2.set(o3, undefined);
+    wm2.set(wm1, wm2);
+	// keys and values can be any objects. Even WeakMaps!
+    .delete()
+    .get()
+    .has()
+    .set()
+
+    WeakSet
+    let ws = new WeakSet(),
+    foo = {},
+    bar = {};
+
+    ws.add(foo);
+    ws.add(bar);
+
+    WeakSet.prototype.add();
+    WeakSet.prototype.delete();
+    WeakSet.prototype.has();
+			</code></pre></details></li>
+		<li><details><summary>Destructuring assignment<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"></a></summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Date, time</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>JSON</summary></details></li>
+	</ul>
+</div>
+
+<div>Object
+	<ul>
+		<li><details><summary>Object</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Garbage Collection</summary></details></li>
+		<li><details><summary>Symbol</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>this</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Преобразование</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>new</summary>
+			<pre><code class="javascript">
+	function Name(x, y) {   // Функция-конструктор для
+		this.t = x;        // создания объектов Name.
+		this.s = y;
+	}
+	var name = new Name(x, y);   name.t
+
+	Name.prototype.r = x;  // Метод прототипа
+	Name.prototype = name  // наследование
+			</code></pre></details></li>
+		<li><details><summary>Object.keys,..</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Флаги и дескрипторы</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>get, set</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>function
+	<ul>
+		<li><details><summary>function</summary>
+			<pre><code class="javascript">
+
+    function Name() {}
+            .arguments  // обращение к аргументам функции как к массиву
+    имя_функции( аргументы );
+    let name = new Function("аргументы", "тело");
+    (function () {})();   // немедленно вызываемая анонимная функция
+
+    function Name() {x;<b title="Оператор return указывает на возвращаемое значение функции, которое будет передано при следующей форме вызова:">return</b> y;}
+    var Name = function(a, b) {return a + b;}
+			</code></pre></details></li>
+		<li><details><summary>expressions, =></summary>
+			<pre><code class="javascript">
+	// стрелочные функции
+	const name = параметры => {};
+	const name = (a=4,b) => a+b  // если параметр "a" не будет
+	// указан при вызове функции "a" присвоит себе значение 4.
+
+	// У стрелочной функции нет своего arguments и this;
+			</code></pre></details></li></details></li>
+		<li><details><summary>Recursion, стек</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>rest, spread</summary>
+			<pre><code class="javascript">
+	// rest_parameters
+	function f (a, b, ...theArgs) {
+	  // ...
+	}
+	// spread
+	let obj3 = { ...obj1, ...obj2 };
+	let array3 = [ ...arr1, ...arr2];
+			</code></pre></details></li></details></li>
+		<li><details><summary>Замыкание</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>window | global</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Обьект функции</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>new Function</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>setTimeout, setInterval</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li></details></li>
+		<li><details><summary>call, apply</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>bind</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>Prototypes
+	<ul>
+		<li><details><summary>Наследование</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>function-prototype</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>native-prototypes</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>prototype-methods</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+	Classes
+	<ul>
+		<li><details><summary>class</summary>
+			<pre><code class="javascript">
+	class Rectangle {
+		#height = 0;
+		#width;
+		constructor(height, width) {
+			this.#height = height;
+			this.#width = width;
+		}
+	}
+	class Dog extends Animal {
+		constructor(name) {
+			super(name); // call the super class constructor and pass in the name parameter
+		}
+		speak() {
+			console.log(`${ this.name } barks.`);
+		}
+	}
+	class Lion extends Cat {
+	    static methodName () { ... }
+	    speak() {
+	        super.speak();
+	        console.log(`${ this.name } roars.`);
+	    }
+	}
+			</code></pre></details></li>
+		<li><details><summary>Наследование классов</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Static</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Private, protected</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>extends</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>instanceof</summary>
+			<pre><code class="javascript">
+	instanceof - оператор для проверки типа объекта
+			</code></pre></details></li>
+		<li><details><summary>Mixins</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>promise
+	<ul>
+		<li><details><summary>callbacks</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>promise</summary>
+			<pre><code class="javascript">
+	function myAsyncFunction (url) {
+	  return new Promise((resolve, reject) => {
+	    const xhr = new XMLHttpRequest();
+	    xhr.open("GET", url);
+	    xhr.onload = () => resolve(xhr.responseText);
+	    xhr.onerror = () => reject(xhr.statusText);
+	    xhr.send();
+	  });
+	}
+	    Promise.all()
+	    Promise.allSettled()
+	    Promise.prototype.catch()
+	    Promise.prototype.finally()
+	    Promise.prototype.then()
+	    Promise.race()
+	    Promise.reject()
+	    Promise.resolve()
+			</code></pre></details></li>
+		<li><details><summary>promise-chaining</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>error</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>API</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>promisify</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>microtask queue</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>async/await</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+		<li><details><summary>try..catch <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/try...catch"></a></summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>error</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>generators</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>async iterators/generators</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>modules</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>import</summary>
+			<pre><code class="javascript">
+	import defaultExport from "module-name";
+	import * as name from "module-name";
+	import { export1 } from "module-name";
+	import { export1 as alias1 } from "module-name";
+	import { export1 , export2 } from "module-name";
+	import { foo , bar } from "module-name/path/to/specific/un-exported/file";
+	import { export1 , export2 as alias2 , [...] } from "module-name";
+	import defaultExport, { export1 [ , [...] ] } from "module-name";
+	import defaultExport, * as name from "module-name";
+	import "module-name";
+	var promise = import("module-name");
+			</code></pre></details></li>
+		<li><details><summary>export</summary>
+			<pre><code class="javascript">
+	// Exporting individual features
+	export let name1, name2, …, nameN; // also var, const
+	export let name1 = …, name2 = …, …, nameN; // also var, const
+	export function functionName(){...}
+	export class ClassName {...}
+
+	// Export list
+	export { name1, name2, …, nameN };
+
+	// Renaming exports
+	export { variable1 as name1, variable2 as name2, …, nameN };
+
+	// Exporting destructured assignments with renaming
+	export const { name1, name2: bar } = o;
+
+	// Default exports
+	export default expression;
+	export default function (…) { … } // also class, function*
+	export default function name1(…) { … } // also class, function*
+	export { name1 as default, … };
+
+	// Aggregating modules
+	export * from …;
+	export { name1, name2, …, nameN } from …;
+	export { import1 as name1, import2 as name2, …, nameN } from …;
+	export { default } from …;
+			</code></pre></details></li>
+		<li><details><summary>dinamic-imports</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Proxy, Reflect</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Eval</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Carrying</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Intl</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+		<li><details><summary>DOM</summary>
+			<pre><code class="javascript">
+// Методы для работы с DOM (узлы или строки)
+    .append('');  // добавляет в конец
+    .prepend('');  // добавляет в начало
+    .after('')  // после
+    .before('')  // перед
+    .replaceWith('')  // заменяет
+    .remove()
+    .appendChild();  // добавить дочерний элемент
+    .insertBefore()  // добавить элемент перед указанным
+    .removeChild();  // удаление дочернего элемента
+    .replaceChild()  // замена одного элемента на другой
+
+document.create​Element('тэг')
+
+    .textContent = ; // вставить текст
+document.create​TextNode('text')
+.insertAdjacentText('afterend', 'text')
+
+    .innerHTML = "";  // заполнить HTML-кодом
+.insertAdjacentHTML('beforebegin', `html`);  // вставить HTML-код
+.insertAdjacentHTML('afterbegin', `html`);
+.insertAdjacentHTML('beforeend', `html`);
+.insertAdjacentHTML('afterend', `html`);
+
+.insertAdjacentElement('', 'elem')
+
+elem.className
+elem.classList.add/remove("class")  // добавить/удалить класс.
+elem.classList.toggle("class")  // добавить класс, если его нет, иначе удалить.
+elem.classList.contains("class")  // проверка наличия класса, возвращает true/false.
+
+.style.cssText=`        // Полная перезапись стилей
+    color: red !important;
+    background-color: yellow;
+    width: 100px;
+    text-align: center;
+  `;
+			</code></pre></details></li>
+		<li><details><summary>поиск getElement..</summary>
+			<pre><code class="javascript">
+
+	document.get​Element​ById("")
+    .get​Elements​ByClass​Name()
+    .get​Elements​ByName()
+    .get​Elements​ByTagName()
+    
+	document.querySelector('')  // селекторы как в CSS , возвращает первый найденный
+    .querySelectorAll('')  // возвращает все
+
+	// Свойства для навигации по DOM
+    .childNodes       // массив всех дочерних узлов
+    .firstChild       // первый дочерний узел
+    .lastChild        // последний дочерний узел
+    .nextSibling      // следующий узел расположенный на одном уровне с текущим
+    .previousSibling  // предыдущий узел расположенный на одном уровне с текущим
+    .parentNode       // родительский узел для текущего элемента
+    .hasChildNodes
+
+    .get​Animations()
+    .get​BoxObjectFor()
+    .get​Elements​ByTagNameNS()
+			</code></pre></details></li>
+		<li><details><summary>Events</summary>
+			<pre><code class="javascript">
+     селектор.событие = function () {};  тэг onclick="имяФункции();"
+     селектор.["событие"] = function () {};
+
+    .addEventListener("событие без on", function(){})  // добавляет событие
+    .removeEventListener("событие без on", function(){}, false);  //  удаление обработчика
+
+	document.attachEvent();  // for IE<=8
+        .dispatchEvent(event)
+
+    //Properties
+    .bubbles   // Логическое значение, указывающее, вспыло ли событие вверх по DOM или нет.
+    .cancelable  // Логическое значение, показывающее возможность отмены события
+    .cancel​Bubble  // отмена всплытия
+    .composed
+    .current​Target  // узел чей обработчик события работает в данный момент.
+    .default​Prevented  // Показывает, была ли для события вызвана функция event.preventDefault().
+    .event​Phase  // Указывает фазу процесса обработки события (1/2/3)
+    .explicit​Original​Target  // Явный первоначальный целевой объект события (Mozilla-специфичный).
+    .isTrusted   // Показывает было или нет событие инициировано браузером или из скрипта
+    .original​Target  // Первоначальный целевой объект события до перенаправлений (Mozilla-специфичный).
+    .return​Value  // присвоить false для предотвращения выполнения операции по умолчанию.
+    .src​Element  // Нестандартный синоним для Event.target
+    .target    //  элемент, который был инициатором события
+    .time​Stamp // объект Date, указывающий, когда произошло событие
+    .type       // Название события (без учета регистра символов).
+
+    //Methods
+
+    .composed​Path
+    .create​Event  // Создаёт новое событие
+    .init​Event   // Инициализация значений события
+    .prevent​Default();         // отменяет стандартное действие
+    .stop​Immediate​Propagation   // ля конкретного события не будет больше вызвано обработчиков.
+    .stop​Propagation();        // останавливает перемещение события по DOM
+
+	codepen: <a href="https://codepen.io/leonardasf1/pen/bGbpYjO">Event-add-remove</a>
+			</code></pre></details></li>
+		<li><details><summary>interface event</summary>
+			<pre><code class="javascript">
+
+	('copy', (e) => {alert('Копирование запрещено'); e.preventDefault();});
+	('paste', (e) => {.innerText = 'Введите текст. Вставка запрещена'; e.preventDefault();});
+        keydown          // клавиша нажата
+        keypress         // клавиша дала символ
+        keyup            // клавиша отпущена
+	// mouse:
+        click         // Была нажата и отпущена клавиша мыши
+        dblclick          // Двойной щелчок
+        contextmenu  // клик правой кнопкой мышки
+        mousedown
+        mouseenter
+        mouseleave
+        mousemove     // Перемещение указателя мыши
+        mouseout     // курсор вышел за пределы элемента.
+        mouseover    // курсор вошел в пределы элемента.
+        mouseup
+	('wheel', (e) => { .innerText = deltaY })  // генерируется над 
+	// любым элементом, не важно, прокручиваемый он или нет. 
+        scroll  // над прокручиваемыми елементами
+        select        // Выбор текста
+
+    // MouseEvent <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent"></a>
+    // Properties
+
+    .altKey           // true если клавиша Alt зажата.
+    .button          // 0 - левая клавиша, 1 - средняя клавиша, 2 - правая.
+    .buttons
+    .charCode        // код символа (передается при событии keypress)
+    .clientX / .clientY   // координаты относительно левого верхнего угла документа.
+    .ctrlKey              // true если клавиша Ctrl зажата.
+    .deltaY – количество прокрученных пикселей по вертикали
+    .keyCode // код клавиши для события keydown и keyup или код unicode символа для события keypress
+    .layerX / .layerY    // координаты относительно элемента в котором произошло событие.
+    .metaKey
+    .movementX / .movementY
+    .moz​Input​Source
+    .offsetX / .offsetY    // координаты относительно элемента в котором произошло событие.
+    .pageX / .pageY
+    .region
+    .related​Target
+    .screenX / .screenY   // координаты относительно экрана.
+    .shiftKey             // true если клавиша Shift зажата.
+    .WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN
+    .WEBKIT_FORCE_AT_MOUSE_DOWN
+    .webkit​Force
+    .which
+    .x / .y
+
+    // Methods
+
+    //get​Modifier​State()
+    init​Mouse​Event 
+			</code></pre></details></li>
+		<li><details><summary>attributes</summary>
+			<pre><code class="javascript">
+	data-name="value"
+	.dataset.
+
+	.style.fontSize = '23px';
+	.href = 'новая/ссылка'; 
+
+	.classList.toggle('');
+	.classList.contains('');
+	.classList.add('');
+	.classList.remove('');
+	.classList.replace('old', 'new')
+			</code></pre></details></li>
+		<li><details><summary>Forms</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>..load..</summary>
+			<pre><code class="javascript">
+
+	window.onbeforeunload = function () { return "Данные не сохранены. Точно перейти?" };
+             // Событие произойдет перед закрытием страницы.
+	window.onload = function () {}  // событие срабатывает после полной загрузки окна.
+        DOMContentLoaded
+
+        loadeddata
+        loadedmetadata
+        loadend
+        loadstart
+			</code></pre></details></li>
+		<li><details><summary>MutationObserver</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>Selection, Range</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>event loop</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>
+	<ul>
+		<li><details><summary>Storage</summary>
+			<pre><code class="javascript">
+	window.sessionStorage
+	window.localStorage
+		.setItem("key1", "value1")
+		.getItem()
+		.deleteItem()
+		.clear()
+
+	document.cookie = "name=value; max-age=3600 / expires=*";
+
+	encodeURIComponent()
+	decodeURIComponent()
+	codepen: 
+	<a href="https://codepen.io/leonardasf1/pen/gVeGXG">StorageColor</a> 
+	<a href="https://codepen.io/leonardasf1/pen/JgOmYE">cookieColor</a>
+			</code></pre></details></li>
+		<li><details><summary>indexedDB</summary>
+			<pre><code class="javascript">
+    window.indexedDB
+        .open('baseName', 1);  // открытие БД
+            .onupgradeneeded = (e) => {}
+            .onsuccess  // обработка успеха
+            .onerror  // обработка ошибок
+
+            .objectStoreNames.contains('Text')  // объект всех БД в хранилище
+            .createObjectStore('Text', { keypath: 'id', autoIncrement: true });
+            .transaction(['Text'], 'readwrite/readonly');
+                .objectStore('Text');
+                    .add();
+
+			</code></pre></details></li>
+		<li><details><summary>Fetch</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>FormData</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary>XMLTttpRequest</summary>
+			<pre><code class="javascript">
+	XMLHttpRequest()
+
+	Properties
+
+	onreadystatechange
+	readyState
+	response
+	responseText
+	responseType
+	responseURL
+	responseXML
+	status
+	statusText
+	timeout
+	upload
+	withCredentials
+
+	Methods
+
+	abort()
+	getAllResponseHeaders()
+	getResponseHeader()
+	open()
+	overrideMimeType()
+	send()
+	setRequestHeader()
+
+	var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
+	xhr.open("GET", "testfile.html");       // Настройка объекта для отправки GET запроса
+
+	xhr.open("POST", "PostHandler.ashx");
+	// Content-Type - HTTP заголовок, который указывает серверу, как интерпретировать тело запроса.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.onreadystatechange = function () { // функция-обработчик срабатывает при изменении свойства readyState
+	// Значения свойства readyState:
+	// 0 - Метод open() еще не вызывался
+	// 1 - Метод open() уже был вызван, но метод send() еще не вызывался.
+	// 2 - Метод send() был вызван, но ответ от сервера еще не получен
+	// 3 - Идет прием данных от сервера. Для значения 3 Firefox вызывает обработчик события несколько раз IE только один раз.
+	// 4 - Ответ от сервера полностью получен (Запрос успешно завершен).
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			document.getElementById("output").innerHTML = xhr.responseText; // текст ответа полученного с сервера.
+		}
+	}
+	xhr.send();			// Отправка запроса
+			</code></pre></details></li>
+		<li><details><summary>WebSocket</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+	</ul>
+</div>
+
+<div>Web Components
+	<ul>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+	</ul>
+</div>
+
+<div>RegExp
+	<ul>
+		<li><details><summary></summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+		<li><details><summary></summary></details></li>
+	</ul>
+</div>
+
+</div>
+
+codepen: 
+<ul>
+	<li><a href="https://codepen.io/leonardasf1/pen/voBMPL">create a paragraph</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/aeoMRE">pattern.exec</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/XLvymR">svetofor</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/rEXrgv">Ugadai random number</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/JQgNWb">Tooltip</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/VJoPbq">Calculator</a></li>
+	<li><a href="https://codepen.io/leonardasf1/pen/PoYgPXz">Sort</a></li>
+</ul>
+</article>
+<footer></footer>
+</body>
+</html>

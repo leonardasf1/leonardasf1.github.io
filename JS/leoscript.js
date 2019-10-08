@@ -1,11 +1,10 @@
+// "use strict";
 // Document.head.createElement(‘script’); src
 
+const v = function (id) {return document.querySelector(id);};
+const vall = function (id) {return document.querySelectorAll(id);};
 
-var v = function (id) {return document.querySelector(id)}
-
-$(function() {
-
-    v("#headerMenu").insertAdjacentHTML('beforeend', 
+let headerMenuB = 
        `<div class="home slide"><a><img src="../icons/favicon.ico"></a></div>
    <!--     <div><a href="../F1_Challenge/" title="formula 1"><img src="../icons/f1.png"></a></div>
         <div><a href="../Alpinism/" title="alpinisme"><img src="../icons/alpinism.png"></a></div>
@@ -41,30 +40,11 @@ $(function() {
 <a href="../zametki.html">Заметки</a>
 <a href="../nu/">nu</a>
             </div>
-        </div> -->`
-    );
-});
+        </div> -->`;
 
-window.onscroll = function () {
-    var scrolled = $(this).scrollTop();
+window.onload = function () {
 
-    if( scrolled > 50 ) {
-        headerMenu.style.padding = "2px 3%";
-    }
-    if( scrolled < 51 ) {
-        headerMenu.style.padding = "31px 3%";
-    }
-    if( scrolled > 1200 ) {
-        footerScrollTop.style.right = "22px";
-    }
-    if( scrolled < 1000 ) {
-        footerScrollTop.style.right = "-52px";
-    }
-};
-
-window.onload = function (){
-
-    $("article a, #links a").attr("target", "_blank");
+    v('#headerMenu').insertAdjacentHTML('beforeend', headerMenuB);
 
     v("body").insertAdjacentHTML('beforeend', 
        `<div id="footerScrollTop">
@@ -74,22 +54,51 @@ window.onload = function (){
         </div>`
     );
 
-    $(".item").click(function() {
-        $(this).next().slideToggle(500);
-    });
-    $('.submenu').mouseleave(function() {
-        $(this).slideUp(500);
+    window.onscroll = function () {
+        let scrolled = this.scrollY;
+
+        if (scrolled > 50) {
+            headerMenu.style.padding = "2px 3%";
+        }
+        if (scrolled < 51) {
+            headerMenu.style.padding = "31px 3%";
+        }
+        if (scrolled > 1200) {
+            footerScrollTop.style.right = "22px";
+        }
+        if (scrolled < 1000) {
+            footerScrollTop.style.right = "-52px";
+        }
+    };
+
+
+    // $(".slide").click(function () {
+    //      $(this).nextAll().slideToggle(500);
+    // });
+
+    footerScrollTop.addEventListener("click", function () {
+        window.scroll(0, 0);
     });
 
-    $(".slide").click(function() {
-         $(this).nextAll().slideToggle(500);
-    });
+    v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
 
-    $('#footerScrollTop').on("click", function () {
-        $(window).scrollTop("0");
-    });
+    for (let i in vall("details")) {
+        vall('details')[i].onclick = function () {
+            this.firstChild.classList.toggle('hover');
+        }
+    };
 
-    let lastMod = document.lastModified;
+    for (let i in vall('.item')) {
+        vall('.item')[i].onclick = function () {
+            this.nextElementSibling.classList.toggle('slideT');
+            this.nextElementSibling.addEventListener("mouseleave", function () {
+                this.classList.remove('slideT');
+            });
+        }
+    };
 
-    v('footer').insertAdjacentHTML('beforeend', `<div>${lastMod} </div>`);
-}
+    for (let i in vall("article a, #links a")) {
+        vall("article a, #links a")[i].setAttribute("target", "_blank");
+    };
+
+};

@@ -8,7 +8,6 @@
     <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
     <link rel="stylesheet" href="../CSS/leonardasf1.css">
 
-    <script src="../JS/jquery.js"></script>
     <script src="../JS/leoscript.js"></script>
 
     <link rel="stylesheet" href="../CSS/highlight.css">
@@ -17,10 +16,6 @@
 
 <style>
 
-h1 {text-align: center;}
-
-.prelogo {color: yellow}
-pre a {color: white;}
 </style>
 </head>
 
@@ -30,7 +25,7 @@ pre a {color: white;}
     <div id="headerMenu">
         <div>
             <img src="../icons/js.svg">
-			<span class="prelogo">JavaScript
+			<span style="color: yellow">JavaScript</span>
 		</div>
     </div>
 </header>
@@ -121,60 +116,14 @@ pre a {color: white;}
     </ul>
 </article>
 <article><pre><code class="javascript">
+
+
+    
     <div class="details">
 <details><summary>Service Worker API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"></a></summary><div>
  (applicationCache)
     </div></details>
-<details><summary>XMLHttpRequest (AJAX) <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest"></a></summary><div>
-    XMLHttpRequest()
 
-Properties
-
-    onreadystatechange
-    readyState
-    response
-    responseText
-    responseType
-    responseURL
-    responseXML
-    status
-    statusText
-    timeout
-    upload
-    withCredentials
-
-Methods
-
-    abort()
-    getAllResponseHeaders()
-    getResponseHeader()
-    open()
-    overrideMimeType()
-    send()
-    setRequestHeader()
---
-    var xhr = new XMLHttpRequest();          // Создание объекта для HTTP запроса.
-    xhr.open("GET", "testfile.html");       // Настройка объекта для отправки GET запроса
-
-            xhr.open("POST", "PostHandler.ashx");
-            // Content-Type - HTTP заголовок, который указывает серверу, как интерпретировать тело запроса.
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onreadystatechange = function () { // функция-обработчик срабатывает при изменении свойства readyState
-// Значения свойства readyState:
-// 0 - Метод open() еще не вызывался
-// 1 - Метод open() уже был вызван, но метод send() еще не вызывался.
-// 2 - Метод send() был вызван, но ответ от сервера еще не получен
-// 3 - Идет прием данных от сервера. Для значения 3 Firefox вызывает обработчик события несколько раз IE только один раз.
-// 4 - Ответ от сервера полностью получен (Запрос успешно завершен).
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById("output").innerHTML = xhr.responseText; // текст ответа полученного с сервера.
-        }
-    }
-    xhr.send();                            // Отправка запроса
-    
-
-    </div></details>
 <details><summary>Web Worker <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API"></a></summary><div>
     Worker()
 
@@ -189,31 +138,8 @@ Methods
     postMessage()
     terminate()
     </div></details>
-<details><summary>Cookie / Storage <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API"></a></summary><div>
-    window.sessionStorage
-    window.localStorage
-        .setItem("key1", "value1")
-        .getItem()
-        .deleteItem()
-        .clear()
 
-document.cookie = "name=value; max-age=3600 / expires=*";
-
-encodeURIComponent()
-decodeURIComponent()
-
-<p class="codepen" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="gVeGXG">StorageColor</p>
-<p class="codepen" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="JgOmYE">cookieColor</p>
-    </div></details>
 <details><summary>События <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers"></a></summary><div>
-     селектор.событие = function () {};  тэг onclick="имяФункции();"
-     селектор.["событие"] = function () {};
-
-    .addEventListener("событие без on", function(){})  // добавляет событие
-    .removeEventListener("событие без on", function(){}, false);  //  удаление обработчика
-
-document.attachEvent();  // for IE<=8
-        .dispatchEvent(event)
 
         abort   // прерывание загрузки img
         animationcancel    
@@ -223,7 +149,6 @@ document.attachEvent();  // for IE<=8
         canplay
         canplaythrough
         change        // Элемент потерял фокус и его значения с момента получения фокуса изменилось
-('copy', (e) => {alert('Копирование запрещено'); e.preventDefault();});
         cuechange
         durationchange
         ended
@@ -233,34 +158,8 @@ document.attachEvent();  // for IE<=8
         input
         invalid
 
-        keydown          // клавиша нажата
-        keypress         // клавиша дала символ
-        keyup            // клавиша отпущена
-
- window.onbeforeunload = function() {return "Данные не сохранены. Точно перейти?";};
-             // Событие произойдет перед закрытием страницы.
- window.onload = function () {}  // событие срабатывает после полной загрузки окна.
-        DOMContentLoaded
-
-        loadeddata
-        loadedmetadata
-        loadend
-        loadstart
         lostpointercapture
-// mouse:
-        click         // Была нажата и отпущена клавиша мыши
-        dblclick          // Двойной щелчок
-        contextmenu  // клик правой кнопкой мышки
-        mousedown
-        mouseenter
-        mouseleave
-        mousemove     // Перемещение указателя мыши
-        mouseout     // курсор вышел за пределы элемента.
-        mouseover    // курсор вошел в пределы элемента.
-        mouseup
-('wheel', (e) => {.innerText = deltaY})  // генерируется над любым элементом, не важно, прокручиваемый он или нет. 
 
-('paste', (e) => {.innerText = 'Введите текст. Вставка запрещена'; e.preventDefault();});
         pause
         play
 
@@ -275,131 +174,15 @@ document.attachEvent();  // for IE<=8
 
         reset        // запрос на очистку полей формы
         resize       // изменение размера окна
-        scroll  // над прокручиваемыми елементами
-        select        // Выбор текста
         submit()       // Запрос на передачу данных формы
         transitioncancel
         transitionend
         unhandledrejection  // обработчик ошибок
 
 // Event <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event"></a>
-    //Properties
 
-    .bubbles   // Логическое значение, указывающее, вспыло ли событие вверх по DOM или нет.
-    .cancelable  // Логическое значение, показывающее возможность отмены события
-    .cancel​Bubble  // отмена всплытия
-    .composed
-    .current​Target  // узел чей обработчик события работает в данный момент.
-    .default​Prevented  // Показывает, была ли для события вызвана функция event.preventDefault().
-    .event​Phase  // Указывает фазу процесса обработки события (1/2/3)
-    .explicit​Original​Target  // Явный первоначальный целевой объект события (Mozilla-специфичный).
-    .isTrusted   // Показывает было или нет событие инициировано браузером или из скрипта
-    .original​Target  // Первоначальный целевой объект события до перенаправлений (Mozilla-специфичный).
-    .return​Value  // присвоить false для предотвращения выполнения операции по умолчанию.
-    .src​Element  // Нестандартный синоним для Event.target
-    .target    //  элемент, который был инициатором события
-    .time​Stamp // объект Date, указывающий, когда произошло событие
-    .type       // Название события (без учета регистра символов).
-
-    //Methods
-
-    .composed​Path
-    .create​Event  // Создаёт новое событие
-    .init​Event   // Инициализация значений события
-    .prevent​Default();         // отменяет стандартное действие
-    .stop​Immediate​Propagation   // ля конкретного события не будет больше вызвано обработчиков.
-    .stop​Propagation();        // останавливает перемещение события по DOM
-
-// MouseEvent <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent"></a>
-    // Properties
-
-    .altKey           // true если клавиша Alt зажата.
-    .button          // 0 - левая клавиша, 1 - средняя клавиша, 2 - правая.
-    .buttons
-    .charCode        // код символа (передается при событии keypress)
-    .clientX / .clientY   // координаты относительно левого верхнего угла документа.
-    .ctrlKey              // true если клавиша Ctrl зажата.
-    .deltaY – количество прокрученных пикселей по вертикали
-    .keyCode // код клавиши для события keydown и keyup или код unicode символа для события keypress
-    .layerX / .layerY    // координаты относительно элемента в котором произошло событие.
-    .metaKey
-    .movementX / .movementY
-    .moz​Input​Source
-    .offsetX / .offsetY    // координаты относительно элемента в котором произошло событие.
-    .pageX / .pageY
-    .region
-    .related​Target
-    .screenX / .screenY   // координаты относительно экрана.
-    .shiftKey             // true если клавиша Shift зажата.
-    .WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN
-    .WEBKIT_FORCE_AT_MOUSE_DOWN
-    .webkit​Force
-    .which
-    .x / .y
-
-    // Methods
-
-    //get​Modifier​State()
-    init​Mouse​Event 
-<p class="codepen" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="bGbpYjO">Event-add-remove</p>
     </div></details>
-<details><summary>String​ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"></a></summary><div>Properties
 
-    String​.prototype
-    string​.length
-
-Methods
-
-    String.fromCharCode(e.charCode)  // введеный символ 
-    String​.from​Code​Point()
-    ​.anchor()
-    ​.big()
-    ​.blink()
-    ​.bold()
-    ​.charAt();      //возвращает символ по указанной позиции
-    ​.char​CodeAt()
-    ​.code​PointAt()
-    ​.concat()
-    ​.ends​With()
-    ​.fixed()
-    ​.fontcolor()
-    ​.fontsize()
-    ​.includes()
-    ​.indexOf("");  //возвращает индекс первого встречающегося в строке указанного символа 
-    ​.italics()
-    ​.last​IndexOf("");  //возвращает индекс последнего встречающегося в строке указанного символа 
-    ​.link()
-    ​.locale​Compare()
-    ​.match();       // принимает регулярное выражение и возвращает массив с результатами поиска
-    ​.matchAll()
-    ​.normalize()
-    ​.padEnd()
-    ​.pad​Start()
-    ​.quote()
-    ​.repeat()
-    ​.replace( , ""); //  производит операцию поиска с заменой
-    ​.search(); // возвращает индекс первого найденного символа подстроки по шаблону или -1 если подстрока не найдена
-    ​.slice()
-    ​.small()
-    ​.split("");   //Разбивает строку на подстроки по указанному разделителю и возвращает массив подстрок.
-    ​.starts​With()
-    ​.strike()
-    ​.sub()
-    ​.substr(0, 2); //возвращает строку начиная с указанного индекса, указанной длины
-    ​.substring(0, 2); //возвращает строку между двумя указанными индексами, не включая индексы
-    ​.sup()
-    ​.toLocale​Lower​Case()
-    ​.toLocale​Upper​Case()
-    ​.toLower​Case(); //перевод всех символов в нижний регистр
-    ​.toSource()
-    ​.toString()
-    ​.toUpper​Case(); //перевод всех символов в верхний регистр
-    ​.trim()
-    ​.trimEnd()
-    ​.trim​Start()
-    ​.valueOf()
-    String​.prototype​[@@iterator]()
-    String​.raw()</div></details>
 <details><summary>Memoize</summary><div>
 // Мемоизация - прием кэширования результатов функции.
 function calcFib(x) {
@@ -445,9 +228,6 @@ for (let i = 0; i < 40; i++) {
     .exec​Command()
     .exit​Fullscreen()
     .exit​Pointer​Lock()
-    .get​Animations()
-    .get​BoxObjectFor()
-    .get​Elements​ByTagNameNS()
     .has​Focus()
     .has​Storage​Access()
     .import​Node()
@@ -501,63 +281,7 @@ for (let i = 0; i < 40; i++) {
     URL
     visibilityState</div>
 </div></details>
-<details><summary>DOM </summary><div> <a href="https://www.w3.org/TR/dom/">w3.org</a>
-// Свойства для навигации по DOM
-    .childNodes       // массив всех дочерних узлов
-    .firstChild       // первый дочерний узел
-    .lastChild        // последний дочерний узел
-    .nextSibling      // следующий узел расположенный на одном уровне с текущим
-    .previousSibling  // предыдущий узел расположенный на одном уровне с текущим
-    .parentNode       // родительский узел для текущего элемента
-    .hasChildNodes
 
-// Методы для работы с DOM (узлы или строки)
-    .append('');  // добавляет в конец
-    .prepend('');  // добавляет в начало
-    .after('')  // после
-    .before('')  // перед
-    .replaceWith('')  // заменяет
-    .remove()
-    .appendChild();  // добавить дочерний элемент
-    .insertBefore()  // добавить элемент перед указанным
-    .removeChild();  // удаление дочернего элемента
-    .replaceChild()  // замена одного элемента на другой
-
-document.create​Element('тэг')
-
-document.get​Element​ById("")
-    .get​Elements​ByClass​Name()
-    .get​Elements​ByName()
-    .get​Elements​ByTagName()
-    
-document.querySelector('')  // селекторы как в CSS , возвращает первый найденный
-    .querySelectorAll('')  // возвращает все
-
-    .textContent = ; // вставить текст
-document.create​TextNode('text')
-.insertAdjacentText('afterend', 'text')
-
-    .innerHTML = "";  // заполнить HTML-кодом
-.insertAdjacentHTML('beforebegin', `html`);  // вставить HTML-код
-.insertAdjacentHTML('afterbegin', `html`);
-.insertAdjacentHTML('beforeend', `html`);
-.insertAdjacentHTML('afterend', `html`);
-
-.insertAdjacentElement('', 'elem')
-
-elem.className
-elem.classList.add/remove("class")  // добавить/удалить класс.
-elem.classList.toggle("class")  // добавить класс, если его нет, иначе удалить.
-elem.classList.contains("class")  // проверка наличия класса, возвращает true/false.
-
-.style.cssText=`        // Полная перезапись стилей
-    color: red !important;
-    background-color: yellow;
-    width: 100px;
-    text-align: center;
-  `;
-
-</div></details>
 <details><summary>Element <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"></a></summary><div>Properties
 
     .accessKey
@@ -648,7 +372,6 @@ Properties
 
     .content​Editable
     .context​Menu
-    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">.dataset</a>      //  в тэге data-
     .dir
     .hidden
     .inner​Text
@@ -797,7 +520,8 @@ Events
 // Метод setData(...) сообщает механизму перетаскивания в браузере, какие данные из перетаскиваемого объекта должен «поймать»
 // целевой элемент, также называемый зоной приема. Здесь мы указываем, что передаваемые данные это id элемента
 evt.dataTransfer.setData("Text", this.id);
-<p class="codepen" data-height="250" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="LwVXyZ">drag & drop</p></div>
+
+codepen: <a href="https://codepen.io/leonardasf1/pen/LwVXyZ">drag & drop</a>
 </details>
 <details><summary>time / date</summary><div>
 new Date();  // при вызове конструктора Date без параметров, создается объект Date отражающий текущую дату и время
@@ -808,8 +532,9 @@ performance.now() // источники времени
 process.hrtime()
 <a href="https://gist.github.com/victor-homyakov/eaecea956d3679cbbec76578ede311fb">"Тяжёлое бремя времени"</a>
 
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="qzeLrz">secundomer</p>
-<p class="codepen" data-height="200" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="QXeJJG">time</p></div>
+codepen: 
+<a href="https://codepen.io/leonardasf1/pen/qzeLrz">secundomer</a> 
+<a href="https://codepen.io/leonardasf1/pen/QXeJJG">time</a>
 </details>
 <details><summary>geolocation</summary><div>
 navigator.geolocation.getCurrentPosition() 
@@ -924,11 +649,13 @@ function init() {
     context.canvas.width
     context.canvas.height
 }
-<p class="codepen" data-height="600" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="YmGmRW">pingpong</p>
-<p class="codepen" data-height="550" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="PMbPLw">draw</p>
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="bXBKba">CanvasAnimRect</p>
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="EqNzbj">CanvasDiagramm</p>
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="VomogL">SunSistem</p>
+
+codepen: 
+<a href="https://codepen.io/leonardasf1/pen/YmGmRW">pingpong</a> 
+<a href="https://codepen.io/leonardasf1/pen/PMbPLw">draw</a> 
+<a href="https://codepen.io/leonardasf1/pen/bXBKba">CanvasAnimRect</a> 
+<a href="https://codepen.io/leonardasf1/pen/EqNzbj">CanvasDiagramm</a> 
+<a href="https://codepen.io/leonardasf1/pen/VomogL">SunSistem</a> 
 </div>
 </details>
 <details><summary>Object / Array</summary><div>
@@ -973,282 +700,24 @@ Object.seal()
 Object.setPrototypeOf()
 Object.values()
 
-//массивы
-        var name = Array(1, 2, 3, 4, 5, 6);
-    <span title=" -  создает и возвращает новый массив, содержащий элементы исходного массива, 
-    для которого был вызван метод concat(), и значения всех аргументов, переданных методу concat().
-        .concat(6, 7, [8, 9])
-        .concat(input) добавляет в массив введенное значение">.concat()</span>
-    .copyWithin()
-    .entries()
-    .every()
-    .fill()
-    .filter()
-    .find()
-    .findIndex()
-    .flat()
-    .flatMap()
-    .forEach(value => { console.log(value); });  // перебор элементов массива
-    .from()
-    .includes()
-    .indexOf()
-    .isArray()
-    .join()  // - преобразует все элементы массива в строки и объединяет их. 
-// Если метод принимает строковой аргумент, то аргумент станет разделителем вместо запятых.
-    .keys()
-    .lastIndexOf()
-    .length
-    .map()
-    .of()
-    <span title=" - выполняет удаление последнего элемента массива, уменьшает длину массива.
-            (возвращаемое значение - удаленный элемент массива)">.pop()</span>
-    <span title=" - добавление одного или нескольких элементов в конец массива и возвращает его новую длину.
-        (возвращаемое значение - количество элементов в новом массиве)">.push()</span>
-    .reduce()
-    .reduceRight()
-    .reverse()
-    <span title=" - удаляет и возвращает первый элемент массива смещая все последующие элементы на одну позицию вниз, 
-                      чтобы занять место, освободившееся в начале массива.">.shift()</span>
-    <span title=" - Возвращает фрагмент или подмассив указанного массива.
-        .slice(from, to)
-        // slice(начальный индекс (включительно), конечный индекс (не включительно));
-        var temp = a.slice(0, 3); // возвращает первые три элемента 1, 2, 3
 
-        // slice(начальный индекс); -  возвращает подмассив от указанного индекса до конца массива.
-        temp = a.slice(3); // 4, 5, 6, 7
 
-        // Если аргумент отрицательный - он задает позицию относительно конца массива.
-        temp = a.slice(1, -2); // 2, 3, 4, 5, 6">.slice(,);</span>
-    .some()
-    <span title=" - Сортирует элементы массива в алфавитном порядке 
-            (при необходимости временно преобразуя элементы в строки для выполнения сравнения).
-                    .sort(function (a, b) {
-                      if (a.age > b.age) { return 1;}
-                      if (a.age < b.age) { return -1;}
-                      return 0;
-                    });">.sort()</span>
-    <span title=" - универсальный метод для вставки и удаления элементов из массива. 
-            Метод возвращает массив из удаленных элементов.
-            arrayObj.splice( start, deleteCount, [elem1[, elem2[, ...[, elemN]]]] )
-            start - Индекс в массиве, с которого начинать удаление.
-            deleteCount - Кол-во элементов, которое требуется удалить, начиная с индекса start.
-            elem1, elem2, ..., elemN - Добавляемые элементы в массив. Добавление начинается с позиции start.">.splice(,,);</span>
-    .toLocaleString()
-    .toSource()
-    .toString()
-    <span title=" - добавляет элемент в начало массива. Смещает существующие элементы в сторону больших индексов
-для освобождения места, добавляет элемент или элементы в начало массива и возвращает новую длину массива.">.unshift()</span>
-    .values()
-
-    .split // connect stroke in massive
-
-Array.prototype[@@iterator]()
-
-            
-        [1, 2, 3, 4, 5, 6];
-        name[1];
-        var name = new Array();
-        document.write(new Array(4).join('xa'));
-
-        function Name(x, y) {   // Функция-конструктор для
-            this.t = x;        // создания объектов Name.
-            this.s = y;
-        }       var name = new Name(x, y);   name.t
-        Name.prototype.r = x;  // Метод прототипа
-        Name.prototype = name  // наследование</div>
+</div>
     </details>
-    <details><summary>switch</summary><div>    switch (name) {
-        case "a": x;
-            continue;
-        case "b": y;
-            break;
-        default: z;
-            break;
-    } 
-
-        // Оператор многозначного выбора - switch-case (переключатель). 
-
-        // Предлагаем пользователю ввести число и принимаем ввод от пользователя.
-        var number = prompt("Введите число 1 или 2:");
-
-        // Создаем конструкцию многозначного выбора, переключатель - switch, 
-        // которому в качестве выражения-селектора, передаем переменную - number.
-        // ВНИМАНИЕ! 
-        // Тип значения выражения селектора и значений постоянных выражений операторов case должны совпадать.
-
-        switch (number) { // (number) — выражение-селектор.
-
-            // В теле переключателя switch-case, создаем несколько операторов case,
-            // c постоянными выражениями равными  "1" и "2" соответственно.
-
-            // Если значение выражения-селектора совпадет с одним из значений постоянных выражений,
-            // то выполняется тело оператора case, постоянное выражение которого, совпало с выражением-селектора. 
-
-            case "1":  // "1" — постоянное выражение.
-                {
-                    document.write("Один");   // Ветвь 1
-                };
-                break; // Выход из переключателя.
-
-            case "2":  // "2" — постоянное выражение.
-                {
-                    document.write("Два");     // Ветвь 2
-                };
-                break; // Выход из переключателя.
-
-                // Создаем (необязательный) оператор default, тело которого выполняется в случае,
-                // если значение выражения-селектора не совпадет ни с одним из значений постоянных выражений. 
-            default:
-                {
-                    document.write("Вы ввели значение отличное от 1 и 2.");  // Ветвь 8
-                };
-
-                // Если в переключателе отсутствует оператор default, то управление передается за пределы переключателя switch. 
-        }
-
-    switch-case Проваливание
-
-        var day = prompt("Введите номер дня недели: 1-2-3-4-5-6-7: ", "");
-
-        switch (day) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-                document.write("Этот день недели - Рабочий.");
-                break;
-            case "6":
-            case "7":
-                {
-                    document.write("Этот день недели - Выходной.");
-                }
-                break;
-            default:
-                {
-                    document.write("Вы ввели несуществующий день недели.");
-                }
-                break;
-        }
-
-    Coffee Maker
-
-        var coffeeSize = prompt("Размеры стаканчиков кофе:
-                1 = Маленький, 2 = Средний, 3 = Большой. 
-                Пожалуйста, сделайте свой выбор:");
-
-        var cost = 0;
-
-        switch (coffeeSize) {
-            case "1":
-                {
-                    cost += 25;
-                    document.write(" img src='coffee.jpg' width='100' height='100' ");
-                }
-                break;
-            case "2":
-                {
-                    cost += 50;
-                    document.write(" img src='coffee.jpg' width='150' height='150' ");
-                }
-                break;
-            case "3":
-                {
-                    cost += 75;
-                    document.write(" img src='coffee.jpg' width='256' height='256' ");
-                }
-                break;
-            default:
-                {
-                    document.write("Неверный выбор.");
-                }
-                break;
-        }
-
-        if (cost != 0) {
-            document.write("Внесите " + cost + " копеек.Спасибо!");
-        }
-        else {
-            coffeeSize();
-        }</div></details></div>
+</div>
         <div class="flex">
-    <div>
 
-    if (сравнение) {}  если
-    else if (сравнение) {}
-    else {}
-    name = (сравнение) ? x : y;
-    if ("t" in name) {} //проверка наличия свойства
+<div>
 
-// циклические итерации
-    while (сравнение) {i++; x;}  пока
-    do {x; i++;} while (сравнение);
-    for (var i = 0; i < 10; i++) {}
-    for (; ;) {name = x; y;}
-    for (var property in name) {x(name[property])}
-
-    function Name() {}
-            .arguments  // обращение к аргументам функции как к массиву
-    имя_функции( аргументы );
-    var name = new Function("аргументы", "тело");
-    (function () {})();   // немедленно вызываемая анонимная функция
-
-function
-
-    Function.caller
-    Function.displayName
-    Function.length
-    Function.prototype
-    Function.prototype.name
-
-    Function.prototype.apply()
-    Function.prototype.bind()
-    Function.prototype.call()
-    Function.prototype.isGenerator()
-    Function.prototype.toSource()
-    Function.prototype.toString()
-
-    function Name() {x;<b title="Оператор return указывает на возвращаемое значение функции, 
-            которое будет передано при следующей форме вызова:
-">return</b> y;}
-    var Name = function(a, b) {return a + b;}
 
 // перехват ошибок:
     throw
-    try...catch <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/try...catch"></a>
-</div>
-<div>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" title="Declares a variable"><b>var </b></a>name = x;
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" title="Declares a block scope local variable"><b>let </b></a>name = x;
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" title="Declares a read-only named constant."><b>const </b></a>name = x;
-
-        <a title="выводит модальное окно с сообщением. 
-        Пользователь не сможет продолжить работу, до тех пор,
-         пока не нажмет на кнопку ОК в модальном окне.">alert</a>();
-        <a title="приглашение- принимает два аргумента: 
-            1 - выводится в качестве простой строки в модальном окне.
-            2 - значение по умолчанию в текстовом поле для ввода.
-
-        Метод prompt(1, 2) - выводит сообщение в окне с текстовым полем и двумя кнопками: ОК и ОТМЕНА.
-
-        Метод prompt(1, 2) - возвращает введенное значение или null, если пользователь нажал на кнопку ОТМЕНА.
-
-        Как и в alert, prompt - модальное окно 
-        (пользователь не может продолжить работу, пока не нажмет на одну из кнопок).">prompt</a>(,);
-        <a title="[подтвердить], действует похоже на alert, за исключением того, 
-        что добавляет кнопку Отмена в диалоговое окно. Возвращает true, 
-        если нажата кнопка - OK или false , если нажата кнопка - Cancel.">confirm</a>();
-
-        parseFloat();  // Kонвертация в вещественное значение
-        parseInt();  // Kонвертация в целочисленное значение
 
         new String();
 
         <span title=" - С помощью оператора typeof можно получить строку указывающую тип операнда.
         Оператор typeof может быть удобен для того что бы отличить объект от базового типа.">typeof</span> 
         
-        instanceof - оператор для проверки типа объекта
-
         <a title="Оператор with создает новую область видимости и 
     представляет свойства объекта «object» как локальные переменные. 
     
@@ -1257,19 +726,14 @@ function
     Подробнее: http://habrahabr.ru/post/118666/">with </a>
 
         Math 
-        this 
         Number
             .NEGATIVE_INFINITY
 
             .anchors[0].name
 
-        console.log(); 
+        console.log();
 
-        .length 
-        .href = 'новая/ссылка'; 
-        .style.color = 'новыйцветтекста'; 
-        .style.background = 'новыйбэк'; 
-        .style.fontSize = '23px';
+        .length
         .value
         .text
         .options;
@@ -1277,198 +741,14 @@ function
 
     </div>
 </div>
-<div>
-  атрибут  data-name="value"  ,  .dataset.
-</div>
 
-<hr>
-<h2><a href="https://ru.wikipedia.org/wiki/ECMAScript">ECMAScript 2015,...</a></h2>
-<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"></a> Деструктурирующее присваивание // Destructuring_assignment
-
-<b>for (i in array) {...array[i]} // перебор массива</b>
-    for (let value of args){} // перебор значений
-for (let [key, value] of Object.entries(object1)) {  // перебор объекта
-  console.log(`${key}: ${value}`);
-}
-генераторы
 двоичные данные
 типизированные массивы
 отражения
-прокси
-
-// rest_parameters
-function f(a, b, ...theArgs) {
-  // ...
-}
-// spread
-let obj3 = { ...obj1, ...obj2 };
-let array3 = [ ...arr1, ...arr2];
-
-//Symbol()
 
     var mss = "Welcome " + name + name + "!";
     let msg = `Welcome ${name + name}!`;
 `hello ${who}`
-
-// стрелочные функции
-const name = параметры => {};
-const name = (a=4,b) => a+b  // если параметр "a" не будет указан при вызове функции "a" присвоит себе значение 4.
-У стрелочной функции нет своего arguments и this;
-
-<div class="details">
-<details><summary> class</summary><div> class Rectangle {
-  #height = 0;
-  #width;
-  constructor(height, width) {    
-    this.#height = height;
-    this.#width = width;
-  }
-}
-class Dog extends Animal {
-  constructor(name) {
-    super(name); // call the super class constructor and pass in the name parameter
-  }
-  speak() {
-    console.log(`${this.name} barks.`);
-  }
-}
-class Lion extends Cat {
-    static methodName() { ... }
-    speak() {
-        super.speak();
-        console.log(`${this.name} roars.`);
-    }
-}</div></details>
-    <summary><a href="https://learn.javascript.ru/modules-intro" target="_blank">модули:</a></summary> <details><summary>import </summary><div>import defaultExport from "module-name";
-import * as name from "module-name";
-import { export1 } from "module-name";
-import { export1 as alias1 } from "module-name";
-import { export1 , export2 } from "module-name";
-import { foo , bar } from "module-name/path/to/specific/un-exported/file";
-import { export1 , export2 as alias2 , [...] } from "module-name";
-import defaultExport, { export1 [ , [...] ] } from "module-name";
-import defaultExport, * as name from "module-name";
-import "module-name";
-var promise = import("module-name");</div></details>
-<details><summary>export</summary><div>// Exporting individual features
-export let name1, name2, …, nameN; // also var, const
-export let name1 = …, name2 = …, …, nameN; // also var, const
-export function functionName(){...}
-export class ClassName {...}
-
-// Export list
-export { name1, name2, …, nameN };
-
-// Renaming exports
-export { variable1 as name1, variable2 as name2, …, nameN };
-
-// Exporting destructured assignments with renaming
-export const { name1, name2: bar } = o;
-
-// Default exports
-export default expression;
-export default function (…) { … } // also class, function*
-export default function name1(…) { … } // also class, function*
-export { name1 as default, … };
-
-// Aggregating modules
-export * from …;
-export { name1, name2, …, nameN } from …;
-export { import1 as name1, import2 as name2, …, nameN } from …;
-export { default } from …;</div></details></div>
-<details><summary>Map  // объект без прототипа , любые ключи</summary><div>
-let myMap = new Map();
-
-let keyString = 'a string',
-    keyObj = {},
-    keyFunc = function() {};
-
-// setting the values
-myMap.set(keyString, "value associated with 'a string'");
-myMap.set(keyObj, 'value associated with keyObj');
-myMap.set(keyFunc, 'value associated with keyFunc');
-
-myMap.size; // 3
-
-    .clear()
-    .delete()
-    .entries()
-    .forEach()
-    .get()
-    .has()
-    .keys()
-    .set()
-    .values()
-Map.prototype[@@iterator]()</div></details>
-<details><summary>Set  // массив ,значения не повторяются</summary><div>
-let mySet = new Set();
-
-mySet.add(1); // Set [ 1 ]
-mySet.add(5); // Set [ 1, 5 ]
-mySet.add(5); // Set [ 1, 5 ]
-mySet.add('some text'); // Set [ 1, 5, 'some text' ]
-let o = {a: 1, b: 2};
-mySet.add(o);
-
-mySet.add({a: 1, b: 2}); // o is referencing a different object so this is okay
-
-    .add()
-    .clear()
-    .delete()
-    .entries()
-    .forEach()
-    .has()
-    .values()
-Set.prototype[@@iterator]()</div></details>
-<details><summary>WeakMap  // ключи только объекты</summary><div>
-let wm2 = new WeakMap();
-
-let o1 = {},
-    o2 = function() {},
-    o3 = window;
-
-wm2.set(o1, o2); // a value can be anything, including an object or a function
-wm2.set(o3, undefined);
-wm2.set(wm1, wm2); // keys and values can be any objects. Even WeakMaps!
-
-    .delete()
-    .get()
-    .has()
-    .set()</div></details>
-<details><summary>WeakSet</summary><div>
-var ws = new WeakSet();
-var foo = {};
-var bar = {};
-
-ws.add(foo);
-ws.add(bar);
-
-    WeakSet.prototype.add()
-    WeakSet.prototype.delete()
-    WeakSet.prototype.has()
-
-</div></details>
-<details><summary>Promise</summary><div>
-function myAsyncFunction(url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = () => resolve(xhr.responseText);
-    xhr.onerror = () => reject(xhr.statusText);
-    xhr.send();
-  });
-}
-    Promise.all()
-    Promise.allSettled()
-    Promise.prototype.catch()
-    Promise.prototype.finally()
-    Promise.prototype.then()
-    Promise.race()
-    Promise.reject()
-    Promise.resolve()</div></details>
-
-<details><summary></summary><div></div></details>
-<details><summary></summary><div></div></details>
 
 <hr>
 
@@ -1496,6 +776,7 @@ function User(name) {
         clearTimeout(name);   // отменяет запуск
         clearInterval(name);  // останавливает setInterval
 
+        window.location.replace('url');  // направление на другой адрес
         document.location          // весь url
         document.location.protocol // протокол
         document.location.host     // имя хоста
@@ -2620,45 +1901,8 @@ window.onload = function (){
             // чтение атрибута
             alert(a3.getAttribute("href"));
 
-
----
-
-        function sortchildren(e) {
-            if (typeof e == "string") e = document.getElementById(e);
-
-            // Преобразовываем дочерние элементы в массив
-            var children = [];
-            for (var x = e.firstChild; x != null; x = x.nextSibling)
-                if (x.nodeType == 1 /* Node.ELEMENT_NODE */) children.push(x);
-
-            // сортировка
-            children.sort(function (n, m) { // функция сравнения.
-                var s = n.firstChild.data; // текст узла n
-                var t = m.firstChild.data; // текст узла m
-                if (s < t) return -1;      // n перед m
-                else if (s > t) return 1;  // n после m
-                else return 0;             // n и m равны
-            });
-
-            // Добавляем дочерние элементы обратно в родительский узел.
-            // Когда добавляется узел, который уже существует в документе, он автоматически 
-            // удаляется со своей старой позиции и вставляется в новую.
-            for (var i = 0; i < children.length; i++) e.appendChild(children[i]);
-        }
-
         </code>
     </pre>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-<p class="codepen" data-height="250" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="voBMPL">create a paragraph</p>
-<p class="codepen" data-height="250" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="aeoMRE">pattern.exec</p>
-<p class="codepen" data-height="250" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="XLvymR">svetofor</p>
-<p class="codepen" data-height="300" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="rEXrgv">Ugadai random number</p>
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="JQgNWb">Tooltip</p>
-<p class="codepen" data-height="400" data-default-tab="js,result" data-user="leonardasf1" data-slug-hash="VJoPbq">Calculator</p>
-
-
-
 </article>
 <footer></footer>
 </body>

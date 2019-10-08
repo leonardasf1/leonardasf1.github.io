@@ -30,7 +30,7 @@ header {
     width: 100%;
     height: 95px;
     display: block;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,.4);
 }
 
 .fsac , #headerMenu, #headerMenu>div:first-child, #links, #links a {
@@ -42,7 +42,7 @@ header {
     flex-wrap: wrap;
 }
 .flex > * {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
     padding: 1rem;
     margin: 1rem;
 }
@@ -54,7 +54,7 @@ header {
     position: fixed;
     background: linear-gradient(135deg, #8360c3, #2ebf91);
     transition: padding .5s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2)
 }
 @media (max-width:800px) {
     #headerMenu {
@@ -78,6 +78,7 @@ header {
 #headerMenu>div:first-child {
     min-width: 250px;
     font-weight: 700;
+    font-family: monospace;
     font-size: 32px;
     line-height: 32px;
 }
@@ -100,40 +101,53 @@ summary img, ul img {
     color: black;
     padding: 12px 1vw;
     font-weight: 700;
+    font-family: monospace;
     cursor: pointer;
 }
-.item:hover, .item:focus {background-color: rgba(0,0,0,0.2);}
+.item:hover, .item:focus {background-color: rgba(0,0,0,.2);}
 
 .submenu {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(87,144,169,.8);
     display: none;
     position: absolute;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
 }
+.slideT {
+  display: block;
+  overflow: hidden;
+  animation: .5s slideT forwards;
+}
+@keyframes slideT { from { opacity: 0 } to { opacity: 1 }}
+
 .submenu a {
     color: white;
     padding: 12px 16px;
     display: block;
 }
-.submenu a:hover {background: rgba(0,0,0,0.4);}
+.submenu a:hover {background: rgba(0,0,0,.1);}
 
-.content {padding: 0 36px;}
+/*.content {padding: 0 36px;}
 
-.content {position: relative;}
+.content {position: relative;}*/
 
 article {
     padding: 0 1%;
 }
 
 #links {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,.4);
     height: 60px;
     padding: 0 2%;
 }
 
 #links a {
     padding: 5px;
+}
+
+content {
+    min-height: 76vh;
+    display: block;
 }
 
 nav {
@@ -148,6 +162,7 @@ nav>a {
     display: inline-block;
     margin-right: 5%;
     font-weight: 700;
+    font-family: monospace;
     font-size: 2rem;
     color: white;
     filter: drop-shadow(0 2px 2px black);
@@ -159,16 +174,19 @@ nav>a {
 
 summary {
     font-weight: 700;
+    font-family: monospace;
     padding: 10px;
+    list-style: none;
 }
-summary:hover {background: rgba(0,0,0,.2);}
-summary+div {
+summary:hover { background: rgba(0,0,0,.2); }
+.hover { background: rgba(0,0,0,.2); }
+summary+* {
     background: #2b2a2a;
     border-radius: 10px;
-    padding: 10px;
     color: white;
     position: absolute;
     left: 20px;
+    box-shadow: 0 8px 16px 0 black;
 }
 #footerScrollTop {
     z-index: 100;
