@@ -64,11 +64,11 @@ header {
     #headerMenu > div {
         margin: 0;
     }
-    .home {
+    #homeSlide {
         text-align: right;
         width: calc(96% - 250px);
     }
-    .home~* {
+    #homeSlide~* {
         display: none;
         width: 100%;
         text-align: center;
@@ -126,10 +126,6 @@ summary img, ul img {
     display: block;
 }
 .submenu a:hover {background: rgba(0,0,0,.1);}
-
-/*.content {padding: 0 36px;}
-
-.content {position: relative;}*/
 
 article {
     padding: 0 1%;

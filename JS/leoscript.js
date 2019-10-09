@@ -5,7 +5,7 @@ const v = function (id) {return document.querySelector(id);};
 const vall = function (id) {return document.querySelectorAll(id);};
 
 let headerMenuB = 
-       `<div class="home slide"><a><img src="../icons/favicon.ico"></a></div>
+       `<div class="homeSlide"><a><img src="../icons/favicon.ico"></a></div>
    <!--     <div><a href="../F1_Challenge/" title="formula 1"><img src="../icons/f1.png"></a></div>
         <div><a href="../Alpinism/" title="alpinisme"><img src="../icons/alpinism.png"></a></div>
         <div><a href="../sailing/" title="sailing"><img src="../icons/sailing.png"></a></div>
@@ -42,63 +42,63 @@ let headerMenuB =
             </div>
         </div> -->`;
 
-window.onload = function () {
+v('#headerMenu').insertAdjacentHTML('beforeend', headerMenuB);
 
-    v('#headerMenu').insertAdjacentHTML('beforeend', headerMenuB);
+v("body").insertAdjacentHTML('beforeend', 
+   `<div id="footerScrollTop">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path>
+        </svg>
+    </div>`
+);
 
-    v("body").insertAdjacentHTML('beforeend', 
-       `<div id="footerScrollTop">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path>
-            </svg>
-        </div>`
-    );
+window.onscroll = function () {
+    let scrolled = this.scrollY;
 
-    window.onscroll = function () {
-        let scrolled = this.scrollY;
-
-        if (scrolled > 50) {
-            headerMenu.style.padding = "2px 3%";
-        }
-        if (scrolled < 51) {
-            headerMenu.style.padding = "31px 3%";
-        }
-        if (scrolled > 1200) {
-            footerScrollTop.style.right = "22px";
-        }
-        if (scrolled < 1000) {
-            footerScrollTop.style.right = "-52px";
-        }
-    };
+    if (scrolled > 50) {
+        headerMenu.style.padding = "2px 3%";
+    }
+    if (scrolled < 51) {
+        headerMenu.style.padding = "31px 3%";
+    }
+    if (scrolled > 1200) {
+        footerScrollTop.style.right = "22px";
+    }
+    if (scrolled < 1000) {
+        footerScrollTop.style.right = "-52px";
+    }
+};
 
 
     // $(".slide").click(function () {
     //      $(this).nextAll().slideToggle(500);
     // });
 
-    footerScrollTop.addEventListener("click", function () {
-        window.scroll(0, 0);
-    });
+footerScrollTop.addEventListener("click", function () {
+    window.scroll(0, 0);
+});
 
-    v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
+v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
 
-    for (let i in vall("details")) {
-        vall('details')[i].onclick = function () {
-            this.firstChild.classList.toggle('hover');
-        }
-    };
+if (v('details')) {
+  for (let i in vall("details")) {
+      vall('details')[i].ontoggle = function () {
+          this.firstChild.classList.toggle('hover');
+      }
+  };
+}
 
-    for (let i in vall('.item')) {
-        vall('.item')[i].onclick = function () {
-            this.nextElementSibling.classList.toggle('slideT');
-            this.nextElementSibling.addEventListener("mouseleave", function () {
-                this.classList.remove('slideT');
-            });
-        }
-    };
+for (let i in vall('.item')) {
+  if ((typeof vall('.item')[i]) == 'object') {
+    vall('.item')[i].onclick = function () {
+        this.nextElementSibling.classList.toggle('slideT');
+        this.nextElementSibling.addEventListener("mouseleave", function () {
+            this.classList.remove('slideT');
+        });
+    }
+  }
+};
 
     for (let i in vall("article a, #links a")) {
         vall("article a, #links a")[i].setAttribute("target", "_blank");
     };
-
-};
