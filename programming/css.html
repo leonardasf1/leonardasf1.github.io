@@ -20,7 +20,7 @@
   <header>
     <div id="headerMenu">
       <div>
-			 <img src="../icons/css.svg" height="32px">
+			 <img src="../icons/css.svg">
 			 <span>CSS</span>
 		  </div>
     </div>
@@ -29,10 +29,9 @@
 
 <div id="links">
   <a href="https://drafts.csswg.org/"><img src="https://drafts.csswg.org/csslogo.ico" alt="csswg"></a>
-  <a href="https://www.w3.org/Style/CSS/"><img src="https://www.w3.org/favicon.ico" alt="w3"></a>
+  <a href="https://www.w3.org/TR/CSS/#css"><img src="https://www.w3.org/favicon.ico" alt="w3"></a>
   <a href="https://css-tricks.com"><img src="https://css-tricks.com/apple-touch-icon.png" alt="css-tricks"></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" alt="CSS MDN"></a>
-  <a href="https://ru.wikipedia.org/wiki/Cascading_Style_Sheets"><img src="https://ru.wikipedia.org/static/favicon/wikipedia.ico" alt="wiki"></a>
   <a href="https://webref.ru"><img src="https://webref.ru/favicon.ico" alt="webref.ru"></a>
   <a href="https://jigsaw.w3.org/css-validator/">validator</a>
   <a href="https://csscompressor.com/">csscompressor</a>
@@ -50,16 +49,59 @@
  <a href="https://github.com/lttb/reshadow"><img src="https://github.githubassets.com/favicon.ico" alt=""></a>
  
  / cssinjs / styled components / BEM (block element modifier) / CSS Modules , пропсы <br>
-    <li><a href="https://habr.com/ru/post/140612/">SCSS — немного практики, часть I</a></li>
   <a href="http://htmlbook.ru/samcss/napisanie-effektivnogo-koda"><img src="http://htmlbook.ru/favicon.ico"> Написание эффективного кода</a><br>
   <a href="http://htmlbook.ru/samcss/kaskadirovanie">Cascading</a><br>
-        <pre><code class="CSS">
+  переменные, шлюзы
+
+        <pre>
+
+Backgrounds and Borders 3 //2017
+Basic User Interface 3 (CSS3 UI)  //2018
+Cascading and Inheritance 3 //2018
+Cascading and Inheritance 4 //2018
+Color 3 //2018
+Compositing and Blending 1 //2015
+Conditional Rules 3 //2013
+Containment 1 //2019
+Counter Styles 3 //2017
+Custom Properties for Cascading Variables 1 //2015
+Display 3 //2018
+Easing Functions 1 //2019
+Flexible Box Layout 1 //2018
+Fonts 3 //2018
+Fragmentation 3 //2018
+Geometry Interfaces 1 //2018
+Grid Layout 1 //2017
+Images 3 //2019
+Masking 1 //2014
+MathML for CSS Profile //2011
+Media Queries //2012
+Media Queries 4 //2017
+Namespaces 3 //2014
+Painting API 1 //2018
+Scroll Snap 1 //2019
+Selectors 3 //2018
+Selectors API 1 //2013
+Shapes 1 //2014
+Snapshot 2018 //2019
+Style Attributes //2013
+Syntax 3 //2019
+Template Layout //2015
+Text Decoration 3 //2019
+Transforms 1 //2019
+Values and Units 3 //2019
+Will Change 1 //2015
+Writing Modes 3 //2019
+Writing Modes 4 //2019
+
+          <code class="CSS">
 внешний: тег link rel="stylesheet" href="*.css"
 в документе: тег style /style
 внутри тега: style=""
-//внешний: @import "*.css"; 
+//внешний: @import '*.css'; 
 
 /* comment */
+
 
 <div class="details">
 
@@ -526,7 +568,7 @@ sel[атрибут] для элемента с атрибутом
 :indeterminate флажки и переключатели
 </div></details>
 
-<details><summary>:<b>Псевдоэлемент</b></summary><div>
+<details><summary>::<b>Псевдоэлемент</b></summary><div>
 Селектор:<b>Псевдоэлемент</b> { Описание правил стиля }
 
 ::after { content: "*"} в конец элемента
@@ -547,12 +589,14 @@ sel[атрибут] для элемента с атрибутом
 ::-moz-placeholder поля формы с атр.placeholder
 ::-webkit-input-placeholder
 
-::-webkit-scrollbar
-::-webkit-scrollbar-thumb
+::-webkit-scrollbar { width: 7px }
+::-webkit-scrollbar-button { height: 0 }
+::-webkit-scrollbar-thumb { border-width: 0 }
+::-webkit-scrollbar-track
 </div></details>
 
 <details><summary>@медиа запросы <a href="http://htmlbook.ru/css/value/media">htmlbook</a></summary><div>
-@import url('');
+@import 'url';
 
 @media (max-width:*px) {
     селектор1 {}

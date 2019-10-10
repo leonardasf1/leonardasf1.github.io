@@ -669,31 +669,39 @@
     .removeChild();  // удаление дочернего элемента
     .replaceChild()  // замена одного элемента на другой
 
-document.create​Element('тэг')
+	document.create​Element('тэг')
 
     .textContent = ; // вставить текст
-document.create​TextNode('text')
-.insertAdjacentText('afterend', 'text')
+	document.create​TextNode('text')
+	.insertAdjacentText('afterend', 'text')
 
     .innerHTML = "";  // заполнить HTML-кодом
-.insertAdjacentHTML('beforebegin', `html`);  // вставить HTML-код
-.insertAdjacentHTML('afterbegin', `html`);
-.insertAdjacentHTML('beforeend', `html`);
-.insertAdjacentHTML('afterend', `html`);
+	.insertAdjacentHTML('beforebegin', `html`);  // вставить HTML-код
+	.insertAdjacentHTML('afterbegin', `html`);
+	.insertAdjacentHTML('beforeend', `html`);
+	.insertAdjacentHTML('afterend', `html`);
 
-.insertAdjacentElement('', 'elem')
+	.insertAdjacentElement('', 'elem')
 
-elem.className
-elem.classList.add/remove("class")  // добавить/удалить класс.
-elem.classList.toggle("class")  // добавить класс, если его нет, иначе удалить.
-elem.classList.contains("class")  // проверка наличия класса, возвращает true/false.
+	.tagName
 
-.style.cssText=`        // Полная перезапись стилей
-    color: red !important;
-    background-color: yellow;
-    width: 100px;
-    text-align: center;
-  `;
+	.nodeType
+    // Основные типы узлов
+    //  Константа nodeType              | Значение nodeType
+    // ---------------------------------------------------
+    //  Node.ELEMENT_NODE               | 1
+    //  Node.ATTRIBUTE_NODE             | 2*
+    //  Node.TEXT_NODE                  | 3
+    //  Node.CDATA_SECTION_NODE         | 4
+    //  Node.ENTITY_REFERENCE_NODE      | 5*
+    //  Node.ENTITY_NODE                | 6*
+    //  Node.PROCESSING_INSTRUCTION_NODE| 7
+    //  Node.COMMENT_NODE               | 8
+    //  Node.DOCUMENT_NODE              | 9
+    //  Node.DOCUMENT_TYPE_NODE         | 10
+    //  Node.DOCUMENT_FRAGMENT_NODE     | 11
+    //  Node.NOTATION_NODE              | 12*
+    // ---------------------------------------------------
 			</code></pre></details></li>
 		<li><details><summary>поиск getElement..</summary>
 			<pre><code class="javascript">
@@ -819,14 +827,28 @@ elem.classList.contains("class")  // проверка наличия класс�
 	data-name="value"
 	.dataset.
 
-	.style.fontSize = '23px';
 	.href = 'новая/ссылка'; 
 
-	.classList.toggle('');
-	.classList.contains('');
+	elem.className
+	.classList.contains('');  // проверка наличия класса, возвращает true/false.
 	.classList.add('');
 	.classList.remove('');
 	.classList.replace('old', 'new')
+	.classList.toggle("class")  // добавить класс, если его нет, иначе удалить.
+
+	.style.fontSize = '23px';
+	.style.cssText=`        // Полная перезапись стилей
+	    color: red !important;
+	    background-color: yellow;
+	    width: 100px;
+	    text-align: center;
+	  `;
+
+	.setAttribute("href", "url");
+	.removeAttribute("href");
+	.getAttribute("href");
+	.hasAttribute('');  // проверяет наличие атрибута
+	.attributes  // все атрибуты элемента
 			</code></pre></details></li>
 		<li><details><summary>Forms</summary>
 			<pre><code class="javascript">
@@ -955,29 +977,14 @@ elem.classList.contains("class")  // проверка наличия класс�
 			<pre><code class="javascript">
 
 			</code></pre></details></li>
-	</ul>
-</div>
-
-<div>Web Components
-	<ul>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-	</ul>
-</div>
-
-<div>RegExp
-	<ul>
-		<li><details><summary></summary>
+		<li><details><summary>Web Components</summary>
 			<pre><code class="javascript">
 
 			</code></pre></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
-		<li><details><summary></summary></details></li>
+		<li><details><summary>RegExp</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
 	</ul>
 </div>
 
