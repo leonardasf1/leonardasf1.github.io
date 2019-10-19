@@ -60,10 +60,147 @@
 			</code></pre></details></li>
 		<li><details><summary>Операторы</summary>
 			<pre><code class="javascript">
+    = assigns a value 
+    Оператор присвоения "=" предназначен для присвоения определенного значения переменной. 
+            Арифметические операторы:
+
+        var a = 9;
+        var b = 5;
+        var result;
+
+        // Сложение (+)
+        result = a + b; // в данном случае + арифметическое сложение.
+        document.write("a + b = " + result); // в данном случае оператор + выполняет операцию конкатенации.
+
+        // Вычитание (-)
+        result = a - b; // в случае если a или b нечисловые, оператор пытается преобразовать их в числа.
+        document.write("a - b = " + result);
+
+        // Умножение (*)
+        result = a * b;
+        document.write("a * b = " + result);
+
+        // Деление (/)
+        result = a / b;
+        document.write("a / b = " + result); // деление на 0 дает +/- бесконечность. 0/0 дает NaN.
+
+
+                a % b;    Деление c остатком (Деление по модулю) - это операция, 
+            при которой возвращаемое значение является остатком от деления.
+
+
+            В отличие от некоторых других языков, оператор "+" делает конкатенацию, 
+    если хотя бы один операнд - строка, причем, не обязательно первый.
+
+        var a = -8;
+        var string = "10";
+
+        // Унарный минус (-)
+        result = -a; // Операция смены знака на противоположный.
+        document.write("-a = " + result);
+
+        // Унарный плюс (+)
+        // не изменяет знака при применении к числовому типу (ничего не происходит). 
+        result = +a;
+        document.write("+a = " + result);
+
+        // Унарный плюс (+)
+        // при применении к строковому типу, преобразовывает его в числовой.
+        result = +string + a;
+        document.write("+string + a = " + result);
+
+        Инкремент — операция, во многих языках программирования используемая 
+        для увеличения значения переменной на единицу.
+
+        Имеется префиксная и постфиксная форма инкремента. 
+        Префиксный инкремент выполняется перед использованием переменной.
+        Постфиксный инкремент выполняется после использования переменной.
+
+        var a = 9;
+
+    Постфиксный инкремент
+
+        document.write(a);   // выведет 9
+        a++;
+        document.write(a);   // выведет 10
+        document.write(a++); // выведет 10
+        document.write(a);   // выведет 11
+
+    Префиксный инкремент
+
+        document.write(a);   // выведет 11
+        ++a;
+        document.write(a);   // выведет 12
+        document.write(++a); // выведет 13
+        document.write(a);   // выведет 13
+
+    Декремент — операция, во многих языках программирования используемая 
+        для уменьшения значения переменной на единицу.
+
+        Имеется префиксная и постфиксная форма декремента. 
+        Префиксный декремент выполняется перед использованием переменной.
+        Постфиксный декремент выполняется после использования переменной.
+
+        var a = 9;
+
+    Постдекремент
+
+        document.write(a);   // выведет 9
+        a--;
+        document.write(a);   // выведет 8
+        document.write(a--); // выведет 8
+        document.write(a);   // выведет 7
+
+    Предекремент
+
+        document.write(a);   // выведет 7
+        --a;
+        document.write(a);   // выведет 6
+        document.write(--a); // выведет 5
+        document.write(a);   // выведет 5
+
+        Специальные простые операторы
+
+        a += 3; // a = a + 3;
+
+        a -= 3; // a = a - 3;
+
+        a *= 3; // a = a * 3;
+
+        a /= 3; // a = a / 3;
 
 			</code></pre></details></li>
 		<li><details><summary>Операторы сравнения</summary>
 			<pre><code class="javascript">
+    == checks a value to another
+    Оператор равенства "==" предназначен для сравнения значений двух переменных, 
+        при этом необходимо помнить о следующих правилах:
+        
+             1. если одно значение null а другое undefined - значения равны.
+             2. если одно значение число, а второе строка, то строка преобразоваться в число и производиться сравнение.
+             3. если одно значение true оно преобразуется в 1, если значение false оно преобразоваться в 0.
+
+
+    === checks a value & type
+        Идентичность - требует совпадения типа и значения переменной, 
+    когда для равенства достаточно только совпадающих значений.
+
+    Оператор идентичности "===" предназначен для проверки значений двух переменных на идентичность, 
+    при этом необходимо помнить о следующих правилах:
+        
+        1. если значения имеют разные типы они не идентичны.
+        2. если значения являются числами имеют одинаковые значения и не являются значения NaN - они идентичны.
+        3. если две строки имеют одинаковую длину и содержат одни и те же символы - они идентичны.
+        4. два одинаковых логических значения идентичны.
+
+    != Оператор неравенства "!=" возвращает противоположное значение оператора равенства.
+    !== Оператор неидентичности "!==" возвращает противоположное значение оператора идентичности.
+
+    < , > , <= , >= Операторы сравнения .
+        Сравнение строк производиться посимвольно для числовых значений каждого символа из кодировки Unicode.
+        Символ в верхнем регистре считается меньше символа в нижнем регистре.
+        Например: A - code (41 Hex)
+                  a - code (61 Hex)
 
 			</code></pre></details></li>
 		<li><details><summary>alert, prompt, confirm</summary>
@@ -84,7 +221,11 @@
 		</details></li>
 		<li><details><summary>Логические операторы</summary>
 			<pre><code class="javascript">
-
+    & bitwise AND
+    ^ bitwise XOR
+    | bitwise OR
+    && logical AND . Логическое И (&&) - возвращает true тогда и только тогда когда оба операнда равны true.
+    || logical OR . Логическое ИЛИ (||) - возвращает true, если первый или второй операнд (или оба) равны true.
 			</code></pre></details></li>
 		<li><details><summary>Циклы: while, for</summary>
 			<pre><code class="javascript">
@@ -101,6 +242,12 @@
 	for (let [key, value] of Object.entries(object1)) {  // перебор объекта
 		console.log(`${key}: ${value}`);
 	}
+
+	.forEach(value => { console.log(value); });  // перебор элементов массива
+	.forEach((item, index, array) => {
+		alert(`${item} имеет позицию ${index} в ${array}`);
+	});
+	.forEach(alert);
 			</code></pre>
 		</details></li>
 		<li><details><summary>switch ..case</summary>
@@ -191,19 +338,18 @@
 	.every()
 	.fill()
 	.filter()
-	.find()
+	.find(item => item.id == 1);  //поиск элемента в массиве объектов
 	.findIndex()
 	.flat()
 	.flatMap()
-	.forEach(value => { console.log(value); });  // перебор элементов массива
 	.from()
-	.includes()
-	.indexOf()
+	.includes(item, from)  //ищет item, начиная с индекса from, и возвращает true, если поиск успешен.
+	.indexOf(item, from)  //ищет item, начиная с индекса from, и возвращает индекс, на котором был найден искомый элемент, в противном случае -1.
+	.lastIndexOf(item, from)  //то же самое, но ищет справа налево.
 	.isArray()
-	.join()  // - преобразует все элементы массива в строки и объединяет их. 
+	.join()  // преобразует все элементы массива в строки и объединяет их. 
 	// Если метод принимает строковой аргумент, то аргумент станет разделителем вместо запятых.
 	.keys()
-	.lastIndexOf()
 	.length
 	.map()
 	.of()
@@ -315,7 +461,14 @@
 			</code></pre></details></li>
 		<li><details><summary>Destructuring assignment<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"></a></summary>
 			<pre><code class="javascript">
+	// Деструктуризация
 
+	let [,,mu,ars,mc = 'default'] = Array
+	// присваиваем переменным значения элементов массива
+	let { name, age, country } = Object
+	// записываем элементы объекта в одноименные переменные
+	let { name: userName, age:userAge, country } = Object
+	// или в переменные с другими именами
 			</code></pre></details></li>
 		<li><details><summary>Date, time</summary>
 			<pre><code class="javascript">
@@ -331,9 +484,15 @@
 			<pre><code class="javascript">
 
 			</code></pre></details></li>
-		<li><details><summary>Garbage Collection</summary></details></li>
+		<li><details><summary>Garbage Collection</summary>
+			<pre><code class="javascript">
+
+			</code></pre></details></li>
 		<li><details><summary>Symbol</summary>
 			<pre><code class="javascript">
+let varName = Symbol('Name');
+let varName = Symbol.for('symbolName');
+console.log(Symbol.keyFor('varName'))
 
 			</code></pre></details></li>
 		<li><details><summary>this</summary>
@@ -400,10 +559,10 @@
 		<li><details><summary>rest, spread</summary>
 			<pre><code class="javascript">
 	// rest_parameters
-	function f (a, b, ...theArgs) {
-	  // ...
-	}
-	// spread
+	function f (a, b, ...arrName) {}
+	// задаём массив в качестве агумента
+
+	// spread - добавляем элементы других массивов/объектов
 	let obj3 = { ...obj1, ...obj2 };
 	let array3 = [ ...arr1, ...arr2];
 			</code></pre></details></li></details></li>
@@ -822,12 +981,194 @@
     //get​Modifier​State()
     init​Mouse​Event 
 			</code></pre></details></li>
+		<li><details><summary>Element <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"></a></summary>
+			<pre><code class="javascript">
+	Properties
+
+	.accessKey
+	.attributes
+	.child​Element​Count
+	.children
+	.class​List
+	.class​Name
+	.client​Height
+	.client​Left
+	.clientTop
+	.client​Width
+	.current​Style
+	.first​Element​Child
+	.id
+	.last​Element​Child
+	.local​Name
+	.name
+	.namespaceURI
+	.next​Element​Sibling
+	.onfullscreenchange
+	.onfullscreenerror
+	.open​OrClosed​Shadow​Root
+	.outer​HTML // весь код блока включая сам блок
+	.prefix
+	.previous​Element​Sibling
+	.runtime​Style
+	.scroll​Height
+	.scroll​Left
+	.scroll​LeftMax
+	.scrollTop
+	.scroll​TopMax
+	.scroll​Width
+	.shadow​Root
+	.slot
+	.tab​Stop
+	.tag​Name
+
+	Methods
+
+	.after()
+	.animate()
+	.attach​Shadow()
+	.before()
+	.closest()
+	.computed​StyleMap()
+	.create​Shadow​Root()
+	.get​Animations()
+	.get​Attribute()
+	.get​Attribute​Names()
+	.get​Attribute​Node()
+	.get​Attribute​NodeNS()
+	.get​AttributeNS()
+	.get​Bounding​Client​Rect()
+	.get​Client​Rects()
+	.has​Attribute()
+	.has​AttributeNS()
+	.has​Attributes()
+	.has​Pointer​Capture()
+	.insert​Adjacent​Element()
+	.insert​Adjacent​HTML()
+	.insert​Adjacent​Text()
+	.matches()
+	.msZoomTo()
+	.release​Pointer​Capture()
+	.remove()
+	.remove​Attribute()
+	.remove​Attribute​Node()
+	.remove​AttributeNS()
+	.replace​With()
+	.request​Fullscreen()
+	.request​Pointer​Lock()
+	.scroll()
+	.scrollBy()
+	.scroll​Into​View()
+	.scroll​Into​View​IfNeeded()
+	.scrollTo()
+	.set​Attribute()
+	.set​Attribute​Node()
+	.set​Attribute​NodeNS()
+	.set​AttributeNS()
+	.set​Capture()
+	.set​Pointer​Capture()
+	.toggle​Attribute()
+			</code></pre></details></li>
+		<li><details><summary>HTMLElement <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"></a></summary>
+			<pre><code class="javascript">
+	Properties
+
+	.content​Editable
+	.context​Menu
+	.dir
+	.hidden
+	.inner​Text
+	.isContent​Editable
+	.lang
+	.nonce
+	.offset​Height / .offset​Width         // высота / ширина элемента
+	.offsetLeft / .offsetTop         // смещение элемента относительно родительского узла
+	.offset​Parent
+			</code></pre></details></li>
+		<li><details><summary>HTMLMedia​Element <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement"></a></summary>
+			<pre><code class="javascript">
+	Properties
+
+	audio​Tracks
+	autoplay        // воспроизведение сразу после загрузки
+	buffered
+	controller
+	controls        // элементы управления воспроизведением
+	controls​List
+	cross​Origin
+	currentSrc      // адрес медиафайла (чтение)
+	current​Time     // текущее положение в клипе ,сек.
+	default​Muted
+	default​Playback​Rate
+	duration        // длительность (чтение)
+	ended      // true, если воспроизведение завершено (чтение)
+	error       // код ошибки, если возникла (чтение)
+	initial​Time
+	loop        // если true, зацикливание воспроизведения
+	media​Group
+	muted       // отключение звука
+	network​State
+	onerror
+	paused      // true, если приостановлен (чтение)
+	playback​Rate
+	ready​State
+	seekable
+	sinkId
+	src
+	src​Object
+	text​Tracks
+	video​Tracks
+	volume      // громкость от 0.0 до 1.0
+
+	Methods // управляющие функции
+
+	can​Play​Type()     // проверить способность проигрывать указанный тип MIME
+	capture​Stream()
+	fast​Seek()
+	load()                  // загрузить и подготовить к воспроизведению
+	msInsert​Audio​Effect()
+	pause()             // приостановить
+	play()              // загрузить (если необходимо) и воспроизвести
+	requestFullscreen()
+	seek​ToNext​Frame()
+	//set​Media​Keys()
+	//set​SinkId()
+
+	Events
+
+	abort
+	canplaythrough
+	error
+	loadeddata
+	loadstart
+	play
+	playing
+	progress
+	timeupdate
+	volumechange
+	waiting
+			</code></pre></details></li>
 		<li><details><summary>attributes</summary>
 			<pre><code class="javascript">
-	data-name="value"
-	.dataset.
+< style>
+  .div[data-info="name"] { color: green }
+  .div[data-info="age"] { color: blue }
+< /style>
+< div class='div' data-info="name">< /div>
+< div class='div' data-info="age">< /div>
+
+< script>
+  let user = {
+    age: 25,
+    name: "Pete"
+  };
+  for(let i of document.querySelectorAll('[data-info]')) {
+    // i.innerHTML = user[i.getAttribute('data-info')];
+    i.innerHTML = user[i.dataset.info];
+  }
+< /script>
 
 	.href = 'новая/ссылка'; 
+	.href  // получаем полный адрес
 
 	elem.className
 	.classList.contains('');  // проверка наличия класса, возвращает true/false.
@@ -846,9 +1187,11 @@
 
 	.setAttribute("href", "url");
 	.removeAttribute("href");
-	.getAttribute("href");
+	.getAttribute("href");  // получаем строку из html
 	.hasAttribute('');  // проверяет наличие атрибута
 	.attributes  // все атрибуты элемента
+		.includes('')  // содержит
+		.startsWith('')  // начинается с 
 			</code></pre></details></li>
 		<li><details><summary>Forms</summary>
 			<pre><code class="javascript">

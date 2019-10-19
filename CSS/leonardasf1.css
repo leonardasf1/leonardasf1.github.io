@@ -2,7 +2,7 @@
 	box-sizing: border-box
 }
 
-html, body {
+body {
     color: #D8D7D4;
 	padding: 0;
 	margin: 0;
@@ -10,7 +10,7 @@ html, body {
     font-size: 16px;
     background-color: #37393B;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 2rem;
+    /*line-height: 2rem;*/
 }
 img { max-width: 98vw; }
 li { 
@@ -49,30 +49,18 @@ header {
 }
 
 #headerMenu {
-    padding: 31px 3%;
+    padding: 5px 3%;
     width: 100vw;
-    max-height: 95px;
+    height: 95px;
     position: fixed;
     background: linear-gradient(135deg, #8360c3, #2ebf91);
-    transition: padding .5s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2)
+    transition: height .5s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    flex-wrap: wrap;
 }
 @media (max-width:800px) {
     #headerMenu {
-        flex-wrap: wrap;
-        max-height: 1000px;
-    }
-    #headerMenu > div {
-        margin: 0;
-    }
-    #homeSlide {
-        text-align: right;
-        width: calc(96% - 250px);
-    }
-    #homeSlide~* {
-        display: none;
-        width: 100%;
-        text-align: center;
+        overflow: hidden;
     }
 }
 
@@ -116,7 +104,6 @@ summary img, ul img {
 }
 .slideT {
   display: block;
-  overflow: hidden;
   animation: .5s slideT forwards;
 }
 @keyframes slideT { from { opacity: 0 } to { opacity: 1 }}
@@ -136,6 +123,7 @@ article {
     background: rgba(0,0,0,.4);
     height: 60px;
     padding: 0 2%;
+    overflow: scroll;
 }
 
 #links a {
@@ -182,8 +170,10 @@ summary+* {
     border-radius: 10px;
     color: white;
     position: absolute;
-    left: 20px;
+    left: 1vw;
     box-shadow: 0 8px 16px 0 black;
+    overflow: scroll;
+    max-width: 98vw;
 }
 #footerScrollTop {
     z-index: 100;
@@ -198,10 +188,10 @@ summary+* {
 #footerScrollTop:hover {
     color: white;
     filter: drop-shadow(0 2px 2px black);
+    cursor: pointer;
 }
 
 footer {
-    position: relative;
     display: flex;
     align-items: center;
     height: 100px;

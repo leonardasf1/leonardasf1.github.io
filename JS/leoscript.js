@@ -1,8 +1,8 @@
 // "use strict";
 // Document.head.createElement(‘script’); src
 
-const v = function (id) {return document.querySelector(id);};
-const vall = function (id) {return document.querySelectorAll(id);};
+function v(id) {return document.querySelector(id);};
+function vall(id) {return document.querySelectorAll(id);};
 
 let headerMenuB = 
        `<div class="homeSlide"><a><img src="../icons/favicon.ico"></a></div>
@@ -20,6 +20,7 @@ let headerMenuB =
 <a href="../programming/css.html">CSS</a>
 <a href="../programming/bootstrap.html">Bootstrap</a>
 <a href="../programming/javascript.html">JavaScript</a>
+<a href="../programming/js2.html">js2</a>
 <a href="../programming/jquery.html">jQuery</a>
 <a href="../programming/webpack.html">webpack</a>
 <a href="../programming/angular.html">Angular</a>
@@ -56,10 +57,10 @@ window.onscroll = function () {
     let scrolled = this.scrollY;
 
     if (scrolled > 50) {
-        headerMenu.style.padding = "2px 3%";
+        headerMenu.style.height = '56px';
     }
     if (scrolled < 51) {
-        headerMenu.style.padding = "31px 3%";
+        headerMenu.style.height = '95px';
     }
     if (scrolled > 1200) {
         footerScrollTop.style.right = "22px";
@@ -74,9 +75,7 @@ window.onscroll = function () {
     //      $(this).nextAll().slideToggle(500);
     // });
 
-footerScrollTop.addEventListener("click", function () {
-    window.scroll(0, 0);
-});
+footerScrollTop.addEventListener("click", () => window.scroll(0, 0));
 
 v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
 
@@ -99,6 +98,6 @@ for (let i in vall('.item')) {
   }
 };
 
-    for (let i in vall("article a, #links a")) {
-        vall("article a, #links a")[i].setAttribute("target", "_blank");
-    };
+vall('a[href*="://"]').forEach(
+    link => link.setAttribute("target", "_blank"));
+
