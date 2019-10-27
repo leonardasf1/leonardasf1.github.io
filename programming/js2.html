@@ -227,15 +227,14 @@
 			</code></pre></details></li>
 		<li><details><summary>Циклы: while, for</summary>
 			<pre><code class="javascript">
-  while (сравнение) {i++; x;}  пока
-  do {x; i++;} while (сравнение);
-  for (var i = 0; i < 10; i++) {}
-  for (; ;) {name = x; y;}
-  for (var property in name) {x(name[property])}
+  while (сравнение) { i++; x; }  пока
+  do { x; i++; } while (сравнение);
+  for (let i = 0; i < 10; i++) {}
+  for (; ;) { name = x; y; }
 
-  for (let i in array) {...array[i]} // перебор массива
+  for (let i in array) { array[i] } // перебор массива
 
-  for (let value of args){} // перебор значений
+  for (let value of args) { value } // перебор значений
 
   for (let [key, value] of Object.entries(object1)) {  // перебор объекта
   	console.log(`${key}: ${value}`);
@@ -269,11 +268,16 @@
 			</code></pre></details></li>
 		<li><details><summary>Number</summary>
 			<pre><code class="javascript">
-
+.toFixed(2);  // количество цифр после запятой
 			</code></pre></details></li>
 		<li><details><summary>String</summary>
 			<pre><code class="javascript">
-	Methods
+
+    var mss = "Welcome " + name + name + "!";
+    let msg = `Welcome ${name + name}!`.toUpperCase();
+  `hello ${who}`
+
+  Methods
 
   String.fromCharCode(e.charCode)  // введеный символ 
   String​.from​Code​Point()
@@ -472,7 +476,10 @@
 			<pre><code class="javascript">
 
 			</code></pre></details></li>
-		<li><details><summary>JSON</summary></details></li>
+		<li><details><summary>JSON</summary>
+      <pre><code class="javascript">
+
+      </code></pre></details></li>
 	</ul>
 </div>
 
@@ -480,7 +487,58 @@
 	<ul>
 		<li><details><summary>Object</summary>
 			<pre><code class="javascript">
+  let name = {
+    t:a,
+    s:x,
+    r:this.t
+  }  // Создание объекта через блок инициализации.
 
+  let name = {}    // пустой объект
+
+  name.t = a;
+  name["s"];  // Присвоение новых значений свойствам.
+
+  let name = new Object();
+
+  delete name.t; //удаляет свойство
+
+  .hasOwnProperty("")  //проверка наличия свойства
+
+  .getItem("key");
+  .setItem("key","value");
+  .deleteItem("key");
+
+  Object.assign(target, source)
+  Object.create()
+  Object.defineProperties()
+  Object.defineProperty()
+  Object.entries()
+  Object.freeze()
+  Object.fromEntries()
+  Object.getOwnPropertyDescriptor()
+  Object.getOwnPropertyDescriptors()
+  Object.getOwnPropertyNames()
+  Object.getOwnPropertySymbols()
+  Object.getPrototypeOf()
+  Object.is()
+  Object.isExtensible()
+  Object.isFrozen()
+  Object.isSealed()
+  Object.keys(objName)  // массив ключей
+  Object.seal()  // массив значений
+  Object.setPrototypeOf()
+  Object.values()
+
+  function funcName(property, value) {
+    return {
+      [property]: value,
+      ['_' + property]: value,
+      [property.toUpperCase()]: value,
+      ['get' + property]() {
+        return this[property];
+      }
+    }
+  }
 			</code></pre></details></li>
 		<li><details><summary>Garbage Collection</summary>
 			<pre><code class="javascript">
@@ -521,7 +579,19 @@
 			</code></pre></details></li>
 		<li><details><summary>get, set</summary>
 			<pre><code class="javascript">
+  Object.defineProperty(obj, 'propName3', {
+    get: function() {
+      return this.propName1 + '' + this.propName2;
+    }
+    set: function(value) { this.propName1 = value; }
+  });
 
+  {
+    get propName() {
+      return this.propName1 + '' + this.propName2;
+    },
+    set propName(value) { this.propName1 = value; }
+  }
 			</code></pre></details></li>
 	</ul>
 </div>
@@ -555,13 +625,17 @@
 			</code></pre></details></li>
 		<li><details><summary>rest, spread</summary>
 			<pre><code class="javascript">
-	// rest_parameters
-	function f (a, b, ...arrName) {}
-	// задаём массив в качестве агумента
+  // rest_parameters
+  function f (a, b, ...arrName) {}
+  // задаём массив в качестве агумента
+  function sum(...values) {
+    values.forEach();
+  }
+  sum(5, 7, 2, 10);
 
-	// spread - добавляем элементы других массивов/объектов
-	let obj3 = { ...obj1, ...obj2 };
-	let array3 = [ ...arr1, ...arr2];
+  // spread - добавляем элементы других массивов/объектов
+  let obj3 = { ...obj1, ...obj2 };
+  let array3 = [ ...arr1, ...arr2];
 			</code></pre></details></li></details></li>
 		<li><details><summary>Замыкание</summary>
 			<pre><code class="javascript">
@@ -626,12 +700,12 @@
   	}
   }
   class Dog extends Animal {
-  	constructor(name) {
-  		super(name); // call the super class constructor and pass in the name parameter
-  	}
-  	speak() {
-  		console.log(`${ this.name } barks.`);
-  	}
+    constructor(name) {
+      super(name); // call the super class constructor and pass in the name parameter
+    }
+    speak() {
+      console.log(`${ this.name } barks.`);
+    }
   }
   class Lion extends Cat {
       static methodName () { ... }
@@ -659,7 +733,10 @@
 			</code></pre></details></li>
 		<li><details><summary>instanceof</summary>
 			<pre><code class="javascript">
-	instanceof - оператор для проверки типа объекта
+  instanceof // оператор для проверки типа объекта
+  class Task {}
+  let task = new Task();
+  console.log(task instanceof Task);
 			</code></pre></details></li>
 		<li><details><summary>Mixins</summary>
 			<pre><code class="javascript">
