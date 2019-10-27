@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nitro Header</title>
+	<style>
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+	box-sizing: border-box;
+	-moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-family: Roboto;
+    font-size: 14px;
+}
+header, nav {display: block}
+
+.menu-wrapper {
+    display: table-row;
+    width: 100%;
+    position: relative;
+    height: 1px;
+    /*height: 104px;*/   /*js*/
+}
+.menu-wrapper.menu-sticky .menu-container {
+    z-index: 2000;
+    transform: translateZ(0);
+}
+.menu-wrapper div[class*="col-lg-"].middle {vertical-align: middle}
+
+.no-header .menu-container {transition: transform 0.5s ease-in-out}
+
+.menu-container::after {clear: both}
+
+.menu-container::before, .menu-container::after {
+    content: " ";
+    display: table;
+    table-layout: fixed;
+}
+::placeholder {color: #888}
+
+.menu-hide.menu-container, .menu-container.menu-hide-vertical, .menu-container-mobile.menu-hide {
+	transition: transform 0.5s ease-in-out, background-color 0.4s ease-in-out
+}
+.menu-container {
+    float: none !important;
+    z-index: 2;
+    overflow: visible;
+	width: 100%;
+	transition: background-color 0.4s ease-in-out;
+}
+.row-menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.row-menu-inner {
+    width: 100%;
+    background-clip: content-box !important;
+    position: relative;
+}
+.logo-container {
+    line-height: 1px;
+    vertical-align: top;
+}
+.col-lg-0 {padding: 27px 36px 27px 36px}
+
+#main-logo {
+    line-height: 0px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+}
+.style-light {color: #777777}
+
+.logo-container > * {
+    margin: 0 auto;
+    line-height: normal;
+}
+body[class*="hmenu-"] .menu-wrapper [class*="col-lg-"]:not(.logo-container) {
+    padding-left: 0;
+    padding-right: 0
+}
+.row-menu-inner > div:not(.logo-container) {
+    padding-top: 0px;
+    padding-bottom: 0px
+}
+.menu-light .menu-smart, .menu-light .menu-smart li, .submenu-light .menu-smart ul, .menu-smart.submenu-light li ul li, .menu-light .menu-accordion-dividers, .menu-light .menu-borders, .menu-light.vmenu-borders, .menu-light .main-menu-container {
+	border-color: rgba(234,234,234,0.5)
+}
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    padding: 36px 36px 36px 36px;
+    display: block;
+    height: auto;
+    width: 100%;
+    vertical-align: top;
+    position: relative;
+}
+a {
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+	background: transparent;
+}
+.menu-horizontal {
+    position: relative;
+    line-height: 0px;
+}
+.menu-horizontal-inner {line-height: 0px}
+
+.hmenu .navbar-nav {height: 100%}
+
+.hmenu .menu-smart, .hmenu-center .menu-smart {height: 100%}
+
+ul.menu-smart {line-height: 0px}
+
+ul.menu-smart {-webkit-tap-highlight-color: rgba(0, 0, 0, 0.5)}
+
+.menu-smart {padding: 0px 13px 0px 13px}
+
+.menu-smart, .menu-smart ul, .menu-smart li {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    direction: ltr;
+}
+ul {list-style: none}
+
+ul, ol {padding: 0}
+
+ul, ol {
+    margin: 18px 0px 0px 0px;
+    padding-left: 18px;
+}
+#menu-custom-main-menu .dropdown {position: static}
+
+ul li, ol li {margin-top: 0}
+
+p, li, dt, dd, dl, address, label, small, pre, code {font-size: 15px}
+
+p, li, dt, dd, dl, address, label, small, pre, code {
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 18px 0 0;
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.dropdown {vertical-align: top !important}
+
+.menu-with-logo .menu-smart > li, .menu-with-logo .menu-smart > li > a {height: 100%}
+
+.menu-smart > li:first-child {border-left-width: 0 !important}
+
+body[class*="hmenu"] ul.menu-smart > li, ul.menu-smart.menu-horizontal > li {display: inline-block}
+
+#menu-custom-main-menu .dropdown {position: static}
+
+::before, ::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    /*mobile---------------------------------------------------------------------------------------*/
+
+.mmb-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+.lines-button {transition: .3s}
+
+.mobile-menu-button {
+    display: none;
+    line-height: 0px;
+    transform: translateY(-50%);
+    position: relative;
+    padding: 27px 36px 27px 36px;
+    cursor: pointer;
+}
+.mobile-menu-button-light .lines, .mobile-menu-button-light .lines::before, .mobile-menu-button-light .lines::after {
+
+    background: #303133;
+
+}
+.lines {
+
+    position: relative;
+
+}
+.lines, .lines::before, .lines::after {
+
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    -webkit-border-radius: 5px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 5px;
+    -moz-background-clip: padding;
+    border-radius: 5px;
+    background-clip: padding-box;
+
+}
+
+@media (min-width: 960px) {
+	body:not(.hmenu-center) .menu-absolute {
+	    left: 0;
+    	right: 0;
+	    z-index: 1000;
+	    position: absolute;
+	}
+	header {
+		opacity: 1;  /*js*/
+	    width: 100%;
+    	z-index: 1000;
+    	position: relative;
+	}
+	.limit-width { max-width: 1200px; margin: auto;}
+
+	.menu-shadows {
+    	box-shadow: 0 4px 10px -10px rgba(0, 0, 0, 0.6);
+	}
+	.menu-wrapper .row-menu .row-menu-inner {padding: 0px 36px 0px 36px}
+
+	.row-menu-inner {
+    	display: table;
+    	height: 100%;
+	}
+	.menu-shrink .logo-container {
+	    transition: padding 0.3s linear;
+	}
+	body[class*="hmenu-"].hmenu-position-left .logo-container {padding-right: 18px !important}
+
+	body[class*="hmenu-"]:not(.hmenu-center-split) .logo-container {padding-left: 0px !important}
+
+	.col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+	    display: table-cell;
+	    height: 100%;
+	}
+	.col-lg-12 {width: 100%}
+
+	.menu-horizontal {
+    	height: 100%;
+    	width: 100%;
+	}
+	.hmenu .menu-horizontal-inner {width: 100%}
+
+	.menu-horizontal > div {
+	    height: 100%;
+	    display: inline-table;
+	}
+	body.hmenu .menu-container .navbar-nav {
+    	display: table-cell;
+    	white-space: nowrap;
+    	vertical-align: top;
+	}
+	.hmenu:not(.hmenu-center-split) .navbar-nav-first {width: 100%}
+
+	body.hmenu-position-left .menu-primary-inner {text-align: left}
+
+	body[class*="hmenu"] ul.menu-smart > li, ul.menu-smart.menu-horizontal > li {
+    	transition-delay: unset !important;
+	}
+	.menu-primary-inner > * {text-align: left}
+ 
+	.firefox .hmenu .menu-primary .menu-smart > li > a::after, .firefox .hmenu-center .menu-primary .menu-smart > li > a::after {height: auto}
+
+	.hmenu .menu-primary .menu-smart > li > a::after, .hmenu-center .menu-primary .menu-smart > li > a::after {
+    	content: "";
+    	display: block;
+    	height: 52%;
+    	height: calc(52% - 0.50em);
+	}
+	.hmenu .menu-primary .menu-smart > li > a::before, .hmenu-center .menu-primary .menu-smart > li > a::before {
+    	content: "";
+    	display: block;
+    	height: 52%;
+    	height: calc(52% - 0.50em);
+	}
+	body.hmenu .menu-primary .menu-horizontal .menu-smart > li > a {
+    	padding-top: 0px;
+    	padding-bottom: 0px;
+	}
+
+
+
+}
+.menu-primary ul.menu-smart > li > a, .menu-primary ul.menu-smart li.dropdown > a, .menu-primary ul.menu-smart li.mega-menu > a, .vmenu-container ul.menu-smart > li > a, .vmenu-container ul.menu-smart li.dropdown > a { text-transform: uppercase; }
+.menu-primary ul.menu-smart ul a, .vmenu-container ul.menu-smart ul a { text-transform: uppercase; }
+	</style>
+</head>
+<body>
+	<script type="text/javascript">UNCODE.initBox();</script>
+	<div class="menu-wrapper menu-shrink menu-sticky menu-no-arrows">
+		<header id="masthead" class="navbar menu-primary menu-light submenu-light menu-transparent menu-add-padding style-light-original menu-absolute menu-animated menu-with-logo">
+			<div class="menu-container menu-hide style-color-xsdn-bg menu-no-borders menu-shadows">
+				<div class="row-menu">
+					<div class="row-menu-inner">
+						<div id="logo-container-mobile" class="col-lg-0 logo-container middle">
+							<div id="main-logo" class="navbar-header style-light">
+								<a href="" class="navbar-brand">
+									<img src="https://www.nitrousa.com/wp-content/uploads/2017/08/cropped-nitro-favicon-32x32.png" alt="">
+								</a>
+							</div>
+							<div class="mmb-container">
+								<div class="mobile-menu-button mobile-menu-button-light lines-button x2">
+									<span class="lines"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12 main-menu-container middle">
+							<div class="menu-horizontal menu-dd-shadow-lg">
+								<div class="menu-horizontal-inner">
+									<div class="nav navbar-nav navbar-main navbar-nav-first">
+<ul id="menu-custom-main-menu" class="menu-primary-inner menu-smart sm">
+	<li id="menu-item-66283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-66283 dropdown menu-item-link" style="-webkit-transition-delay:0.1s; -moz-transition-delay:0.1s; -ms-transition-delay:0.1s; -o-transition-delay:0.1s; transition-delay:0.1s"><a title="Men" href="#" data-toggle="dropdown" class="dropdown-toggle" data-type="title">Men<i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-66306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-66306 dropdown"><a title="Snowboards" href="/mens-board-collection/" data-type="title">Snowboards<i class="fa fa-angle-down fa-dropdown"></i></a>
+				<ul role="menu" class="drop-menu">
+					<li id="menu-item-126240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126240"><a title="Board Specs" href="/board-specs/">Board Specs<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+				</ul>
+			</li>
+			<li id="menu-item-87882" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87882"><a title="Bindings" href="/mens-binding-collection/">Bindings<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66348"><a title="Boots" href="/mens-boots-collection/">Boots<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66372"><a title="Jackets" href="/mens-jackets-collection/">Jackets<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66371"><a title="Pants" href="/mens-pants-collection/">Pants<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66378"><a title="Apparel" href="/mens-apparel-collection/">Apparel<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66390"><a title="Headwear" href="/mens-headwear-collection/">Headwear<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66396"><a title="Firstlayer" href="/mens-firstlayer-collection/">Firstlayer<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+	<li id="menu-item-66284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-66284 dropdown menu-item-link" style="-webkit-transition-delay:0.15s; -moz-transition-delay:0.15s; -ms-transition-delay:0.15s; -o-transition-delay:0.15s; transition-delay:0.15s"><a title="Women" href="#" data-toggle="dropdown" class="dropdown-toggle" data-type="title">Women<i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-66304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-66304 dropdown"><a title="Snowboards" href="/womens-board-collection/" data-type="title">Snowboards<i class="fa fa-angle-down fa-dropdown"></i></a>
+				<ul role="menu" class="drop-menu">
+					<li id="menu-item-126242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126242"><a title="Board Specs" href="/board-specs/">Board Specs<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+				</ul>
+			</li>
+			<li id="menu-item-87878" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87878"><a title="Bindings" href="/womens-binding-collection/">Bindings<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66347"><a title="Boots" href="/womens-boots-collection/">Boots<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66370" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66370"><a title="Jackets" href="/womens-jackets-collection/">Jackets<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66369"><a title="Pants" href="/womens-pants-collection/">Pants<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-68684" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68684"><a title="Apparel" href="/womens-apparel-collection/">Apparel<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66389"><a title="Headwear" href="/womens-headwear-collection/">Headwear<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+	<li id="menu-item-66285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-66285 dropdown menu-item-link"><a title="Kids" href="#" data-toggle="dropdown" class="dropdown-toggle" data-type="title">Kids<i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-66312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-66312 dropdown"><a title="Snowboards" href="/kids-board-collection/" data-type="title">Snowboards<i class="fa fa-angle-down fa-dropdown"></i></a>
+				<ul role="menu" class="drop-menu">
+					<li id="menu-item-126241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126241"><a title="Board Specs" href="/board-specs/">Board Specs<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+				</ul>
+			</li>
+			<li id="menu-item-87874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87874"><a title="Bindings" href="/kids-binding-collection/">Bindings<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-66346" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66346"><a title="Boots" href="/kids-boots-collection/">Boots<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+	<li id="menu-item-95812" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95812 menu-item-link"><a title="Gloves" href="/gloves-collection/">Gloves<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+	<li id="menu-item-66286" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-66286 dropdown menu-item-link"><a title="Bags" href="#" data-toggle="dropdown" class="dropdown-toggle" data-type="title">Bags<i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-106076" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-106076"><a title="Urban Collection" target="_blank" href="https://www.nitrobags.com/bags/">Urban Collection<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-106077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-106077"><a title="Daypack Collection" target="_blank" href="https://www.nitrobags.com/daypacks/">Daypack Collection<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-81072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81072"><a title="Outdoor Collection" href="/outdoor-collection/">Outdoor Collection<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+	<li id="menu-item-86951" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-86951 dropdown menu-item-link"><a title="Company" href="#" data-toggle="dropdown" class="dropdown-toggle" data-type="title">Company<i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-86950" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86950"><a title="Distributors" href="/distributions/">Distributors<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-112095" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112095"><a title="Dealer Locator" href="/dealer-locator/">Dealer Locator<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-90175" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90175"><a title="Binding Manual" href="/binding-manual/">Binding Manual<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-91348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91348"><a title="28 Winters" href="/28-winters/">28 Winters<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-124113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-124113"><a title="Online Store Canada" href="https://www.nitrosnow.ca/">Online Store Canada<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+	<li id="menu-item-90172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90172 menu-item-link"><a title="Team" href="/team/">Team<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+	<li id="menu-item-125124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125124 menu-item-link"><a title="Sustainability" href="/sustainability/">Sustainability<i class="fa fa-angle-right fa-dropdown"></i></a></li>
+	<li id="menu-item-wpml-ls-100-en" class="menu-item menu-item-has-children wpml-ls-slot-100 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-wpml-ls-100-en dropdown menu-item-link"><a title="English" href="/" data-toggle="dropdown" class="dropdown-toggle" data-type="title"><span class="wpml-ls-native">English</span><i class="fa fa-angle-down fa-dropdown"></i></a>
+		<ul role="menu" class="drop-menu">
+			<li id="menu-item-wpml-ls-100-de" class="menu-item wpml-ls-slot-100 wpml-ls-item wpml-ls-item-de wpml-ls-menu-item menu-item-wpml-ls-100-de"><a title="Deutsch" href="/de/"><span class="wpml-ls-native">Deutsch</span><i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-wpml-ls-100-fr" class="menu-item wpml-ls-slot-100 wpml-ls-item wpml-ls-item-fr wpml-ls-menu-item menu-item-wpml-ls-100-fr"><a title="Français" href="/fr/"><span class="wpml-ls-native">Français</span><i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-wpml-ls-100-it" class="menu-item wpml-ls-slot-100 wpml-ls-item wpml-ls-item-it wpml-ls-menu-item menu-item-wpml-ls-100-it"><a title="Italiano" href="/it/"><span class="wpml-ls-native">Italiano</span><i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-wpml-ls-100-es" class="menu-item wpml-ls-slot-100 wpml-ls-item wpml-ls-item-es wpml-ls-menu-item menu-item-wpml-ls-100-es"><a title="Español" href="/es/"><span class="wpml-ls-native">Español</span><i class="fa fa-angle-right fa-dropdown"></i></a></li>
+			<li id="menu-item-wpml-ls-100-cs" class="menu-item wpml-ls-slot-100 wpml-ls-item wpml-ls-item-cs wpml-ls-menu-item wpml-ls-last-item menu-item-wpml-ls-100-cs"><a title="Čeština" href="/cs/"><span class="wpml-ls-native">Čeština</span><i class="fa fa-angle-right fa-dropdown"></i></a></li>
+		</ul>
+	</li>
+</ul>
+</div>
+<div class="nav navbar-nav navbar-nav-last">
+	<ul class="menu-smart sm menu-icons menu-smart-social">
+		<li class="menu-item-link social-icon tablet-hidden mobile-hidden social-174805"><a href="https://www.instagram.com/nitrousa/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+		<li class="menu-item-link social-icon tablet-hidden mobile-hidden social-597214"><a href="https://www.youtube.com/user/officialnitrousa" target="_blank"><i class="fa fa-youtube"></i></a></li>
+		<li class="menu-item-link social-icon tablet-hidden mobile-hidden social-172871"><a href="https://twitter.com/NITROSNBRDS" target="_blank"><i class="fa fa-social-twitter"></i></a></li>
+		<li class="menu-item-link social-icon tablet-hidden mobile-hidden social-497099"><a href="https://vimeo.com/nitrosnow" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+		<li class="menu-item-link social-icon tablet-hidden mobile-hidden social-137732"><a href="https://www.facebook.com/nitroSnbrds" target="_blank"><i class="fa fa-social-facebook"></i></a></li>
+	</ul>
+</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+
+</body>
+</html>

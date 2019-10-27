@@ -1,0 +1,186 @@
+html, body {
+	padding: 0;
+	margin: 0;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+#wrapper {
+    max-width: 1200px
+}
+
+    a {
+        color: black;
+        text-decoration: none;
+        margin-right: 30px;
+    }
+    a:hover {
+        color: rgb(252, 85, 124);
+        border-bottom: 1px solid rgb(252, 85, 124);
+    }
+    header {
+    	height: 770px;
+    	background-color: #fbfbfb;
+    }
+.fixed-width {
+        	width: 1170px;
+        	margin: 0 auto ;
+    		padding: 0 30px;
+    		height: 100px;
+        }
+        	nav {
+        		height: 100%;
+        		float: left;
+        		display: flex;
+                align-items: center;
+        	}
+        	#contact-container {
+        		height: 100%;
+                float: right;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+        	}
+        	#phone {
+        		font-weight: bolt;
+        		font-size: 25px;
+        	}
+
+    #button-call {
+        		border: 1px solid rgb(252, 85, 124);
+        		color: red;
+        		padding: 11px 30px 11px;
+        		margin-left: 30px;
+        		background-color: #fbfbfb;
+        		font-size: 16px
+        	}
+#dafoto {
+            width: 1290px;
+            margin: 0 auto ;
+            padding: 10px 107px 10px 170px;
+            height: 650px;
+            background: url(img/Dmitry_Alekseev.png) no-repeat 800px -90px;
+            vertical-align: bottom;
+}
+
+    #button-da {
+                color: white;
+                margin-top: 40px;
+                padding: 17px 66px;
+                background-color: red;
+                font-size: 18px
+            }
+#section1 { 
+        height: 480px;
+        background-color: #ffffff;
+    }
+    h1 {
+        font-size: 55px;
+        text-align: center;
+    }
+    .four-cell {
+        width: 1170px;
+        margin: 0 auto ;
+        padding: 20px 30px;
+        display: flex;
+    }
+        .cell {
+            width: 25%;
+            padding: 0 20px;
+            text-align: center;
+            color: #cccccc;
+            font-size: 20px;
+        }
+
+    .cost {
+        margin: 0 auto ;
+        padding: 20px 30px;
+        text-align: center;
+    }
+#section2 { 
+        height: 800px;
+        background-color: #fbfbfb;
+    }
+        .cell3 {
+            width: 33%;
+            padding: 0 15px;
+            text-align: center;
+            color: #cccccc;
+            font-size: 20px;
+        }
+#section3 { 
+        height: 350px;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+}
+#section3 div {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+#section3 h1 {
+    font-size: 50px;
+    text-align: none
+}
+#section3 p, #section3 h1 {padding-left: 100px}
+
+.section4 {
+    width: 1170px;
+    margin: 0 auto ;
+    padding: 20px 30px;
+    display: flex;
+}
+.cell4 {
+    width: 33%;
+    padding: 0 15px;
+    color: #cccccc;
+    font-size: 20px;
+}
+
+footer {
+    height: 80px;
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+    background-color: #111111;
+}
+
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#popup {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+    color: grey;
+}
+#popup h2 {
+    margin-top: 0;
+    color: black;
+}
+.input {
+    color: grey;
+    width: 240px;
+    height: 50px;
+    margin-bottom: 17px;
+    font-size: 18px;
+    padding: 0 17px;
+}
+    #button-input {
+        color: white;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        font-size: 18px;
+        padding: 17px 65px 17px 66px;
+        background-color: red;
+    }

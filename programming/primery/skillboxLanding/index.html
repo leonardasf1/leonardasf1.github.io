@@ -1,0 +1,162 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Дмитрий Алексеев - официальный сайт</title>
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+        $('#button-call').click(function(){
+        	$('#popupContainer').css('display', 'flex');
+        });
+
+        $('#popupContainer').click(function(event){
+        	if(event.target === this) {
+        	    $('#popupContainer').css('display', 'none');
+            }
+        });
+/*
+        $('#button-input').click(function(){
+           var name = $('name').val();
+           if(name <= 0) {
+           	  alert('Введите Имя!');
+           } else {
+           	  $.post('/api.php', {'name' : name}, function(response){
+           alert('Спасибо за заказ!');
+           	  });
+           }
+        }); */
+	});
+</script>
+	</head>
+
+	<body>
+
+		<div id="popupContainer">
+			<div id="popup">
+				<h2>Форма заявки</h2>
+				<form action="" method="POST" autocomplete="off">
+<input class="input" id="name" type="text" placeholder="Имя">
+<input class="input" type="tel" placeholder="Телефон">
+<button id="button-input">Заказать проект</button>
+<br>
+  <input type="checkbox" width="20px"><span style="font-size: 13px;">
+Я согласен с условиями обработки персональных данных</span>
+				</form>	
+			</div>
+		</div>
+
+        <header>
+       	  <div class="fixed-width">
+
+       	  	<nav>
+       		    <a href="#">Услуги</a>
+       		    <a href="#">Портфолио</a>
+       		    <a href="#">Стоимость</a>
+       		  </nav>
+
+       		  <div id="contact-container">
+       		    <span id="phone">+9 (999) 999-99-99</span>
+       		    <button id="button-call">Заказать звонок</button>
+       	    </div>
+       	  </div>
+       	  <div id="dafoto">
+       	  	
+       		  <span style="font-size: 80px">
+       		  	<br><br>
+       		  	<b> Дмитрий Алексеев</b>
+       		  </span>
+       		  <br>
+       		  <span style="font-size: 25px; color: #cccccc;">
+       		   <br>Frontend-разработчик и веб-верстальщик
+       		   <br>
+       		  </span>
+       		  <button id="button-da">Узнать больше</button>
+       	  	
+       	  </div>
+        </header>
+
+<article>
+
+<section id="section1">
+  <h1>Что я делаю</h1>
+  <div class="four-cell">
+    <div class="cell">
+	    <img src="img/icons/tools-and-utensils.png" alt="">
+	    <p>Вёрстка лендинг-страниц и сайтов любой сложности</p>
+    </div>
+    <div class="cell">
+	    <img src="img/icons/responsive.png" alt="">
+	    <p>Адаптивная вёрстка под все браузеры и устройства</p>
+    </div>
+    <div class="cell">
+	    <img src="img/icons/programming.png" alt="">
+	    <p>Frontend-разработка и программирование</p>
+    </div>
+    <div class="cell">
+	    <img src="img/icons/coding.png">
+	    <p>Исправление и доработка существующей вёрстки</p>
+    </div>
+  </div>
+  <div class="cost">
+   	<button id="button-da">Узнать стоимость</button>
+  </div>
+</section>
+
+<section id="section2">
+  <h1><br>Примеры моих работ</h1>
+  <div class="four-cell">
+  	<div class="cell3">
+  		<img src="img/Portfolio_1.png" alt="">
+  		<p>Сайт психолога Веры Антоновой</p>
+  	</div>
+  	<div class="cell3">
+  		<img src="img/Portfolio_2.png" alt="">
+  		<p>Сайт магазин детской одежды</p>
+  	</div>
+  	<div class="cell3">
+  		<img src="img/Portfolio_3.png" alt="">
+  		<p>Сайт магазина "Рыболов"</p>
+  	</div>
+  </div>
+  <div class="cost">
+    <button id="button-da">Заказать проект</button>
+  </div>
+</section>
+
+<section id="section3">
+  <div>
+  <h1><br>Адаптивная вёрстка под все устройства и браузеры от 5000 рублей всего за 4 часа.*</h1>
+  <p>* Срок и стоимость могут отличаться от заявленных и рассчитываются индивидуально, в зависимости от сложности задач.</p>
+  </div>
+</section>
+
+<div class="section4">
+  <div class="cell4">
+    <p>Услуги</p>
+    <p>Портфолио</p>
+    <p>Стоимость</p>
+  </div>
+  <div class="cell4">
+    <p><img src="img/icons/call-answer.png" alt=""> +7 (999) 999-99-99</p>
+    <p><img src="img/icons/envelope.png" alt=""> dmitry@alekseev.com</p>
+  </div>
+  <div class="cell4">
+    <button id="button-call">Заказать звонок</button>
+    <p>
+      <img src="img/icons/vk.png" alt="">
+      <img src="img/icons/facebook-logo.png" alt="">
+      <img src="img/icons/twitter-logo-silhouette.png" alt="">
+      <img src="img/icons/instagram-social-network-logo-of-photo-camera.png" alt="">
+    </p>
+  </div>
+</div>
+
+<footer>
+  © Дмитрий Алексеев, 2016 - 2018
+</footer>
+
+</article>
+</body>
+</html>
