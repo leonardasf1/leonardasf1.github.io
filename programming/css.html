@@ -48,10 +48,10 @@ reshadow
  <a href="https://reshadow.dev/"><img src="https://reshadow.dev/public/favicon/favicon.ico" alt="reshadow.dev" height="16px"></a>
  <a href="https://github.com/lttb/reshadow"><img src="https://github.githubassets.com/favicon.ico" alt="github.com/lttb/reshadow" height="16px"></a>
  / cssinjs / styled components / BEM (block element modifier) / CSS Modules , пропсы <br>
-  <a href="http://htmlbook.ru/samcss/napisanie-effektivnogo-koda"><img src="http://htmlbook.ru/favicon.ico"> Написание эффективного кода</a><br>
+  <a href="http://htmlbook.ru/samcss/napisanie-effektivnogo-koda"><img src="http://htmlbook.ru/favicon.ico" alt="htmlbook"> Написание эффективного кода</a><br>
   <a href="http://htmlbook.ru/samcss/kaskadirovanie">Cascading</a><br>
-  переменные, шлюзы
-
+  переменные, шлюзы<br>
+<a href="https://whitepaper.tools"><img src="http://whitepaper.tools/favicon.ico" alt="whitepaper tools"> whitepaper.tools</a>
         <pre>
 
 Backgrounds and Borders 3 //2017
@@ -87,7 +87,6 @@ Style Attributes //2013
 Syntax 3 //2019
 Template Layout //2015
 Text Decoration 3 //2019
-Transforms 1 //2019
 Values and Units 3 //2019
 Will Change 1 //2015
 Writing Modes 3 //2019
@@ -467,37 +466,67 @@ shape-outside: circle(50%);
               linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
 </div></details>
 
-<details><summary>transform <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><div>
-transform: rotateX(10deg) scaleX(2);
-transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-transform: translate(12px, 50%);
-transform: translate3d(12px, 50%, 3em);
-transform: translateX(2em);
-transform: translateY(3in);
-transform: translateZ(2px);
-transform: scale(2, 0.5);
-transform: scale3d(2.5, 1.2, 0.3);
-transform: scaleX(2);
-transform: scaleY(0.5);
-transform: scaleZ(0.3);
-transform: rotate(0.5turn);
-transform: rotate3d(1, 2.0, 3.0, 10deg);
-transform: rotateX(10deg);
-transform: rotateY(10deg);
-transform: rotateZ(10deg);
-transform: skew(30deg, 20deg);
-transform: skewX(30deg);
-transform: skewY(1.07rad);
-transform: perspective(17px);
+<details><summary>Transforms-1 .2019 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><div>
+  transform: translate(-10px, -20px) scale(2) rotate(45deg);
+  transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+  //transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform: translate(12px, 50%);
+  //transform: translate3d(12px, 50%, 3em);
+  transform: translateX(2em);
+  transform: translateY(3in);
+  transform: translateZ(2px);
+  transform: scale(2, 0.5);
+  //transform: scale3d(2.5, 1.2, 0.3);
+  transform: scaleX(2);
+  transform: scaleY(0.5);
+  transform: scaleZ(0.3);
+  transform: rotate(0.5turn);
+  //transform: rotate3d(1, 2.0, 3.0, 10deg);
+  transform: rotateX(10deg);
+  transform: rotateY(10deg);
+  transform: rotateZ(10deg);
+  transform: skew(30deg, 20deg);
+  transform: skewX(30deg);
+  transform: skewY(1.07rad);
+  transform: perspective(17px);
 
-transform-origin: 0px 0px; // изменение точки относительно которой будет трансформация
-transform-style: preserve-3d; flat;
- 
-backface-visibility: hidden; visible;
-perspective: 200px;
-perspective-origin: 0px 0px;
-</div></details></div><div class="details">
+  transform-origin: 0px 0px; // изменение точки относительно которой будет трансформация
+  //transform-style: preserve-3d; flat;
+  //transform-box:
+  //translate:
+
+  backface-visibility: hidden; visible;
+  perspective: 200px;
+  perspective-origin: 0px 0px;
+</div></details>
+<details><summary>Variables-1 .2015</summary>
+  <pre><code class="javascript">
+:root {
+  --main-color: #c06;
+  --accent-background: linear-gradient(to top, var(--main-color), white);
+  --foo: if(x > 5) this.width = 10;
+  --one: calc(var(--two) + 20px);
+  --two: calc(var(--one) - 20px);
+}
+div { --color: green; }
+#alert { --color: red; }
+#foo h1 {
+  color: var(--main-color);
+}
+---
+:root,
+:root:lang(en) {--external-link: "external link";}
+:root:lang(de) {--external-link: "externer Link";}
+
+a[href^="http"]::after {content: " (" var(--external-link) ")"}
+---
+one   { --foo: 10px; }
+two   { --bar: calc(var(--foo) + 10px); }
+three { --foo: calc(var(--bar) + 10px); }
+
+  </code></pre></details>
+</div>
+<div class="details">
 <details><summary><b>Селектор</b> { свойство: значение; }</summary><div>
 * {} для всех элементов веб-страницы
 tagName по тегу

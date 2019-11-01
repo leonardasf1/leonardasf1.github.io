@@ -1,8 +1,6 @@
-// "use strict";
-// Document.head.createElement(‘script’); src
 
-function v(id) {return document.querySelector(id);};
-function vall(id) {return document.querySelectorAll(id);};
+function v(id) { return document.querySelector(id) }
+function vall(id) { return document.querySelectorAll(id) }
 
 let headerMenuB = 
        `<div class="homeSlide"><a><img src="../icons/favicon.ico"></a></div>
@@ -70,34 +68,31 @@ window.onscroll = function () {
     }
 };
 
-
-    // $(".slide").click(function () {
-    //      $(this).nextAll().slideToggle(500);
-    // });
-
 footerScrollTop.addEventListener("click", () => window.scroll(0, 0));
 
 v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
 
 if (v('details')) {
-  for (let i in vall("details")) {
-      vall('details')[i].ontoggle = function () {
-          this.firstChild.classList.toggle('hover');
-      }
+  for (let i of vall("details")) {
+    i.ontoggle = function () {
+      this.firstChild.classList.toggle('hover');
+    }
   };
 }
 
-for (let i in vall('.item')) {
-  if ((typeof vall('.item')[i]) == 'object') {
-    vall('.item')[i].onclick = function () {
-        this.nextElementSibling.classList.toggle('slideT');
-        this.nextElementSibling.addEventListener("mouseleave", function () {
-            this.classList.remove('slideT');
-        });
+for (let i of vall('.item')) {
+  if ((typeof i) == 'object') {
+    i.onclick = function () {
+      this.nextElementSibling.classList.toggle('slideT');
+      this.nextElementSibling.addEventListener("mouseleave", function () {
+        this.classList.remove('slideT');
+      });
     }
   }
 };
 
 vall('a[href*="://"]').forEach(
-    link => link.setAttribute("target", "_blank"));
+  link => link.setAttribute("target", "_blank"));
 
+vall('.import_Img img[src^=".."]').forEach(
+  img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);

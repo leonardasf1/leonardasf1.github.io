@@ -1,4 +1,35 @@
-export let headerMenuB = 
+
+
+function v(id) { return document.querySelector(id) }
+function vall(id) { return document.querySelectorAll(id) }
+
+function load(page) {
+  fetch(page)
+    .then(response => response.text())
+    .then(results => v('content').innerHTML = results)
+    .then(results => contentFunc());
+}
+
+function contentFunc() {
+  v('title').innerText = pageTitle.innerHTML;
+  v('#headerMenu>div').innerHTML = headerTitle.innerHTML;
+      // links.innerHTML = page.links;
+
+  if (v('details')) {
+    for (let i of vall("details")) {
+      i.ontoggle = function () {
+        this.firstChild.classList.toggle('hover');
+      }
+    }
+  }
+  vall('a[href*="://"]').forEach(
+    link => link.setAttribute("target", "_blank"));
+
+  vall('.import_Img img[src^=".."]').forEach(
+    img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);
+}
+
+headerMenu.insertAdjacentHTML('beforeend', 
        `<div id="homeSlide"><a><img src="icons/favicon.ico"></a></div>
    <!--     <div><a href="F1_Challenge/" title="formula 1"><img src="icons/f1.png"></a></div>
         <div><a href="Alpinism/" title="alpinisme"><img src="icons/alpinism.png"></a></div>
@@ -22,8 +53,8 @@ export let headerMenuB =
 <a href="programming/python.html">python</a>
             </div>
         </div>
-        <div><div class="itemN"><a href="Surf/">Серфинг</a></div></div>
-        <div><div class="itemN"><a href="Skateboard">Лонгборд</a></div></div> `;
+        <div><div class="item"><a onclick="load('Surf/i.html')">Серфинг</a></div></div>
+        <div><div class="item"><a onclick="load(Skateboard/)">Лонгборд</a></div></div> `
 //         <div>
 //             <div class="item">старье</div>
 //             <div class="submenu">
@@ -35,3 +66,4 @@ export let headerMenuB =
 // <a href="nu/">nu</a>
 //             </div>
 //         </div>
+);
