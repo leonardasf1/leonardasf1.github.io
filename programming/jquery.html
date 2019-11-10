@@ -6,6 +6,11 @@
   <title>jQuery</title>
   <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
   <link rel="stylesheet" href="../CSS/leonardasf1.css">
+
+    <link rel="stylesheet" href="../CSS/highlight.css">
+    <script src="../JS/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
     <script src="../JS/leoscript.js" defer></script>
 <style>
   .prelogo {color: #1e6faa}
@@ -23,112 +28,119 @@
   </div>
 </header>
 
-<div id="links">
-  <a href="https://jquery.com/"><img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jQuery"></a>
-  <a href="https://itvdn.com/ru/video/jquery"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a>
-  <a href="https://www.youtube.com/watch?v=B4jWRrz3FUM&list=PLVfMKQXDAhGXQcouhIblV910Rv7lRscH3"> Уроки jQuery (Web Developer Blog)</a>
+<div class="flex">
+  
+  <div id="links">
+    <a href="https://jquery.com/"><img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jQuery"></a>
+    <a href="https://itvdn.com/ru/video/jquery"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a><br>
+    <a href="https://www.youtube.com/watch?v=B4jWRrz3FUM&list=PLVfMKQXDAhGXQcouhIblV910Rv7lRscH3"> Уроки jQuery (Web Developer Blog)</a><br>
+    <br>
+    https://code.jquery.com/jquery-3.4.1.min.js <br>
+    https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js <br>
+  </div>
+  <pre><code class="javascript">
+  <b>$("selector").action(); </b>
+      
+  $("div.menu") //div class=menu
+  $("p:first") //first p
+  $("h1, p") //h1 & p
+  $("div p") //p in div
+  $("div > p") //p in div
+  $("*") //all
+  $("b:last-child")
+  $("b:nth-child(2)")
+  $("ul li:eq(2)")
+  $(":contains('solo')")
+  $("[src]")
+  $(":input")
+  $(":text")
+  $(this)
+      </code></pre>
+  <pre><code class="javascript">
+  .attr("атр", "знач"); href,src,id,class,style
+  .removeAttr("атр"); 
+  .html(); изменить код
+  .text(); изменить текст
+  .val(); значения полей форм
+  .append(); добавляет в конец 
+  .prepend(); добавляет в начало 
+  .after();  .before(); 
+  .addClass("s g"); добавляет класс элементу
+  .removeClass(""); 
+  .toggleClass(""); переключает класс 
+  .css("атр", "знач"); изменить стили 
+  .css({"property":"value","property":"value",..}); 
+  .width();  .height(); 
+  .innerWidth();  .innerHeight(); +padding 
+  .outerWidth();  .outerHeight(); ..+border 
+  .parent(); выбор родителя 
+  .parents(); все родители 
+  .children(); все дети 
+  .siblings(); все братья 
+  .next();  .nextAll(); след. брат 
+  .prev();  .prevAll(); пред. брат 
+  .eq(); порядковый № элемента 
+  .remove(); $("p").eq(1).remove(); удаление
+  .empty(); опустошить 
+      </code></pre>
+  <pre><code class="javascript">
+  .on("событие", function() {}); добавляет событие к элементу
+  .off("событие"); удаляет событие из элемента
+  .trigger("событие"); запуск события
+
+  <b>$("selector").событие(function() {});</b>
+
+  .click  .dblclick
+  .mouseenter  .mouseover / .mouseleave 
+  .keydown  .keyup клавиатура(нажать/отпустить)
+  .submit  .change в форме(отправить/изменение)
+  .focus  .blur
+  .ready полностью загрузилась страница
+  .resize изменение размера окна
+  .scroll прокрутка
+      </code></pre>
+  <pre><code class="javascript">
+  <b>свойства событий</b>
+
+  pageX, pageY положение мыши
+  type тип события
+  which нажатая клавиша
+  data переданные данные
+  target елемент инициирующий событие
+  preventDefault() отмена действия по умолчанию
+  stopPropagation() останавливает событие
+      </code></pre>
+  <pre><code class="javascript">
+  <b>$("selector").событие(function(x) {x.свойствоСобытия()});</b>
+
+  .hide();
+  .show(длительность анимации, callback);
+  .toggle(); переключает между хайд и шоу;
+
+  .fadeIn(); постепенно исчезают
+  .fadeOut(); постепенно появляются
+  .fadeToggle(); переключает между ин и аут
+  .fadeTo(длительность, прозрачность);
+
+  .scrollTop();
+
+  .slideUp();
+  .slideDown();
+  .slideToggle();
+
+  .animate({свойство:'значение', ...}, длительность); +=/-=
+  .stop(); останавливает анимацию
+  Чтобы управлять положением элементов, надо установить элементу CSS свойство position со значением relative, fixed, или absolute.
+      </code></pre>
+
 </div>
 
-<nav>
-  
-</nav>
-
 <article>
-    
-      https://code.jquery.com/jquery-3.4.1.min.js <br>
-      https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js <br>
-      <b>$("selector").action(); </b><br>
-      
-      $("div.menu") div class=menu <br>
-      $("p:first") first p <br>
-      $("h1, p") h1 & p <br>
-      $("div p") p in div <br>
-      $("div > p") p in div <br>
-      $("*") all <br>
-      $("b:last-child") <br>
-      $("b:nth-child(2)") <br>
-      $("ul li:eq(2)") <br>
-      $(":contains('solo')") <br>
-      $("[src]") <br>
-      $(":input") <br>
-      $(":text") <br>
-      $(this) <br>
-      <hr>
-      .attr("атр", "знач"); href,src,id,class,style<br>
-      .removeAttr("атр"); <br>
-      .html(); изменить код<br>
-      .text(); изменить текст<br>
-      .val(); значения полей форм<br>
-      .append(); добавляет в конец <br>
-      .prepend(); добавляет в начало <br>
-      .after(); / .before(); <br>
-      .addClass("s g"); добавляет класс элементу<br>
-      .removeClass(""); <br>
-      .toggleClass(""); переключает класс <br>
-      .css("атр", "знач"); изменить стили <br>
-      .css({"property":"value","property":"value",..}); <br>
-      .width(); / .height(); <br>
-      .innerWidth(); / .innerHeight(); +padding <br>
-      .outerWidth(); / .outerHeight(); ..+border <br>
-      .parent(); выбор родителя <br>
-      .parents(); все родители <br>
-      .children(); все дети <br>
-      .siblings(); все братья <br>
-      .next(); / .nextAll(); след. брат <br>
-      .prev(); / .prevAll(); пред. брат <br>
-      .eq(); порядковый № элемента <br>
-      .remove(); $("p").eq(1).remove(); удаление<br>
-      .empty(); опустошить <br>
-      <hr>
-      .on("событие", function() {}); добавляет событие к элементу<br>
-      .off("событие"); удаляет событие из элемента <br>
-      .trigger("событие"); запуск события <br>
-      <hr>
-      <b>$("selector").событие(function() {});</b> <br>
 
-      .click / .dblclick <br>
-      .mouseenter / .mouseover / .mouseleave <br>
-      .keydown / .keyup клавиатура(нажать/отпустить)<br>
-      .submit / .change в форме(отправить/изменение)<br>
-      .focus / .blur <br>
-      .ready полностью загрузилась страница<br>
-      .resize изменение размера окна<br>
-      .scroll прокрутка<br>
-      <hr>
-      <b>свойства событий</b> <br>
-
-      pageX, pageY положение мыши <br>
-      type тип события<br>
-      which нажатая клавиша <br>
-      data переданные данные <br>
-      target елемент инициирующий событие <br>
-      preventDefault() отмена действия по умолчанию <br>
-      stopPropagation() останавливает событие <br>
-      <hr>
-      <b>$("selector").событие(function(x) {x.свойствоСобытия()});</b><br>
-
-      .hide(); <br>
-      .show(длительность анимации, callback); <br>
-      .toggle(); переключает между хайд и шоу; <br>
-      <hr>
-      .fadeIn(); постепенно исчезают <br>
-      .fadeOut(); постепенно появляются <br>
-      .fadeToggle(); переключает между ин и аут <br>
-      .fadeTo(длительность, прозрачность); <br>
-      <hr>
-      .scrollTop();<br>
-      <hr>
-      .slideUp(); <br>
-      .slideDown(); <br>
-      .slideToggle(); <br>
-      <hr>
-      .animate({свойство:'значение', ...}, длительность); +=/-=<br>
-      .stop(); останавливает анимацию <hr>
-      Чтобы управлять положением элементов, надо установить элементу CSS свойство position со значением relative, fixed, или absolute. <br>
-      <pre>
+      <pre><code class="javascript">
 $(function() {
     $("#start").html("Go!");
-    var txt = $("<i></i>").text("Hi");
+    var txt = $("< i>< /i>").text("Hi");
     $("#start").append(txt)
 });
 
@@ -137,7 +149,7 @@ $(window).on("scroll", function () {
     if( scr > 107 ) {
         $('.content').addClass('scrolled');
     }   
-    if( scr <= 107 ) {     
+    if( scr <= 107 ) {
         $('.content').removeClass('scrolled');
     }
 });
@@ -147,13 +159,13 @@ $(window).scroll(function () {
     if( scrolled >= 200 ) {
         $('.content').addClass('scrolled');
     }   
-    else {     
+    else {
         $('.content').removeClass('scrolled');
     }
 });
 
 $("h2 a:contains('jQuery')").css({"color":"blue", "text-shadow":"0 0 1em white"});
-                </pre>  
+</code></pre>
 
 <div>
   <p><iframe scrolling="no" src="//codepen.io/jeka-muzyka/embed/wXBgzX/?height=265&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" style="width: 100%;" title="1" height="265" frameborder="no">See the Pen 1 by Jeka Muzyka (@jeka-muzyka) on CodePen.</iframe></p>

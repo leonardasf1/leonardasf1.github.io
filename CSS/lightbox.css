@@ -1,3 +1,62 @@
+#lightbox {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+#background_lb_remove {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10100;
+}
+#lb_img {
+  max-height: 100vh;
+  max-width: 100vw;
+  /*transition: opacity 0.6s;*/
+  z-index: 10200;
+}
+#lb_btn_prev, #lb_btn_next {
+  position: absolute;
+  cursor: pointer;
+  height: 30%;
+  opacity: 0;
+  transition: opacity 0.6s;
+  z-index: 10300;
+}
+#lb_btn_prev {
+  width: 34%;
+  left: 0;
+  float: left;
+  background: url(../icons/prev.png) left 48% no-repeat;
+}
+#lb_btn_next {
+  width: 64%;
+  right: 0;
+  float: right;
+  background: url(../icons/next.png) right 48% no-repeat;
+}
+#lb_btn_next:hover, #lb_btn_prev:hover {
+  opacity: 1;
+}
+.lb_show { animation: lb_show 1s forwards}
+@keyframes lb_show {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+.lb_hide { animation: lb_hide .4s forwards}
+@keyframes lb_hide {
+  from { opacity: 1 }
+  to   { opacity: 0 }
+}
+----
+
 /* Preload icons */
 body:after {
   content: url(../icons/close.png) url(../icons/loading.gif) url(../icons/prev.png) url(../icons/next.png);

@@ -17,20 +17,20 @@ v("body").insertAdjacentHTML('beforeend',
 window.onscroll = function () {
     let scrolled = this.scrollY;
     if (scrolled > 50) {
-        headerMenu.style.height = '56px';
+        v('#headerMenu').style.height = '56px';
     }
     if (scrolled < 51) {
-        headerMenu.style.height = '95px';
+        v('#headerMenu').style.height = '95px';
     }
     if (scrolled > 1200) {
-        footerScrollTop.style.right = "22px";
+        v('#footerScrollTop').style.right = "22px";
     }
     if (scrolled < 1000) {
-        footerScrollTop.style.right = "-52px";
+        v('#footerScrollTop').style.right = "-52px";
     }
 }
 
-footerScrollTop.addEventListener("click", () => window.scroll(0, 0));
+v('#footerScrollTop').addEventListener("click", () => window.scroll(0, 0));
 
 v('footer').insertAdjacentHTML('beforeend', `<div>${document.lastModified} </div>`);
 

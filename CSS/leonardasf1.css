@@ -44,7 +44,7 @@ header {
     display: block;
 }
 
-.fsac , #headerMenu, #headerMenu>div:first-child, #links, #links a {
+.fsac , #headerMenu, #headerMenu>div:first-child {
     display: flex;
     align-items: center;
 }
@@ -57,6 +57,7 @@ header {
     padding: 1rem;
     margin: 1rem;
 }
+.grid { display: grid }
 
 #headerMenu {
     padding: 5px 3%;
@@ -68,9 +69,16 @@ header {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
     flex-wrap: wrap;
 }
+
+#links {
+    height: min-content;
+}
+
 @media (max-width:700px) {
-    #headerMenu {
-        overflow: hidden;
+    #headerMenu { overflow: hidden }
+    #links {
+        height: 60px;
+        overflow-y: scroll;
     }
 }
 
@@ -89,7 +97,7 @@ header {
     margin: 0 1%;
 }
 
-.img32 img, #headerMenu img, nav img, nav svg, #links img {height: 32px; }
+.img32 img, #headerMenu img, nav img, nav svg, #links img { height: 32px }
 
 summary img, ul img {
     height: 16px;
@@ -127,17 +135,6 @@ summary img, ul img {
 
 article {
     padding: 0 1%;
-}
-
-#links {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
-    height: 60px;
-    padding: 0 2%;
-    overflow-x: auto;
-}
-
-#links a {
-    padding: 5px;
 }
 
 content {
@@ -229,3 +226,4 @@ article [href*="itvdn"] {
     background-size: 16px;
     padding-left: 20px;
 }
+#pageTitle, #headerTitle { display: none }

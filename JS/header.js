@@ -11,9 +11,8 @@ function load(page) {
 }
 
 function contentFunc() {
-  v('title').innerText = pageTitle.innerHTML;
-  v('#headerMenu>div').innerHTML = headerTitle.innerHTML;
-      // links.innerHTML = page.links;
+  v('title').innerText = v('#pageTitle').innerHTML;
+  v('#headerMenu>div').innerHTML = v('#headerTitle').innerHTML;
 
   if (v('details')) {
     for (let i of vall("details")) {
@@ -29,7 +28,7 @@ function contentFunc() {
     img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);
 }
 
-headerMenu.insertAdjacentHTML('beforeend', 
+v('#headerMenu').insertAdjacentHTML('beforeend', 
        `<div id="homeSlide"><a><img src="icons/favicon.ico"></a></div>
    <!--     <div><a href="F1_Challenge/" title="formula 1"><img src="icons/f1.png"></a></div>
         <div><a href="Alpinism/" title="alpinisme"><img src="icons/alpinism.png"></a></div>
@@ -42,7 +41,6 @@ headerMenu.insertAdjacentHTML('beforeend',
             <div class="submenu">
 <a href="programming/html.html">HTML</a>
 <a href="programming/css.html">CSS</a>
-<a href="programming/bootstrap.html">Bootstrap</a>
 <a href="programming/javascript.html">JavaScript</a>
 <a href="programming/jquery.html">jQuery</a>
 <a href="programming/webpack.html">webpack</a>
@@ -54,7 +52,7 @@ headerMenu.insertAdjacentHTML('beforeend',
             </div>
         </div>
         <div><div class="item"><a onclick="load('Surf/i.html')">Серфинг</a></div></div>
-        <div><div class="item"><a onclick="load(Skateboard/)">Лонгборд</a></div></div> `
+        <div><div class="item"><a href="Skateboard/">Лонгборд</a></div></div> `
 //         <div>
 //             <div class="item">старье</div>
 //             <div class="submenu">
