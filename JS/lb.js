@@ -15,11 +15,13 @@ for(let i in lb_data) {
   	document.body.insertAdjacentHTML('beforeend', 
 		`<div id="lightbox" >
 			<div id="background_lb_remove"></div>
-			<img id="lb_img" src="${import_img_url + lb_data[i].getAttribute('href')}" />
+			<img id="lb_img" src="../icons/loading.gif" />
 			<a id="lb_btn_prev"></a>
 			<a id="lb_btn_next"></a>
 		</div>`);
   	lb_show();
+	  v('#lb_img').src = `${import_img_url + lb_data[i].getAttribute('href')}`;
+
   	v('#lb_btn_prev').addEventListener('click', () => {
 	  	v('#lb_img').src = "../icons/loading.gif";
 			v('#lb_img').src = `${import_img_url + lb_data[--i].getAttribute('href')}`;

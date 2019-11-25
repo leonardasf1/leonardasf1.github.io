@@ -100,6 +100,7 @@ header {
 }
 
 .img32 img, #headerMenu img, nav img, nav svg, #links img { height: 32px }
+#links.img16 img { height: 16px }
 
 summary img, ul img {
     height: 16px;
@@ -210,22 +211,22 @@ footer {
     background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0 0;
     padding-left: 20px;
 }
-article [href*="wikipedia.org"] {
+[href*="wikipedia.org"] {
     background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0 0;
     background-size: 16px;
     padding-left: 20px;
 }
-article [href*="developer.mozilla"] {
+[href*="developer.mozilla"] {
     background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
     background-size: 16px;
     padding-left: 20px;
 }
-article [href*="itvdn"] {
+[href*="itvdn"] {
     background: url(../icons/itvdn.svg) no-repeat 0 0;
     background-size: 16px;
     padding-left: 20px;
 }
-article [href*="github"] {
+[href*="github"] {
     background: url(https://github.githubassets.com/favicon.ico) no-repeat 0 0;
     background-size: 16px;
     padding-left: 20px;

@@ -1,57 +1,29 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angular</title>
-  <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
-  <link rel="stylesheet" href="../CSS/leonardasf1.css">
-<style>
-  .prelogo {color: #e23237}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div id="headerMenu">
-    <div> 
-      <img src="https://angular.io/assets/images/favicons/favicon.ico">
-      <span>Angular</span>
-    </div>
-  </div>
-</header>
-
-    <script src="../JS/leoscript.js" async></script>
+<div id="pageTitle">Angular</div>
+<div id="headerTitle">
+  <a onclick="load('angular.html')"><img src="https://angular.io/assets/images/favicons/favicon.ico" alt="Angular">
+  <span style="color: #e23237">Angular</span></a>
+</div>
 
 
 
 <div class="flex">
   <div id="links">
     <a href="https://angular.io"><img src="https://angular.io/assets/images/favicons/favicon.ico"></a><br>
-    <a href="https://angularjs.org/">angularJS.org</a><br>
-    <a href="https://ru.wikipedia.org/wiki/AngularJS">AngularJSwiki</a><br>
-    <a href="https://itvdn.com/ru/catalog?search=angular"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a><br>
-    <a href="https://youtu.be/m0yGx2MGZWg"> Что такое Angular. Обзор возможностей</a><br>
-    <li><a href="https://youtu.be/s9Ig44UBr38"> Как стать Angular разработчиком (Web Developer Blog)</a></li>
+    <a href="https://itvdn.com/ru/catalog?search=angular" style="background: none; padding-left: 0"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a><br>
     <li><a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a></li>
     MVC <br>   
   </div>
 
-  <article> 
-    <тэг ng-app ><br>
-    {{2+2}} <br>
-    <тэг ng-model="name"> {{name}} <br>
-    ng-init <br>
-    ng-repeat <br>
-    <див ng-app ng-init="students=['David','Steve','Bob']"><br>
-    <ол><ли ng-repeat="name in students"> {{ name }} </ли> </ол> </див><br>
-    
-  </article>
+  <div><pre><code>
+    <тэг ng-app >
+    {{2+2}}
+    <тэг ng-model="name"> {{name}}
+    ng-init
+    ng-repeat
+    <див ng-app ng-init="students=['David','Steve','Bob']">
+    <ол><ли ng-repeat="name in students"> {{ name }} </ли> </ол> </див>
+
+  </code></pre></div>
+
+
 </div>
-<div style="height: 50vh"></div>
-
-<footer></footer>
-
-</body>
-</html>

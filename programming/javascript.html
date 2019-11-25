@@ -9,24 +9,23 @@
     <link rel="stylesheet" href="../CSS/leonardasf1.css">
 
     <link rel="stylesheet" href="../CSS/highlight.css">
-    <script src="../JS/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+
+    <script src="../JS/main.js" defer></script>
 </head>
 
 <body>
 
 <header>
-    <div id="headerMenu">
-        <div>
-            <img src="../icons/js.svg">
+  <div id="headerMenu">
+    <div>
+      <img src="../icons/js.svg">
 			<span style="color: yellow">JavaScript</span>
 		</div>
-    </div>
+  </div>
 </header>
 
-<script src="../JS/leoscript.js" async></script>
-
-<article>
+<content>
 
 <div class="flex">
 
@@ -44,18 +43,17 @@
   <a href="https://webref.ru/tech/javascript">WebRef</a><br>
   <a href="https://vk.com/doc7608079_488265969">Секреты JavaScript Ниндзя</a><br>
   <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a><br>
-  <a href="https://www.youtube.com/watch?v=T3IgBNN9bhM&list=PLVfMKQXDAhGUaEtJ_fOUz0F7TJtidE7Qw"> Уроки JavaScript (Web Developer Blog)</a><br>
-  <a href="https://www.youtube.com/watch?v=JISFx18J7nc&list=PLVfMKQXDAhGW0p_BEEe47UkCgNoS_dyki"> Практика JavaScript (Web Developer Blog)</a><br>
-  <a href="https://www.youtube.com/watch?v=o8oyT0WJfHE&list=PL8pp2EAvIK-KybxnPezLLiEEfLfle11_i"> JavaScript для начинающих (Денис Горелов)</a><br>
-  <a href="https://www.youtube.com/watch?v=FofBtCPEZo4&list=PL8pp2EAvIK-LkkQwz_oR-SQTUuAR4kNhg"> JavaScript и Jquery  (Денис Горелов)</a><br>
-  <a href="https://youtu.be/KmTK8kub_gw"> Учим JavaScript/jQuery за 1 час! #От Профессионала</a><br>
-  <a href="https://www.youtube.com/watch?v=npfWRm4mwfc"> jQuery Form Styler или другой взгляд на формы в HTML!</a><br>
+  <a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAPHWjsHt64z9Jq1nTxRncrL"> Знакомство с JavaScript (CodeDojo.2018)</a><br>
+  <a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q"> Основы ES6 (CodeDojo.2017)</a><br>
+  <a href="https://www.youtube.com/watch?v=T3IgBNN9bhM&list=PLVfMKQXDAhGUaEtJ_fOUz0F7TJtidE7Qw"> Уроки JavaScript (Web Developer Blog.2016)</a><br>
+  <a href="https://www.youtube.com/watch?v=JISFx18J7nc&list=PLVfMKQXDAhGW0p_BEEe47UkCgNoS_dyki"> Практика JavaScript (Web Developer Blog.2016)</a><br>
+  <a href="https://www.youtube.com/watch?v=o8oyT0WJfHE&list=PL8pp2EAvIK-KybxnPezLLiEEfLfle11_i"> JavaScript для начинающих (Денис Горелов.2017)</a><br>
 </div>
 
 <div>Основы
 	<ul>
 		<li><details><summary>Типы данных</summary>
-			<pre><code class="javascript">
+			<pre><code>
   Логический тип данных.
   Данные хранящиеся в переменной булевого типа могут принимать два значения:  
   истина (true) и ложь (false). 
@@ -104,7 +102,7 @@
   printMessage("Hello world");
 			</code></pre></details></li>
 		<li><details><summary>Преобразование типов</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	parseFloat();  // преобразование в вещественное значение
 	parseInt();  // преобразование в целочисленное значение
 
@@ -120,7 +118,7 @@
   document.write(str / "2");
 			</code></pre></details></li>
 		<li><details><summary>Операторы</summary>
-			<pre><code class="javascript">
+			<pre><code>
     = assigns a value 
     Оператор присвоения "=" предназначен для присвоения определенного значения переменной. 
             Арифметические операторы:
@@ -263,13 +261,13 @@
                 a - code (61 Hex)
 			</code></pre></details></li>
 		<li><details><summary>alert, prompt, confirm</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	alert('message');
 	prompt('question','default'); ok > input.value, cancel > null
 	confirm(); ok > true, cancel > false
 			</code></pre></details></li>
 		<li><details><summary>if, else, '?'</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	if (сравнение) {}  // если
 	else if (сравнение) {}
 	else {}
@@ -281,7 +279,7 @@
 			</code></pre>
 		</details></li>
 		<li><details><summary>Логические операторы</summary>
-			<pre><code class="javascript">
+			<pre><code>
     & bitwise AND
     ^ bitwise XOR
     | bitwise OR
@@ -289,7 +287,7 @@
     || logical OR . Логическое ИЛИ (||) - возвращает true, если первый или второй операнд (или оба) равны true.
 			</code></pre></details></li>
 		<li><details><summary>Циклы: while, for</summary>
-			<pre><code class="javascript">
+			<pre><code>
   while (сравнение) { i++; x; }  пока
   do { x; i++; } while (сравнение);
   for (let i = 0; i < 10; i++) {}
@@ -331,7 +329,7 @@
 			</code></pre>
 		</details></li>
 		<li><details><summary>switch ..case</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	switch (varName) {
 		case "varValueA":
 		case "varValueB": {ab} break;
@@ -346,15 +344,37 @@
 <div>Типы данных
 	<ul>
 		<li><details><summary>Примитивы</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Number</summary>
 			<pre><code class="javascript">
-  .toFixed(2);  // количество цифр после запятой
+      JS  64-битный формат IEEE-754.
+  1.23e6 = 1.23 * 1000000
+  1e-3 = 1 / 1000 (=0.001)
+  0xff // 255 16-иричная 0..9 или A..F
+  0o377 // 255 8-иричная
+  0b11111111 // бинарная 0 или 1
+  2n9c     // 36-иричная 0..9 или A..Z
+
+  let num = 255;
+  num.toString(16)  // ff
+  num.toString(2)  // 11111111
+  123456..toString(36) // 2n9c
+
+  Math
+  .floor //Округление в меньшую сторону
+  .ceil //Округление в большую сторону
+  .round //Округление до ближайшего целого
+  .trunc //Производит удаление дробной части без округления
+  num.toFixed(2);  //"255.00" для устранения JS-неточности
+  // возвращает строку
+
+  Number
+  .NEGATIVE_INFINITY // минус бесконечность
 			</code></pre></details></li>
 		<li><details><summary>String</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
     var mss = "Welcome " + name + name + "!";
     let msg = `Welcome ${name + name}!`.toUpperCase();
@@ -394,7 +414,7 @@
   ​.slice()
   ​.small()
   ​.split("");   //Разбивает строку на подстроки по указанному разделителю и возвращает массив подстрок.
-  ​.starts​With()
+  ​.starts​With('He');  //проверяет начинается ли строка с аргумента, boolean 
   ​.strike()
   ​.sub()
   ​.substr(0, 2); //возвращает строку начиная с указанного индекса, указанной длины
@@ -416,7 +436,7 @@
     new String();
 			</code></pre></details></li>
 		<li><details><summary>Array</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	//массивы
   	var name = Array(1, 2, 3, 4, 5, 6);
   <span title=" -  создает и возвращает новый массив, содержащий элементы исходного массива, для которого был вызван метод concat(), и значения всех аргументов, переданных методу concat(). .concat(6, 7, [8, 9]) .concat(input) добавляет в массив введенное значение">.concat()</span>
@@ -438,7 +458,7 @@
   // Если метод принимает строковой аргумент, то аргумент станет разделителем вместо запятых.
   .keys()
   .length
-  .map()
+  .map(n => n * 2)  // создаёт новый массив с результатом вызова указанной функции для каждого элемента массива
   .of()
   <span title=" - выполняет удаление последнего элемента массива, уменьшает длину массива. (возвращаемое значение - удаленный элемент массива)">.pop()</span>
   <span title=" - добавление одного или нескольких элементов в конец массива и возвращает его новую длину. (возвращаемое значение - количество элементов в новом массиве)">.push()</span>
@@ -477,11 +497,11 @@
   document.write(new Array(4).join('xa'));
 			</code></pre></details></li>
 		<li><details><summary>Iterable</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Map, Set</summary>
-			<pre><code class="javascript">
+			<pre><code>
   Map  // объект без прототипа , любые ключи
   let myMap = new Map();
   let keyString = 'a string',
@@ -522,7 +542,7 @@
   Set.prototype[@@iterator]()
 			</code></pre></details></li>
 		<li><details><summary>WeakMap, WeakSet</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	WeakMap  // ключи только объекты
     let wm2 = new WeakMap();
 
@@ -552,18 +572,22 @@
     WeakSet.prototype.has();
 			</code></pre></details></li>
 		<li><details><summary>Destructuring assignment<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"></a></summary>
-			<pre><code class="javascript">
+			<pre><code>
 	// Деструктуризация
 
   let [,,mu,ars,mc = 'default'] = Array
   // присваиваем переменным значения элементов массива
+  function funcName([x, y, ...z]) { console.log(x, y) }
+  funcName(arrName);
+
   let { name, age, country } = Object
   // записываем элементы объекта в одноименные переменные
-  let { name: userName, age:userAge, country } = Object
+  let { name: userName, age:userAge, social: { vk }, country } = Object
   // или в переменные с другими именами
+
 			</code></pre></details></li>
 		<li><details><summary>Date, time</summary>
-			<pre><code class="javascript">
+			<pre><code>
   new Date();  // при вызове конструктора Date без параметров, создается объект Date отражающий текущую дату и время
     .setFullYear()
     .getFullYear()
@@ -577,11 +601,11 @@
   <a href="https://codepen.io/leonardasf1/pen/QXeJJG">time</a>
 			</code></pre></details></li>
 		<li><details><summary>JSON</summary>
-      <pre><code class="javascript">
+      <pre><code>
 
       </code></pre></details></li>
     <li><details><summary>Binary</summary>
-      <pre><code class="javascript">
+      <pre><code>
   ArrayBuffer бинарные массивы
   TextDecoder , TextEncoder
   Blob
@@ -593,7 +617,7 @@
 <div>Object
 	<ul>
 		<li><details><summary>Object</summary>
-			<pre><code class="javascript">
+			<pre><code>
   let name = {
     t:a,
     s:x,
@@ -616,7 +640,8 @@
   .deleteItem("key");
 
   Object.assign(target, source)
-  Object.create()
+  Object.create(prototipe, { prop-s }) // создает объект из 
+                // прототипа, с необязательными свойствами
   Object.defineProperties()
   Object.defineProperty()
   Object.entries()
@@ -648,25 +673,30 @@
   }
 			</code></pre></details></li>
 		<li><details><summary>Garbage Collection</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Symbol</summary>
-			<pre><code class="javascript">
+			<pre><code>
   let varName = Symbol('Name');
   let varName = Symbol.for('symbolName');
-  console.log(Symbol.keyFor('varName'))
+  console.log(Symbol.keyFor('varName'));
 			</code></pre></details></li>
 		<li><details><summary>this</summary>
-			<pre><code class="javascript">
-
+			<pre><code>
+function Cat(color) {
+  this.color = color;
+  console.log(this);
+  (() => console.log(this))();
+}
+new Cat('red');
 			</code></pre></details></li>
 		<li><details><summary>Преобразование</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>new</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	function Name(x, y) {   // Функция-конструктор для
 		this.t = x;        // создания объектов Name.
 		this.s = y;
@@ -677,15 +707,15 @@
 	Name.prototype = name  // наследование
 			</code></pre></details></li>
 		<li><details><summary>Object.keys,..</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Флаги и дескрипторы</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>get, set</summary>
-			<pre><code class="javascript">
+			<pre><code>
   Object.defineProperty(obj, 'propName3', {
     get: function() {
       return this.propName1 + '' + this.propName2;
@@ -706,7 +736,7 @@
 <div>function
 	<ul>
 		<li><details><summary>function</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
   function Name() {}
           .arguments  // обращение к аргументам функции как к массиву
@@ -728,8 +758,24 @@
   document.write("Максимальное значение аргументов функции = " + res);
 			</code></pre></details></li>
 		<li><details><summary>expressions, =></summary>
-			<pre><code class="javascript">
+			<pre><code>
   // стрелочные функции
+  let add = (x, y) => x + y;
+  let square = x => x * x;
+  let log = () => console.log('Logging');
+  let multiply = (x, y) => {...; ...};
+  let getPerson = () => ({ name: 'John' });
+  (() => console.log('IIFI'))();
+
+  let person = {
+    name: 'Bob',
+    greet: function() {
+      setTimeout(() => {
+        console.log(`Hello, ${this.name}`);
+      }, 2000);
+    }
+  };
+
   const name = параметры => {};
   const name = (a=4,b) => a+b  // если параметр "a" не будет
   // указан при вызове функции "a" присвоит себе значение 4.
@@ -737,7 +783,7 @@
   // У стрелочной функции нет своего arguments и this;
 			</code></pre></details></li></details></li>
 		<li><details><summary>Recursion, стек</summary>
-			<pre><code class="javascript">
+			<pre><code>
   function f(counter) {
     counter--;
     document.write(`Down: ${counter}< br>`);
@@ -747,7 +793,7 @@
   f(3);
 			</code></pre></details></li>
 		<li><details><summary>rest, spread</summary>
-			<pre><code class="javascript">
+			<pre><code>
   // rest_parameters
   function f (a, b, ...arrName) {}
   // задаём массив в качестве агумента
@@ -761,23 +807,41 @@
   let array3 = [ ...arr1, ...arr2];
 			</code></pre></details></li></details></li>
 		<li><details><summary>Замыкание</summary>
-			<pre><code class="javascript">
+			<pre><code>
+  let person = {
+    name: 'Bob',
+    greet: function() {
+      let _this = this;
+      setTimeout(function() {
+        console.log(`Hello, ${_this.name}`);
+      }, 2000);
+    }
+  };
+
+  const fib = [1, 2, 3, 5, 8, 13];
+  for (var i = 0; i < fib.length; i++) {
+    (function(j) {
+      setTimeout(function() {
+        console.log(`fib[${j}] = ${fib[j]}`);
+      }, 1500);
+    })(i);
+  }
 
 			</code></pre></details></li>
 		<li><details><summary>window | global</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Обьект функции</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>new Function</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>setTimeout, setInterval</summary>
-			<pre><code class="javascript">
+			<pre><code>
   setTimeout(x, 5000);   // запустит x через 5сек
   setInterval(x, 1000); // будет запускать x каждую 1секунду
   clearTimeout(name);   // отменяет запуск
@@ -789,15 +853,15 @@
   }, 3000);
 			</code></pre></details></li></details></li>
 		<li><details><summary>call, apply</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>bind</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
     <li><details><summary>Memoize</summary>
-      <pre><code class="javascript">
+      <pre><code>
   // Мемоизация - прием кэширования результатов функции.
   function calcFib(x) {
       // проверка наличия результата для параметра x.
@@ -821,7 +885,7 @@
 <div>Prototypes
 	<ul>
 		<li><details><summary>Наследование</summary>
-			<pre><code class="javascript">
+			<pre><code>
   function Human(name) {  // базовая функция-конструктор
       this.name = name;
       this.talk = function () { document.write("Hello My Name is " + this.name) }
@@ -873,15 +937,15 @@
   document.write(box1.Equals(box2));
 			</code></pre></details></li>
 		<li><details><summary>function-prototype</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>native-prototypes</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>prototype-methods</summary>
-			<pre><code class="javascript">
+			<pre><code>
   // переопределение метода valueOf из Object
   Rectangle.prototype.valueOf = function () {
       return this.getArea();
@@ -893,19 +957,54 @@
 	Classes
 	<ul>
 		<li><details><summary>class</summary>
-			<pre><code class="javascript">
-  class Rectangle {
-  	#height = 0;
-  	#width;
-  	constructor(height, width) {
-  		this.#height = height;
-  		this.#width = width;
-  	}
-    static methodName () { ... }
+			<pre><code>
+  class MyClass {
+    prop = value; // свойство
+    constructor(...) { // конструктор
+      // ...
+    }
+    method(...) {} // метод
+    get something(...) {} // геттер
+    set something(...) {} // сеттер
+    [a + d]() {} // метод с вычисляемым именем
+    ...
   }
+
+  class User {
+    lastName = "Аноним";
+    constructor(name) {
+      this.name = name;
+    }
+    get name() { return this._name }
+    set name(value) {
+      if (value.length < 4) {
+        alert("Имя слишком короткое.");
+        return;
+      }
+      this._name = value;
+    }
+    sayHi() { alert(this.name + user.lastName) }
+    ['say' + 'Hii']() { alert("Привет") }
+  }
+  // создание объекта класса:
+  let user = new User("Иван");
+  alert(user.name + user.lastName); // use get
+  user.name = "Юля!"; // use set
+  user.sayHi();  // use method
+  user.sayHii();
+---
+  function makeClass(phrase) {
+    // объявляем класс и возвращаем его
+    return class {
+      sayHi() { alert(phrase) };
+    };
+  }
+  // Создаём новый класс
+  let User = makeClass("Привет");
+  new User().sayHi(); // Привет
 			</code></pre></details></li>
 		<li><details><summary>Наследование классов</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
   class Dog extends Animal {
     constructor(name) {
@@ -923,26 +1022,26 @@
   }
 			</code></pre></details></li>
 		<li><details><summary>Static</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Private, protected</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>extends</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>instanceof</summary>
-			<pre><code class="javascript">
+			<pre><code>
   instanceof // оператор для проверки типа объекта
   class Task {}
   let task = new Task();
   console.log(task instanceof Task);
 			</code></pre></details></li>
 		<li><details><summary>Mixins</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 	</ul>
@@ -951,7 +1050,7 @@
 <div>promise
 	<ul>
 		<li><details><summary>callbacks</summary>
-			<pre><code class="javascript">
+			<pre><code>
   var add = function (a, b) { return a + b }
   var sub = function (a, b) { return a - b }
 
@@ -963,15 +1062,19 @@
   show(sub, 50, 30);
 			</code></pre></details></li>
 		<li><details><summary>promise</summary>
-			<pre><code class="javascript">
+			<pre><code>
   function myAsyncFunction (url) {
     return new Promise((resolve, reject) => {
       resolve("ок");
       reject(new Error("Ошибка!"));
     })
+    // выполнится, когда промис завершится, независимо от того, успешно или нет
+    .finally(() => остановить индикатор загрузки)
     .then((result) => {})
     .catch(alert) // Error: Ошибка!
-    .then((result) => {}); //выполнится после обработки ощибки
+    .then((results) =>  //выполнится после обработки ощибки
+      results.forEach(result =>
+        funcName(result)));
   }
   Promise.all()
   Promise.allSettled()
@@ -979,23 +1082,23 @@
   Promise.race()
 			</code></pre></details></li>
 		<li><details><summary>promise-chaining</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>API</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>promisify</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>microtask queue</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>async/await</summary>
-			<pre><code class="javascript">
+			<pre><code>
     // await можно использовать только внутри async–функций
   async function showAvatar() {  // функция в любом случае вернёт промис
     // запрашиваем JSON с данными пользователя
@@ -1023,7 +1126,7 @@
 			</code></pre></details></li>
 	</ul>
   <details><summary>try..catch, err, throw</summary>
-      <pre><code class="javascript">
+      <pre><code>
   async function f() {
 
     try {
@@ -1071,19 +1174,26 @@
 <div>
 	<ul>
 		<li><details><summary>generators</summary>
-			<pre><code class="javascript">
-
+			<pre><code>
+  <a href="https://youtu.be/LxhVf0dxNCM"></a> <a href="https://learn.javascript.ru/generators">learn.js</a>
+  function* generate() {
+    yield 3;
+    yield 1;
+  }
+  let iterator = generator();
+  console.log(iterator.next());
+  console.log(iterator.next());
 			</code></pre></details></li>
 		<li><details><summary>async iterators/generators</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>modules</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>import</summary>
-			<pre><code class="javascript">
+			<pre><code>
   import defaultExport from "module-name";
   import * as name from "module-name";
   import { export1 } from "module-name";
@@ -1097,7 +1207,7 @@
   let promise = import("module-name");
 			</code></pre></details></li>
 		<li><details><summary>export</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	// Exporting individual features
   export let name1, name2, …, nameN; // also var, const
   export let name1 = …, name2 = …, …, nameN; // also var, const
@@ -1125,35 +1235,35 @@
   export { default } from …;
 			</code></pre></details></li>
 		<li><details><summary>dinamic-imports</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Proxy, Reflect</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Eval</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Carrying</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Intl</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
     <li><details><summary>WebSocket</summary>
-      <pre><code class="javascript">
+      <pre><code>
 
       </code></pre></details></li>
     <li><details><summary>Web Components</summary>
-      <pre><code class="javascript">
+      <pre><code>
 
       </code></pre></details></li>
     <li><details><summary>RegExp</summary>
-      <pre><code class="javascript">
+      <pre><code>
   /\d\d\d/
   var name = new RegExp("\d\d\d");
   pattern.exec("string") // возвращает результат поиска по шаблону(только 1й, если не задано g)
@@ -1201,11 +1311,11 @@
   m // многострочный режим.
       </code></pre></details></li>
       <li><details><summary>Service Worker API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"></a></summary>
-      <pre><code class="javascript">
+      <pre><code>
  (applicationCache)
     </code></pre></details></li>
     <li><details><summary>Web Worker <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API"></a></summary>
-      <pre><code class="javascript">
+      <pre><code>
     Worker()
 
   Properties
@@ -1220,7 +1330,7 @@
     terminate()
     </code></pre></details></li>
     <li><details><summary>canvas <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API"></a></summary>
-      <pre><code class="javascript">
+      <pre><code>
   < canvas id="canvas">< /canvas>
 
   function init() {
@@ -1316,7 +1426,7 @@
   <a href="https://codepen.io/leonardasf1/pen/VomogL">SunSistem</a>
   </code></pre></details></li>
     <li><details><summary>js-animation</summary>
-      <pre><code class="javascript">
+      <pre><code>
   window.requestAnimationFrame
   </code></pre></details></li>
 	</ul>
@@ -1325,7 +1435,7 @@
 <div>Dom
 	<ul>
 		<li><details><summary>DOM</summary>
-			<pre><code class="javascript">
+			<pre><code>
   // Методы для работы с DOM (узлы или строки)
     .append('');  // добавляет в конец
     .prepend('');  // добавляет в начало
@@ -1373,7 +1483,7 @@
   // ---------------------------------------------------
 			</code></pre></details></li>
 		<li><details><summary>поиск getElement..</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
   document.get​Element​ById("")
     .get​Elements​ByClass​Name()
@@ -1397,7 +1507,7 @@
     .get​Elements​ByTagNameNS()
 			</code></pre></details></li>
     <li><details><summary>document <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document"></a></summary>
-      <pre><code class="javascript">
+      <pre><code>
 
   navigator
           .appName // Название веб браузера.
@@ -1507,7 +1617,7 @@ window.location.replace('url');  // направление на другой а�
     visibilityState</div>
       </code></pre></details></li>
 		<li><details><summary>Events</summary>
-			<pre><code class="javascript">
+			<pre><code>
   a href="javascript:alert('Hello')">Ссылка /a>
   селектор.событие = function () {};  
   тэг onclick="имяФункции();"
@@ -1587,7 +1697,7 @@ window.location.replace('url');  // направление на другой а�
 	codepen: <a href="https://codepen.io/leonardasf1/pen/bGbpYjO">Event-add-remove</a>
 			</code></pre></details></li>
 		<li><details><summary>interface event</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
   ('copy', (e) => {alert('Копирование запрещено'); e.preventDefault();});
   ('paste', (e) => {.innerText = 'Введите текст. Вставка запрещена'; e.preventDefault();});
@@ -1643,7 +1753,7 @@ window.location.replace('url');  // направление на другой а�
   init​Mouse​Event
 			</code></pre></details></li>
 		<li><details><summary>Element <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element"></a></summary>
-			<pre><code class="javascript">
+			<pre><code>
 	Properties
 
   .accessKey
@@ -1730,7 +1840,7 @@ window.location.replace('url');  // направление на другой а�
   .toggle​Attribute()
 			</code></pre></details></li>
 		<li><details><summary>HTMLElement <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"></a></summary>
-			<pre><code class="javascript">
+			<pre><code>
 	Properties
 
   .content​Editable
@@ -1746,7 +1856,7 @@ window.location.replace('url');  // направление на другой а�
   .offset​Parent
 			</code></pre></details></li>
 		<li><details><summary>HTMLMedia​Element <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement"></a></summary>
-			<pre><code class="javascript">
+			<pre><code>
 	Properties
 
   audio​Tracks
@@ -1809,7 +1919,7 @@ window.location.replace('url');  // направление на другой а�
   waiting
 			</code></pre></details></li>
 		<li><details><summary>attributes</summary>
-			<pre><code class="javascript">
+			<pre><code>
   < style>
     .div[data-info="name"] { color: green }
     .div[data-info="age"] { color: blue }
@@ -1855,11 +1965,11 @@ window.location.replace('url');  // направление на другой а�
   	.startsWith('')  // начинается с 
 			</code></pre></details></li>
 		<li><details><summary>Forms</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>..load..</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
   window.onbeforeunload = function () { return "Данные не сохранены. Точно перейти?" };
              // Событие произойдет перед закрытием страницы.
@@ -1872,19 +1982,19 @@ window.location.replace('url');  // направление на другой а�
         loadstart
 			</code></pre></details></li>
 		<li><details><summary>MutationObserver</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>Selection, Range</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
 		<li><details><summary>event loop</summary>
-			<pre><code class="javascript">
+			<pre><code>
 
 			</code></pre></details></li>
     <li><details><summary>Drag & Drop</summary>
-      <pre><code class="javascript">
+      <pre><code>
     атрибут draggable="true"
 
   // dragstart - вызывается в самом начале переноса перетаскиваемого элемента.
@@ -1917,7 +2027,7 @@ window.location.replace('url');  // направление на другой а�
   codepen: <a href="https://codepen.io/leonardasf1/pen/LwVXyZ">drag & drop</a>
   </code></pre></details></li>
     <li><details><summary>geolocation</summary>
-      <pre><code class="javascript">
+      <pre><code>
   navigator.geolocation.getCurrentPosition() 
   .textContent = position.coords.latitude;  // широта
   .textContent = position.coords.longitude;  // долгота
@@ -1948,7 +2058,7 @@ window.location.replace('url');  // направление на другой а�
 <div>
 	<ul>
 		<li><details><summary>Storage</summary>
-			<pre><code class="javascript">
+			<pre><code>
 	window.sessionStorage
 	window.localStorage
 		.setItem("key1", "value1")
@@ -1965,7 +2075,7 @@ window.location.replace('url');  // направление на другой а�
 	<a href="https://codepen.io/leonardasf1/pen/JgOmYE">cookieColor</a>
 			</code></pre></details></li>
 		<li><details><summary>indexedDB</summary>
-			<pre><code class="javascript">
+			<pre><code>
   .indexedDB
       .open('baseName', 1);  // открытие БД
           .onupgradeneeded = (e) => {}
@@ -1980,7 +2090,7 @@ window.location.replace('url');  // направление на другой а�
 
 			</code></pre></details></li>
 		<li>AJAX<ul><details><summary>Fetch</summary>
-			<pre><code class="javascript">
+			<pre><code>
   let promise = fetch(url, {options});
   ---
   let response = await fetch('url');
@@ -2020,7 +2130,7 @@ window.location.replace('url');  // направление на другой а�
   });
 			</code></pre></details></li>
 		<li><details><summary>FormData</summary>
-			<pre><code class="javascript">
+			<pre><code>
   formElem.onsubmit = async (e) => {
     e.preventDefault();
 
@@ -2046,7 +2156,7 @@ window.location.replace('url');  // направление на другой а�
   }
 			</code></pre></details></li>
 		<li><details><summary>XMLHttpRequest</summary>
-			<pre><code class="javascript">
+			<pre><code>
   function myAsyncFunction (url) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();  // Создание объекта для HTTP запроса.
@@ -2110,10 +2220,6 @@ window.location.replace('url');  // направление на другой а�
     Его использование запрещено в Strict Mode. 
     Подробнее: http://habrahabr.ru/post/118666/">with </a>
 
-        Math 
-        Number
-            .NEGATIVE_INFINITY
-
             .anchors[0].name
 
     Кэширование изображений
@@ -2156,7 +2262,7 @@ codepen:
 	<li><a href="https://codepen.io/leonardasf1/pen/VJoPbq">Calculator</a></li>
 	<li><a href="https://codepen.io/leonardasf1/pen/PoYgPXz">Sort</a></li>
 </ul>
-</article>
+</content>
 <footer></footer>
 </body>
 </html>

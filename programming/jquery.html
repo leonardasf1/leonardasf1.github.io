@@ -33,12 +33,14 @@
   <div id="links">
     <a href="https://jquery.com/"><img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jQuery"></a>
     <a href="https://itvdn.com/ru/video/jquery"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a><br>
-    <a href="https://www.youtube.com/watch?v=B4jWRrz3FUM&list=PLVfMKQXDAhGXQcouhIblV910Rv7lRscH3"> Уроки jQuery (Web Developer Blog)</a><br>
+    <a href="https://www.youtube.com/watch?v=B4jWRrz3FUM&list=PLVfMKQXDAhGXQcouhIblV910Rv7lRscH3"> Уроки jQuery (Web Developer Blog)</a>
+  <a href="https://www.youtube.com/watch?v=FofBtCPEZo4&list=PL8pp2EAvIK-LkkQwz_oR-SQTUuAR4kNhg"> JavaScript и Jquery  (Денис Горелов)</a><br>
+  <a href="https://www.youtube.com/watch?v=npfWRm4mwfc"> jQuery Form Styler или другой взгляд на формы в HTML!</a><br><br>
     <br>
     https://code.jquery.com/jquery-3.4.1.min.js <br>
     https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js <br>
   </div>
-  <pre><code class="javascript">
+  <pre><code>
   <b>$("selector").action(); </b>
       
   $("div.menu") //div class=menu
@@ -56,7 +58,7 @@
   $(":text")
   $(this)
       </code></pre>
-  <pre><code class="javascript">
+  <pre><code>
   .attr("атр", "знач"); href,src,id,class,style
   .removeAttr("атр"); 
   .html(); изменить код
@@ -83,7 +85,7 @@
   .remove(); $("p").eq(1).remove(); удаление
   .empty(); опустошить 
       </code></pre>
-  <pre><code class="javascript">
+  <pre><code>
   .on("событие", function() {}); добавляет событие к элементу
   .off("событие"); удаляет событие из элемента
   .trigger("событие"); запуск события
@@ -99,7 +101,7 @@
   .resize изменение размера окна
   .scroll прокрутка
       </code></pre>
-  <pre><code class="javascript">
+  <pre><code>
   <b>свойства событий</b>
 
   pageX, pageY положение мыши
@@ -110,7 +112,7 @@
   preventDefault() отмена действия по умолчанию
   stopPropagation() останавливает событие
       </code></pre>
-  <pre><code class="javascript">
+  <pre><code>
   <b>$("selector").событие(function(x) {x.свойствоСобытия()});</b>
 
   .hide();
@@ -137,7 +139,7 @@
 
 <article>
 
-      <pre><code class="javascript">
+      <pre><code>
 $(function() {
     $("#start").html("Go!");
     var txt = $("< i>< /i>").text("Hi");

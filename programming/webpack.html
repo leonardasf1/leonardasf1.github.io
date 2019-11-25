@@ -6,11 +6,10 @@
 	<title>Webpack</title>
   <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
   <link rel="stylesheet" href="../CSS/leonardasf1.css">
-  <script src="../JS/leoscript.js" defer></script>
+  <script src="../JS/main.js" defer></script>
   
     <link rel="stylesheet" href="../CSS/highlight.css">
     <script src="../JS/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -35,7 +34,7 @@
 <article>
   <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Антон Кастрицкий</a> 
   <a href="https://yadi.sk/i/9oydqY8iwcY__A">Вебпак, вид сквозь монокль.pdf</a>
-<pre><code class="javascript">
+<pre><code>
   npm init // 
 
   npm install --save-dev webpack
@@ -46,7 +45,7 @@
   npm install cache-loader style-loader css-loader sass-loader node-sass --save-dev
   npm i -D html-webpack-plugin
 </code>
-<details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><code class="javascript">
+<details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><code>
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -85,7 +84,7 @@ module.exports = {
 };</code>
 </div></details>
 
-<details><summary>package.json</summary><div><code class="JSON">
+<details><summary>package.json</summary><div><code>
   {
     ...
     "scripts": {
@@ -95,7 +94,7 @@ module.exports = {
     ...
   }</code>
 </div></details>
-<code class="javascript">
+<code>
   npm run build  // сборка на продакшн
   npm run dev  // для разработки
 
