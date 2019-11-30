@@ -9,21 +9,130 @@
 <div class="flex">
   <div id="links">
     <a href="https://angular.io"><img src="https://angular.io/assets/images/favicons/favicon.ico"></a><br>
-    <a href="https://itvdn.com/ru/catalog?search=angular" style="background: none; padding-left: 0"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a><br>
-    <li><a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a></li>
-    MVC <br>   
+    <a href="https://itvdn.com/ru/video/angular2_essential"> Angular 2 Essential (2016)</a><br>
+    <a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a><br>
+    <a href="https://youtu.be/Rf54BH35yrY">Angular 8 Основы (2019)</a><br>
+    <a href="https://angular.io/guide/universal">Angular Universal (SSR)</a><br>
+    <a href="http://swimlane.github.io/ngx-datatable/#client-sorting">пагинация</a><br>
   </div>
-
   <div><pre><code>
-    <тэг ng-app >
-    {{2+2}}
-    <тэг ng-model="name"> {{name}}
-    ng-init
-    ng-repeat
-    <див ng-app ng-init="students=['David','Steve','Bob']">
-    <ол><ли ng-repeat="name in students"> {{ name }} </ли> </ол> </див>
-
+sudo npm install -g @angular/cli
+ng new name-app
+cd my-app
+ng serve --open
+---
+ng build
+ng test
+ng lint
+ng e2e
+ng generate component xyz
+ng build --prod
+ng add @angular/material
   </code></pre></div>
 
+<div><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"><img src="https://www.typescriptlang.org/assets/images/icons/safari-pinned-tab.svg" alt="TypeScript" height="32px"></a> TypeScript<br>
+  <a href="https://itvdn.com/ru/video/typescript-fundamentals">TypeScript Fundamentals Updated (2018)</a><br>
+  <a href="https://itvdn.com/ru/video/typescriptfundamentals">TypeScript Fundamentals (2016)</a>
+  <pre><code>
+boolean
+string
+let varName: number = 10; //number
+let varName: number[] = [1, 2, 3]; //array
+let varName: Array< number> = [1, 2, 3]; //array
+let varName: [string, number]; // tuple
+enum //перечисление
+let varName: any = 4; // any
+function warnUser(): void {
+    console.log("This is my warning message");
+} //void - функция ничего не возвращает
+null
+undefined
+never
+  </code></pre>
+</div>
+
+  <div>main.ts
+    <pre><code>
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+  </code></pre></div>
+
+  <div>app.module.ts
+    <pre><code>
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+  </code></pre></div>
+
+  <div>app.component.ts
+    <pre><code>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  interpolation: ['{{', '}}'] // необязательно
+})
+export class AppComponent {
+  title = 'first-app';
+  text: string = 'my sample text';
+  obj = { "name": "Leo", "age": "26" };
+  imgUrl = 'https://site.ru/img.png';
+  getInfo(): string { return 'This is my info' };
+}
+  </code></pre></div>
+
+<div>index.html
+  <pre><code>
+  < body>
+    < app-root>< /app-root>
+  < /body>
+</code></pre>
+app.component.html
+  <pre><code>
+    < h2>{{ title }}< /h2>
+    < p>{{ text }}< /p>
+    < pre>{{ obj | json }}< /pre>
+    < img src="{{ imgUrl }}">
+    < p>{{ getInfo() }}< /p>
+  </code></pre>
+</div>
+
+  <div><pre><code>
+<тэг ng-app >
+{{2+2}}
+<тэг ng-model="name"> {{name}}
+ng-init
+ng-repeat
+<див ng-app ng-init="students=['David','Steve','Bob']">
+<ол><ли ng-repeat="name in students"> {{ name }} </ли> </ол> </див>
+
+  </code></pre></div>
 
 </div>

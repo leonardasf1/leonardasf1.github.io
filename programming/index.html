@@ -78,6 +78,10 @@ s { color: red; }
             <img src="https://www.rust-lang.org/static/images/favicon-32x32.png" alt="Rust">
             <span>Rust</span>
         </a>
+        <a onclick="load('golang.html')">
+            <img src="https://golang.org/favicon.ico" alt="Golang">
+            <span>Golang</span>
+        </a>
     </nav>
 
 <article>
@@ -129,6 +133,8 @@ s { color: red; }
 <div>
     <h2>design</h2>
     <ul>
+        <li><a href="https://anatolykulikov.ru/review/glyphhanger-tool-to-optimize-fonts/">glyphhanger-tool-to-optimize-fonts</a></li>
+        <li><a href="https://github.com/bramstein/homebrew-webfonttools">homebrew-webfonttools</a></li>
         <li>Axure - проектирование прототипа сайта/приложения</li>
         <li><a href="https://www.gimp.org/">gimp.org</a></li>
         <a href="https://www.figma.com"><img src="https://static.figma.com/app/icon/1/favicon.png" alt="figma"> figma.com</a> <span style="color: rgba(0,0,0,0);">1stepnoi</span><br>
@@ -267,7 +273,7 @@ create .gitignore /tmp
     <a href="https://code.visualstudio.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" title="VS Code"></a>
     <a href="https://notepad-plus-plus.org/"><img src="https://notepad-plus-plus.org/images/logo.svg" title="notepad++"></a>
     <a href="https://www.jetbrains.com/idea/"><img src="../icons/intelliJ.svg"></a>
-    <a href="https://www.sublimetext.com"><img src="https://www.sublimetext.com/favicon.ico" title="Sublime Text"></a>
+    <a href="https://www.sublimetext.com"><img src="../icons/sublime.svg" title="Sublime Text"></a>
 </li>
     sublimeText: .container>.header(>h1{Hello W})+.content>ul>li*5({item$}) <br>
 <li></li>
@@ -289,6 +295,8 @@ cd E:\Users\Projects
 cd "E:\Users\Rust Projects"
 mkdir folder  // создаем папку
 ls  // смотреть содержимое папки
+cd .. //перейти в родительский каталог
+sudo
     </pre>
 </div>
 
@@ -300,6 +308,7 @@ ls  // смотреть содержимое папки
     с Backend JS Developer</a></li>
     <li><img src="https://electronjs.org/images/favicon.ico" alt=""><a href="https://electronjs.org/">electronjs</a></li>
     <pre>
+node -v
 require('./name')
 global.name = name; 
 // делает переменную глобальной
@@ -317,7 +326,6 @@ module.exports = {
 
 <div class="img32">
     <a href="https://dart.dev/"><img src="https://dart.dev/assets/shared/dart/icon/64.png" alt="Dart"> Dart , Flutter</a><br>
-    <a href="https://www.typescriptlang.org/"><img src="https://www.typescriptlang.org/assets/images/icons/favicon-32x32.png" alt=""> TypeScript </a> <a href="https://youtu.be/bSoIeNo-aiw"> </a><br>
     <a href="https://flow.org/"><img src="https://flow.org/static/favicon.png" alt="flow"> Flow</a> <a href="https://ru.reactjs.org/docs/static-type-checking.html">ru.reactjs.org</a>
     <hr>
     <a href="https://idris-lang.org/"><img src="http://idris-lang.org/logo/logo-small.png" alt="idris-logo"> </a>
@@ -325,7 +333,6 @@ module.exports = {
     <a href="https://youtu.be/mOtKD7ml0NU"></a>
     <a href="https://youtu.be/o-7zhrUP3ds"></a><br>
     <a href="https://www.haskell.org/"><img src="https://www.haskell.org/img/favicon.ico" alt="Haskell"> Haskell</a><br>
-    <a href="https://golang.org/"><img src="https://golang.org/favicon.ico" alt="Golang"> Golang</a><br>
     <h3>Java</h3>
     <ul>
         <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a><br>
@@ -337,7 +344,7 @@ module.exports = {
     HotKeys / Key Bindings
     <ul>
         <li><a href="https://support.apple.com/ru-ru/HT201236"><img src="../icons/apple.svg" alt="Mac hotkeys"> Mac</a></li>
-        <li><a href="https://sublimetext.ru/documentation/hotkeys/osx"><img src="https://www.sublimetext.com/favicon.ico" alt="sublime hotkeys"> Sublime Text</a></li>
+        <li><a href="https://sublimetext.ru/documentation/hotkeys/osx"><img src="../icons/sublime.svg" alt="sublime hotkeys"> Sublime Text</a></li>
         <li><a href="https://code.visualstudio.com/docs/getstarted/keybindings"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code hotkeys"> Visual Studio Code</a></li>
         <li><a href="https://www.youtube.com/playlist?list=PLcjongJGYetkY4RFSVftH43F91vgzqB7U">Vim</a></li>
         <li>
@@ -351,12 +358,27 @@ module.exports = {
 </div>
 
 <div>
+    unit-тесты<br>
+    e2e-тесты<br>
+    Mocha<br>
+</div>
+
+<div>
+    WebAssembly
+    <a href="https://vk.com/doc41637949_521818112">Никита Зимин WebAssembly (2019)</a>
+</div>
+
+<div>
     <ul>
+    <li>PWA , TWA</li>
+    <li><a href="https://github.com/WICG/display-locking">display-locking</a></li>
+    <li><a href="https://amp.dev/">AMP</a></li>
+    MVC <br>
     <li><a href="https://ru.wikipedia.org/wiki/CURL">cURL</a></li>
-    <li>browserslist</li>
-    <li>WebAuthn / WebAssembly</li>
-    <li>unit-тесты , e2e-тесты , Mocha</li>
+    <li>WebAuthn</li>
     <li>скрамы, канбаны, стендапы, парное программирование</li>
+    <a href="http://progopedia.ru/">progopedia.ru</a><br>
+    <a href="https://almanac.httparchive.org">almanac.httparchive</a><br>
     <li><a href="https://vk.com/doc41637949_513701117">code complete Стива Макконнела. 2010</a></li>
     <a href="https://htmlacademy.ru"><img src="https://htmlacademy.ru/favicon.svg"> htmlacademy.ru</a><span style="color: rgba(0,0,0,0);">e5744e2</span><br>
     <a href="https://www.sololearn.com/Course/HTML/"><img src="https://www.sololearn.com/Images/favicon.ico"> sololearn.com</a> <span style="color: rgba(0,0,0,0);">ctepnoi</span> <br>

@@ -1,0 +1,235 @@
+<div id="pageTitle">Golang</div>
+<div id="headerTitle">
+  <a onclick="load('golang.html')"><img src="https://golang.org/favicon.ico" alt="Golang">
+  <span>Golang</span></a>
+</div>
+
+<div class="flex">
+
+	<div id="links">
+		<a href="https://golang.org/">Golang.org</a><br>
+		<a href="https://itproger.com/course/one-lesson/14"> go за полчаса</a><br>
+		<a href="https://itvdn.com/ru/video/golang">Видео уроки Golang (ITVDN)</a><br>
+		<a href="https://play.golang.org/">play.golang.org</a><br>
+		
+	</div>
+
+<div>
+	<pre><code class="bash">
+go run main.go
+go build main.go
+
+echo $GOPATH // путь к проекту
+echo $GOROOT // где установен GO
+	bin/ бинарники
+	pkg/ объектные файлы
+	src/ ваш код и др пакеты
+	</code></pre>
+</div>
+
+<div>
+	<pre><code>
+var age int = 12
+age2 := 12 // краткое объявление
+// int8, int16, int32, int64
+// uint, uint8,...
+var num float64 = 2.3456 // float32
+var web string = "itProger"
+var rawSymbol byte = '\x25' 
+	//символьное зн-е % (uint8)
+var symbol rune = 'Г' // или '\u1043'
+fmt.Sprintf("%#U", 'Г')
+z:= 2 + 3i // комплексные числа
+yu:=`ddd
+	dd`
+a, b := "v1", "v2"
+var (
+	m0 int = 12
+	m2     = "string"
+	m3     = 23
+)
+const (
+	z1 = iota + 1 // 1
+	z2      // 2
+
+	z3      // 4
+)
+
+fmt.Println(age, int(num), rawSymbol, z, a, b, m0, m2, m3 )
+fmt.Println(web, "is cool website\n\t", z1, z2, z3, yu)
+
+// Printf
+var isDone bool = true
+fmt.Printf("%t", isDone)
+
+"hi\n\t"
+\n //новая линия
+\t //большой пробел
+int(varName) //приведение к типу int
+string(symbol) // приведение к типу sting
+	</code></pre>
+</div>
+
+<div>
+	<pre><code>
+// Условные операторы
+if age < 5 {}
+else if (age > 5) && (age <= 18) {}
+else {}
+
+// Switch case
+switch age {
+  case 5: fmt.Println("Вам 5 лет")
+  case 15: fmt.Println("Вам 15 лет")
+    fallthrough  // провалиться в след.кейс
+  default: fmt.Println("Вам неизвестно сколько лет")
+}
+	</code></pre>
+</div>
+
+<div>For
+	<pre><code>
+for { println("бесконечный цикл"); break }
+i := 10
+for i > 0 {
+  fmt.Println(i)
+  i--
+}
+for i := 0; i <= 5; i++ { fmt.Println(i) }
+
+for i, val := range slName {
+	println(i, val)
+} //как for in (js)
+
+index := 1
+Loop:  // метка для выхода
+  for {
+    index++
+    switch index {
+      case 10:
+        println()
+        break Loop 
+    }
+  }
+goto ?
+	</code></pre>
+</div>
+
+<div>Array / Slice , <a href="https://habr.com/en/post/202948/" style="float: right">habr?</a>
+	<pre><code class="go">
+// у массивов фиксированная длина
+var arr[3] int
+arr[0] = 45
+arr[1] = 97
+arr[2] = 76
+fmt.Println(arr[1], len(arr))
+a3 := [...]int{3, 3, 3}
+nums := [3]float64 {4.23, 5.23, 98.1}
+
+var aa [3][3]int
+aa[1][1] = 1
+
+//slice
+var s1 []int
+s1 = append(s1, 100)
+slName := []int{10, 20, 30, 40}
+var slName []int = arr[1:2] //срез от 1го до 2го
+println(slName[2])
+len() // длина
+cap() // емкость
+make() ?
+	</code></pre>
+</div>
+
+<div>Maps
+	<pre><code>
+//объявленная но не инициализированная карта
+var mm map[string]string
+
+//полная инициализация
+var mm2 map[int]int = map[int]int{}
+mm2 := map[string]string{}
+mm2["test"] = "ok"
+
+webSites := make(map[string]float64)
+webSites["itProger"] = 0.8
+webSites["yandex"] = 0.99
+fmt.Println(webSites["itProger"])
+
+	</code></pre>
+</div>
+
+<div>
+	<pre><code>
+// Замыкания
+multiple := func() int {
+  num *= 2
+  return num
+}
+fmt.Println(multiple())
+	</code></pre>
+</div>
+
+	<div>Func
+		<pre><code>
+package main
+import "fmt"
+
+var globalMap map[string]string
+func init() {
+	globalMap = make(map[string]string)
+	globalMap["myName"] = "Den"
+}
+
+func main () {
+  var a = 3
+  var b = 2
+  a, b = summ (a, b)
+  fmt.Println(a, b)
+  fmt.Println(summ (a, b))
+  var x = 0
+  pointer (&x)
+  fmt.Println(x)
+}
+func summ (num_1 int, num_2 int) (int, int) {
+  var res int = num_1 + num_2
+  return res, num_1 * num_2
+}
+func pointer (x *int) { *x = 2 }
+		</code></pre>
+	</div>
+
+	<div>Struct
+		<pre><code>
+package main
+import "fmt"
+
+func main () {
+  bob := Cats{"Bob", 7, 0.87}
+  fmt.Println("Bob function is", bob.test())
+}
+type Cats struct {
+  name string
+  age int
+  happiness float64
+}
+func (cat *Cats) test() float64 {
+  return float64(cat.age) * cat.happiness
+}
+		</code></pre>
+	</div>
+
+<div>Import / Export
+	<pre><code>
+import (
+  "fmt"
+  usr "user" //use as
+  . "user2" //use all in
+  _ "notUse"
+)
+fmt.Println(usr.UserName, UserName2)
+// для экспорта 1я буква заглавная
+	</code></pre>
+</div>
+
+</div>

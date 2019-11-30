@@ -289,8 +289,12 @@ clear: left | right | both; отменяет действие float
 
 <details><summary>font / text</summary><div>
 @font-face {
-    font-family: Pompadur;
-    src: url(fonts/pompadur.ttf);
+  font-family: ExampleFont;
+  src: url(/path/to/fonts/examplefont.woff) format('woff'),
+       url(/path/to/fonts/examplefont.eot) format('eot');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 font: 0.9em Arial, Helvetica, sans-serif;
 font-family: Arial, Helvetica, sans-serif;
