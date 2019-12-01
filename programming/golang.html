@@ -8,16 +8,31 @@
 
 	<div id="links">
 		<a href="https://golang.org/">Golang.org</a><br>
+		<a href="https://youtu.be/53ULpInm988">Почему GO?</a><br>
 		<a href="https://itproger.com/course/one-lesson/14"> go за полчаса</a><br>
 		<a href="https://itvdn.com/ru/video/golang">Видео уроки Golang (ITVDN)</a><br>
 		<a href="https://play.golang.org/">play.golang.org</a><br>
-		
+		<a href="http://liteide.org/en/">liteIDE</a><br>
+		<a href="https://www.youtube.com/channel/UCq-OB01F8YnS-FJpeJRCvMQ/">GopherCon Russia</a><br>
+		<a href="https://groups.google.com/forum/#!forum/golang-ru">Golang Russian</a><br>
+		<a href="https://tech.avito.ru">avito.tech</a> , <a href="https://twitter.com/AvitoTech">twitter</a><br>
+		<a href="https://habr.com/ru/company/avito/blog/475760/">Junior-разработчики — почему мы их <br>нанимаем и как мы с ними работаем</a><br>
 	</div>
 
 <div>
 	<pre><code class="bash">
-go run main.go
-go build main.go
+go run main.go //компиляция и запуск
+go build main.go //компиляция пакетов и зависимостей
+go build -o ../main.exe main.go
+go clean //удаляет бинарник
+go help
+go fmt //форматирование кода
+go vet //проверка на ошибки
+go test //запускает тесты
+go env //показать переменные окружения
+go get github.com/username/projectname
+  //подгрузка библиотек
+go install //компилирует и подгружает библиотеки
 
 echo $GOPATH // путь к проекту
 echo $GOROOT // где установен GO
@@ -62,6 +77,12 @@ fmt.Println(web, "is cool website\n\t", z1, z2, z3, yu)
 var isDone bool = true
 fmt.Printf("%t", isDone)
 
+%t-bool
+%d-int,uint,rune,byte
+%f-float64,float32
+%s-string
+%b-byte
+%v-all
 "hi\n\t"
 \n //новая линия
 \t //большой пробел
@@ -108,14 +129,13 @@ Loop:  // метка для выхода
     switch index {
       case 10:
         println()
-        break Loop 
+        goto Loop 
     }
   }
-goto ?
 	</code></pre>
 </div>
 
-<div>Array / Slice , <a href="https://habr.com/en/post/202948/" style="float: right">habr?</a>
+<div>Array
 	<pre><code class="go">
 // у массивов фиксированная длина
 var arr[3] int
@@ -128,15 +148,57 @@ nums := [3]float64 {4.23, 5.23, 98.1}
 
 var aa [3][3]int
 aa[1][1] = 1
+</code>
+<code>
+package main
+import "fmt"
 
-//slice
+func main() {
+  arr := [7]int{5, 8, 3, 6, 0, 1, 2}
+  arr1 := arr
+  count := 0
+  for i := 0; i <= len(arr); i++ {
+    for j := 1; j < len(arr); j++ {
+      if arr[j-1] > arr[j] {
+        arr[j-1], arr[j] = arr[j], arr[j-1]
+      }
+      count++
+    }
+    if arr1 == arr {
+      fmt.Println("done", arr, count)
+      return
+    }
+    arr1 = arr
+  }
+}
+	</code></pre>
+</div>
+
+<div>Slice , <a href="https://habr.com/en/post/202948/" style="float: right">habr?</a>
+	<pre><code>
 var s1 []int
-s1 = append(s1, 100)
+
+s1 = append(s1, 100) //add 100
+s1 = append(s1, slName...) //add another slice
+s1 = append(s1, []int{10, 20, 30, 40}, arr[:]...)
+
 slName := []int{10, 20, 30, 40}
+
+slName := make([]int, 6) //with len
+slName := make([]int, 6, 15) //with len & cap
+slName := make([]int, len(s1), len(s1))
+copy(slName, s1)
+
 var slName []int = arr[1:2] //срез от 1го до 2го
+slName[:5], slName[7:]
+
+ar := [...]int{1,2,3} //array
+newSlice := a[:]
+
 println(slName[2])
-len() // длина
-cap() // емкость
+
+len(slName) // длина
+cap(slName) // емкость
 make() ?
 	</code></pre>
 </div>
@@ -148,14 +210,27 @@ var mm map[string]string
 
 //полная инициализация
 var mm2 map[int]int = map[int]int{}
-mm2 := map[string]string{}
+mm2 := map[string]string{
+	"we": er,
+	"rt": ty,
+}
 mm2["test"] = "ok"
 
 webSites := make(map[string]float64)
 webSites["itProger"] = 0.8
 webSites["yandex"] = 0.99
+
 fmt.Println(webSites["itProger"])
 
+//проверка на наличие свойства
+varName, ok := webSites["yandex"]
+fmt.Println(varName, ok)
+
+//и без вывода свойства
+_, exist := mapName["keyName"]
+fmt.Println(exist)
+
+delete(mapName, "keyName")
 	</code></pre>
 </div>
 
@@ -204,7 +279,7 @@ func pointer (x *int) { *x = 2 }
 package main
 import "fmt"
 
-func main () {
+func main() {
   bob := Cats{"Bob", 7, 0.87}
   fmt.Println("Bob function is", bob.test())
 }
@@ -223,12 +298,37 @@ func (cat *Cats) test() float64 {
 	<pre><code>
 import (
   "fmt"
+  "github.com/username/projectname"
   usr "user" //use as
   . "user2" //use all in
   _ "notUse"
 )
 fmt.Println(usr.UserName, UserName2)
 // для экспорта 1я буква заглавная
+	</code></pre>
+</div>
+
+<div>main_test.go
+	<pre><code>
+package main
+
+import "testing"
+
+var globalVarN = 5
+var globalVarResult = 120
+
+func TestFactorial(t *testing.T) {
+  result, i := 1, 1
+
+  for ; i <= globalVarN; i++ {
+    result *= i
+    println(result)
+  }
+
+  if result != globalVarResult {
+    t.Errorf("Factorial expected %v but got %v", globalVarResult, result)
+  }
+}
 	</code></pre>
 </div>
 
