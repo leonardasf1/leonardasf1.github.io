@@ -22,24 +22,23 @@ s { color: red; }
   <link rel="stylesheet" href="../CSS/highlight.css">
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 
-<script src="../JS/main.js" defer></script>
+<script src="../JS/main.js"></script>
 </head>
 <body>
 	<header>
         <div id="headerMenu">
             <div>
                 <img src="" alt="">
-                <span>Programming</span>
             </div>
         </div> 
     </header>
 <content>
     <nav>
-        <a href="html.html">
+        <a onclick="load('html.html')">
             <img src="../icons/html.svg" alt="html5">
             <span>HTML</span>
         </a>
-        <a href="css.html">
+        <a onclick="load('css.html')">
             <img src="../icons/css.svg" alt="css">
             <span>CSS</span>
         </a>
@@ -91,9 +90,6 @@ s { color: red; }
     <a href="https://itvdn.com/ru/catalog" style="padding-left: 0; background: none"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a>
     <a href="https://loftblog.ru/"><img src="https://loftblog.ru/favicon/apple-touch-icon.png" alt="loftblog"></a>
     <a href="https://www.w3schools.com/">W3C</a>
-    <a href="https://devsday.ru/event/list"><img src="https://devsday.ru/favicon.png" alt="devsday"></a>
-    <a href="https://events.yandex.ru/"><img src="https://yastatic.net/s3/distribution/promo/react-yandex-favicon/vv0.1.1/favicons/ru/favicon-32x32.png" alt="events.yandex"></a>
-    <a href="https://corp.mail.ru/ru/press/events/"><img src="https://limg.imgsmail.ru/re/i/apple-touch-icon-114x114-ee8777f5e3.png" alt="corp.mail"></a>
     <a href="https://github.com" style="padding-left: 0; background: none"><img src="https://github.githubassets.com/favicon.ico" alt="github"></a>
     <a href="https://stackoverflow.com/tags"><img src="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico" alt="stackoverflow"></a>
     <a href="https://codesandbox.io"><img src="https://codesandbox.io/favicon.ico" alt="codesandbox"></a>
@@ -101,6 +97,15 @@ s { color: red; }
     <a href="https://jsfiddle.net/"><img src="http://jsfiddle.net/img/favicon.png" alt="jsfiddle.net"></a>
     <a href="https://ideone.com"><img src="https://ideone.com/gfx2/img/favicon.png" alt="ideone"></a>
 </div>
+
+<div><ul>
+    <li><a href="https://www.meetup.com/ru-RU/"><img src="https://www.meetup.com/mu_static/ru-RU/favicon.a6878039.ico" alt="meetup.com"> meetup.com</a></li>
+    <li><a href="https://meetup.tinkoff.ru/events"><img src="https://meetup.tinkoff.ru/static/ad2ef8a213f3e76e53c28f1c812a10874e000806//assets/favicon.ico" alt="meetup.tinkoff"> meetup.tinkoff</a></li>
+    <li><a href="https://devsday.ru/event/list"><img src="https://devsday.ru/favicon.png" alt="devsday"> devsday.ru</a></li>
+    <li><a href="https://events.yandex.ru/"><img src="https://yastatic.net/s3/distribution/promo/react-yandex-favicon/vv0.1.1/favicons/ru/favicon-32x32.png" alt="events.yandex"> events.yandex</a></li>
+    <li><a href="https://corp.mail.ru/ru/press/events/"><img src="https://limg.imgsmail.ru/re/i/apple-touch-icon-114x114-ee8777f5e3.png" alt="corp.mail"> events.mail</a></li>
+    <li><a href="https://tech.avito.ru/events/"><img src="https://tech.avito.ru/static/img/favicon.ico" alt="tech.avito"> tech.avito</a></li>
+</ul></div>
 
 <div>
     <a href="https://youtu.be/1U4NrB9v9ZA">Я.Субботник по разработке интерфейсов. лето2019</a><br>
@@ -127,9 +132,36 @@ s { color: red; }
         <li><a href="https://itvdn.com/ru/video/csharp-essential">C# базовый (ООП)</a></li>
         <li><a href="https://itvdn.com/ru/video/patterns-of-design-review">Обзор шаблонов проектирования</a></li>
         <li><a href="https://itvdn.com/ru/patterns">Шаблоны проектирования</a></li>
-
     </ul>
+    <details>
+        <summary>Объект</summary> (экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.
+    </details>
+    <details>
+        <summary>Интерфейс</summary> – это набор методов класса, доступных для использования другими классами.
+    </details>
+    <details>
+        <summary>Абстрагирование</summary>
+Абстрагирование – это способ описания общих характеристик объекта
+    </details>
+    <details>
+        <summary>Имплементация</summary>
+Имплементация: это реализация методов, те. то, что фактически работает в классе. А наследование, это создание нового класса на основе старого, при этом реализация методов может отличаться, от базового класса.
+Но чаще, слово имплементация употребляют для интерфейсов: это то, что может делать интерфейс, и методы, и свойства.
+    </details>
+    <details>
+        <summary>Инкапсуляция</summary>
+Инкапсуляция – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя. 
+    </details>
 </div>
+
+<div>
+    <h2>Алгоритмы</h2>
+    <details>
+        <summary>Рекурсивные</summary>
+        Ханойская башня
+    </details>
+</div>
+
 <div>
     <h2>design</h2>
     <ul>
@@ -325,7 +357,9 @@ module.exports = {
 </div>
 
 <div class="img32">
-    <a href="https://dart.dev/"><img src="https://dart.dev/assets/shared/dart/icon/64.png" alt="Dart"> Dart , Flutter</a><br>
+    <a href="https://dart.dev/"><img src="https://dart.dev/assets/shared/dart/icon/64.png" alt="Dart"> Dart</a><br>
+    <a href="https://flutter.dev">Flutter</a><br>
+    <a href="https://habr.com/ru/post/430918/">Про Flutter, кратко: Основы / Хабр</a><br>
     <a href="https://flow.org/"><img src="https://flow.org/static/favicon.png" alt="flow"> Flow</a> <a href="https://ru.reactjs.org/docs/static-type-checking.html">ru.reactjs.org</a>
     <hr>
     <a href="https://idris-lang.org/"><img src="http://idris-lang.org/logo/logo-small.png" alt="idris-logo"> </a>

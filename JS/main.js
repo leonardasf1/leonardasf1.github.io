@@ -1,10 +1,10 @@
 
-(function() {
   setHeader();
+window.addEventListener("DOMContentLoaded", function() {
   setContentFn();
   setFooterScrollTop();
   setFooter();
-})();
+});
 
 function q(id) { return document.querySelector(id) }
 function qAll(id) { return document.querySelectorAll(id) }
@@ -16,21 +16,21 @@ function setHeader() {
   .then(() => window.addEventListener( "scroll", () => {
     if (this.scrollY > 50) q('#headerMenu').style.height = '56px';
     if (this.scrollY < 51) q('#headerMenu').style.height = '95px';
-  }))
-  .then(() => qAll('.item').forEach(
-    i => i.onclick = function() {
-      this.nextElementSibling.classList.toggle('slideT');
-      this.nextElementSibling.addEventListener("mouseleave", function () {
-        this.classList.remove('slideT');
-      });
-    }
-  ));
+  }));
+  // .then(() => qAll('.item').forEach(
+  //   i => i.onclick = function() {
+  //     this.nextElementSibling.classList.toggle('slideT');
+  //     this.nextElementSibling.addEventListener("mouseleave", function () {
+  //       this.classList.remove('slideT');
+  //     });
+  //   }
+  // ));
 }
 
 function setContentFn() {
 
   if (q('details')) qAll("details").forEach(
-    i => i.ontoggle = function() {this.firstChild.classList.toggle('hover')});
+    i => i.ontoggle = function() {this.firstElementChild.classList.toggle('hover')});
 
   qAll('a[href*="://"]').forEach(
     link => link.setAttribute("target", "_blank"));

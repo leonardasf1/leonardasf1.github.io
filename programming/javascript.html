@@ -6,7 +6,7 @@
     <title>JavaScript</title>
 
     <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
-    <link rel="stylesheet" href="../CSS/leonardasf1.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
     <link rel="stylesheet" href="../CSS/highlight.css">
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
@@ -20,7 +20,6 @@
   <div id="headerMenu">
     <div>
       <img src="../icons/js.svg">
-			<span style="color: yellow">JavaScript</span>
 		</div>
   </div>
 </header>
@@ -1482,22 +1481,25 @@ new Cat('red');
   //  Node.NOTATION_NODE              | 12*
   // ---------------------------------------------------
 			</code></pre></details></li>
-		<li><details><summary>поиск getElement..</summary>
-			<pre><code>
+		<li><details><summary>навигация по DOM</summary>
+			<pre><code class="js">
+  document.querySelector('')  // селекторы как в CSS , возвращает первый найденный
+    .querySelectorAll('')  // возвращает массив всех
 
   document.get​Element​ById("")
     .get​Elements​ByClass​Name()
     .get​Elements​ByName()
     .get​Elements​ByTagName()
 
-  document.querySelector('')  // селекторы как в CSS , возвращает первый найденный
-    .querySelectorAll('')  // возвращает все
-
-  // Свойства для навигации по DOM
+    .children
     .childNodes       // массив всех дочерних узлов
+    .firstElementChild
     .firstChild       // первый дочерний узел
+    .lastElementChild
     .lastChild        // последний дочерний узел
+    .nextElementSibling
     .nextSibling      // следующий узел расположенный на одном уровне с текущим
+    .previousElementSibling
     .previousSibling  // предыдущий узел расположенный на одном уровне с текущим
     .parentNode       // родительский узел для текущего элемента
     .hasChildNodes
@@ -1759,7 +1761,6 @@ window.location.replace('url');  // направление на другой а�
   .accessKey
   .attributes
   .child​Element​Count
-  .children
   .class​List
   .class​Name
   .client​Height
@@ -1767,19 +1768,15 @@ window.location.replace('url');  // направление на другой а�
   .clientTop
   .client​Width
   .current​Style
-  .first​Element​Child
   .id
-  .last​Element​Child
   .local​Name
   .name
   .namespaceURI
-  .next​Element​Sibling
   .onfullscreenchange
   .onfullscreenerror
   .open​OrClosed​Shadow​Root
   .outer​HTML // весь код блока включая сам блок
   .prefix
-  .previous​Element​Sibling
   .runtime​Style
   .scroll​Height
   .scroll​Left
@@ -1974,12 +1971,15 @@ window.location.replace('url');  // направление на другой а�
   window.onbeforeunload = function () { return "Данные не сохранены. Точно перейти?" };
              // Событие произойдет перед закрытием страницы.
   window.onload = function () {}  // событие срабатывает после полной загрузки окна.
-        DOMContentLoaded
+  DOMContentLoaded
 
-        loadeddata
-        loadedmetadata
-        loadend
-        loadstart
+  loadeddata
+  loadedmetadata
+
+//события на елементы
+  loadstart
+  load
+  loadend
 			</code></pre></details></li>
 		<li><details><summary>MutationObserver</summary>
 			<pre><code>

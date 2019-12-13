@@ -1,7 +1,6 @@
 <div id="pageTitle">Golang</div>
 <div id="headerTitle">
-  <a onclick="load('golang.html')"><img src="https://golang.org/favicon.ico" alt="Golang">
-  <span>Golang</span></a>
+  <a onclick="load('golang.html')"><img src="https://golang.org/favicon.ico" alt="Golang"></a>
 </div>
 
 <div class="flex">
@@ -9,18 +8,26 @@
 	<div id="links">
 		<a href="https://golang.org/">Golang.org</a><br>
 		<a href="https://youtu.be/53ULpInm988">Почему GO?</a><br>
+		<a href="https://youtu.be/2fxNbhy2gt0">Плюсы и минусы Go</a><br>
 		<a href="https://itproger.com/course/one-lesson/14"> go за полчаса</a><br>
 		<a href="https://itvdn.com/ru/video/golang">Видео уроки Golang (ITVDN)</a><br>
 		<a href="https://play.golang.org/">play.golang.org</a><br>
 		<a href="http://liteide.org/en/">liteIDE</a><br>
+    <a href="https://www.youtube.com/channel/UCQBFSUV_BdxGCxeg9Th4EjQ/videos">Gopher School</a><br>
 		<a href="https://www.youtube.com/channel/UCq-OB01F8YnS-FJpeJRCvMQ/">GopherCon Russia</a><br>
 		<a href="https://groups.google.com/forum/#!forum/golang-ru">Golang Russian</a><br>
 		<a href="https://tech.avito.ru">avito.tech</a> , <a href="https://twitter.com/AvitoTech">twitter</a><br>
 		<a href="https://habr.com/ru/company/avito/blog/475760/">Junior-разработчики — почему мы их <br>нанимаем и как мы с ними работаем</a><br>
+    gopher.js<br>
+    <a href="https://youtu.be/p1ILhiq5Clw">Работа с сетью в Go (2018)</a><br>
+    <a href="https://youtu.be/CX4GSErFenI">Как устроен garbage collector в Go 1.9 (2017)</a><br>
+    <a href="https://youtu.be/HtQLBdD82vE">Кодогенерация в Go (2017)</a><br>
+    Kubernetes<br>
 	</div>
 
 <div>
-	<pre><code class="bash">
+<details><summary>terminal</summary>
+  <pre><code class="bash">
 go run main.go //компиляция и запуск
 go build main.go //компиляция пакетов и зависимостей
 go build -o ../main.exe main.go
@@ -36,38 +43,39 @@ go install //компилирует и подгружает библиотеки
 
 echo $GOPATH // путь к проекту
 echo $GOROOT // где установен GO
-	bin/ бинарники
-	pkg/ объектные файлы
-	src/ ваш код и др пакеты
-	</code></pre>
-</div>
+  bin/ бинарники
+  pkg/ объектные файлы
+  src/ ваш код и др пакеты
+  </code></pre>
+</details>
 
-<div>
-	<pre><code>
+  <details><summary>типы данных</summary>
+  <pre><code>
 var age int = 12
 age2 := 12 // краткое объявление
 // int8, int16, int32, int64
 // uint, uint8,...
 var num float64 = 2.3456 // float32
 var web string = "itProger"
+var err error //error
 var rawSymbol byte = '\x25' 
-	//символьное зн-е % (uint8)
+  //символьное зн-е % (uint8)
 var symbol rune = 'Г' // или '\u1043'
 fmt.Sprintf("%#U", 'Г')
 z:= 2 + 3i // комплексные числа
 yu:=`ddd
-	dd`
+  dd`
 a, b := "v1", "v2"
 var (
-	m0 int = 12
-	m2     = "string"
-	m3     = 23
+  m0 int = 12
+  m2     = "string"
+  m3     = 23
 )
 const (
-	z1 = iota + 1 // 1
-	z2      // 2
+  z1 = iota + 1 // 1
+  z2      // 2
 
-	z3      // 4
+  z3      // 4
 )
 
 fmt.Println(age, int(num), rawSymbol, z, a, b, m0, m2, m3 )
@@ -88,15 +96,23 @@ fmt.Printf("%t", isDone)
 \t //большой пробел
 int(varName) //приведение к типу int
 string(symbol) // приведение к типу sting
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>
-	<pre><code>
+<details><summary>if / switch</summary>
+    <pre><code>
 // Условные операторы
 if age < 5 {}
 else if (age > 5) && (age <= 18) {}
 else {}
+
+var ok bool
+if r := recover(); r != nil {
+  if err, ok = r.(error); ok { fmt.Println(err) }
+}
+
+i, ok := varName.(int) //проверка типа
+fmt.Println(i, ok)
 
 // Switch case
 switch age {
@@ -105,11 +121,18 @@ switch age {
     fallthrough  // провалиться в след.кейс
   default: fmt.Println("Вам неизвестно сколько лет")
 }
-	</code></pre>
-</div>
 
-<div>For
-	<pre><code>
+err := GenerateError()
+switch e := err.(type) {
+  case nil: funcName()
+  case *MyError: funcName()
+  case error: funcName()
+}
+  </code></pre>
+</details>
+
+<details><summary>For</summary>
+  <pre><code>
 for { println("бесконечный цикл"); break }
 i := 10
 for i > 0 {
@@ -119,8 +142,15 @@ for i > 0 {
 for i := 0; i <= 5; i++ { fmt.Println(i) }
 
 for i, val := range slName {
-	println(i, val)
+  println(i, val)
 } //как for in (js)
+
+arrCount := make(map[int]int)
+for _, val := range slName {
+  if _, ok := arrCount[val]; !ok {
+    arrCount[val] = 1
+  } else { arrCount[val]++ }
+}
 
 index := 1
 Loop:  // метка для выхода
@@ -132,11 +162,11 @@ Loop:  // метка для выхода
         goto Loop 
     }
   }
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>Array
-	<pre><code class="go">
+<details><summary>Array</summary>
+  <pre><code class="go">
 // у массивов фиксированная длина
 var arr[3] int
 arr[0] = 45
@@ -149,33 +179,26 @@ nums := [3]float64 {4.23, 5.23, 98.1}
 var aa [3][3]int
 aa[1][1] = 1
 </code>
+сортировка массива
 <code>
 package main
 import "fmt"
 
 func main() {
   arr := [7]int{5, 8, 3, 6, 0, 1, 2}
-  arr1 := arr
-  count := 0
-  for i := 0; i <= len(arr); i++ {
-    for j := 1; j < len(arr); j++ {
-      if arr[j-1] > arr[j] {
-        arr[j-1], arr[j] = arr[j], arr[j-1]
-      }
-      count++
-    }
-    if arr1 == arr {
-      fmt.Println("done", arr, count)
-      return
-    }
+  var arr1[7]int
+  for arr1 != arr {
     arr1 = arr
-  }
+    for i := 1; i < len(arr); i++ {
+      if arr[i-1] > arr[i] {
+        arr[i-1], arr[i] = arr[i], arr[i-1] } } }
+  fmt.Println("done", arr)
 }
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>Slice , <a href="https://habr.com/en/post/202948/" style="float: right">habr?</a>
-	<pre><code>
+<details><summary>Slice , <a href="https://habr.com/en/post/202948/" style="float: right">habr?</a></summary>
+  <pre><code>
 var s1 []int
 
 s1 = append(s1, 100) //add 100
@@ -200,19 +223,19 @@ println(slName[2])
 len(slName) // длина
 cap(slName) // емкость
 make() ?
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>Maps
-	<pre><code>
+<details><summary>Maps</summary>
+  <pre><code>
 //объявленная но не инициализированная карта
 var mm map[string]string
 
 //полная инициализация
 var mm2 map[int]int = map[int]int{}
 mm2 := map[string]string{
-	"we": er,
-	"rt": ty,
+  "we": er,
+  "rt": ty,
 }
 mm2["test"] = "ok"
 
@@ -231,71 +254,127 @@ _, exist := mapName["keyName"]
 fmt.Println(exist)
 
 delete(mapName, "keyName")
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>
-	<pre><code>
-// Замыкания
-multiple := func() int {
-  num *= 2
-  return num
-}
-fmt.Println(multiple())
-	</code></pre>
-</div>
-
-	<div>Func
-		<pre><code>
+<details><summary>Func?</summary>
+    <pre><code>
 package main
 import "fmt"
 
 var globalMap map[string]string
 func init() {
-	globalMap = make(map[string]string)
-	globalMap["myName"] = "Den"
+  globalMap = make(map[string]string)
+  globalMap["myName"] = "Den"
 }
 
 func main () {
   var a = 3
   var b = 2
   a, b = summ (a, b)
-  fmt.Println(a, b)
-  fmt.Println(summ (a, b))
   var x = 0
-  pointer (&x)
-  fmt.Println(x)
+  defer pointer (&x) //отложенный запуск
+  fmt.Println(a, b, x, summ (a, b))
+
+  //анонимная функция
+  func() { fmt.Println("text") }()
+  func(su int64) { fmt.Println(su) }(56)
 }
-func summ (num_1 int, num_2 int) (int, int) {
+
+func summ(num_1 int, num_2 int) (int, int) {
   var res int = num_1 + num_2
   return res, num_1 * num_2
 }
-func pointer (x *int) { *x = 2 }
-		</code></pre>
-	</div>
+func pointer(x *int) { *x = 2 }
 
-	<div>Struct
-		<pre><code>
+func funcName(varName ...int) int {} //arg - slice
+
+panic()
+recover()?
+    </code></pre>
+</details>
+
+<details><summary>Closure / замыкания</summary>
+  <pre><code>
+multiple := func() int {
+  num *= 2
+  return num
+}
+fmt.Println(multiple())
+</code><code class="go">
+func funcName() func() int {
+  num := 0
+  return func() int {
+    num +=2
+    return num
+  }
+}
+func main() {
+  varName := funcName()
+  fmt.Println(varName())
+}
+  </code></pre>
+</details>
+
+<details><summary>type</summary>
+  <pre><code>
+//castom types
+type MyInt int
+type myType int64
+type library []string
+type goodLibrary library
+
+var varName MyInt = 10
+func funcName(dist myType) {}
+  </code></pre>
+</details>
+
+<details><summary>Struct</summary>
+    <pre><code>
 package main
 import "fmt"
 
 func main() {
-  bob := Cats{"Bob", 7, 0.87}
+  bob := structName{"Bob", 7, 0.87}
   fmt.Println("Bob function is", bob.test())
 }
-type Cats struct {
-  name string
+type structName struct {
+  name string  //поля структуры
   age int
   happiness float64
+  Firstname string `json:"firstname"` //tag
 }
-func (cat *Cats) test() float64 {
+func (cat *structName) test() float64 {
   return float64(cat.age) * cat.happiness
-}
-		</code></pre>
-	</div>
+}  //метод структуры
 
-<div>Import / Export
-	<pre><code>
+var varName structName
+varName.age = 23
+var varName structName = structName{ age: 23 }
+
+var varName *structName = &structName{}
+//указатель на тип структуры
+
+b, err := json.Marshal(&varNameWithStruct)
+//кодирование структуры в строку JSON
+if err != nil { panic(err) }
+    </code></pre>
+</details>
+
+<details><summary>Embedding</summary>
+  <pre><code class="go">
+func main() {
+  rob := Robocop {
+    Robot: Robot { "Gektor", 100 },
+    SomeStuff: SomeStuff { move: 200 },
+  }
+  fmt.Println(rob.Robot.move)
+}
+  </code></pre>
+</details>
+
+<details><summary>Import / Export</summary>
+  <pre><code>
 import (
   "fmt"
   "github.com/username/projectname"
@@ -305,11 +384,11 @@ import (
 )
 fmt.Println(usr.UserName, UserName2)
 // для экспорта 1я буква заглавная
-	</code></pre>
-</div>
+  </code></pre>
+</details>
 
-<div>main_test.go
-	<pre><code>
+<details><summary>main_test.go</summary>
+  <pre><code>
 package main
 
 import "testing"
@@ -329,7 +408,156 @@ func TestFactorial(t *testing.T) {
     t.Errorf("Factorial expected %v but got %v", globalVarResult, result)
   }
 }
-	</code></pre>
+  </code></pre>
+</details>
+
+<details><summary>Interface</summary>
+  <pre><code>
+type InterfaceName interface {
+  FuncName()
+  FuncName2() string
+}
+type StructName struct { поля }
+func (b StructName) FuncName() {}
+func (b StructName) FuncName2() {}
+func FuncName3(f InterfaceName) {
+  f.FuncName()
+  f.FuncName2()
+}
+func main() {
+  varname := StructName{ "" }
+  FuncName3(varName)
+  return
+}
+
+var varName interface{} = "text"
+
+func funcName(s interface{}) {
+  str, ok := s.(string)
+  if ok { fmt.Println("text" + str) }
+}
+  </code></pre>
+</details>
+
+<details><summary>& *</summary>
+  <pre><code>
+<a href="https://youtu.be/Gvf6b3ayaUo"></a>
+myInt := new(int)
+var myIntPointer *int
+
+func main() {
+  var number int = 8
+  setFivePtr(&number) //передаем адрес
+  fmt.Println(number)
+  fmt.Println(&number) //адрес ячейки в памяти
+}
+func setFivePtr(numPtr *int) {
+  *numPtr = 5 //изменяем var number в ячейке
+}
+  </code></pre>
+</details>
+
+<details><summary>go-rutine / chan</summary>
+  <pre><code>
+  c := make(chan string)
+
+  go funcName(c)  //параллельно выполняется
+  for i := 0; i < 5; i++ {
+    fmt.Println(<-c, ",", <-c)
+  } //выводим значения из канала
+  <-c //для чтения
+  c<- //для записи
+
+  fmt.Scanln() //чтоб успели отработать горутины
+---
+package main
+
+import (
+  "fmt"
+  "time"
+)
+
+func main() {
+  c := make(chan string)
+
+  go ping_pong(c)
+  for i := 0; i < 5; i++ {
+    fmt.Println(<-c, <-c)
+  }
+
+  rangeChan := make(chan int, 10)
+  for i := 0; i < 10; i++ { // переполнения, блокируемся в этом месте пока кто-то не прочитает
+    rangeChan <- i // тут может заблокироватся
+  }
+  close(rangeChan) // Закрываем канал и сюда больше нельзя писать иначе паника
+  fmt.Println("Sum", sum(rangeChan))
+
+  g := generatorData()
+  for i := 0; i < 5; i++ {
+    fmt.Printf("Print %d\n", <-g)
+  }
+}
+
+func ping_pong(c chan<- string) {
+  for {
+    c <- fmt.Sprintf("Пинг")
+    c <- fmt.Sprintf("Понг")
+  }
+}
+
+func sum(input <-chan int) (res int) {
+  for r := range input {
+    res += r
+  }
+  return
+}
+
+func generatorData() <-chan int {
+  j := make(chan int)
+  go func() {
+    i := 0
+    for {
+      if i%2 == 0 { j <- i } 
+      time.Sleep(time.Second)
+      i++
+    }
+  }()
+  return j
+}
+  </code></pre>
+</details>
+
+</div>
+
+<div>библиотеки
+  <pre><code>
+import (
+  "fmt"
+)
+  </code></pre>
+  <details><summary>"encoding/json"</summary><pre>  
+  json.Marshal(&varNameWithStruct)
+  </pre>
+  </details>
+  <details><summary>"fmt"</summary><pre>  
+    <a href="https://golang.org/pkg/fmt/">golang.org/pkg/fmt/</a>
+
+  fmt.Errorf()
+  fmt.Printf()
+  fmt.Println()
+  fmt.Scanln() //чтоб успели отработать горутины
+  fmt.Sprintf()
+  </pre></details>
+  "math/rand"
+  <details><summary>"time"</summary><pre>  
+  time.Since(time.Now) //прошедшее время
+  time.Sleep(time.Second) //timeout 1sec
+  time.Time
+  time.Date(2000,4,22,0,0,0,0,time.UTC)
+  </pre></details>
+  <details><summary>"runtime"</summary><pre>  
+  runtime.Stack(varName, false)
+  </pre></details>
 </div>
 
 </div>
