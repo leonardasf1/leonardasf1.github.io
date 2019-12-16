@@ -26,24 +26,20 @@ s { color: red; }
 </head>
 <body>
 	<header>
-        <div id="headerMenu">
-            <div>
-                <img src="" alt="">
-            </div>
-        </div> 
+        <div id="headerMenu"></div> 
     </header>
 <content>
     <nav>
-        <a onclick="load('html.html')">
+        <a class="navLink">
             <img src="../icons/html.svg" alt="html5">
             <span>HTML</span>
         </a>
-        <a onclick="load('css.html')">
+        <a class="navLink">
             <img src="../icons/css.svg" alt="css">
             <span>CSS</span>
         </a>
-        <a href="javascript.html">
-            <img src="../icons/javascript.svg" alt="javascript">
+        <a class="navLink">
+            <img src="../icons/js.svg" alt="javascript">
             <span style="color: #f7df1e">JavaScript</span>
         </a>
         <a href="jquery.html">
@@ -53,7 +49,7 @@ s { color: red; }
         <a href="webpack.html">
             <img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt="webpack">
         </a>
-        <a onclick="load('angular.html')">
+        <a class="navLink">
             <img src="https://angular.io/assets/images/favicons/favicon.ico" alt="angular">
             <span style="color: #e23237">Angular</span>
         </a>
@@ -73,11 +69,11 @@ s { color: red; }
             <img src="https://www.python.org/static/favicon.ico" alt="python">
             <span class="python">python</span>
         </a>
-        <a onclick="load('rust.html')" style="filter: none">
+        <a class="navLink" style="filter: none">
             <img src="https://www.rust-lang.org/static/images/favicon-32x32.png" alt="Rust">
             <span>Rust</span>
         </a>
-        <a onclick="load('golang.html')">
+        <a class="navLink">
             <img src="https://golang.org/favicon.ico" alt="Golang">
             <span>Golang</span>
         </a>
@@ -134,23 +130,24 @@ s { color: red; }
         <li><a href="https://itvdn.com/ru/patterns">Шаблоны проектирования</a></li>
     </ul>
     <details>
-        <summary>Объект</summary> (экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.
+        <summary>Объект</summary><pre>(экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.</pre>
     </details>
     <details>
-        <summary>Интерфейс</summary> – это набор методов класса, доступных для использования другими классами.
+        <summary>Интерфейс</summary><pre>это набор методов класса, доступных для использования другими классами.
+        </pre>
     </details>
     <details>
         <summary>Абстрагирование</summary>
-Абстрагирование – это способ описания общих характеристик объекта
+    <pre>Абстрагирование – это способ описания общих характеристик объекта</pre>
     </details>
     <details>
         <summary>Имплементация</summary>
-Имплементация: это реализация методов, те. то, что фактически работает в классе. А наследование, это создание нового класса на основе старого, при этом реализация методов может отличаться, от базового класса.
-Но чаще, слово имплементация употребляют для интерфейсов: это то, что может делать интерфейс, и методы, и свойства.
+    <pre>Имплементация: это реализация методов, те. то, что фактически работает в классе. А наследование, это создание нового класса на основе старого, при этом реализация методов может отличаться, от базового класса.
+Но чаще, слово имплементация употребляют для интерфейсов: это то, что может делать интерфейс, и методы, и свойства.</pre>
     </details>
     <details>
         <summary>Инкапсуляция</summary>
-Инкапсуляция – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя. 
+    <pre>Инкапсуляция – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя.</pre>
     </details>
 </div>
 
@@ -322,14 +319,15 @@ create .gitignore /tmp
 
 <div>
     <h2>Terminal</h2>
-    <pre>
+    <pre><code>
 cd E:\Users\Projects
 cd "E:\Users\Rust Projects"
 mkdir folder  // создаем папку
 ls  // смотреть содержимое папки
 cd .. //перейти в родительский каталог
 sudo
-    </pre>
+$ gzip -6 -c file.txt > file.txt.gz
+    </code></pre>
 </div>
 
 <div>

@@ -1,7 +1,4 @@
 <div id="pageTitle">CSS</div>
-<div id="headerTitle">
-  <a onclick="load('css.html')"><img src="../icons/css.svg" alt="css"></a>
-</div>
 
 <div class="flex">
   <div id="links">
@@ -28,6 +25,16 @@
     <li><a href="http://htmlbook.ru/samcss/kaskadirovanie">Cascading</a></li>
     <li>шлюзы</li>
   </div>
+
+<div><pre><code>
+внешний: тег link rel="stylesheet" href="*.css"
+в документе: тег style /style
+внутри тега: style=""
+//внешний: @import '*.css'; 
+
+/* comment */
+</code></pre></div>
+
   <div>
   Backgrounds and Borders 3 //2017<br>
   Basic User Interface 3 (CSS3 UI)  //2018<br>
@@ -67,21 +74,10 @@
   Writing Modes 3 //2019<br>
   Writing Modes 4 //2019<br>
   </div>
-</div>
 
-<article>
-  <pre><code>
-внешний: тег link rel="stylesheet" href="*.css"
-в документе: тег style /style
-внутри тега: style=""
-//внешний: @import '*.css'; 
-
-/* comment */
-
-
-<div class="details">
-
-<details><summary>animation / transition</summary><div>
+<div>
+<details><summary>animation / transition</summary><pre><code>
+a {
   animation: slidein 3s linear 1s infinite running;
   animation-name: name;
   animation-duration: 2s;  // длительность цикла
@@ -91,22 +87,23 @@
   animation-direction: normal | reverse | alternate | alternate-reverse;
   animation-play-state: running | paused;
   animation-fill-mode: forwards;
-
+}
 @keyframes important1 {
   from { margin-top: 50px; }
   50%  { margin-top: 150px; }
   to   { margin-top: 100px; }
 }
-
+a {
   transition: width 2s, color 3s; all 4s linear .5s;
-  transition-property  // свойство
-  transition-duration  // длительность
-  transition-timing-function
-  transition-delay  // задержка
+  transition-property: ;  // свойство
+  transition-duration: ;  // длительность
+  transition-timing-function: ;
+  transition-delay: ;  // задержка
+}
 <p class="codepen" data-height="250" data-default-tab="css,result" data-user="leonardasf1" data-slug-hash="VoKNZJ">colorAnimation</p>
-</div></details>
+</code></pre></details>
 
-<details><summary>background</summary><div>
+<details><summary>background</summary><pre><code>
   background: url(*.jpg) | black no-repeat 0 -1px;
   background-color: rgba(255,255,255,.5) | #000000 | black | hsl(30,100%,50%);
   background-image: url(*.jpg), url(*.jpg);
@@ -117,9 +114,9 @@
   background-position: right | bottom center | 100% 100%;
   background-repeat: repeat-x | repeat-y | repeat | space | round | no-repeat;
   background-size: <значение> | <проценты> | auto | cover | contain;
-</div></details>
+</code></pre></details>
 
-<details><summary>border</summary><div>
+<details><summary>border</summary><pre><code>
   border: solid 1px black;
   border-bottom
   border-left
@@ -155,9 +152,9 @@
   border-left-width
   border-right-width
   border-top-width
-</div></details>
+</code></pre></details>
 
-<details><summary>cursor: </summary><div>
+<details><summary>cursor: </summary><pre><code>
   crosshair
   e-resize
   help
@@ -173,9 +170,9 @@
   text
   w-resize
   wait
-</div></details>
+</code></pre></details>
 
-<details><summary>display:</summary><div>
+<details><summary>display:</summary><pre><code>
   block; делает элемент блочным
   flex; включает flexbox
   grid; включает grid
@@ -194,9 +191,9 @@
   table-header-group
   table-row
   table-row-group
-</div></details>
+</code></pre></details>
 
-<details><summary>filter <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"></a></summary><div>
+<details><summary>filter <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"></a></summary><pre><code>
 filter: blur(5px);
 filter: brightness(0.4);
 filter: contrast(200%);
@@ -209,9 +206,9 @@ filter: saturate(30%);
 filter: sepia(60%);
 
 filter: url("filters.svg#filter-id");
-</div></details>
+</code></pre></details>
 
-<details><summary>FLEXBOX <a href="https://www.w3schools.com/css/css3_flexbox.asp"><img src="https://www.w3schools.com/favicon.ico" alt="w3schools"></a> <a href="https://www.w3.org/TR/css-flexbox-1/"><img src="https://www.w3.org/favicon.ico" alt="w3.org"></a> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="https://css-tricks.com/apple-touch-icon.png"></a> <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Flexible_Box_Layout"></a></summary><div>
+<details><summary>FLEXBOX <a href="https://www.w3schools.com/css/css3_flexbox.asp"><img src="https://www.w3schools.com/favicon.ico" alt="w3schools"></a> <a href="https://www.w3.org/TR/css-flexbox-1/"><img src="https://www.w3.org/favicon.ico" alt="w3.org"></a> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="https://css-tricks.com/apple-touch-icon.png"></a> <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Flexible_Box_Layout"></a></summary><pre><code>
 display: flex;
 Контейнер
   justify-content: center | left | end | space-between | space-around | space-evenly; 
@@ -239,9 +236,9 @@ justify-content: space-evenly;  /* Все элементы имеют равно
   flex-basis // базовый размер элемента
   flex
   align-self
-</div></details>
+</code></pre></details>
 
-<details><summary>FLOAT</summary><div>
+<details><summary>FLOAT</summary><pre><code>
 float: left | right;
 clear: left | right | both; отменяет действие float
 
@@ -261,9 +258,9 @@ clear: left | right | both; отменяет действие float
         < div class="block">Block 3< /div>
         < div class="block">Block 4< /div>
     < /div>
-</div></details>
+</code></pre></details>
 
-<details><summary>font / text</summary><div>
+<details><summary>font / text</summary><pre><code>
 @font-face {
   font-family: ExampleFont;
   src: url(/path/to/fonts/examplefont.woff) format('woff'),
@@ -314,16 +311,16 @@ line-height: межстрочный интервал
 
 ::first-letter первая буква
 ::first-line первая строка текста
-</div></details>
+</code></pre></details>
 
-<details><summary>gradient <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients"></a></summary><div>
+<details><summary>gradient <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients"></a></summary><pre><code>
 linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%)
 radial-gradient(ellipse farthest-corner at 90% 90%, red, yellow 10%, #1e90ff 50%, beige);
 repeating-linear-gradient(-45deg, red, red 5px, blue 5px, blue 10px);
 repeating-radial-gradient
-</div></details>
+</code></pre></details>
 
-<details><summary>GRID <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout"></a> <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"><img src="https://css-tricks.com/apple-touch-icon.png" alt="css-tricks"></a> <a href="https://mozilladevelopers.github.io/playground/css-grid/"><img src="https://mozilladevelopers.github.io/playground/static/favicon.d4f1f46b.ico" alt="mozilladevelopers.github"></a></summary><div>
+<details><summary>GRID <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout"></a> <a href="https://css-tricks.com/snippets/css/complete-guide-grid/"><img src="https://css-tricks.com/apple-touch-icon.png" alt="css-tricks"></a> <a href="https://mozilladevelopers.github.io/playground/css-grid/"><img src="https://mozilladevelopers.github.io/playground/static/favicon.d4f1f46b.ico" alt="mozilladevelopers.github"></a></summary><pre><code>
   display: grid;
 
     grid-template-columns: 200px repeat(4, 1fr 2fr) minmax(150px, 250px);  // ширины столбцов
@@ -353,26 +350,26 @@ repeating-radial-gradient
     justify-self: start | end | center | stretch;   // выравнивание выбранного элемента по горизонтали
     align-self: start | end | center | stretch;   // выравнивание выбранного элемента по вертикали
     place-self:
-  </div></details>
+  </code></pre></details>
 
-<details><summary>list-style</summary><div>
+<details><summary>list-style</summary><pre><code>
   list-style: square outside; списки
   list-style-image: none | url();
   list-style-position: inside | outside;
   list-style-type: circle | disc | square | armenian | decimal | decimal-leading-zero | 
    georgian | lower-alpha | lower-greek | lower-latin | lower-roman | 
    upper-alpha | upper-latin | upper-roman | none;
-</div></details>
+</code></pre></details>
 
-<details><summary>margin</summary><div>
+<details><summary>margin</summary><pre><code>
   margin: внешний отступ, auto выравнивает по центру
   margin-bottom
   margin-left
   margin-right
   margin-top
-</div></details>
+</code></pre></details>
 
-<details><summary>multi-column-layout (draft)</summary><div>
+<details><summary>multi-column-layout (draft)</summary><pre><code>
   -moz-(-webkit-)columns: 200px auto|3; ширина и кол-во колонок
   column-count: кол-во колонок
   column-fill: balance | auto;
@@ -386,57 +383,57 @@ repeating-radial-gradient
   break-after: column;
   break-before:
   break-inside:
-</div></details>
+</code></pre></details>
 
-<details><summary>outline</summary><div>
+<details><summary>outline</summary><pre><code>
 outline: 1px solid #777; внешняя линия
 outline-color
 outline-style
 outline-width
 outline-offset: -10px; расстояние линии от элемента
-</div></details>
+</code></pre></details>
 
-<details><summary>overflow</summary><div>
+<details><summary>overflow</summary><pre><code>
 overflow: auto | hidden | scroll | visible; содержимое блока
 overflow-x:
 overflow-y:
-</div></details>
+</code></pre></details>
 
-<details><summary>padding</summary><div>
+<details><summary>padding</summary><pre><code>
   padding: Поля вокруг текста
   padding-bottom
   padding-left
   padding-right
   padding-top
-</div></details>
+</code></pre></details>
 
-<details><summary>page-break</summary><div>
+<details><summary>page-break</summary><pre><code>
 page-break-after
 page-break-before
 page-break-inside
-</div></details>
+</code></pre></details>
 
-<details><summary>position</summary><div>
+<details><summary>position</summary><pre><code>
   position: absolute поверх всего, место не резервируется
   position: fixed фиксированное, место не резервируется
   position: relative относительное, место резервируется
   position: static позиционирование
   position: sticky прилипает к верхнему краю
-</div></details>
+</code></pre></details>
 
-<details><summary>scroll</summary><div>
+<details><summary>scroll</summary><pre><code>
   scroll-padding-top: 40px;
   scroll-snap-type: y mandatory; proximity;
   scroll-snap-align: start;
   scroll-snap-stop: normal; always;
-</div></details>
+</code></pre></details>
 
-<details><summary>scrollbar (firefox)</summary><div>
+<details><summary>scrollbar (firefox)</summary><pre><code>
 scrollbar-color: #201c29;
 scrollbar-width: thin;
-</div></details>
+</code></pre></details>
 
-<details><summary>Shapes</summary><div>
+<details><summary>Shapes</summary><pre><code>
   // обтекание фигур
 shape-image-threshold: 0.1;
 shape-margin:
@@ -446,9 +443,9 @@ shape-outside: circle(50%);
               url(/media/examples/round-balloon.png);
               polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
               linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
-</div></details>
+</code></pre></details>
 
-<details><summary>Transforms-1 .2019 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><div>
+<details><summary>Transforms-1 .2019 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform"></a></summary><pre><code>
   transform: translate(-10px, -20px) scale(2) rotate(45deg);
   transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
   //transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -480,7 +477,7 @@ shape-outside: circle(50%);
   backface-visibility: hidden; visible;
   perspective: 200px;
   perspective-origin: 0px 0px;
-</div></details>
+</code></pre></details>
 <details><summary>Variables-1 .2015</summary>
   <pre><code class="javascript">
 :root {
@@ -508,8 +505,9 @@ three { --foo: calc(var(--bar) + 10px); }
 
   </code></pre></details>
 </div>
-<div class="details">
-<details><summary><b>Селектор</b> { свойство: значение; }</summary><div>
+
+<div>
+<details><summary><b>Селектор</b> { свойство: значение; }</summary><pre><code>
 * {} для всех элементов веб-страницы
 tagName по тегу
 .class-Name по классу
@@ -528,9 +526,9 @@ sel[атрибут] для элемента с атрибутом
 [атрибут*="значение"] значение атрибута содержит указанный текст
 [атрибут~="значение"] одно из нескольких значений атрибута
 [атрибут|="значение"] +дефис в значении атрибута
-</div></details>
+</code></pre></details>
 
-<details><summary>:<b>Псевдокласс</b></summary><div>
+<details><summary>:<b>Псевдокласс</b></summary><pre><code>
 Селектор:<b>Псевдокласс</b> { Описание правил стиля }
 
 :link {} непосещенная ссылка
@@ -575,9 +573,9 @@ sel[атрибут] для элемента с атрибутом
 :read-only поля формы с атр.read-only
 :default элементы формы без оформления
 :indeterminate флажки и переключатели
-</div></details>
+</code></pre></details>
 
-<details><summary>::<b>Псевдоэлемент</b></summary><div>
+<details><summary>::<b>Псевдоэлемент</b></summary><pre><code>
 Селектор:<b>Псевдоэлемент</b> { Описание правил стиля }
 
 ::after { content: "*"} в конец элемента
@@ -602,9 +600,9 @@ sel[атрибут] для элемента с атрибутом
 ::-webkit-scrollbar-button { height: 0 }
 ::-webkit-scrollbar-thumb { border-width: 0 }
 ::-webkit-scrollbar-track
-</div></details>
+</code></pre></details>
 
-<details><summary>@медиа запросы <a href="http://htmlbook.ru/css/value/media">htmlbook</a></summary><div>
+<details><summary>@медиа запросы <a href="http://htmlbook.ru/css/value/media">htmlbook</a></summary><pre><code>
 @import 'url';
 
 @media (max-width:*px) {
@@ -620,50 +618,53 @@ sel[атрибут] для элемента с атрибутом
 @media screen and (-ms-high-contrast: white-on-black) {}
 
 @charset для задания кодировки
-</div></details>
+</code></pre></details>
 
 </div>
-
+<div><pre><code class="css">
 <h3>{ свойство: значение; }</h3>
+a {
 height: min-content;
 
 quotes: "\201C" "\201D";
 
-box-shadow: 2px 2px 2px rgba(255,5,5,.5); inset (тень внутри)
+box-shadow: 2px 2px 2px rgba(255,5,5,.5); //inset (тень внутри)
 box-sizing: content-box | border-box | padding-box;
 
 caption-side: top | bottom; расположение заголовка таблицы
 clip: rect(40px, auto, auto, 40px); Прячем часть текста
-color: цвет текста (transparent-прозрачный)
+color: цвет текста (transparent-прозрачный);
 
-content: строка | attr(параметр) | url(); c :after|:before
+content: строка | attr(параметр) | url(); c :after|:before;
 counter-increment: name; / counter(name) // счетчик-переменная
-counter-reset: <a href="http://htmlbook.ru/css/counter-reset">счетчики списка</a>
+counter-reset: ;<a href="http://htmlbook.ru/css/counter-reset">счетчики списка</a>
 
-empty-cells: hide
+empty-cells: hide;
 
 mask: url(mask.svg);
-opacity: прозрачность
+opacity: .5; прозрачность
 
-orphans: 
-widows:
+orphans: ;
+widows: ;
 
-bottom: Расстояние от нижнего края окна
-top: right: left:
-resize
-quotes: "\00AB" "\00BB"; тип кавычек
+bottom: ; //Расстояние от нижнего края окна
+top:; right:; left:;
+resize:;
+quotes: "\00AB" "\00BB"; //тип кавычек
 
-tab-size
+tab-size:;
 table-layout: auto | fixed; ширина ячеек таблицы
 
-unicode-bidi
+unicode-bidi:;
 user-select: none;
-vertical-align: baseline|bottom|middle|sub|super|text-bottom|text-top|top
+vertical-align: baseline|bottom|middle|sub|super|text-bottom|text-top|top;
 visibility: visible | hidden | collapse; видимость элемента
 
 z-index: число | auto; наложение обьектов
-
-       </code> </pre>
+}
+</code></pre>
+</div>
+</div>
 <hr>
 <h1><a href="http://lesscss.org/features/"><img src="http://lesscss.org/public/ico/favicon.ico" alt="lesscss.org"></a> less</h1>
 <pre><code class="less">
@@ -735,5 +736,3 @@ body {
         animation-delay: 0.3s * $i;
     }
 }</pre>
-
-  </article>

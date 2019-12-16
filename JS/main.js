@@ -15,22 +15,16 @@ function setHeader() {
   .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
   .then(() => window.addEventListener( "scroll", () => {
     if (this.scrollY > 50) q('#headerMenu').style.height = '56px';
-    if (this.scrollY < 51) q('#headerMenu').style.height = '95px';
-  }));
-  // .then(() => qAll('.item').forEach(
-  //   i => i.onclick = function() {
-  //     this.nextElementSibling.classList.toggle('slideT');
-  //     this.nextElementSibling.addEventListener("mouseleave", function () {
-  //       this.classList.remove('slideT');
-  //     });
-  //   }
-  // ));
+    if (this.scrollY < 51) q('#headerMenu').style.height = '95px';}))
+  .then(() => qAll('.headerLink').forEach(
+    a => a.onclick = function() { load(this) }));
 }
 
 function setContentFn() {
 
   if (q('details')) qAll("details").forEach(
-    i => i.ontoggle = function() {this.firstElementChild.classList.toggle('hover')});
+    i => i.ontoggle = function() {
+      this.firstElementChild.classList.toggle('hover')});
 
   qAll('a[href*="://"]').forEach(
     link => link.setAttribute("target", "_blank"));
@@ -40,10 +34,13 @@ function setContentFn() {
 
   if (q('code')) qAll('code').forEach(
     block => hljs.highlightBlock(block));
+
+  if (q('.navLink')) qAll('.navLink').forEach(
+    a => a.onclick = function() { load(this) });
 }
 
 function setFooterScrollTop() {
-  q("body").insertAdjacentHTML('beforeend', 
+  q("body").insertAdjacentHTML('beforeend',
     `<div id="footerScrollTop">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
         <path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path>
@@ -64,18 +61,17 @@ function setFooter() {
     'beforeend', `<div>${document.lastModified} </div>`);
 }
 
-function load(page) {
-  fetch(page)
+function load(a) {
+  a.style.opacity = 0;
+  q('#headerMenu').prepend(a);
+  q('content').style.opacity = 0;
+  fetch(`${a.innerText.toLowerCase()}.html`)
   .then(response => response.text())
   .then(results => {
     q('content').innerHTML = results;
-    setTitle();
+    q('title').innerText = q('#pageTitle').innerHTML;
     setContentFn();
-  })
-  .catch(err => alert(err));
-}
-
-function setTitle() {
-  q('title').innerText = q('#pageTitle').innerHTML;
-  q('#headerMenu>div').innerHTML = q('#headerTitle').innerHTML;
+    a.style.opacity = 1;
+    q('content').style.opacity = 1;
+  });
 }

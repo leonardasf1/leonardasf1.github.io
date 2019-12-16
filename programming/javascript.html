@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
-
-    <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
-    <link rel="stylesheet" href="../CSS/style.css">
-
-    <link rel="stylesheet" href="../CSS/highlight.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
-
-    <script src="../JS/main.js" defer></script>
-</head>
-
-<body>
-
-<header>
-  <div id="headerMenu">
-    <div>
-      <img src="../icons/js.svg">
-		</div>
-  </div>
-</header>
-
-<content>
+<div id="pageTitle">JavaScript</div>
 
 <div class="flex">
 
@@ -670,10 +644,9 @@
       }
     }
   }
-			</code></pre></details></li>
-		<li><details><summary>Garbage Collection</summary>
-			<pre><code>
 
+  Garbage Collector // сборка мусора
+  объект удаляется из памяти если недостижим из корня
 			</code></pre></details></li>
 		<li><details><summary>Symbol</summary>
 			<pre><code>
@@ -1175,13 +1148,18 @@ new Cat('red');
 		<li><details><summary>generators</summary>
 			<pre><code>
   <a href="https://youtu.be/LxhVf0dxNCM"></a> <a href="https://learn.javascript.ru/generators">learn.js</a>
-  function* generate() {
+  function* generatorFunc() {
     yield 3;
     yield 1;
   }
-  let iterator = generator();
+  let iterator = generatorFunc();
   console.log(iterator.next());
   console.log(iterator.next());
+
+  let generatorFunc = function*() {};
+  class SomeClass {
+    *generatorFunc() {}
+  }
 			</code></pre></details></li>
 		<li><details><summary>async iterators/generators</summary>
 			<pre><code>
@@ -2262,7 +2240,3 @@ codepen:
 	<li><a href="https://codepen.io/leonardasf1/pen/VJoPbq">Calculator</a></li>
 	<li><a href="https://codepen.io/leonardasf1/pen/PoYgPXz">Sort</a></li>
 </ul>
-</content>
-<footer></footer>
-</body>
-</html>
