@@ -71,7 +71,7 @@ header {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
     flex-wrap: wrap;
 }
-#headerMenu span {
+#headerMenu span, .hidden {
     display: inline-block;
     width: 0;
     overflow: hidden
@@ -83,10 +83,6 @@ header {
 
 @media (max-width:700px) {
     #headerMenu { overflow: hidden }
-    #links {
-        height: 60px;
-        overflow-y: scroll;
-    }
 }
 
 #headerMenu>a {
@@ -101,7 +97,7 @@ summary img, ul img {
     bottom: -2px;
 }
 
-content {
+main {
     min-height: 76vh;
     display: block;
     padding: 0 1%;

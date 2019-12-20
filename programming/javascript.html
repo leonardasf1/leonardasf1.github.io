@@ -1149,12 +1149,17 @@ new Cat('red');
 			<pre><code>
   <a href="https://youtu.be/LxhVf0dxNCM"></a> <a href="https://learn.javascript.ru/generators">learn.js</a>
   function* generatorFunc() {
-    yield 3;
+    let result = yield 3;
+    console.log(result); // 3
     yield 1;
   }
   let iterator = generatorFunc();
-  console.log(iterator.next());
-  console.log(iterator.next());
+  console.log(iterator.next()); // Object {value: 3, done: false}
+  console.log(iterator.next()); // Object {value: 1, done: false}
+  console.log(iterator.next()); // Object {value: undefined, done: true}
+  console.log(iterator.next().value);
+  console.log(iterator.return()); // Object {value: undefined, done: true}
+  console.log(iterator.throw(new Error('error'))); // Error: error
 
   let generatorFunc = function*() {};
   class SomeClass {
@@ -1287,8 +1292,12 @@ new Cat('red');
   g // выполнение глобального поиска.
   m // многострочный режим.
       </code></pre></details></li>
-      <li><details><summary>Service Worker API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"></a></summary>
+      <li><details><summary>Service Worker API</summary>
       <pre><code>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">mozilla</a>
+        <a href="https://habr.com/ru/company/2gis/blog/345552/">habr</a>
+        <a href="https://developers.google.com/web/fundamentals/primers/service-workers">google</a>
+        serviceWorker
  (applicationCache)
     </code></pre></details></li>
     <li><details><summary>Web Worker <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API"></a></summary>
@@ -2038,7 +2047,7 @@ window.location.replace('url');  // направление на другой а�
 		<li><details><summary>Storage</summary>
 			<pre><code>
 	window.sessionStorage
-	window.localStorage
+	window.localStorage //5Mb String only
 		.setItem("key1", "value1")
 		.getItem()
 		.deleteItem()

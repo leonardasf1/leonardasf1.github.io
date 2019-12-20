@@ -1,8 +1,8 @@
 //lightbox alternative
-function v(id) { return document.querySelector(id) }
-function lb_show() { v('#lightbox').classList.add('lb_show') }
-function lb_hide() { v('#lightbox').classList.replace('lb_show', 'lb_hide') }
-function lb_rem() { v('#lightbox').remove() }
+function q(id) { return document.querySelector(id) }
+function lb_show() { q('#lightbox').classList.add('lb_show') }
+function lb_hide() { q('#lightbox').classList.replace('lb_show', 'lb_hide') }
+function lb_rem() { q('#lightbox').remove() }
 
 let lb_data = document.querySelectorAll('[data-lightbox]');
 const import_img_url = "http://leonardasf1.narod.ru/";
@@ -20,17 +20,17 @@ for(let i in lb_data) {
 			<a id="lb_btn_next"></a>
 		</div>`);
   	lb_show();
-	  v('#lb_img').src = `${import_img_url + lb_data[i].getAttribute('href')}`;
+	  q('#lb_img').src = `${import_img_url + lb_data[i].getAttribute('href')}`;
 
-  	v('#lb_btn_prev').addEventListener('click', () => {
-	  	v('#lb_img').src = "../icons/loading.gif";
-			v('#lb_img').src = `${import_img_url + lb_data[--i].getAttribute('href')}`;
+  	q('#lb_btn_prev').addEventListener('click', () => {
+	  	q('#lb_img').src = "../icons/loading.gif";
+			q('#lb_img').src = `${import_img_url + lb_data[--i].getAttribute('href')}`;
 		});
-  	v('#lb_btn_next').addEventListener('click', () => {
-  		v('#lb_img').src = "../icons/loading.gif";
-			v('#lb_img').src = `${import_img_url + lb_data[++i].getAttribute('href')}`;
+  	q('#lb_btn_next').addEventListener('click', () => {
+  		q('#lb_img').src = "../icons/loading.gif";
+			q('#lb_img').src = `${import_img_url + lb_data[++i].getAttribute('href')}`;
 		});
-		v('#background_lb_remove').addEventListener('click', () => {
+		q('#background_lb_remove').addEventListener('click', () => {
 			lb_hide();
 			setTimeout(lb_rem, 400);
 			i = target_i;

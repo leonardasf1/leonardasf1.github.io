@@ -14,7 +14,7 @@ function setHeader() {
   .then(response => response.text())
   .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
   .then(() => window.addEventListener( "scroll", () => {
-    if (this.scrollY > 50) q('#headerMenu').style.height = '56px';
+    if (this.scrollY > 50) q('#headerMenu').style.height = '42px';
     if (this.scrollY < 51) q('#headerMenu').style.height = '95px';}))
   .then(() => qAll('.headerLink').forEach(
     a => a.onclick = function() { load(this) }));
@@ -37,6 +37,16 @@ function setContentFn() {
 
   if (q('.navLink')) qAll('.navLink').forEach(
     a => a.onclick = function() { load(this) });
+
+  if (q('.lazy')) {
+    qAll('.lazy img').forEach(i => {
+      i.setAttribute("data-src", i.getAttribute("src"));
+      i.removeAttribute("src");
+      i.classList.add('lazyload');
+    });
+    q('body').insertAdjacentHTML(
+    'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
+  }
 }
 
 function setFooterScrollTop() {
@@ -64,14 +74,14 @@ function setFooter() {
 function load(a) {
   a.style.opacity = 0;
   q('#headerMenu').prepend(a);
-  q('content').style.opacity = 0;
+  q('main').style.opacity = 0;
   fetch(`${a.innerText.toLowerCase()}.html`)
   .then(response => response.text())
   .then(results => {
-    q('content').innerHTML = results;
+    q('main').innerHTML = results;
     q('title').innerText = q('#pageTitle').innerHTML;
     setContentFn();
     a.style.opacity = 1;
-    q('content').style.opacity = 1;
+    q('main').style.opacity = 1;
   });
 }
