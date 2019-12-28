@@ -19,7 +19,7 @@
     <a href="https://youtu.be/Ynhk9GqSsZI">Nuxt.js from the Core. 2019</a><br>
   </div>
 
-<article>
+<div>
   <pre>
     не использует $ и _
     <code>
@@ -63,8 +63,8 @@ var vm = new Vue({
   filters: {
     filterName: function (value) {},
   }
-});
-
+});</code></pre>
+</div><div><pre><code>
 < div id="app">
   < p v-text="varName">< /p>  // в этом параграфе будет значение varName
   < ul>
@@ -72,9 +72,10 @@ var vm = new Vue({
       {{ x.key }}, {{ x.key | filterName }} text  // вывод нужных значений объектов
     < /li>
   < /ul>
+  < button @click="methodName()">button< /button>
   < new-component></ new-component>
-< /div>
-
+< /div></code></pre>
+</div><div><pre><code>
 v-once=""  // отображает только один раз
 v-for="x in arrayName"
 v-text="varName"
@@ -103,7 +104,7 @@ v-bind:class='{"className":true, "className2":false}'
 
 v-bind:disable=""
 </div></details>
-<details><summary>v-on:click="methodName"  // события</summary><div>
+<details><summary>v-on:click="methodName" / @click="methodName()"</summary><div>
 v-on:click.prevent=""  // отменяет стандартное поведение
 v-on:click.stop=""  // останавливает чужую волну и блокирует собственную
 v-on:click.capture=""  // перехват
@@ -144,11 +145,10 @@ $on(eventName)  // отслеживать событиe
 $emit(eventName)  // создание события
 $refs.
   </code></pre>
-
+</div>
   <div>
     <li><a href="https://codepen.io/leonardasf1/pen/BaBMPdW">watch phone buy</a></li>
 
   </div>
-</article>
 
 </div>

@@ -3,18 +3,22 @@
 <div class="flex">
   <div id="links">
     <a href="https://angular.io"><img src="https://angular.io/assets/images/favicons/favicon.ico"></a><br>
+    <a href="https://itvdn.com/ru/webinars/description/angular-jump-start">Angular 4 Jump Start. (2017)</a><br>
     <a href="https://itvdn.com/ru/video/angular2_essential"> Angular 2 Essential (2016)</a><br>
     <a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a><br>
     <a href="https://youtu.be/Rf54BH35yrY">Angular 8 Основы (2019)</a><br>
+    <a href="https://youtu.be/-pb6_zRokKU">Создание приложения на Angular 4.ITVDN (2017)</a><br>
+    <a href="https://youtu.be/XVzed9zlVfw">Простое приложение на Angular .Hillel (2017)</a><br>
     <a href="https://angular.io/guide/universal">Angular Universal (SSR)</a><br>
     <a href="http://swimlane.github.io/ngx-datatable/#client-sorting">пагинация</a><br>
-    <a href="https://itvdn.com/ru/webinars/description/angular-jump-start">angular-jump-start</a><br>
+    <a href="https://www.twilio.com/blog/faster-javascript-web-apps-angular-universal-transferstate-api-watchdog">TransferState Service and an API Watchdog</a><br>
+    <a href="https://www.twilio.com/blog/expedited-two-factor-authentication-angular-twilio-authy">Expedited Two-Factor Authentication  with Authy</a><br>
   </div>
   <div><pre><code>
 sudo npm install -g @angular/cli
-ng new name-app
+ng new name-app --routing
 cd my-app
-ng serve --open
+ng serve --open //run+liveserver
 ---
 ng build
 ng test
@@ -31,22 +35,67 @@ ng add @angular/material
   <pre><code>
 boolean
 string
-let varName: number = 10; //number
-let varName: number[] = [1, 2, 3]; //array
-let varName: Array< number> = [1, 2, 3]; //array
-let varName: [string, number]; // tuple
-enum //перечисление
-let varName: any = 4; // any
-function warnUser(): void {
-    console.log("This is my warning message");
-} //void - функция ничего не возвращает
 null
 undefined
 never
+
+let varName: number = 10; //number
+let varName: number[] = [1, 2, 3]; //array
+
+let varName: Array< number> = [1, 2, 3];
+  //generic array
+let varName: [string, number]; // tuple
+
+let varName: any = 4; // any
+
   </code></pre>
+
+<details>
+  <summary>enum</summary><pre><code class="ts">
+enum enumName { //перечисление
+  prop1 = 1,
+  prop2 = 2,
+  prop3 = 3
+};
+let varName: enumName = enumName.prop2;
+</code></pre></details>
+<details>
+  <summary>function</summary><pre><code>
+function warnUser(): void {
+    console.log("This is my warning message");
+} //void - функция ничего не возвращает
+function funcName(a: number, b: string): boolean { return ...;}
+</code></pre></details>
+<details>
+  <summary>interface</summary><pre><code>
+interface IntName {
+  title: string
+  text: string
+}
+function funcName(name: IntName) {
+  console.log(name.title)
+}
+class className implements IntName {}
+</code></pre>
+</details>
+<details>
+  <summary>@ декораторы</summary><pre><code>
+@enumerable(false)
+func() {}
+</code></pre>
+</details>
+
 </div>
 
-  <div>main.ts
+  <div>
+    <details><summary>index.html</summary>
+    <pre><code>
+  < body>
+    < app-root>< /app-root>
+  < /body>
+    </code></pre>
+    </details>
+    <details><summary>main.ts</summary>
     <pre><code>
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -60,12 +109,13 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-  </code></pre></div>
-
-  <div>app.module.ts
+    </code></pre>
+    </details>
+    <details><summary>app.module.ts</summary>
     <pre><code>
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -76,17 +126,45 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-  </code></pre></div>
+  </code></pre>
+    </details>
+    <details><summary>app-routing.module.ts</summary>
+      <pre><code>
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { XComponent } from './x/x.component';
+import { ZComponent } from './z/z.component';
+
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'x' },
+  { path: 'x', component: XComponent },
+  { path: 'z', component: ZComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+    </code></pre></details>
+  </div>
 
   <div>app.component.ts
     <pre><code>
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+export interface intName {
+  title: string
+  text: string
+}
 
 @Component({
   selector: 'app-root',
@@ -94,40 +172,86 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
   interpolation: ['{{', '}}'] // необязательно
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  @Input() varName
+
   title = 'first-app';
   text: string = 'my sample text';
   obj = { "name": "Leo", "age": "26" };
   imgUrl = 'https://site.ru/img.png';
   getInfo(): string { return 'This is my info' };
+  ngOnInit() { setTimeout(() => { this.imgUrl = '' }, 3000) };
+  arrName: intName[] = [
+    {title: 'this is', text: 'magic'},
+    {title: 'these are', text: 'magics'}
+  ]
+
+  inputHandler(event: any) {
+    const value = event.target.value
+    this.title = value
+  }
+  inputHandler2(value) { this.title = value }
 }
   </code></pre></div>
 
-<div>index.html
-  <pre><code>
-  < body>
-    < app-root>< /app-root>
-  < /body>
-</code></pre>
+<div>
 app.component.html
   <pre><code>
-    < h2>{{ title }}< /h2>
-    < p>{{ text }}< /p>
-    < pre>{{ obj | json }}< /pre>
-    < img src="{{ imgUrl }}">
-    < p>{{ getInfo() }}< /p>
+< nav>
+  < a routerLink="xyz" routerLinkActive='selected'>xyz < /a>
+  < a routerLink="settings" routerLinkActive='selected'>Settings< /a>
+< /nav>
+< router-outlet>< /router-outlet>
+
+< h2 [ngStyle]="{ //динамические стили
+  color: title.length < 5 ? 'black' : 'green',
+  font-size: title.length < 7 ? '30px' : '20px'
+}">{{ title }}< /h2>
+
+< p [ngClass]="{ //динамические классы
+  className: varName === 'blue',
+  className: условие
+}">{{ text }}< /p>
+< p
+ [class.blue]="условие"
+ [class.red]="условие"
+ >{{ text }}< /p>
+
+< pre>{{ obj | json }}< /pre> //JSON.stringify(obj)
+
+< button (click)="varBoolName = !varBoolName">Toggle Images< /button>
+< div *ngIf="varBoolName; else noImages">
+  < img src="{{ imgUrl }}">
+  < img [src]="imgUrl">
+< /div>
+< ng-template #noImages>
+  < p>Images are hidden!< /p>
+< /ng-template>
+
+< p>{{ getInfo() }}< /p>
+< button (click)="funcName()">< /button>
+< button (click)="title = 'another title'">< /button>
+//двусторонняя связь
+< input type="text" (input)="inputHandler($event)" [value]="title">
+< input type="text" #myInput (input)="inputHandler2(myInput.value)" [value]="text">
+< input type="text" [(ngModel)]="title"> // нужен FormsModule
   </code></pre>
 </div>
 
   <div><pre><code>
-<тэг ng-app >
-{{2+2}}
-<тэг ng-model="name"> {{name}}
-ng-init
-ng-repeat
-<див ng-app ng-init="students=['David','Steve','Bob']">
-<ол><ли ng-repeat="name in students"> {{ name }} </ли> </ол> </див>
-
-  </code></pre></div>
-
+(click)="funcName()"
+(input)="inputHandler($event)"
+(ngModelChange)="funcName()"
+(ngModel)="varName"
+  </code></pre>
+  <pre><code>
+*ngIf="varBoolName"
+*ngIf="varBoolName; else varName"
+< 
+  *ngFor="let i of arrName; let x" 
+  [varName]="i"
+  [varName2]="x + 1"
+>
+  </code></pre>
+  </div>
 </div>

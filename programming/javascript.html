@@ -12,6 +12,7 @@
   <a href="https://eloquentjavascript.net"><img src="https://eloquentjavascript.net/favicon.ico" alt="EJS"></a>
   <a href="https://skillbox.ru/media/code/javascript_glavnyy_instrument_frontend/"><img src="https://skillbox.ru/favicon.ico" alt="Skillbox"></a>
   <br><br>
+  <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT">Сложный JavaScript простым языком. Владилен Минин (2019)</a><br>
   <a href="https://github.com/azat-io/you-dont-know-js-ru">"Вы не знаете JS"</a><br>
   <a href="https://webref.ru/tech/javascript">WebRef</a><br>
   <a href="https://vk.com/doc7608079_488265969">Секреты JavaScript Ниндзя</a><br>
@@ -824,13 +825,13 @@ new Cat('red');
     resolve(githubUser);
   }, 3000);
 			</code></pre></details></li></details></li>
-		<li><details><summary>call, apply</summary>
+		<li><details><summary>bind, call, apply</summary>
 			<pre><code>
-
-			</code></pre></details></li>
-		<li><details><summary>bind</summary>
-			<pre><code>
-
+// применяем на объекте метод другого объекта,
+// добавляя значения недостающих свойств.
+obj1Name.obj1MethodName.bind(obj2Name, prop3Val, prop4Val)();
+obj1Name.obj1MethodName.call(obj2Name, prop3Val, prop4Val);
+obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
 			</code></pre></details></li>
     <li><details><summary>Memoize</summary>
       <pre><code>
@@ -975,7 +976,7 @@ new Cat('red');
   let User = makeClass("Привет");
   new User().sayHi(); // Привет
 			</code></pre></details></li>
-		<li><details><summary>Наследование классов</summary>
+		<li><details><summary>extends</summary>
 			<pre><code>
 
   class Dog extends Animal {
@@ -998,10 +999,6 @@ new Cat('red');
 
 			</code></pre></details></li>
 		<li><details><summary>Private, protected</summary>
-			<pre><code>
-
-			</code></pre></details></li>
-		<li><details><summary>extends</summary>
 			<pre><code>
 
 			</code></pre></details></li>

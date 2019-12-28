@@ -1,3 +1,4 @@
+import { lb_init } from "./lb.js";
 
   setHeader();
 window.addEventListener("DOMContentLoaded", function() {
@@ -14,8 +15,8 @@ function setHeader() {
   .then(response => response.text())
   .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
   .then(() => window.addEventListener( "scroll", () => {
-    if (this.scrollY > 50) q('#headerMenu').style.height = '42px';
-    if (this.scrollY < 51) q('#headerMenu').style.height = '95px';}))
+    if (window.scrollY > 50) q('#headerMenu').style.height = '42px';
+    if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}))
   .then(() => qAll('.headerLink').forEach(
     a => a.onclick = function() { load(this) }));
 }
@@ -29,24 +30,26 @@ function setContentFn() {
   qAll('a[href*="://"]').forEach(
     link => link.setAttribute("target", "_blank"));
 
-  if (q('.import_Img')) qAll('.import_Img img[src^=".."]').forEach(
-    img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);
-
   if (q('code')) qAll('code').forEach(
     block => hljs.highlightBlock(block));
 
   if (q('.navLink')) qAll('.navLink').forEach(
     a => a.onclick = function() { load(this) });
 
+  if (q('.import_Img')) qAll('.import_Img img[src^=".."]').forEach(
+    img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);
+
+  if (q('[data-lightbox]')) lb_init(); //???
+  
   if (q('.lazy')) {
     qAll('.lazy img').forEach(i => {
       i.setAttribute("data-src", i.getAttribute("src"));
       i.removeAttribute("src");
       i.classList.add('lazyload');
     });
-    q('body').insertAdjacentHTML(
-    'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
-  }
+    // q('body').insertAdjacentHTML(
+    // 'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
+  };
 }
 
 function setFooterScrollTop() {
@@ -61,8 +64,8 @@ function setFooterScrollTop() {
     "click", () => window.scroll(0, 0));
 
   window.addEventListener( "scroll", () => {
-    if (this.scrollY > 1200) q('#footerScrollTop').style.right = "22px";
-    if (this.scrollY < 1000) q('#footerScrollTop').style.right = "-52px";
+    if (window.scrollY > 1200) q('#footerScrollTop').style.right = "22px";
+    if (window.scrollY < 1000) q('#footerScrollTop').style.right = "-52px";
   });
 }
 
