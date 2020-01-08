@@ -16,6 +16,28 @@ h2 {margin-top: 0px}
     -webkit-text-fill-color: transparent;
 }
 s { color: red; }
+
+[href*="developer.mozilla"] {
+    background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px;
+}
+[href*="itvdn"] {
+    background: url(../icons/itvdn.svg) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px;
+}
+[href*="github"] {
+    background: url(https://github.githubassets.com/favicon.ico) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px;
+}
+[href*="frontendconf.ru"] {
+    background: url(https://frontendconf.ru/i/frontendconf/2019/favicon.ico) no-repeat 0 0;
+    background-size: 16px;
+    padding-left: 20px;
+    margin-left: 20px;
+}
   </style>
   <link rel="stylesheet" href="../CSS/highlight.css">
   <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
@@ -313,10 +335,8 @@ create .gitignore /tmp
     <a href="https://git-scm.com/"><img src="https://git-scm.com/favicon.ico" alt="git"> Git</a> 
     <a href="https://www.sublimemerge.com/"><img src="https://www.sublimemerge.com/favicon.ico" alt="sublimemerge"> Sublime Merge</a></li>
 <li><img src="https://nodejs.org/static/images/favicons/favicon-16x16.png" alt="nodejs.org"> <a href="https://nodejs.org/en/">Node.js</a></li>
-<li><a href="https://github.com/tehcookies/bundlers-comparison">Bundlers</a>: <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Webpack</a>, Parcel, Rollup</li>
-<li>DevOps:
-    docker, CI/CD
-</li>
+<li>? <a href="https://github.com/tehcookies/bundlers-comparison">Bundlers</a>: <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Webpack</a>, Parcel, Rollup</li>
+<li>DevOps: docker, CI/CD</li>
     </ul>
 </div>
 
@@ -342,6 +362,8 @@ $ gzip -6 -c file.txt > file.txt.gz
     <li><img src="https://electronjs.org/images/favicon.ico" alt="electronjs"><a href="https://electronjs.org/">electronjs.org</a></li>
     <pre><code>
 node -v
+sudo <a href="https://github.com/tj/n">n</a> lts // обновить
+
 require('./name')
 global.name = name; 
 // делает переменную глобальной
@@ -394,14 +416,18 @@ module.exports = {
 </div>
 
 <div>
+    <a href="https://jasmine.github.io/">Jasmine</a><br>
+    <a href="https://youtu.be/CUNP6L8ZbDo">Тестирование Javascript с Jasmine (2019)</a><br>
+        <a href="https://habr.com/en/post/167173/">Введение в Jasmine. Habr (2013)</a><br>
     unit-тесты<br>
     e2e-тесты<br>
     Mocha<br>
 </div>
 
 <div>
-    WebAssembly
-    <a href="https://vk.com/doc41637949_521818112">Никита Зимин WebAssembly (2019)</a>
+    <h2>WebAssembly</h2>
+    <a href="https://vk.com/doc41637949_521818112">Никита Зимин WebAssembly (2019)</a><br>
+    <a href="https://frontendconf.ru/moscow/2019/abstracts/4782">RUST + WEBASSEMBLY (2019)</a><br>
 </div>
 
 <div>
@@ -410,8 +436,17 @@ module.exports = {
     PWA, TWA <br>
 </div>
 
+<div>Machine Learning &<br>
+    Deep Neural Networks<br>
+    TensorflowJS<br>
+</div>
+
 <div>
     <ul>
+        <li><a href="https://github.com/Tencent/omi"><img src="https://tencent.github.io/omi/assets/omi-logo2019.svg" alt="omi"> omi</a></li>
+    <li><a href="https://graphql.org/"><img src="https://graphql.org/img/logo.svg" alt="graphql.org"> GraphQL</a>
+        , <a href="https://habr.com/en/post/326986/">Habr</a>
+        , <a href="https://tproger.ru/translations/graphql-beginners-guide/">tproger</a></li>
     <li>Jira, Slack</li>
     <li><a href="https://habr.com/ru/company/hexlet/blog/274675/">RESTful</a></li>
     <li><a href="https://youtu.be/_ucQ8i-MOdM">Lodash</a></li>
@@ -420,6 +455,7 @@ module.exports = {
     MVC <br>
     <li><a href="https://ru.wikipedia.org/wiki/CURL">cURL</a></li>
     <li>WebAuthn</li>
+    <li><a href="https://webglfundamentals.org/webgl/lessons/ru/">WebGL (3D в браузере)</a></li>
     <li>скрамы, канбаны, стендапы, парное программирование</li>
     <a href="http://progopedia.ru/">progopedia.ru</a><br>
     <a href="https://almanac.httparchive.org">almanac.httparchive</a><br>

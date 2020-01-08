@@ -177,19 +177,4 @@ footer {
     background-size: 16px;
     padding-left: 20px;
 }
-[href*="developer.mozilla"] {
-    background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
-    background-size: 16px;
-    padding-left: 20px;
-}
-[href*="itvdn"] {
-    background: url(../icons/itvdn.svg) no-repeat 0 0;
-    background-size: 16px;
-    padding-left: 20px;
-}
-[href*="github"] {
-    background: url(https://github.githubassets.com/favicon.ico) no-repeat 0 0;
-    background-size: 16px;
-    padding-left: 20px;
-}
 #pageTitle { display: none }

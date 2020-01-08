@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 function q(id) { return document.querySelector(id) }
 function qAll(id) { return document.querySelectorAll(id) }
+const import_DataUrl = "http://leonardasf1.narod.ru/";
 
 function setHeader() {
   fetch("../JS/header.html")
@@ -36,20 +37,24 @@ function setContentFn() {
   if (q('.navLink')) qAll('.navLink').forEach(
     a => a.onclick = function() { load(this) });
 
-  if (q('.import_Img')) qAll('.import_Img img[src^=".."]').forEach(
-    img => img.src = `http://leonardasf1.narod.ru/${img.getAttribute('src')}`);
+  if (q('.import_Data')) {
+    qAll('.import_Data *[src^=".."]').forEach(
+    i => i.src = `${import_DataUrl + i.getAttribute('src')}`);
+    qAll('.import_Data *[href^=".."]').forEach(
+    i => i.href = `${import_DataUrl + i.getAttribute('href')}`);
+  }
 
-  if (q('[data-lightbox]')) lb_init(); //???
-  
-  if (q('.lazy')) {
-    qAll('.lazy img').forEach(i => {
-      i.setAttribute("data-src", i.getAttribute("src"));
-      i.removeAttribute("src");
-      i.classList.add('lazyload');
-    });
-    // q('body').insertAdjacentHTML(
-    // 'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
-  };
+  if (q('[data-lightbox]')) lb_init();
+
+  // if (q('.lazy')) {
+  //   qAll('.lazy img').forEach(i => {
+  //     i.setAttribute("data-src", i.getAttribute("src"));
+  //     i.removeAttribute("src");
+  //     i.classList.add('lazyload');
+  //   });
+  //   // q('body').insertAdjacentHTML(
+  //   // 'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
+  // };
 }
 
 function setFooterScrollTop() {

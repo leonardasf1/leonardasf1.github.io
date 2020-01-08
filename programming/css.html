@@ -14,6 +14,7 @@
     <a href="https://github.com/mrclay/minify">minify</a><br>
     <a href="http://uroki-css.ru">uroki-css</a><br>
     <a href="http://flexboxfroggy.com/">flexboxfroggy</a><br>
+    <a href="http://gearmobile.github.io/web-development/pixel-perfect/">Pixel Perfect</a><br>
   </div>
   <div>
     <li><a href="https://whitepaper.tools"><img src="http://whitepaper.tools/favicon.ico" alt="whitepaper tools"> whitepaper.tools</a></li>
@@ -25,7 +26,11 @@
     <li><a href="http://htmlbook.ru/samcss/napisanie-effektivnogo-koda"><img src="http://htmlbook.ru/favicon.ico" alt="htmlbook"> Написание эффективного кода</a></li>
     <li><a href="http://htmlbook.ru/samcss/kaskadirovanie">Cascading</a></li>
     <li>шлюзы</li>
-    <a href="https://www.youtube.com/channel/UCbq5voeHkiCc5YducCiuUWA/">MinskCSS</a>
+    <a href="https://www.youtube.com/channel/UCbq5voeHkiCc5YducCiuUWA/">MinskCSS</a><br>
+    <a href="https://youtu.be/zN63Kxsr9-w">Keeping it simple with CSS that scales / Andy Bell</a> <a href="https://frontendconf.ru/moscow/2019/abstracts/6109"></a><br>
+    <a href="https://youtu.be/O1A_QCptiIM">Make a World on Pure CSS / Юлия Музафарова</a> <a href="https://frontendconf.ru/moscow/2019/abstracts/5937"></a><br>
+    <a href="https://youtu.be/PoWpkLeJnBA">Типы данных в CSS / София Валитова (ВКонтакте)</a> <a href="https://frontendconf.ru/moscow/2019/abstracts/5964"></a><br>
+    <a href="https://youtu.be/2UIwHWQeJBs">CSS — язык программирования / Никита Дубко (Яндекс)</a> <a href="https://mefody.github.io/talks/css-programming/"></a><br>
   </div>
 
 <div><pre><code>
@@ -38,6 +43,7 @@
 </code></pre></div>
 
   <div>
+  @apply черновик<br>
   Backgrounds and Borders 3 //2017<br>
   Basic User Interface 3 (CSS3 UI)  //2018<br>
   Cascading and Inheritance 3 //2018<br>
@@ -61,6 +67,7 @@
   Media Queries //2012<br>
   Media Queries 4 //2017<br>
   Namespaces 3 //2014<br>
+  Nesting черновик<br>
   Painting API 1 //2018<br>
   Scroll Snap 1 //2019<br>
   Selectors 3 //2018<br>
@@ -482,7 +489,7 @@ shape-outside: circle(50%);
 </code></pre></details>
 <details><summary>Variables-1 .2015</summary>
   <pre><code class="javascript">
-:root {
+:root { //глобальные переменные
   --main-color: #c06;
   --accent-background: linear-gradient(to top, var(--main-color), white);
   --foo: if(x > 5) this.width = 10;
@@ -505,10 +512,24 @@ one   { --foo: 10px; }
 two   { --bar: calc(var(--foo) + 10px); }
 three { --foo: calc(var(--bar) + 10px); }
 
+postcss-preset-env
+postcss-nesting
+
+для IE - postcss-custom-properties
+
+доступ из JS:
+  const root = document.querySelector(':root');
+  //прочитать глобальную CSS-переменную
+  const styles = getComputedStyle(root);
+  const primary = styles.getPropertyValue('--primary-color');
+  //записать новое значение
+  root.style.setProperty('--primary-color', 'green');
   </code></pre></details>
 </div>
 
 <div>
+  для анимирования лучше : <br>
+  opacity, trasform, filter <br>
 <details><summary><b>Селектор</b> { свойство: значение; }</summary><pre><code>
 * {} для всех элементов веб-страницы
 tagName по тегу
@@ -663,6 +684,7 @@ vertical-align: baseline|bottom|middle|sub|super|text-bottom|text-top|top;
 visibility: visible | hidden | collapse; видимость элемента
 
 z-index: число | auto; наложение обьектов
+zoom: 200;
 }
 </code></pre>
 </div>
