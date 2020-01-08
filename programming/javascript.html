@@ -1,7 +1,5 @@
 <div id="pageTitle">JavaScript</div>
 
-<div class="flex">
-
 <div id="links">
   <a href="https://learn.javascript.ru/js"><img src="http://learn.javascript.ru/img/favicon/favicon.png" alt="learn.javascript.ru"></a>
   <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference" style="padding-left: 0"><img src="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png" alt="mozilla"></a>
@@ -83,7 +81,7 @@ typeof test5.toString; // function
 		<li><details><summary>Операторы</summary>
 			<pre><code>
     = assigns a value 
-    Оператор присвоения "=" предназначен для присвоения определенного значения переменной. 
+Оператор присвоения "=" предназначен для присвоения определенного значения переменной. 
             Арифметические операторы:
 
         var a = 9;
@@ -92,10 +90,10 @@ typeof test5.toString; // function
 
         // Сложение (+)
         result = a + b; // в данном случае + арифметическое сложение.
-        document.write("a + b = " + result); // в данном случае оператор + выполняет операцию конкатенации.
+document.write("a + b = " + result); // в данном случае оператор + выполняет операцию конкатенации.
 
         // Вычитание (-)
-        result = a - b; // в случае если a или b нечисловые, оператор пытается преобразовать их в числа.
+result = a - b; // в случае если a или b нечисловые, оператор пытается преобразовать их в числа.
         document.write("a - b = " + result);
 
         // Умножение (*)
@@ -104,8 +102,10 @@ typeof test5.toString; // function
 
         // Деление (/)
         result = a / b;
-        document.write("a / b = " + result); // деление на 0 дает +/- бесконечность. 0/0 дает NaN.
+document.write("a / b = " + result); // деление на 0 дает +/- бесконечность. 0/0 дает NaN.
 
+//возведение в степень
+  a**b
 
                 a % b;    Деление c остатком (Деление по модулю) - это операция, 
              которой возвращаемое значение является остатком от деления.
@@ -263,6 +263,11 @@ typeof test5.toString; // function
   for (let [key, value] of Object.entries(object1)) {  // перебор объекта
   	console.log(`${key}: ${value}`);
   }
+  async function funcName() {
+    for await (const obj of promises) {
+      console.log(obj)
+    } // ждёт выполнения промисов в каждом цикле
+  }
   <b>Метки.</b>
   Инструкция метки (label) используется вместе с break или continue для альтернативного выхода из цикла. 
   Оно добавляется перед блочным выражением в качестве ссылки, которая может быть использована в дальнейшем.
@@ -358,8 +363,8 @@ typeof test5.toString; // function
   ​.match();       // принимает регулярное выражение и возвращает массив с результатами поиска
   ​.matchAll()
   ​.normalize()
-  ​.padEnd()
-  ​.pad​Start()
+  ​.padEnd(20, '-'); // добавляет в конец строки n-кол-во - до длины 20;
+  ​.pad​Start(10, '_'); // добавляет в начало строки n-кол-во _ до длины 10;
   ​.quote()
   ​.repeat()
   ​.replace( , ""); //  производит операцию поиска с заменой
@@ -620,17 +625,18 @@ typeof test5.toString; // function
   .setItem("key","value");
   .deleteItem("key");
 
-  Object.assign(target, source)
+  Object.assign(target, source); //клонировать {}source в {}target
+  let varName = Object.assign({}, source);
   Object.create(prototipe, { prop-s }) // создает объект из 
                 // прототипа, с необязательными свойствами
   Object.defineProperties()
   Object.defineProperty(obj, prop, descriptor) //определяет новое или изменяет существующее
   // свойство непосредственно на объекте, возвращая этот объект.
-  Object.entries()
+  Object.entries(); // keys & values
   Object.freeze()
   Object.fromEntries()
-  Object.getOwnPropertyDescriptor()
-  Object.getOwnPropertyDescriptors()
+  Object.getOwnPropertyDescriptor(obj, prop); //получить дескриптор свойства prop
+  Object.getOwnPropertyDescriptors(obj, prop); //то же самое с get и set
   Object.getOwnPropertyNames()
   Object.getOwnPropertySymbols()
   Object.getPrototypeOf()
@@ -639,9 +645,9 @@ typeof test5.toString; // function
   Object.isFrozen()
   Object.isSealed()
   Object.keys(objName)  // массив ключей
-  Object.seal()  // массив значений
+  Object.seal()  // массив значений??
   Object.setPrototypeOf()
-  Object.values()
+  Object.values()  // массив значений
 
   function funcName(property, value) {
     return {
@@ -1074,15 +1080,15 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
       resolve("ок");
       reject(new Error("Ошибка!"));
     })
-    // выполнится, когда промис завершится, независимо от того, успешно или нет
     .finally(() => остановить индикатор загрузки)
+    // выполнится, когда промис завершится, независимо от того, успешно или нет
     .then((result) => {})
     .catch(alert) // Error: Ошибка!
     .then((results) =>  //выполнится после обработки ощибки
       results.forEach(result =>
         funcName(result)));
   }
-  Promise.all()
+  Promise.all([funcName(), func2Name()]);
   Promise.allSettled()
   Promise.prototype.finally()
   Promise.race()
@@ -1199,10 +1205,6 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
   class SomeClass {
     *generatorFunc() {}
   }
-			</code></pre></details></li>
-		<li><details><summary>async iterators/generators</summary>
-			<pre><code>
-
 			</code></pre></details></li>
 		<li><details><summary>modules, import, export</summary>
 			<pre><code>
@@ -2407,7 +2409,7 @@ Hex_Digit //шестнадцатеричные числа
 </div>
 
 
-</div>
+<div>
 <pre>
         <a title="Оператор with создает новую область видимости и 
     представляет свойства объекта «object» как локальные переменные. 
@@ -2458,3 +2460,4 @@ codepen:
 	<li><a href="https://codepen.io/leonardasf1/pen/VJoPbq">Calculator</a></li>
 	<li><a href="https://codepen.io/leonardasf1/pen/PoYgPXz">Sort</a></li>
 </ul>
+</div>

@@ -47,7 +47,7 @@ s { color: red; }
   <header>
         <div id="headerMenu"></div> 
     </header>
-<main id="main">
+<main class="flex">
     <nav>
         <a class="navLink">
             <img src="../icons/html.svg" alt="html5">
@@ -64,6 +64,10 @@ s { color: red; }
         <a class="navLink">
             <img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jquery">
             <span>jQuery</span>
+        </a>
+        <a class="navLink">
+            <img src="https://rxjs-dev.firebaseapp.com/assets/images/logos/logo.png" alt="RxJS">
+            <span class="hidden">RxJS</span>
         </a>
         <a class="navLink">
             <img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt="webpack">
@@ -99,9 +103,6 @@ s { color: red; }
             <span>Golang</span>
         </a>
     </nav>
-
-<article>
-<div class="flex">
 
 <div id="links">
     <a href="https://itvdn.com/ru/catalog" style="padding-left: 0; background: none"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a>
@@ -483,31 +484,29 @@ module.exports = {
     </ul>
 </div>
 
-    <div>
-        <a href="https://codepen.io/leonardasf1/pen/QegKyX/">video-playerJS</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/KKKaGjR">hcs-1</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/mddRvRd">hcs-2</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/QWWdeeN">шапки</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/yLLMqvQ">csstricks</a><br>
-        <a href="primery/nitro/" target="_blank">Nitro</a><br>
-        <a href="primery/skillboxLanding/" target="_blank">skillboxLanding</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/XWWMyeQ">spinner</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/JjjWegK">js move slider</a> <br>
-        <a href="https://codepen.io/leonardasf1/pen/mddmeQm">drag-elem</a> <br>
-        <a href="https://codepen.io/leonardasf1/pen/LYPyzzx/">Forma</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/QWWgxYN">react1</a><br>
-        <a href="https://codepen.io/leonardasf1/pen/NWWgzmx">DNA</a><br>
-        <hr>
-        <a href="https://yadi.sk/d/tk7BjQ9adBx5Hg">Zippy Простой лендинг в PSD.</a><br>
-        <a href="https://drive.google.com/file/d/1VgH1lyZq_1zCz-YWBZw8Kifx5JTFdwPe/">Интернет-магазин часов. Адаптивный макет в формате Figma</a><br>
-        <a href="https://yadi.sk/d/vitPq1t5mS7rRQ">Kross. Сайт-портфолио в PSD</a><br>
-        <a href="https://drive.google.com/file/d/1ByXB1fYHiTXINFROvZ0mYdJpYOgoUsBO/">Лендинг курса по Customer Development. Макет для Figma.</a><br>
-        <a href="https://yadi.sk/d/aQDWvM_2L-wT9w">MilasTask Небольшая страничка-портфолио.</a><br>
-        <a href="https://yadi.sk/d/xO_d7Vg6iQmURw">Peridona Лендинг для серьёзных дел.</a><br>
-    </div>
+<div>
+    <a href="https://codepen.io/leonardasf1/pen/QegKyX/">video-playerJS</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/KKKaGjR">hcs-1</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/mddRvRd">hcs-2</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/QWWdeeN">шапки</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/yLLMqvQ">csstricks</a><br>
+    <a href="primery/nitro/" target="_blank">Nitro</a><br>
+    <a href="primery/skillboxLanding/" target="_blank">skillboxLanding</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/XWWMyeQ">spinner</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/JjjWegK">js move slider</a> <br>
+    <a href="https://codepen.io/leonardasf1/pen/mddmeQm">drag-elem</a> <br>
+    <a href="https://codepen.io/leonardasf1/pen/LYPyzzx/">Forma</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/QWWgxYN">react1</a><br>
+    <a href="https://codepen.io/leonardasf1/pen/NWWgzmx">DNA</a><br>
+    <hr>
+    <a href="https://yadi.sk/d/tk7BjQ9adBx5Hg">Zippy Простой лендинг в PSD.</a><br>
+    <a href="https://drive.google.com/file/d/1VgH1lyZq_1zCz-YWBZw8Kifx5JTFdwPe/">Интернет-магазин часов. Адаптивный макет в формате Figma</a><br>
+    <a href="https://yadi.sk/d/vitPq1t5mS7rRQ">Kross. Сайт-портфолио в PSD</a><br>
+    <a href="https://drive.google.com/file/d/1ByXB1fYHiTXINFROvZ0mYdJpYOgoUsBO/">Лендинг курса по Customer Development. Макет для Figma.</a><br>
+    <a href="https://yadi.sk/d/aQDWvM_2L-wT9w">MilasTask Небольшая страничка-портфолио.</a><br>
+    <a href="https://yadi.sk/d/xO_d7Vg6iQmURw">Peridona Лендинг для серьёзных дел.</a><br>
 </div>
 
-</article>
 </main>
 <footer></footer>
     

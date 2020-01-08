@@ -109,7 +109,6 @@ nav {
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 26px 3% 0;
-    line-height: 2;
 }
 
 nav>a {
@@ -117,7 +116,8 @@ nav>a {
     margin-right: 5%;
     font-weight: 700;
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: white;
     filter: drop-shadow(0 2px 2px black);
 }
