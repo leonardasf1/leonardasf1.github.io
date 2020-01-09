@@ -83,7 +83,7 @@ function load(a) {
   a.style.opacity = 0;
   q('#headerMenu').prepend(a);
   q('main').style.opacity = 0;
-  fetch(`${a.innerText.toLowerCase()}.html`)
+  fetch(`${a.textContent.toLowerCase()}.html`)
   .then(response => response.text())
   .then(results => {
     q('main').innerHTML = results;

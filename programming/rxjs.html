@@ -5,3 +5,53 @@
 	<a href="https://youtu.be/gCwSVQO_PtY">RxJS - Полный курс за 1 час (2019)</a><br>
 	<a href="https://itvdn.com/ru/video/javascript-extended-capabilities/rx-js">Библиотека RxJS (2018)</a><br>
 </div>
+
+<div><pre><code>
+const streamName$; //реактивная
+
+.subscribe(() => {}) //как forEach()
+	streamName$.subscribe(val => {
+		console.log(val);
+		display.textContent = val.join(' ')
+	})
+.pipe() // add operators, доступен у 
+//любых объектов которые создают стримы
+	of().pipe(
+		map(),
+		scan()
+	)
+
+import {} from 'rxjs'
+Observable()
+	const stream$ = new Observable(observer => {
+		observer.next()
+	})
+interval(1000)
+of(1, 2, 3, 4) //create stream
+	const streamName$ = of(1, 2, 'sdf', 4)
+from([]) //create stream from []
+	const arr$ = from([1, 2, 3, 4])
+
+import {} from 'rxjs/operators'
+take(people.length),
+filter(v => people[v].age >= 18),
+map(v => people[v].name),
+scan((acc, v) => acc.concat(v), [])
+
+</code></pre></div>
+
+<div><pre><code>
+import {interval} from 'rxjs'
+import {filter, map, take, scan} from 'rxjs/operators'
+
+interval(1000)
+.pipe(
+	take(people.length),
+	filter(v => people[v].age >= 18),
+	map(v => people[v].name),
+	scan((acc, v) => acc.concat(v), [])
+)
+.subscribe(res => {
+	display.textContent = res.join(' ')
+}, null, () => {}) 
+</code></pre></div>
