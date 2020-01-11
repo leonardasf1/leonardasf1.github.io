@@ -69,6 +69,9 @@ s { color: red; }
     <img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt="webpack">
     <span class="hidden">webpack</span></a>
 <a class="navLink">
+    <img src="https://git-scm.com/favicon.ico" alt="Git">
+    <span>Git</span></a>
+<a class="navLink">
     <img src="https://angular.io/assets/images/favicons/favicon.ico" alt="angular">
     <span style="color: #e23237">Angular</span></a>
 <a class="navLink">
@@ -113,6 +116,7 @@ s { color: red; }
 </ul></div>
 
 <div>
+    <a href="https://youtu.be/vCR-Ezx_ivI">SpeechKit в Яндекс.Облаке</a><br>
     <a href="https://youtu.be/1U4NrB9v9ZA">Я.Субботник по разработке интерфейсов. лето2019</a><br>
     <a href="https://youtu.be/jPqNyF0hH3k">Я.Субботник по разработке интерфейсов. весна2019</a><br>
     <a href="https://youtu.be/_O5N7KzbFwM">Web Standards Days 2019</a><br>
@@ -122,6 +126,8 @@ s { color: red; }
 <a href="https://www.youtube.com/playlist?list=PLKaafC45L_STEvOoLl_XLVZIX8Mek1L1Z">Я.Субботник по разработке интерфейсов 2018</a><br>
 <a href="https://www.youtube.com/playlist?list=PL8sJahqnzh8KeXLLPIasdrnqMy-JkTGVM">HolyJS 2018 Piter лучшее</a><br>
 <a href="https://www.youtube.com/playlist?list=PL8sJahqnzh8JNbKwJ66D9WRve6NjA_in8">HolyJS 2018 Moscow лучшее</a><br>
+<a href="https://www.youtube.com/playlist?list=PLKaafC45L_SQEH2hprLYvX_IpN1cMV-5H">Курсы по разработке интерфейсов 2017</a><br>
+<a href="https://www.youtube.com/playlist?list=PLKaafC45L_SThr77Wm716ba3Ca-mOr-xc">Курсы по разработке интерфейсов 2016</a><br>
 </div>
 
 <div class="img32"><h2>Status</h1>
@@ -219,82 +225,6 @@ s { color: red; }
 </div>
 
 <div>
-    <h2><img src="https://git-scm.com/favicon.ico" alt="git"> Git</h2>
-    <a href="https://git-scm.com/book/ru/v2">git-scm.com/book/</a><br>
-    <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR">Базовый курс по Git (devcolibri. 2016)</a><br>
-    <a href="https://youtu.be/PEKN8NtBDQ0">Git - для новичков (loftblog. 2015)</a><br>
-    <a href="https://youtu.be/yDSs80lu3ak">Git — с нуля и до регламента в команде (Сергей Сергеев. 2018)</a><br>
-    <a href="https://youtu.be/nRXacgNHNVw">GIT-практикум (ITVDN)</a><br>
-    <a href="https://youtu.be/iQqDce_9y3k">Как пользоваться GIT в Phpstorm. Инструкция</a><br>
-    <a href="https://youtu.be/nHjKXiRLAQY">PhpStorm + Git + GitHub - Настройка контроля версий</a><br>
-	<details><summary>git --help</summary><pre><code>
-usage: git [--version] [--help] [-C < path>] [-c < name>=< value>] 
-	   [--exec-path[=< path>]] [--html-path] [--man-path] [--info-path]
-	   [-p | —paginate | -P | —no-pager] [--no-replace-objects] [--bare] 
-	   [--git-dir=< path>] [--work-tree=< path>] [--namespace=< name>] 
-	   < command> [< args>] 
-
-These are common Git commands used in various situations: 
-
-    git config -—global user.name "John Doe" 
-    git config -—global user.email johndoe@example.com
-
-start a working area (see also: git help tutorial) 
-	git clone url	// Clone a repository into a new directory 
-	git init	// Create an empty Git repository or reinitialize an existing one 
-
-work on the current change (see also: git help everyday) 
-	git add . //	Add file contents to the index 
-	mv 	Move or rename a file, a directory, or a symlink 
-	restore Restore working tree files 
-	rm 	Remove files from the working tree and from the index 
-
-examine the history and state (see also: git help revisions) 
-	bisect 	Use binary search to find the commit that introduced a bug
-	diff 	Show changes between commits, commit and working tree, etc 
-	grep 	Print lines matching a pattern 
-    git log -2  // показывает два последних коммита
-    git log -p  // просмотреть разницу
-	show 	Show various types of objects 
-    git status  // проверяем
-
-grow, mark and tweak your common history 
-	git branch 	List, create, or delete branches 
-    git commit -m'комментарий'
-    git commit -a -m''  // делает сразу add и commit
-	git merge branch2  // слияние в настоящую ветку ветки branch2
-	git rebase branch2  //  	Reapply commits on top of another base tip 
-	reset 	Reset current HEAD to the specified state 
-	switch 	Switch branches 
-	tag 	Create, list, delete or verify a tag object signed with GPG 
-
-collaborate (see also: git help workflows) 
-    git fetch 	Download objects and refs from another repository 
-    git pull origin branch2 // скачиваем из удаленного репозитория отсутствующие у нас изменения
-    git pull --rebase
-    git push origin master	// загружаем в удаленный репозиторий в мастер-ветку
-
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help < command>' or 'git help < concept>'
-to read about a specific subcommand or concept. 
-See 'git help git' for an overview of the system.
-	git config --list
-	
-create .gitignore /tmp 
-	git restore --staged index.html  // убираем файл из staged area
-    git checkout hash  // возвращение к определенному коммиту
-    git checkout master  // переключение на ветку мастер
-    git checkout -b newbranch  // создание новой ветки с переключением на неё
-    git revert HEAD --no-edit  // удаление последнего коммита
-    git revert --abort  // отменяем если возник конфликт
-
-    git stash  // сохраняем working dir перед pull
-    git stash pop
-    git stash list
-</code></pre></details>
-</div>
-
-<div>
     <li><a href="https://veryberry.com.ua">veryberry.com.ua</a></li>
     <li><a href="https://www.nitrousa.com">nitrousa.com</a></li>
     <li><a href="https://www.svo.aero/">svo.aero</a></li>
@@ -385,6 +315,7 @@ module.exports = {
     <ul>
         <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a><br>
         <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a><br>
+        <a href="https://habr.com/ru/company/yandex/blog/481688/">Зачем учить Java и как делать это эффективно.</a>
     </ul>
 </div>
 
@@ -406,9 +337,11 @@ module.exports = {
 </div>
 
 <div>
+    <h2>Tests</h2>
     <a href="https://jasmine.github.io/">Jasmine</a><br>
     <a href="https://youtu.be/CUNP6L8ZbDo">Тестирование Javascript с Jasmine (2019)</a><br>
         <a href="https://habr.com/en/post/167173/">Введение в Jasmine. Habr (2013)</a><br>
+    <a href="https://vk.com/@yandex4developers-mutacionnoe-testirovanie">Мутационное тестирование</a>
     unit-тесты<br>
     e2e-тесты<br>
     Mocha<br>
@@ -426,7 +359,7 @@ module.exports = {
     PWA, TWA <br>
 </div>
 
-<div>Machine Learning &<br>
+<div><a href="https://youtu.be/BX2M8t5BA3s">Machine Learning &</a><br>
     Deep Neural Networks<br>
     TensorflowJS<br>
 </div>

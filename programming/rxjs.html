@@ -2,43 +2,93 @@
 
 <div id="links">
 	<a href="https://rxjs-dev.firebaseapp.com/">rxjs-dev.firebaseapp</a><br>
-	<a href="https://youtu.be/gCwSVQO_PtY">RxJS - Полный курс за 1 час (2019)</a><br>
+	<a href="https://rxmarbles.com/">RxJS Marbles</a><br>
+	<a href="https://youtu.be/gCwSVQO_PtY">RxJS за 1 час (2019)</a><br>
 	<a href="https://itvdn.com/ru/video/javascript-extended-capabilities/rx-js">Библиотека RxJS (2018)</a><br>
+	<a href="https://youtu.be/3rEDHnqn-Cw">MoscowJS 42 RxJS по косточкам</a><br>
+	<a href="https://youtu.be/Lmn0JsjdVrY">Реактивное программирование</a><br>
 </div>
 
-<div><pre><code>
-const streamName$; //реактивная
-
-.subscribe(() => {}) //как forEach()
-	streamName$.subscribe(val => {
-		console.log(val);
-		display.textContent = val.join(' ')
+<div>поток()
+<details><summary>	.subscribe(() => {})</summary><pre><code> //как forEach()
+	streamName$.subscribe(
+		(val) => {display.textContent = val.join(' ')}, // next
+		(err) => console.error(err), // error
+		() => console.log() // complete
+	)
+	streamName$.subscribe({
+		next(val) {},
+		error(err) {}, || rxjs.noop,
+		complete() {}
 	})
-.pipe() // add operators, доступен у 
+	stream$.subscribe({
+		next: v => {},
+		complete: () => {}
+	})
+</code></pre></details>
+<details><summary>this?.unsubscribe()</summary><pre><code>//отписаться</code></pre></details>
+
+<pre><code>import {} from 'rxjs'</code></pre>
+<pre><code>const streamName$ = ; //потоки:</code></pre>
+<details><summary>Observable()</summary><pre><code>
+ const stream$ = new Observable(observer => {
+   observer.next('')
+   observer.error('')
+   observer.complete()
+ });
+ const http$ = Observable.create(observer => {
+   fetch(`${url}posts`)
+   .then(response => response.json())
+   .then(data => {
+     observer.next(data);
+     observer.complete();
+   })
+   .catch(err => observer.error(err));
+ });
+</code></pre></details>
+
+<details><summary>fromEvent(document, 'click')</summary><pre><code></code></pre></details>
+<details><summary>interval(1000)</summary><pre><code></code></pre></details>
+<details><summary>timer(3000, 1500)</summary><pre><code> // (задержка, интервал)</code></pre></details>
+<details><summary>of(1, 2, 3, 4)</summary><pre><code> //create stream
+	const streamName$ = of(1, 2, 'sdf', 4)</code></pre></details>
+<details><summary>from([])</summary><pre><code> //create stream from []
+	const arr$ = from([1, 2, 3, 4])</code></pre></details>
+<details><summary>range(-2, 4)</summary><pre><code>// (начало, кол-во)</code></pre></details>
+<details><summary>Subject()</summary><pre><code>
+const stream$ = new Subject()
+stream$.subscribe(v => {})
+stream$.next()</code></pre></details>
+<details><summary>BehaviorSubject('')</summary><pre><code>// аргумент задает первое значение
+const stream$ = new BehaviorSubject('asd')
+stream$.subscribe(v => {})
+stream$.next('')</code></pre></details>
+<details><summary>ReplaySubject(2)</summary><pre><code>//2 размер буфера для запоминания некстов
+const stream$ = new ReplaySubject()
+stream$.next('')
+stream$.next('')
+stream$.subscribe(v => {})</code></pre></details>
+</div>
+
+<div>
+<pre><code>import {} from 'rxjs/operators'</code></pre>
+<details><summary><code>.pipe() //операторы</code></summary><pre><code> // add operators, доступен у 
 //любых объектов которые создают стримы
 	of().pipe(
 		map(),
 		scan()
 	)
-
-import {} from 'rxjs'
-Observable()
-	const stream$ = new Observable(observer => {
-		observer.next()
-	})
-interval(1000)
-of(1, 2, 3, 4) //create stream
-	const streamName$ = of(1, 2, 'sdf', 4)
-from([]) //create stream from []
-	const arr$ = from([1, 2, 3, 4])
-
-import {} from 'rxjs/operators'
-take(people.length),
-filter(v => people[v].age >= 18),
-map(v => people[v].name),
-scan((acc, v) => acc.concat(v), [])
-
-</code></pre></div>
+</code></pre></details>
+<details><summary>take(arr.length),</summary><pre><code> //кол-во итераций, аргумент - длина объекта переданого в стрим</code></pre></details>
+takeLast(5) // перед complete вывести последние 5 <br>
+takeWhile(v => v < 7) // итерировать пока v < 7 <br>
+filter(v => v >= 18), // выводить только соответствующие фильтру значения<br>
+map(() => {}),<br>
+<details><summary>scan(() => {}, [])</summary><pre><code>scan((acc, v) => acc.concat(v), []) // каждую итерацию выводит acc</code></pre></details>
+reduce((acc, v) => acc.concat(v), []) // перед complete вывести acc
+<details><summary>tap(v => {}),</summary><pre><code> //на каждой итерации игнорируя фильтр</code></pre></details>
+switchMap((event) => {})
+</div>
 
 <div><pre><code>
 import {interval} from 'rxjs'
@@ -51,7 +101,9 @@ interval(1000)
 	map(v => people[v].name),
 	scan((acc, v) => acc.concat(v), [])
 )
-.subscribe(res => {
-	display.textContent = res.join(' ')
-}, null, () => {}) 
+.subscribe(
+	res => {display.textContent = res.join(' ')},
+	null,
+	() => {}
+) 
 </code></pre></div>

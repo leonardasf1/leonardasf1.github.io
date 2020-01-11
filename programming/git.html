@@ -1,0 +1,103 @@
+<div id="pageTitle">Git</div>
+
+<div>
+    <h2><img src="https://git-scm.com/favicon.ico" alt="git"> Git</h2>
+    <a href="http://git-init.ru">git-init</a><br>
+    <a href="https://git-scm.com/book/ru/v2">Pro Git — Скотт Чакон, Бен Штрауб</a><br>
+    <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/ru/">Волшебство Git — Бен Линн</a><br>
+    <a href="http://think-like-a-git.net">Думай как Git</a><br>
+    <a href="https://www.atlassian.com/git">Getting Git Right</a>
+    <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR">Базовый курс по Git (devcolibri. 2016)</a><br>
+    <a href="https://youtu.be/PEKN8NtBDQ0">Git - для новичков (loftblog. 2015)</a><br>
+    <a href="https://youtu.be/yDSs80lu3ak">Git — с нуля и до регламента в команде (Сергей Сергеев. 2018)</a><br>
+    <a href="https://youtu.be/nRXacgNHNVw">GIT-практикум (ITVDN)</a><br>
+    <a href="https://youtu.be/iQqDce_9y3k">Как пользоваться GIT в Phpstorm. Инструкция</a><br>
+    <a href="https://youtu.be/nHjKXiRLAQY">PhpStorm + Git + GitHub - Настройка контроля версий</a><br>
+    "fast forward"<br>
+    "workflow"<br>
+</div>
+
+
+    <pre><code>
+    git --help
+usage: git [--version] [--help] [-C < path>] [-c < name>=< value>] 
+       [--exec-path[=< path>]] [--html-path] [--man-path] [--info-path]
+       [-p | —paginate | -P | —no-pager] [--no-replace-objects] [--bare] 
+       [--git-dir=< path>] [--work-tree=< path>] [--namespace=< name>] 
+       < command> [< args>] 
+
+These are common Git commands used in various situations: 
+
+    git config -—global user.name "John Doe" 
+    git config -—global user.email johndoe@example.com
+
+start a working area (see also: git help tutorial) 
+    git clone url   // Clone a repository into a new directory 
+    git init    // Create an empty Git repository or reinitialize an existing one 
+
+work on the current change (see also: git help everyday) 
+    git add . //    Add file contents to the index 
+    mv  Move or rename a file, a directory, or a symlink 
+    restore Restore working tree files 
+    rm  Remove files from the working tree and from the index 
+
+examine the history and state (see also: git help revisions) 
+    bisect  Use binary search to find the commit that introduced a bug
+    diff    Show changes between commits, commit and working tree, etc 
+    git diff @~1 //в глубь
+    git diff @^1 //в ширь
+    grep    Print lines matching a pattern 
+    git log -2  // показывает два последних коммита
+    git log -p  // просмотреть разницу
+    git log --oneline --graph --all
+    show    Show various types of objects 
+    git status  // проверяем
+
+grow, mark and tweak your common history 
+    git branch  List, create, or delete branches 
+    git commit -m'комментарий'
+    git commit -a -m''  // делает сразу add и commit
+    git merge branch2  // слияние в настоящую ветку ветки branch2
+    git rebase branch2  //      Reapply commits on top of another base tip
+    git rebase --continue // перебазирование комитов ветки к другой ветке
+    git reset   Reset current HEAD to the specified state 
+    switch  Switch branches 
+    tag     Create, list, delete or verify a tag object signed with GPG 
+
+collaborate (see also: git help workflows) 
+    git fetch   Download objects and refs from another repository 
+    git pull origin branch2 // скачиваем из удаленного репозитория отсутствующие у нас изменения
+    git pull --rebase
+    git push origin master  // загружаем в удаленный репозиторий в мастер-ветку
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help < command>' or 'git help < concept>'
+to read about a specific subcommand or concept. 
+See 'git help git' for an overview of the system.
+    git config --list
+    
+create .gitignore /tmp 
+    git restore --staged index.html  // убираем файл из staged area
+    git checkout hash  // возвращение к определенному коммиту
+    git checkout master  // переключение на ветку мастер
+    git checkout -b newbranch  // создание новой ветки с переключением на неё
+    git revert HEAD --no-edit  // удаление последнего коммита
+    git revert --abort  // отменяем если возник конфликт
+
+    git stash  // сохраняем working dir перед pull
+    git stash pop
+    git stash list
+    git cat-file -p папка имяфайла //посмотреть содержимое файла
+    cat .git/HEAD
+    git co master
+    git branch -d имяветки //удаляем ветку
+    vi имяфайла
+    git ci
+    git add имяфайла
+    git add -p
+    git st
+    git hist
+    git reflog
+    git rev-parse 08ddf8e~2
+
+</code></pre>
