@@ -10,56 +10,68 @@
     <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR">Базовый курс по Git (devcolibri. 2016)</a><br>
     <a href="https://youtu.be/PEKN8NtBDQ0">Git - для новичков (loftblog. 2015)</a><br>
     <a href="https://youtu.be/yDSs80lu3ak">Git — с нуля и до регламента в команде (Сергей Сергеев. 2018)</a><br>
+    <a href="https://youtu.be/mvVsrB46zkc">Github. Командная разработка - Роман Парадеев и Олег Мохов</a><br>
     <a href="https://youtu.be/nRXacgNHNVw">GIT-практикум (ITVDN)</a><br>
     <a href="https://youtu.be/iQqDce_9y3k">Как пользоваться GIT в Phpstorm. Инструкция</a><br>
     <a href="https://youtu.be/nHjKXiRLAQY">PhpStorm + Git + GitHub - Настройка контроля версий</a><br>
     "fast forward"<br>
     "workflow"<br>
+    <a href="https://learngitbranching.js.org">learngitbranching</a><br>
+    <a href="https://try.github.io">try.github</a><br>
+    <a href="http://marklodato.github.io/visual-git-guide/index-ru.html">visual-git-guide</a><br>
+    staging-сервера <br>
 </div>
 
+<div>
+<img src="img/git-upstream.png" alt="git-upstream" style="background-color: white">
+<pre><code>
+git remote -v // просмотр какие репозитории есть локально
+git remote add upstream url.git // добавление репозитория
+git pull --rebase upstream master //
+git rebase -i HEAD~7
+git push -f origin task-3
+</code></pre>
+</div>
 
-    <pre><code>
-    git --help
-usage: git [--version] [--help] [-C < path>] [-c < name>=< value>] 
-       [--exec-path[=< path>]] [--html-path] [--man-path] [--info-path]
-       [-p | —paginate | -P | —no-pager] [--no-replace-objects] [--bare] 
-       [--git-dir=< path>] [--work-tree=< path>] [--namespace=< name>] 
-       < command> [< args>] 
-
-These are common Git commands used in various situations: 
+    <pre><code> 
 
     git config -—global user.name "John Doe" 
     git config -—global user.email johndoe@example.com
+    git config -—global -l
 
-start a working area (see also: git help tutorial) 
     git clone url   // Clone a repository into a new directory 
     git init    // Create an empty Git repository or reinitialize an existing one 
 
-work on the current change (see also: git help everyday) 
-    git add . //    Add file contents to the index 
+    git add имяфайла
+    git add -p
     mv  Move or rename a file, a directory, or a symlink 
-    restore Restore working tree files 
     rm  Remove files from the working tree and from the index 
 
-examine the history and state (see also: git help revisions) 
-    bisect  Use binary search to find the commit that introduced a bug
     diff    Show changes between commits, commit and working tree, etc 
     git diff @~1 //в глубь
     git diff @^1 //в ширь
-    grep    Print lines matching a pattern 
+
     git log -2  // показывает два последних коммита
     git log -p  // просмотреть разницу
     git log --oneline --graph --all
     show    Show various types of objects 
     git status  // проверяем
 
-grow, mark and tweak your common history 
     git branch  List, create, or delete branches 
+    git branch -d имяветки //удаляем ветку
+
     git commit -m'комментарий'
-    git commit -a -m''  // делает сразу add и commit
+
+    git checkout hash  // возвращение к определенному коммиту
+    git checkout master  // переключение на ветку мастер
+    git checkout -b newbranch  // создание новой ветки с переключением на неё
+
     git merge branch2  // слияние в настоящую ветку ветки branch2
-    git rebase branch2  //      Reapply commits on top of another base tip
-    git rebase --continue // перебазирование комитов ветки к другой ветке
+
+    git rebase branch2  // перебазирование комитов ветки к другой ветке
+    git rebase --continue //
+    git rebase -i HEAD~7 // схлопнуть(squosh?) 7 коммитов в один
+
     git reset   Reset current HEAD to the specified state 
     switch  Switch branches 
     tag     Create, list, delete or verify a tag object signed with GPG 
@@ -78,9 +90,6 @@ See 'git help git' for an overview of the system.
     
 create .gitignore /tmp 
     git restore --staged index.html  // убираем файл из staged area
-    git checkout hash  // возвращение к определенному коммиту
-    git checkout master  // переключение на ветку мастер
-    git checkout -b newbranch  // создание новой ветки с переключением на неё
     git revert HEAD --no-edit  // удаление последнего коммита
     git revert --abort  // отменяем если возник конфликт
 
@@ -89,15 +98,18 @@ create .gitignore /tmp
     git stash list
     git cat-file -p папка имяфайла //посмотреть содержимое файла
     cat .git/HEAD
-    git co master
-    git branch -d имяветки //удаляем ветку
     vi имяфайла
-    git ci
-    git add имяфайла
-    git add -p
-    git st
     git hist
     git reflog
     git rev-parse 08ddf8e~2
 
+    bisect  Use binary search to find the commit that introduced a bug
+    grep    Print lines matching a pattern 
+
+    git --help
+usage: git [--version] [--help] [-C < path>] [-c < name>=< value>] 
+       [--exec-path[=< path>]] [--html-path] [--man-path] [--info-path]
+       [-p | —paginate | -P | —no-pager] [--no-replace-objects] [--bare] 
+       [--git-dir=< path>] [--work-tree=< path>] [--namespace=< name>] 
+       < command> [< args>] 
 </code></pre>

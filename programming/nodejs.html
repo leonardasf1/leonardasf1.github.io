@@ -1,0 +1,207 @@
+<div id="pageTitle">Node.js</div>
+
+<div id="links">
+    <a href="https://nodejs.org/en/"><img height="70px" src="https://nodejs.org/static/images/logo.svg" alt="Node.js"></a>
+    <li><a href="https://youtu.be/GYVGbqSyxiQ">Основы Node.js Сергей Гоголев (2016)</a></li>
+    <li><a href="https://itvdn.com/ru/video/node_js">Уроки Node.js</a></li>
+    <li><a href="https://youtu.be/3aGSqasVPsI">Node.js Владилен Минин (2019)</a></li>
+    <li><img src="https://electronjs.org/images/favicon.ico" alt="electronjs"><a href="https://electronjs.org/">electronjs.org</a></li>
+</div>
+
+    <pre><code>
+node -v
+sudo <a href="https://github.com/tj/n">n</a> lts // обновить
+
+node
+2+2 //4
+require.cache // кеш импортов
+
+npm init // создаёт package.json
+//модуль + манифест = пакет
+
+npm search name
+npm show packName
+npm install packName // in node_modules
+npm install packName@2.5.0 //конкретную версию
+npm install --save // зависимость запишется в манифест
+npm install --save-dev // устанавливает зависимость для разработки
+
+    </code></pre>
+<div>
+
+встроенные модули: <br>
+
+<details><summary>net</summary><pre><code>
+// TCP
+</code></pre></details>
+<details><summary>http</summary><pre><code>
+--- server.js
+const http = require('http');
+const server = new <b>http.Server()</b>;
+server.listen(8080);
+server.on('request', function(req, res) {
+	res.end('Hello, User!');
+});
+
+req instanceof http.IncomingMessage
+req.method; // GET
+req.headers; 
+req.url;
+
+res instanceof new http.serverResponse
+res.statusCode; // 200
+res.setHeader('content-type', 'text/html'); // установить заголовок ответа
+res.write('< strong>Hello!< /strong>>');
+res.end(); // завершить ответ
+
+--- client.js
+const http = require('http');
+const reqName = http.request({ // запрос на сервер
+	hostname: 'localhost',
+	port: 8080
+});
+reqName.end();
+reqName.on('response', function(response) {
+	let str = '';
+	response.on('data', function(chunk) {
+		str += chunk; // res.write
+	});
+	response.on('end', function() {
+		console.log(str);
+	});
+});
+</code></pre></details>
+<details><summary>https</summary><pre><code>
+
+</code></pre></details>
+<details><summary>url</summary><pre><code>
+const url = require('url');
+url.parse('https://yandex.ru');
+</code></pre></details>
+<details><summary>querystring</summary><pre><code>
+querystring.parse('foo=bar&arr=a&arr=b');
+// { foo: 'bar', arr: ['a', 'b'] }
+</code></pre></details>
+<details><summary>dns</summary><pre><code>
+dns.lookup('nodejs.org', function (err, address) {
+	console.log(address); // 104.20.22.46
+})
+</code></pre></details>
+<details><summary>events</summary><pre><code>
+var EventEmitter = require('events').EventEmitter;
+var ee = new EventEmitter();
+ee.on('log', console.log);
+ee.emit('log', 'Hello!'); // Logged 'Hello!'
+</code></pre></details>
+<details><summary>fs</summary><pre><code>
+const fs = require('fs');
+fs.readFile(filename, function(err, data) {
+	console.log(data); // бинарные данные
+	console.log(data.toString('utf-8')); // string
+});
+fs.readFile(filename, 'utf-8', function(err, data) {
+	console.log(data); // string
+});
+fs.readFileSync()
+fs.appendFile();
+fs.writeFile();
+fs.unlink();
+fs.mkdir();
+fs.stat(filename, function(stats) {
+	console.log(stat.isDirectory()); // false
+}); //является ли файл директорией
+fs.watch(filename, function(event, filename) {
+	console.log(event); // change or rename
+});
+fs.watch(dirname,...);
+</code></pre></details>
+<details><summary>buffer</summary><pre><code>
+	//для работы с бинарными данными
+const letterB = new Buffer([98]);
+console.log(letterB.toString('utf-8')); // b
+
+const msg = new Buffer([0x2f, 0x04, 0x3d, 0x04,
+0x34, 0x04, 0x35, 0x04, 0x3a, 0x04, 0x41, 0x04]);
+msg.toString('ucs2'); // Яндекс
+</code></pre></details>
+<details><summary>zlib</summary><pre><code>
+zlib.gzip(buffer, function(err, buffer) {
+	fs.writeFile(filename + '.gz', buffer, )
+});
+</code></pre></details>
+</div>
+
+<div>сторонние модули:
+<details><summary>request</summary><pre><code>
+npm install request
+
+const request = require('request');
+request('https://registry.npmjs.org/',
+	function(err, res, body) {
+		if (!err && res.statusCode === 200) {
+			const registry = JSON.parse(body);
+			console.log(registry.doc_count);
+			// 271820
+		}
+	}
+);
+
+аутентификация
+проксирование...
+</code></pre></details>
+</div>
+
+<div>
+	<details><summary>Export / Import</summary><pre><code>
+//Export
+module.exports.funcName = function() {};
+//Import
+const name = require('./name.js')
+//Use
+name.funcName();
+
+// делает переменную глобальной(не рекомендуем!)
+global.funcName = function() {}; //export
+require('./name.js') //import
+funcName(); //use
+
+module.exports = function funcName() {}; //export
+module.exports = {
+    name : name,
+    name1 : name1
+};
+const funcName = require('./name.js') //import
+funcName(); //use
+</code></pre></details>
+    <pre><code>
+.on('event', func);
+.addListener('event', func);
+.once('event', func);  
+// обработчик сработает один раз
+    </code></pre>
+</div>
+
+<div>Stream
+<details><summary>Readable</summary><pre><code>
+fs.createReadStream(filename);
+
+process.stdin
+	.on('data', function(chunk) {
+		process.stdout.write('Hello, ' + chunk.toString());
+	});
+process.stdin.pipe(process.stdout);
+</code></pre></details>
+<details><summary>Writable</summary><pre><code>
+process.stdout.write()
+
+fs.createWriteStream(filename);
+</code></pre></details>
+<details><summary>Duplex</summary><pre><code>
+fs.createReadStream(filename)
+.pipe(zlib.createGzip())
+.pipe(fs.createWriteStream(filename + '.gz'))
+.on('finish', function() {
+	console.log('Success!');
+});
+</code></pre></details>
+</div>

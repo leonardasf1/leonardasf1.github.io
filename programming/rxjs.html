@@ -7,9 +7,17 @@
 	<a href="https://itvdn.com/ru/video/javascript-extended-capabilities/rx-js">Библиотека RxJS (2018)</a><br>
 	<a href="https://youtu.be/3rEDHnqn-Cw">MoscowJS 42 RxJS по косточкам</a><br>
 	<a href="https://youtu.be/Lmn0JsjdVrY">Реактивное программирование</a><br>
+	<a href="https://reactive.how">reactive.how</a><br>
+	<a href="https://www.learnrxjs.io">learnrxjs.io</a><br>
+	<a href="https://rxviz.com">rxviz.com</a><br>
 </div>
 
-<div>поток()
+<div><pre><code>rxjs.from(varName)
+	.pipe(
+		map(() => {}),
+		take(10)
+	)
+	.subscribe();</code></pre>
 <details><summary>	.subscribe(() => {})</summary><pre><code> //как forEach()
 	streamName$.subscribe(
 		(val) => {display.textContent = val.join(' ')}, // next
@@ -70,25 +78,35 @@ stream$.next('')
 stream$.subscribe(v => {})</code></pre></details>
 </div>
 
-<div>
-<pre><code>import {} from 'rxjs/operators'</code></pre>
+<pre><code>import {} from 'rxjs/operators'
 <details><summary><code>.pipe() //операторы</code></summary><pre><code> // add operators, доступен у 
 //любых объектов которые создают стримы
-	of().pipe(
-		map(),
-		scan()
-	)
 </code></pre></details>
+buffer(interval(3000)) // сохраняет значения в течении 3 сек и выдает массив значений
+bufferCount(5) // сохраняет в массив только 5 значений
+bufferTime(1000) // == buffer(interval(1000))
+debounceTime(800) //выпускает значение из источника через 800мс
+delay(1000) // задержка
+distinctUntilChanged() //return value from stream отличное от предыдущего
+filter(v => v >= 18), // выводить только соответствующие фильтру значения<br>
+find(i => typeof(i) === 'string') // return i <br>
+findIndex(i => i === 4) // найдёт индекс 4ки <br>
+first(i => i > 3) // только первое значение<br>
+last() // только последнее значение<br>
+map(v => {}),<br>
+pluck('') <br>
+reduce((acc, v) => acc.concat(v), []) // перед complete вывести acc <br>
+<details><summary>scan((acc, v) => {}, [])</summary><pre><code>scan((acc, v) => acc.concat(v), []) // каждую итерацию выводит acc</code></pre></details>
+skip(5) // пропустить 5 значений
+skipWhile(i => i != 'w') // skip while
+skipUntil(rxjs.timer(3000))
+subscribeOn(async, 0) // (sheduler, delay)
+switchMap((event) => {}) <br>
 <details><summary>take(arr.length),</summary><pre><code> //кол-во итераций, аргумент - длина объекта переданого в стрим</code></pre></details>
 takeLast(5) // перед complete вывести последние 5 <br>
+<details><summary>takeUntil(rxjs.timer(3000))</summary><pre><code>// итерировать до истечения потока в скобках</code></pre></details>
 takeWhile(v => v < 7) // итерировать пока v < 7 <br>
-filter(v => v >= 18), // выводить только соответствующие фильтру значения<br>
-map(() => {}),<br>
-<details><summary>scan(() => {}, [])</summary><pre><code>scan((acc, v) => acc.concat(v), []) // каждую итерацию выводит acc</code></pre></details>
-reduce((acc, v) => acc.concat(v), []) // перед complete вывести acc
-<details><summary>tap(v => {}),</summary><pre><code> //на каждой итерации игнорируя фильтр</code></pre></details>
-switchMap((event) => {})
-</div>
+<details><summary>tap(() => {}),</summary><pre><code> //на каждой итерации игнорируя фильтр, функция не связаная с потоком</code></pre></details></code></pre>
 
 <div><pre><code>
 import {interval} from 'rxjs'
