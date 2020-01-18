@@ -87,6 +87,14 @@ header {
 
 #headerMenu>a {
     margin: 0 1%;
+    color: white;
+    filter: drop-shadow(0 2px 2px black);
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 1.5rem;
+    transition: 1s;
+    display: flex;
+    align-items: center;
 }
 
 .img32 img, #headerMenu img, nav img, nav svg, #links img { height: 32px }
@@ -120,8 +128,6 @@ nav>a {
     margin-bottom: 1rem;
     color: white;
     filter: drop-shadow(0 2px 2px black);
-}
-.navLink, .headerLink {
     transition: 1s;
 }
 

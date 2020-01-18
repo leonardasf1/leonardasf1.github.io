@@ -1,0 +1,106 @@
+<div id="pageTitle">MongoDB</div>
+
+<div id="links">
+	<a href="https://youtu.be/CZKl22peGJk">основы MongoDB - Олег Мохов (2016)</a><br>
+	<a href="https://youtu.be/8bE_PBRriyU">NodeJS, Express, MongoDB - Приложение целиком (2019)</a><br>
+	<a href="https://youtu.be/ivDjWYcKDZI">MERN - с Нуля до Деплоя (Mongo, Express, React, Node) (2019)</a><br>
+	<a href="https://youtu.be/_I9vLOAsFew">Базы данных. MongoDB. Технострим(2017)</a><br>
+	<hr>
+	Денормализация<br>
+	Репликация<br>
+	Шардирование:<br>
+Range Based, Hash Based <br>
+</div>
+
+<div>
+	<details><summary>insert() // create</summary><pre><code>
+db.students.insert({
+	name: 'Дарья',
+	nickname: 'Пиратка',
+	group: 'ПИ-401',
+	grades: {
+		java: [1,2,1,1,2,2,1],
+		verstka: [2,2,1,2,1,1,2]
+	}
+})
+	</code></pre></details>
+	<details><summary>find() // read</summary><pre><code>
+db.students.find(
+	{ group: 'ПИ-401' }, //1й аргумент
+	{ nickname: 1},   //2й аргумент
+	{ course: { $lt : 3 } }, //с оператором < 3
+	{ group: /ПИ/ },  // regExp
+	{ $or: [
+		{ course: '2' },
+		{ group: 'ПИ-401' }
+	] },
+	{ "grades.java.5": 2 } 
+)
+db.students.find() //показать всё, ответ:
+{
+	"_id" : ObjectId("56cc30e2e52c943bf62fff72"),
+	"name" : "Дарья",
+	"nickname" : "Пиратка",
+	"group" : "ПИ-401"
+}
+
+ObjectId("56cc30e2e52c943bf62fff72")
+56cc30e2 - time //когда
+e52c94 - mid //machine id
+3bf6 - pid //
+2fff72 - inc //счетчик
+	</code></pre></details>
+	<details><summary>update() // update</summary><pre><code>
+db.students.update(
+	{ group: /3\d{2}/ }, //параметры поиска
+	{ $set: { course: "3" } }, //параметры обновления
+	{ multi: true } // обновить все отфильтрованые записи 
+)
+1й параметр может быть и пустым {}
+2е параметры:
+$inc: { course: 1 } // += 1
+	</code></pre></details>
+	<details><summary>remove() // delete</summary><pre><code>
+db.students.remove(
+	{ course: 1 }
+)
+	</code></pre></details>
+	<details><summary>explain()</summary><pre><code>
+db.phones.find(
+	{ display: "+1 800-5650001" }
+).explain() //выведет инфо о запросе(кол-во объектов, время поиска,...)
+	</code></pre></details>
+	<details><summary>createIndex() // add index</summary><pre><code>
+	// дорогая операция!!!
+db.phones.createIndex(
+	{ display: 1 },
+	{ unique: true }
+)
+	</code></pre></details>
+	<details><summary>help()</summary><pre><code>
+	</code></pre></details>
+	<details><summary>операторы</summary><pre><code>
+$ne  // !=
+$lt,$lte,$gt,$gte // <,<=,>,>=
+$exists //существование поля
+$all  //соответствие всем элементам массива
+$in  //соответствие хотя бы одному элементу массива
+$nin //соответствие ни одному элементу массива
+$or  // или
+$nor // не или
+$set // установить
+	</code></pre></details>
+</div>
+
+<pre><code>
+function insertStudent(name, nickname, group) {
+	let year = group.split('-').pop().slice(0, 1...
+	db.students.insert({
+		name: name,
+		nickname: nickname,
+		group: group,
+		year: year
+	});
+}
+insertStudent('Петр', 'petr', 'MT-204')
+</code></pre>

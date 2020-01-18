@@ -34,7 +34,7 @@ function setContentFn() {
   if (q('code')) qAll('code').forEach(
     block => hljs.highlightBlock(block));
 
-  if (q('.navLink')) qAll('.navLink').forEach(
+  if (q('nav>a')) qAll('nav>a').forEach(
     a => a.onclick = function() { load(this) });
 
   if (q('.import_Data')) {
