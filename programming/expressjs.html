@@ -1,0 +1,138 @@
+<div id="pageTitle">Express.js</div>
+
+<div id="links">
+	<a href="https://expressjs.com/">expressjs.com</a><br>
+	<a href="https://youtu.be/e7MkUjdrWIs">express.js Сергей Гоголев (2016)</a><br>
+</div>
+
+<div>Server <pre><code>
+	npm install --save express
+
+app.js
+	const express = require('express');
+	const app = express();
+
+	// npm install --save hbs
+	app.set('view engine', 'hbs'); //Handlebars
+
+	require('./routes')(app);
+
+	app.listen(8080);
+
+</code></pre></div>
+
+<div>Routing<pre><code>
+routes.js
+	const express = require('express');
+	const app = express();
+	const pages = require('./controllers/pages');
+	const notes = require('./controllers/notes');
+
+	module.exports = (app) => {
+		app.get('/', pages.index);
+		app.get('/notes', notes.list);
+		app.get('/notes/:name', notes.item);
+		app.get('*', pages.error404);
+	};
+---
+app.get('/name/:name', (req, res) => { //запрос на путь
+	res.send(`Hello, < b>${req.params.name}< /b>`); //ответ
+});
+app.get('*', (req, res) => { //остальные маршруты
+	res.sendStatus(404);  // ответ 404
+});
+
+.get('/', () => {}); // (путь, обработчик)
+.post('/', () => {}); // (путь, обработчик)
+.put('/', () => {}); //
+.all('/', () => {}); // зарегистрировать на все методы
+
+.route('/')  // путь как regExp
+.get(() => {}) // получить
+.post(() => {}) // добавить
+</code></pre></div>
+<div>MVC<pre><code>
+models/note.js
+	class Note {
+		constructor(data) { this._data = data; }
+		save() {} // save note
+		static findByName(name) {}
+		static findAll {} //return all notes
+	}
+	module.exports = Note;
+
+controllers/notes.js
+	const Note = require('../models/note');
+	exports.list = (req, res) => {
+		const notes = Note.findAll();
+		res.send(notes);
+	}
+	exports.item = (req, res) => {
+		const note = Note.find(req.params.name);
+		res.send(note);
+	}
+
+controllers/pages.js
+	exports.index = (req, res) => {res.send('Hello')}
+	//или
+	exports.index = (req, res) => {
+		res.render('index', {
+			message: 'Hello',
+			title: 'My notes',
+			meta: {
+				description: 'My awesome notes',
+				charset: 'utf-8'
+			}
+		});
+	}
+	exports.error404 = (req, res) => {res.sendStatus(404)}
+
+views/index.hbs
+	< h1>{{ message }}< /h1>
+
+views/layout.hbs
+	< !DOCTYPE html>
+	< html lang="en">
+	< head>
+		< meta charset="{{ meta.charset }}">
+		< meta name="description"
+			content="{{ meta.description }}">
+		< title>{{ title }}< /title>
+	< /head>
+	< body>
+		{{{ body }}}
+	< /body>
+	< /html>
+
+</code></pre></div>
+<div>Templates</div>
+
+<div>Middlewares<pre><code>
+app.use(express.static(__dirname +'/public'));
+// папка где лежит css
+
+app.use((err, req, res, next) => {
+	console.log(err);
+	res.sendStatus(500);
+}); // обработчик ошибок
+
+app.use((req, res, next) => {
+	console.log(`${req.method} ${req.originalUrl}`);
+	next();
+});
+app.use((req, res, next) => {
+	setTimeout(() => {
+		req.commonData = { title: 'My Notes' };
+		next();
+	}, 1000);
+});
+
+const morgan = require('morgan');
+app.use(morgan('dev')); // логирование
+//GET /notes 200 18.079 ms - 301
+method  url  code  time    bytes
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(() => {console.log(req.body)});
+</code></pre></div>
