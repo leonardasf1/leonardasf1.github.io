@@ -70,6 +70,7 @@ header {
     transition: height .5s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 #headerMenu span, .hidden {
     display: inline-block;
