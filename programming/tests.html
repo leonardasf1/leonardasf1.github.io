@@ -1,0 +1,157 @@
+<div id="pageTitle">Tests</div>
+
+<div id="links">
+	<a href="https://youtu.be/24gtY5xze9g">Тесты. Часть 1 - Сергей Жигалов(2016)</a><br>
+  <a href="https://vk.com/@yandex4developers-mutacionnoe-testirovanie">Мутационное тестирование</a><br>
+  <a href="https://learn.javascript.ru/testing-mocha">Автоматическое тестирование. Mocha</a><br>
+  unit-тесты<br>
+  e2e-тесты<br>
+</div>
+
+<div><h2>Mocha</h2>
+<pre><code>
+npm install mocha --save-dev -global
+mocha fileName-test.js -r spec //полный отчет
+mocha fileName-test.js -r dot //краткий отчет
+mocha fileName-test.js -r min //минимальный
+mocha fileName-test.js -r nyan //с котиком
+</code></pre>
+<pre><code>
+fileName-test.js
+describe('', function() {  //группа тестов
+  it('should ...', function() {
+    var actual = generateNoteId('first\nsecond');
+    assert.equal(actual, 'first');
+  });
+  it('', function() {  // название теста
+    var actual = generateNoteId(''); //входящий параметр
+    assert.equal(actual, ''); //то что должно получиться
+  });
+});
+
+fileName.js//тестируемый код
+function generateNodeId(str) {
+  if (typeof str === 'string') {
+    return str
+    .split('\n').shift()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-');
+  }
+}
+---
+describe('', function() {
+  describe('', function() {
+    before(function() {});
+    beforeEach(); //будет запускаться перед каждым тестом
+    afterEach();
+    it('should ...', function() {
+      assert.equal(funcName(''),'');
+    });
+    it.only(); //запустить только этот тест
+    it.skip(); //пропустить этот тест
+    after();
+  });
+  describe('', function() {});
+  describe.only('', function() {});
+  describe.skip('', function() {});
+});
+</code></pre>
+<details><summary>chai</summary><pre><code>
+npm install chai --save-dev
+
+  require('chai').should();
+  varName.should.be.an.instanceof(Array);
+  require('chai').expect();
+</code></pre></details>
+<details><summary>mockery</summary><pre><code>
+npm install mockery --save-dev
+
+//фейковая реализация
+it('should translit russian chars', () => {
+  function transliteMock (input) {
+    input.should.be.equal('Привет');
+    return 'Privet';
+  }
+  mockery.registerMock('translit', transliteMock);
+  mockery.enable();
+  generateNoteId = require('../src/generateNoteId');
+  generateNoteId('Привет')
+  .should.be.equal('Privet');
+});
+</code></pre></details>
+<details><summary>sinon</summary><pre><code>
+npm install sinon --save-dev
+
+it('should translit russian chars', () => {
+  var stub = sinon.stub();
+  stub.withArgs('Привет')
+    .onFirstCall().returns('Privet');
+  stub.throws(Error('wrong translit argument'));
+  mockery.registerMock('translit', stub);
+  mockery.enable();
+  translit = require('../src/generateNoteId').translit;
+  var actual = translit('привет');
+});
+
+var sinon = require('sinon');
+var emitter = require('../src/emitter')();
+it('should call handler when', () => {
+  var spy = sinon.spy();
+  emitter.on('slide', daria, spy);
+  emitter.emit('slide');
+  spy.calledOnce.should.be.true;
+});
+</code></pre></details>
+<details><summary>nock</summary><pre><code>
+npm install nock --save-dev
+
+it('should translate', () => {
+  nock('https://translate.yandex.net')
+    .get('/api/v1.5/tr.json/translate')
+    .query(true)
+    .reply(200, {text: ['Hello, world']});
+  return translate('привет')
+    .then((actual) => {
+      actual.should.be.equal('hello-world');
+    });
+});
+</code></pre></details>
+<details><summary>supertest</summary><pre><code>
+npm install supertest --save-dev
+
+const request = require('supertest');
+const app = require('../app');
+describe('Note page', () => {
+  it('should return note', (done) {
+    request(app)
+      .get('/notes/films')
+      .set('Cookie', 'top secret cookie')
+      .expect('Content-Type', 'text/html')
+      .expect(200, done)
+  });
+  it('sould create note', (done) {
+    request(app)
+      .post('/notes')
+      .send({...})
+      .expect(200, done)
+      .end((err, res) => {
+        var body = res.body;
+        var expectedBody = {...};
+        body.should.deep.equal(expectedBody);
+        done(err);
+      });
+  })
+});
+</code></pre></details>
+<details><summary>istanbul</summary><pre><code>
+//оценивает покрытие кода тестами
+npm install -g istanbul
+istanbul cover _mocha
+</div>
+
+<div><h2><a href="https://jasmine.github.io/">Jasmine</a></h2>
+<a href="https://youtu.be/CUNP6L8ZbDo">Тестирование Javascript с Jasmine (2019)</a><br>
+<a href="https://habr.com/en/post/167173/">Введение в Jasmine. Habr (2013)</a><br>
+	
+</div>

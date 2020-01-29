@@ -1,0 +1,21 @@
+{
+  "name": "Leonardasf1.github.io",
+  "short_name": "Leonardasf1",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#37393B",
+  "description": "programming, flamenco, health",
+  "icons": [{
+    "src": "icons/favicon.ico",
+    "sizes": "32x32",
+    "type": "image/ico"
+  }, {
+    "src": "icons/icon144.png",
+    "sizes": "48x48 72x72 96x96 128x128 144x144",
+    "type": "image/png"
+    }, {
+    "src": "icons/icon240.png",
+    "sizes": "168x168 192x192 256x256",
+    "type": "image/png"
+    }]
+}

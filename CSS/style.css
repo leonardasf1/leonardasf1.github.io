@@ -3,6 +3,7 @@ body * {
     scrollbar-width: thin;
     scrollbar-color: #bfbfbf #0000;
 }
+
 body *::-webkit-scrollbar {
     width: .5vw;
     min-width: 7px;
@@ -14,6 +15,7 @@ body *::-webkit-scrollbar-thumb {
     border-radius: 5px;
 }
 body *::-webkit-scrollbar-corner { display: none; }
+
 body {
     color: #D8D7D4;
 	padding: 0;
@@ -22,19 +24,6 @@ body {
     font-size: 16px;
     background-color: #37393B;
     -moz-osx-font-smoothing: grayscale;
-}
-img { max-width: 98vw; }
-
-li { list-style-type: none; }
-
-a {
-    color: #D8D7D4;
-    text-decoration: none;
-    cursor: pointer;
-}
-a:hover {
-    color: white;
-    filter: drop-shadow(0 2px 2px black);
 }
 
 header {
@@ -45,24 +34,10 @@ header {
     display: block;
 }
 
-.fsac , #headerMenu {
+#headerMenu {
     display: flex;
     align-items: center;
-}
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-}
-.flex > * {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
-    padding: 1rem;
-    margin: 1rem;
-    max-width: 97vw;
-}
-.grid { display: grid }
-
-#headerMenu {
-    padding: 5px 3%;
+    padding: 0 3%;
     width: 100vw;
     height: 95px;
     position: fixed;
@@ -72,6 +47,11 @@ header {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+@media (max-width:700px) {
+    #headerMenu { overflow: hidden }
+}
+
 #headerMenu span, .hidden {
     display: inline-block;
     width: 0;
@@ -80,30 +60,6 @@ header {
 
 #links {
     height: min-content;
-}
-
-@media (max-width:700px) {
-    #headerMenu { overflow: hidden }
-}
-
-#headerMenu>a {
-    margin: 0 1%;
-    color: white;
-    filter: drop-shadow(0 2px 2px black);
-    font-weight: 700;
-    font-family: monospace;
-    font-size: 1.5rem;
-    transition: 1s;
-    display: flex;
-    align-items: center;
-}
-
-.img32 img, #headerMenu img, nav img, nav svg, #links img { height: 32px }
-#links.img16 img { height: 16px }
-
-summary img, ul img {
-    height: 16px;
-    bottom: -2px;
 }
 
 main {
@@ -120,17 +76,50 @@ nav {
     padding: 26px 3% 0;
 }
 
-nav>a {
-    display: inline-block;
-    margin-right: 5%;
+a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    min-width: 48px;
+    color: #D8D7D4;
+    text-decoration: none;
+    cursor: pointer;
+    background-position-y: center;
+}
+a:hover {
+    color: white;
+    filter: drop-shadow(0 2px 2px black);
+}
+
+#headerMenu>a {
+    margin: 0 1%;
+    display: flex;
+    align-items: center;
+}
+
+#headerMenu>a, nav>a {
     font-weight: 700;
     font-family: monospace;
     font-size: 1.5rem;
-    margin-bottom: 1rem;
     color: white;
     filter: drop-shadow(0 2px 2px black);
     transition: 1s;
 }
+
+nav>a {
+    margin-right: 5%;
+    margin-bottom: 1rem;
+}
+
+.img32 img, #headerMenu img, nav img, nav svg, #links img { height: 32px }
+
+#links.img16 img, summary img, ul img, .img16 img { height: 16px }
+
+a>img {margin-right: 3px}
+
+img { max-width: 98vw; }
+
+li { list-style-type: none; }
 
 summary {
     font-weight: 700;
@@ -139,7 +128,7 @@ summary {
     list-style: none;
 }
 summary:hover { background: rgba(0,0,0,.2); }
-.hover { background: rgba(0,0,0,.2); }
+
 summary+* {
     background: #2b2a2a;
     border-radius: 10px;
@@ -149,6 +138,7 @@ summary+* {
     box-shadow: 0 8px 16px 0 black;
     max-width: 97vw;
 }
+
 #footerScrollTop {
     z-index: 100;
     position: fixed;
@@ -171,17 +161,37 @@ footer {
     height: 100px;
     justify-content: space-evenly;
 }
+
+.darker { background: rgba(0,0,0,.2); }
+
+.fsac {
+    display: flex;
+    align-items: center;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex > * {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 97vw;
+}
+.grid { display: grid }
+
+#pageTitle { display: none }
+
 [href*="youtu"] {
-    background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0 0;
+    background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0;
     padding-left: 20px;
 }
 [href*="yadi.sk"] {
-    background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0 0;
+    background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0;
     padding-left: 20px;
 }
 [href*="wikipedia.org"] {
-    background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0 0;
+    background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
 }
-#pageTitle { display: none }

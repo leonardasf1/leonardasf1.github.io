@@ -7,6 +7,7 @@
   <title>leonardas.proGramming</title>
   <link rel="SHORTCUT ICON" href="../icons/favicon.ico">
   <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="manifest" href="../manifest.webmanifest">
   <!-- <script src="../JS/lazysizes.min.js" async=""></script> -->
   <style>
 h2 {margin-top: 0px}
@@ -17,39 +18,34 @@ h2 {margin-top: 0px}
 }
 s { color: red; }
 
-/*[href*="developer.mozilla"], [href*="itvdn"], [href*="github"], [href*="frontendconf.ru"], [href*="hubr.com"] {
-    background-size: 16px;
-    padding-left: 20px;
-}*/
 [href*="developer.mozilla"] {
-    background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0 0;
+    background: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
 }
 [href*="itvdn"] {
-    background: url(../icons/itvdn.svg) no-repeat 0 0;
+    background: url(../icons/itvdn.svg) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
 }
 [href*="github"] {
-    background: url(https://github.githubassets.com/favicon.ico) no-repeat 0 0;
+    background: url(https://github.githubassets.com/favicon.ico) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
 }
 [href*="frontendconf.ru"] {
-    background: url(https://frontendconf.ru/i/frontendconf/2019/favicon.ico) no-repeat 0 0;
+    background: url(https://frontendconf.ru/i/frontendconf/2019/favicon.ico) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
-    /*margin-left: 20px;*/
 }
 [href*="habr.com"] {
-    background: url(https://habr.com/images/favicon-16x16.png) no-repeat 0 0;
+    background: url(https://habr.com/images/favicon-16x16.png) no-repeat 0;
     background-size: 16px;
     padding-left: 20px;
 }
   </style>
   <link rel="stylesheet" href="../CSS/highlight.css">
-  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js" async></script>
   <script src="../JS/main.js" type="module"></script>
 </head>
 <body>
@@ -118,6 +114,8 @@ s { color: red; }
 <a>
     <img src="https://www.mongodb.com/assets/images/global/favicon.ico" alt="MongoDB">
     MongoDB</a>
+<a>
+    Tests</a>
 </nav>
 
 <div id="links">
@@ -128,13 +126,13 @@ s { color: red; }
     <a href="https://stackoverflow.com/tags"><img src="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico" alt="stackoverflow"></a>
     <a href="https://codesandbox.io"><img src="https://codesandbox.io/favicon.ico" alt="codesandbox"></a>
     <a href="https://codepen.io"><img src="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" alt="codepen"></a>
-    <a href="https://jsfiddle.net/"><img src="http://jsfiddle.net/img/favicon.png" alt="jsfiddle.net"></a>
+    <a href="https://jsfiddle.net/"><img src="https://jsfiddle.net/img/favicon.png" alt="jsfiddle.net"></a>
     <a href="https://ideone.com"><img src="https://ideone.com/gfx2/img/favicon.png" alt="ideone"></a>
 </div>
 
 <div><ul>
     <li><a href="https://www.meetup.com/ru-RU/"><img src="https://www.meetup.com/mu_static/ru-RU/favicon.a6878039.ico" alt="meetup.com"> meetup.com</a></li>
-    <li><a href="https://meetup.tinkoff.ru/events"><img src="https://meetup.tinkoff.ru/static/ad2ef8a213f3e76e53c28f1c812a10874e000806//assets/favicon.ico" alt="meetup.tinkoff"> meetup.tinkoff</a></li>
+    <li><a href="https://meetup.tinkoff.ru/events">meetup.tinkoff</a></li>
     <li><a href="https://devsday.ru/event/list"><img src="https://devsday.ru/favicon.png" alt="devsday"> devsday.ru</a></li>
     <li><a href="https://events.yandex.ru/"><img src="https://yastatic.net/s3/distribution/promo/react-yandex-favicon/vv0.1.1/favicons/ru/favicon-32x32.png" alt="events.yandex"> events.yandex</a></li>
     <li><a href="https://corp.mail.ru/ru/press/events/"><img src="https://limg.imgsmail.ru/re/i/apple-touch-icon-114x114-ee8777f5e3.png" alt="corp.mail"> events.mail</a></li>
@@ -172,29 +170,29 @@ s { color: red; }
         <li><a href="https://itvdn.com/ru/video/patterns-of-design-review">Обзор шаблонов проектирования</a></li>
         <li><a href="https://itvdn.com/ru/patterns">Шаблоны проектирования</a></li>
     </ul>
-    <details>
-        <summary>Объект</summary><pre>(экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.</pre>
+    <details><summary>Объект</summary><div>(экземпляр) – это отдельный представитель класса, имеющий конкретное состояние и поведение, полностью определяемое классом.</div>
     </details>
-    <details>
-        <summary>Интерфейс</summary><pre>это набор методов класса, доступных для использования другими классами.
-        </pre>
+    <details><summary>Интерфейс</summary><div>это набор методов класса, доступных для использования другими классами.
+        </div>
     </details>
     <details>
         <summary>Абстрагирование</summary>
-    <pre>Абстрагирование – это способ описания общих характеристик объекта</pre>
+    <div>Абстрагирование – это способ описания общих характеристик объекта</div>
     </details>
-    <details>
-        <summary>Имплементация</summary>
-    <pre>Имплементация: это реализация методов, те. то, что фактически работает в классе. А наследование, это создание нового класса на основе старого, при этом реализация методов может отличаться, от базового класса.
-Но чаще, слово имплементация употребляют для интерфейсов: это то, что может делать интерфейс, и методы, и свойства.</pre>
+    <details><summary>Имплементация</summary>
+    <div>Имплементация: это реализация методов, те. то, что фактически работает в классе. А наследование, это создание нового класса на основе старого, при этом реализация методов может отличаться, от базового класса.
+Но чаще, слово имплементация употребляют для интерфейсов: это то, что может делать интерфейс, и методы, и свойства.</div>
     </details>
-    <details>
-        <summary>Инкапсуляция</summary>
-    <pre>Инкапсуляция – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя.</pre>
+    <details><summary>Инкапсуляция</summary>
+    <div>Инкапсуляция – это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали реализации от пользователя.</div>
     </details>
-</div>
-
-<div>
+    <details><summary>Атомарность</summary><div>
+Атомарность — свойство непрерывности операции. Атомарная операция выполняется полностью (или происходит отказ в выполнении) , без прерываний. Атомарность имеет особое значение в многопроцессорных компьютерах (и многозадачных операционных системах) , т. к. доступ к неразделяемым ресурсам должен быть обязательно атомарным. 
+<p>
+Атомарная операция открыта влиянию только одного потока. 
+<p>
+Атомарность бывает аппаратная (когда непрерывность обеспечивается аппаратурой) и программной, когда используются специальные средства межпрограммного взаимодействия (мьютекс, семафор) . По своей сути программные средства обеспечения атомарности представляют собой два этапа - блокировка ресурса и выполнение самой операции. Блокировка представляет собой атомарную операцию, которая либо успешна, либо возвращает сообщение о занятости. 
+</div></details>
     <h2>Алгоритмы</h2>
     поиск
     волновой
@@ -206,6 +204,7 @@ s { color: red; }
     </details>
 </div>
 
+
 <div>
     <h2>design</h2>
     <ul>
@@ -213,83 +212,79 @@ s { color: red; }
         <li><a href="https://github.com/bramstein/homebrew-webfonttools">homebrew-webfonttools</a></li>
         <li>Axure - проектирование прототипа сайта/приложения</li>
         <li><a href="https://www.gimp.org/">gimp.org</a></li>
-        <a href="https://www.figma.com"><img src="https://static.figma.com/app/icon/1/favicon.png" alt="figma"> figma.com</a> <span style="color: rgba(0,0,0,0);">1stepnoi</span> <a href="https://htmlacademy.ru/blog/useful/image/figma">Старт в Figma для верстальщика</a><br>
+        <li><a href="https://www.figma.com"><img src="https://static.figma.com/app/icon/1/favicon.png" alt="figma"> figma.com</a> <span style="color: rgba(0,0,0,0);">1stepnoi</span> <a href="https://htmlacademy.ru/blog/useful/image/figma">Старт в Figma для верстальщика</a></li>
         <li>AdobeXD</li>
-        <a href="https://www.awwwards.com/"><img src="https://www.awwwards.com/favicon.ico" alt="awwwards"> awwwards.com</a><br>
-        <a href="http://www.cssdsgn.com"><img src="https://www.cssdsgn.com/icons/favicon-32x32.png" alt="cssdsgn"> cssdsgn.com</a><br>
-        <a href="http://www.unsplash.com"><img src="https://unsplash.com/favicon-16x16.png" alt="unsplash"> unsplash.com</a><br>
-        <a href="https://icons8.com"><img src="https://photos.icons8.com/vue-static/moose/favs/favicon.ico" alt="icons8"> icons8.com</a><br>
-        <a href="https://dribbble.com/search?q=cards">dribbble.com</a><br>
-        <a href="https://coolors.co">coolors.co</a>
-        <a href="https://color.adobe.com">color.adobe.com</a>
-        <a href="https://clrs.cc">clrs.cc</a>
-        <a href="https://flatuicolors.com">flatuicolors.com</a>
-        <a href="https://colordrop.io">colordrop.io</a>
+        <li><a href="https://www.awwwards.com/"><img src="https://www.awwwards.com/favicon.ico" alt="awwwards"> awwwards.com</a></li>
+        <li><a href="http://www.cssdsgn.com"><img src="https://www.cssdsgn.com/icons/favicon-32x32.png" alt="cssdsgn"> cssdsgn.com</a></li>
+        <li><a href="http://www.unsplash.com"><img src="https://unsplash.com/favicon-16x16.png" alt="unsplash"> unsplash.com</a></li>
+        <li><a href="https://icons8.com"><img src="https://photos.icons8.com/vue-static/moose/favs/favicon.ico" alt="icons8"> icons8.com</a></li>
+        <li><a href="https://dribbble.com/search?q=cards">dribbble.com</a></li>
+        <li><a href="https://coolors.co">coolors.co</a></li>
+        <li><a href="https://color.adobe.com">color.adobe.com</a></li>
+        <li><a href="https://clrs.cc">clrs.cc</a></li>
+        <li><a href="https://flatuicolors.com">flatuicolors.com</a></li>
+        <li><a href="https://colordrop.io">colordrop.io</a></li>
     <li><a href="https://www.webfx.com/web-design/color-picker/">color-picker</a></li>
     <li><img src="https://static.tildacdn.com/img/tildafavicon.ico" alt="tilda"> <a href="https://tilda.cc/ru/">tilda.cc</a></li>
     </ul>
 </div>
 
-<div>
+<div class="img16">
     <h2>Hosting / Domain /<br> Deploy</h2>
-    <ul>
-    <li><a href="https://www.heroku.com/"><img src="https://brand.heroku.com/static/media/heroku-logo-stroke-gradient.bb410472.svg" alt="Heroku"> Heroku </a> . <a href="https://youtu.be/wG7hX8Np1Pg" title="деплой на heroku"></a></li>
-    <li><a href="https://itvdn.com/ru/video/sitepublication">Публикация веб-сайта</a></li>
-    <li><img src="https://htmlacademy.ru/favicon.svg" alt="htmlacademy"> <a href="https://htmlacademy.ru/blog/useful/programming/how-to-register-domain">how-to-register-domain</a></li>
-    <li><img src="https://www.internic.net/touch/apple-touch-icon-57x57.png" alt="internic.net"> <a href="https://www.internic.net/alpha.html">InterNIC - Registrar List</a></li>
-    <li><img src="https://www.moniker.com/assets/ico/favicon-16x16.png" alt="moniker"> <a href="https://www.moniker.com/">moniker.com</a></li>
-    <li><img src="https://img1.wsimg.com/ux/favicon/favicon-16x16.svg" alt="godaddy"> <a href="https://www.godaddy.com/">godaddy.com</a></li>
-    <li><img src="https://a0.awsstatic.com/main/images/site/fav/favicon.ico" alt="aws.amazon"> <a href="https://aws.amazon.com/ru/websites/">aws.amazon</a></li>
-    <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:16px; height:16px;">
-        <rect width="8" height="8" style="fill: #F25022; stroke-width: .2; stroke: black"></rect>
-        <rect width="8" height="8" style="fill: #7FBA00; stroke-width: .2; stroke: black" x="8"></rect>
-        <rect width="8" height="8" style="fill: #FFB900; stroke-width: .2; stroke: black" x="8" y="8"></rect>
-        <rect width="8" height="8" style="fill: #00A4EF; stroke-width: .2; stroke: black" y="8"></rect>
-    </svg> <a href="https://azure.microsoft.com/ru-ru/">Microsoft Azure</a></li>
-    <img src="https://www.namecheap.com/assets/img/nc-icon/namecheap-icon-72x72.png" height="16px" alt="namecheap.com"> <a href="https://www.namecheap.com">namecheap.com</a><br>
-    <li><a href="https://gpdhost.com"><img src="https://gpdhost.com/images/favicon/favicon-32x32.png" height="16px" alt="gpdhost.com"> gpdhost</a></li>
+    <a href="https://youtu.be/bC-MUHhdiUk">Build, Deploy, CI – Сергей Гоголев, Сергей Жигалов</a><br>
+    <a href="https://www.heroku.com/"><img src="https://brand.heroku.com/static/media/heroku-logo-stroke-gradient.bb410472.svg" alt="Heroku"> Heroku </a> . <a href="https://youtu.be/wG7hX8Np1Pg" title="деплой на heroku">.</a><br>
+    DevOps: docker, CI/CD(Continuous Integration)<br>
+    <a href="https://itvdn.com/ru/video/sitepublication">Публикация веб-сайта</a><br>
+    <a href="https://htmlacademy.ru/blog/useful/programming/how-to-register-domain"><img src="https://htmlacademy.ru/favicon.svg" alt="htmlacademy"> how-to-register-domain</a><br>
+    <a href="https://www.internic.net/alpha.html"><img src="https://www.internic.net/touch/apple-touch-icon-57x57.png" alt="internic.net"> InterNIC - Registrar List</a><br>
+    <a href="https://www.moniker.com/"><img src="https://www.moniker.com/assets/ico/favicon-16x16.png" alt="moniker"> moniker.com</a><br>
+    <a href="https://www.godaddy.com/"><img src="https://img1.wsimg.com/ux/favicon/favicon-16x16.svg" alt="godaddy"> godaddy.com</a><br>
+    <a href="https://aws.amazon.com/ru/websites/"><img src="https://a0.awsstatic.com/main/images/site/fav/favicon.ico" alt="aws.amazon"> aws.amazon</a><br>
+    <a href="https://azure.microsoft.com/ru-ru/"><br>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="width:16px; height:16px;">
+    <rect width="8" height="8" style="fill: #F25022; stroke-width: .2; stroke: black"></rect>
+    <rect width="8" height="8" style="fill: #7FBA00; stroke-width: .2; stroke: black" x="8"></rect>
+    <rect width="8" height="8" style="fill: #FFB900; stroke-width: .2; stroke: black" x="8" y="8"></rect>
+    <rect width="8" height="8" style="fill: #00A4EF; stroke-width: .2; stroke: black" y="8"></rect></svg> .Microsoft Azure</a><br>
+    <a href="https://www.namecheap.com"><img src="https://www.namecheap.com/assets/img/nc-icon/namecheap-icon-72x72.png" height="16px" alt="namecheap.com"> namecheap.com</a><br>
+    <a href="https://gpdhost.com"><img src="https://gpdhost.com/images/favicon/favicon-32x32.png" height="16px" alt="gpdhost.com"> gpdhost</a><br>
 </div>
 
 <div>
-    <li><a href="https://veryberry.com.ua">veryberry.com.ua</a></li>
-    <li><a href="https://www.nitrousa.com">nitrousa.com</a></li>
-    <li><a href="https://www.svo.aero/">svo.aero</a></li>
-    <li><a href="http://www.hugeinc.com">hugeinc.com</a></li>
-    <li><a href="http://www.nurturedigital.com">nurturedigital.com</a></li>
-    <li><a href="https://fontface.ninja">fontface.ninja</a></li>
-    <li><a href="https://epicurrence.com">epicurrence.com</a></li>
+    <a href="https://veryberry.com.ua">veryberry.com.ua</a><br>
+    <a href="https://www.nitrousa.com">nitrousa.com</a><br>
+    <a href="https://www.svo.aero/">svo.aero</a><br>
+    <a href="http://www.hugeinc.com">hugeinc.com</a><br>
+    <a href="http://www.nurturedigital.com">nurturedigital.com</a><br>
+    <a href="https://fontface.ninja">fontface.ninja</a><br>
+    <a href="https://epicurrence.com">epicurrence.com</a><br>
 </div>
 
-<div class="img32">
-    <h2>инструменты Web</h2>
-    <ul>
-<li>browser:
+<div class="img32"><h2>инструменты Web</h2>
+<ul>
+  <li>browser:
     <a href="https://www.mozilla.org/en-US/firefox/developer/"><img src="https://www.mozilla.org/media/img/firefox/developer/favicon.011de08ab1e4.png" title="firefox"></a>
     <a href="https://download-chromium.appspot.com"><img src="https://download-chromium.appspot.com/favicon.ico" title="chromium"></a>
     <a href="https://www.google.com/chrome/canary/"><img src="../icons/chrome-canary-logo.svg" title="chrome canary"></a>
     <a href="https://www.ekioh.com/flow-browser/"><img src="https://www.ekioh.com/wp-content/uploads/ekioh-icon-125x125.png" alt="flow-browser" title="flow-browser"></a>
-</li>
-<li>codEditor:
+  </li>
+  <li>codEditor:
     <a href="https://code.visualstudio.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" title="VS Code"></a>
     <a href="https://notepad-plus-plus.org/"><img src="https://notepad-plus-plus.org/images/logo.svg" title="notepad++"></a>
     <a href="https://www.jetbrains.com/idea/"><img src="../icons/intelliJ.svg" alt="intelliJ"></a>
     <a href="https://www.sublimetext.com"><img src="../icons/sublime.svg" title="Sublime Text"></a>
-</li>
-    sublimeText: .container>.header(>h1{Hello W})+.content>ul>li*5({item$}) <br>
-<li>
+  </li>
+  <li>sublimeText: .container>.header(>h1{Hello W})+.content>ul>li*5({item$}) </li>
+  <li>
     code style <br>
     jshint <br>
     jscs <br>
     css lint <br>
     git hooks <br>
-</li>
-<li>
-    <a href="https://git-scm.com/"><img src="https://git-scm.com/favicon.ico" alt="git"> Git</a> 
-    <a href="https://www.sublimemerge.com/"><img src="https://www.sublimemerge.com/favicon.ico" alt="sublimemerge"> Sublime Merge</a></li>
-<li><img src="https://nodejs.org/static/images/favicons/favicon-16x16.png" alt="nodejs.org"> <a href="https://nodejs.org/en/">Node.js</a></li>
-<li>? <a href="https://github.com/tehcookies/bundlers-comparison">Bundlers</a>: <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Webpack</a>, Parcel, Rollup</li>
-<li>DevOps: docker, CI/CD</li>
-    </ul>
+  </li>
+  <li><a href="https://www.sublimemerge.com/"><img src="https://www.sublimemerge.com/favicon.ico" alt="sublimemerge"> Sublime Merge</a></li>
+  <li><a href="https://github.com/tehcookies/bundlers-comparison">Bundlers</a>: Parcel, Rollup</li>
+</ul>
 </div>
 
 <div>
@@ -311,18 +306,17 @@ $ gzip -6 -c file.txt > file.txt.gz
     <a href="https://flutter.dev">Flutter</a><br>
     <a href="https://habr.com/ru/post/430918/">Про Flutter, кратко: Основы / Хабр</a><br>
     <a href="https://docs.google.com/presentation/d/1qUycUmwT1bk0dFY-kqvGk-tuGtQMj2g_HchUrWXrk3w/mobilepresent?slide=id.p">Как я изучал Flutter @gorniv</a><br>
-    <a href="https://flow.org/"><img src="https://flow.org/static/favicon.png" alt="flow"> Flow</a> <a href="https://ru.reactjs.org/docs/static-type-checking.html">ru.reactjs.org</a>
     <hr>
-    <a href="https://idris-lang.org/"><img src="http://idris-lang.org/logo/logo-small.png" alt="idris-logo"> </a>
+    <a href="https://idris-lang.org/"><img src="https://idris-lang.org/logo/logo-small.png" alt="idris-logo"> </a>
     <a href="https://github.com/edwinb/Idris2">Idris2</a>
-    <a href="https://youtu.be/mOtKD7ml0NU" title="youtube"></a>
-    <a href="https://youtu.be/o-7zhrUP3ds" title="youtube2"></a><br>
+    <a href="https://youtu.be/mOtKD7ml0NU" title="youtube">.</a>
+    <a href="https://youtu.be/o-7zhrUP3ds" title="youtube2">.</a><br>
     <a href="https://www.haskell.org/"><img src="https://www.haskell.org/img/favicon.ico" alt="Haskell"> Haskell</a><br>
     <h3>Java</h3>
     <ul>
-        <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a><br>
-        <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a><br>
-        <a href="https://habr.com/ru/company/yandex/blog/481688/">Зачем учить Java и как делать это эффективно.</a>
+        <li><a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a></li>
+        <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a></li>
+        <li><a href="https://habr.com/ru/company/yandex/blog/481688/">Зачем учить Java и как делать это эффективно.</a></li>
     </ul>
 </div>
 
@@ -333,25 +327,13 @@ $ gzip -6 -c file.txt > file.txt.gz
         <li><a href="https://sublimetext.ru/documentation/hotkeys/osx"><img src="../icons/sublime.svg" alt="sublime hotkeys"> Sublime Text</a></li>
         <li><a href="https://code.visualstudio.com/docs/getstarted/keybindings"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code hotkeys"> Visual Studio Code</a></li>
         <li><a href="https://www.youtube.com/playlist?list=PLcjongJGYetkY4RFSVftH43F91vgzqB7U">Vim</a></li>
-        <li>
-            <a href="https://theprops.space/cheatsheet-vimium">Vimium</a>
-            <a href="http://vimium.github.io" title="vimium.github.io"></a>
+        <li>Vimium
+            <a href="http://vimium.github.io" title="vimium.github.io">.</a>
             <a href="https://bit.ly/1iVJ5cM"><img src="https://www.chromestatus.com/static/img/chrome_logo.svg" alt="Vimium Chrome"></a>
             <a href="https://mzl.la/2TDuvx2"><img src="https://platform-status.mozilla.org/images/favicon.ico" alt="VimiumFF"></a>
         </li>
         <li><a href="https://help.opera.com/ru/latest/shortcuts/"><img src="https://www-static.operacdn.com/static-heap/91/91051bd6095b8484c359274af1ec222b6bd293d4/opera-57.png" alt="help.opera.com"> Opera</a></li>
     </ul>
-</div>
-
-<div>
-    <h2>Tests</h2>
-    <a href="https://jasmine.github.io/">Jasmine</a><br>
-    <a href="https://youtu.be/CUNP6L8ZbDo">Тестирование Javascript с Jasmine (2019)</a><br>
-        <a href="https://habr.com/en/post/167173/">Введение в Jasmine. Habr (2013)</a><br>
-    <a href="https://vk.com/@yandex4developers-mutacionnoe-testirovanie">Мутационное тестирование</a>
-    unit-тесты<br>
-    e2e-тесты<br>
-    Mocha<br>
 </div>
 
 <div>
@@ -363,7 +345,22 @@ $ gzip -6 -c file.txt > file.txt.gz
 <div>
     <h2>lighthouse</h2>
     <a href="https://github.com/aFarkas/lazysizes">lazysizes</a><br>
-    PWA, TWA <br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">PWA</a> , TWA <br>
+    <a href="https://developer.mozilla.org/ru/docs/Web/%D0%9C%D0%B0%D0%BD%D0%B8%D1%84%D0%B5%D1%81%D1%82">manifest.webmanifest</a><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers">Service Workers</a><br>
+    <pre><code>
+//.html
+await navigator.serviceWorker.register(
+  'sw.js', updateViaCache: 'all');
+
+//sw.js
+self.addEventListener('fetch',
+  e => e.respondWith(new Response(`
+    <!doctype html>< script>
+window.parent.postMessage(await handle(location))
+    < /script>
+  `)))
+    </code></pre>
 </div>
 
 <div><a href="https://youtu.be/BX2M8t5BA3s">Machine Learning &</a><br>
@@ -372,21 +369,25 @@ $ gzip -6 -c file.txt > file.txt.gz
 </div>
 
 <div><h2>Реактивное программирование</h2>
-    <li><a href="https://www.reactivemanifesto.org/ru">Манифест Реактивных Систем</a></li>
-    <li><a href="https://habr.com/en/post/249279/">Flux For Stupid People</a></li>
-    <li><a href="https://medium.com/russian/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-flux-%D0%B2-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0%D1%85-d59c03562ea">Руководство по Flux в картинках</a></li>
-    <li>Redux Observable</li>
-    <li>RxJS</li>
-    <li>Svelte</li>
+    <a href="https://www.reactivemanifesto.org/ru">Манифест Реактивных Систем</a><br>
+    <a href="https://habr.com/en/post/249279/">Flux For Stupid People</a><br>
+    <a href="https://medium.com/russian/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-flux-%D0%B2-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0%D1%85-d59c03562ea">Руководство по Flux в картинках</a><br>
+    Redux Observable<br>
+    RxJS<br>
+    Svelte<br>
 </div>
 
 <div>
-    <ul>
+  <ul>
     <li><img src="https://electronjs.org/images/favicon.ico" alt="electronjs"><a href="https://electronjs.org/">electronjs.org</a></li>
-        <li><a href="https://github.com/Tencent/omi"><img src="https://tencent.github.io/omi/assets/omi-logo2019.svg" alt="omi"> omi</a></li>
+    <li><a href="https://github.com/Tencent/omi"><img src="https://tencent.github.io/omi/assets/omi-logo2019.svg" alt="omi"> omi</a></li>
     <li><a href="https://graphql.org/"><img src="https://graphql.org/img/logo.svg" alt="graphql.org"> GraphQL</a>
         , <a href="https://habr.com/en/post/326986/">Habr</a>
-        , <a href="https://tproger.ru/translations/graphql-beginners-guide/">tproger</a></li>
+        , <a href="https://tproger.ru/translations/graphql-beginners-guide/">tproger</a><br>
+        , <a href="https://youtu.be/4diXbLnYrMs">GraphQL, или Новый взгляд на API / Илья Запруцкий(2018)</a><br>
+        , <a href="https://youtu.be/_vjSZhnYhfI">GraphQL в 2018 / Илья Климов / MYKOLAIV JS 2018</a><br>
+        , <a href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">graphql-shorthand-notation</a>
+    </li>
     <li><a href="https://habr.com/ru/company/hexlet/blog/274675/">RESTful</a></li>
     <li><a href="https://youtu.be/fCQBMPjCgxE">Jira</a>, <a href="https://youtu.be/jj93FUQx-Ew">Slack</a></li>
     <li><a href="https://youtu.be/_ucQ8i-MOdM">Lodash</a></li>
@@ -397,18 +398,18 @@ $ gzip -6 -c file.txt > file.txt.gz
     <li>WebAuthn</li>
     <li>Apache Kafka / Nginx .webservers</li>
     <li>normalizr</li>
-    SSH
+    <li>SSH</li>
     <li><a href="https://webglfundamentals.org/webgl/lessons/ru/">WebGL (3D в браузере)</a></li>
     <li>скрамы, канбаны, стендапы, парное программирование</li>
-    <a href="http://progopedia.ru/">progopedia.ru</a><br>
-    <a href="https://almanac.httparchive.org">almanac.httparchive</a><br>
+    <li><a href="http://progopedia.ru/">progopedia.ru</a></li>
+    <li><a href="https://almanac.httparchive.org">almanac.httparchive</a></li>
     <li><a href="https://vk.com/doc41637949_513701117">code complete Стива Макконнела. 2010</a></li>
-    <a href="https://htmlacademy.ru"><img src="https://htmlacademy.ru/favicon.svg"> htmlacademy.ru</a><span style="color: rgba(0,0,0,0);">e5744e2</span><br>
-    <a href="https://www.sololearn.com/Course/HTML/"><img src="https://www.sololearn.com/Images/favicon.ico"> sololearn.com</a> <span style="color: rgba(0,0,0,0);">ctepnoi</span> <br>
+    <li><a href="https://htmlacademy.ru"><img src="https://htmlacademy.ru/favicon.svg" alt="htmlacademy"> htmlacademy.ru</a><span style="color: rgba(0,0,0,0);">e5744e2</span></li>
+    <li><a href="https://www.sololearn.com/Course/HTML/"><img src="https://www.sololearn.com/Images/favicon.ico" alt="sololearn"> sololearn.com</a> <span style="color: rgba(0,0,0,0);">ctepnoi</span> </li>
     <li><a href="https://youtu.be/RaiVatBqtGo">Качество кода: что это такое и зачем нужно знать? (Глеб Михеев)</a></li>
     <li><a href="https://vk.com/doc59859230_487463267">Малкольм Гладуэлл - Гении и аутсайдеры</a></li>
-    <a href="https://tympanus.net/codrops/"><img src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/themes/codropstheme03/favicons/favicon-16x16.png"> tympanus.net</a>
-    <li><a href="http://www.udacity.com"><img src="https://www.udacity.com/favicon.ico"> udacity.com</a></li>
+    <li><a href="https://tympanus.net/codrops/"><img src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/themes/codropstheme03/favicons/favicon-16x16.png" alt="tympanus"> tympanus.net</a>
+    <li><a href="http://www.udacity.com"><img src="https://www.udacity.com/favicon.ico" alt="udacity"> udacity.com</a></li>
     <li><a href="https://betaagency.ru/">Beta</a></li>
     <li><a href="https://10fastfingers.com/">10fastfingers.com</a></li>
     <li><a href="https://opensource.facebook.com/">opensource.facebook</a></li>
@@ -420,25 +421,16 @@ $ gzip -6 -c file.txt > file.txt.gz
     <li><a href="https://validator.w3.org/nu/#textarea">validator.w3</a></li>
     <li><a href="http://citforum.ru/">citforum.ru</a></li>
     <li><a href="https://highlightjs.org/">highlightjs</a></li>
-<li><img src="https://www.sonarsource.com/favicon.ico" alt=""> <a href="https://www.sonarsource.com/products/codeanalyzers/sonarjs.html">sonarJS</a> - анализатор кода</li>
-    <a href="bootstrap.html" target="_blank"><img src="https://getbootstrap.com/docs/4.3/assets/img/favicons/apple-touch-icon.png"> Bootstrap</a><br>
-    <a href="https://angularjs.org/">angularJS.org</a><br>
-    </ul>
+    <li><img src="https://www.sonarsource.com/favicon.ico" alt=""> <a href="https://www.sonarsource.com/products/codeanalyzers/sonarjs.html">sonarJS</a> - анализатор кода</li>
+    <li><a href="bootstrap.html" target="_blank"><img src="https://getbootstrap.com/docs/4.3/assets/img/favicons/apple-touch-icon.png" alt="Bootstrap"> Bootstrap</a></li>
+    <li><a href="https://angularjs.org/">angularJS.org</a></li>
+  </ul>
 </div>
 
 <div>
-    <a href="https://codepen.io/leonardasf1/pen/QegKyX/">video-playerJS</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/KKKaGjR">hcs-1</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/mddRvRd">hcs-2</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/QWWdeeN">шапки</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/yLLMqvQ">csstricks</a><br>
     <a href="primery/nitro/" target="_blank">Nitro</a><br>
-    <a href="primery/skillboxLanding/" target="_blank">skillboxLanding</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/XWWMyeQ">spinner</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/JjjWegK">js move slider</a> <br>
-    <a href="https://codepen.io/leonardasf1/pen/mddmeQm">drag-elem</a> <br>
-    <a href="https://codepen.io/leonardasf1/pen/LYPyzzx/">Forma</a><br>
-    <a href="https://codepen.io/leonardasf1/pen/QWWgxYN">react1</a><br>
+    <!-- <a href="primery/skillboxLanding/" target="_blank">skillboxLanding</a><br> -->
+    <a href="https://codepen.io/leonardasf1/pen/QegKyX/">video-playerJS</a><br>
     <a href="https://codepen.io/leonardasf1/pen/NWWgzmx">DNA</a><br>
     <hr>
     <a href="https://yadi.sk/d/tk7BjQ9adBx5Hg">Zippy Простой лендинг в PSD.</a><br>

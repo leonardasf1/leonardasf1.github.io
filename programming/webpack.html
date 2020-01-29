@@ -1,10 +1,10 @@
 <div id="pageTitle"></div>
 
 <div id="links">
-  <a href="https://webpack.js.org"><img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt=""></a>
-  <a href="https://www.youtube.com/watch?v=eSaF8NXeNsA">webpack. Владилен Минин.2020</a>
-  <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Антон Кастрицкий</a> 
-  <a href="https://yadi.sk/i/9oydqY8iwcY__A">Вебпак, вид сквозь монокль.pdf</a>
+  <a href="https://webpack.js.org"><img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt=""></a><br>
+  <a href="https://www.youtube.com/watch?v=eSaF8NXeNsA">webpack. Владилен Минин.2020</a><br>
+  <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Антон Кастрицкий</a> <br>
+  <a href="https://yadi.sk/i/9oydqY8iwcY__A">Вебпак, вид сквозь монокль.pdf</a><br>
 </div>
 
 <article>
@@ -18,6 +18,7 @@
   npm install -D babel-loader @babel/core @babel/preset-env  // установка babel
   npm install cache-loader style-loader css-loader sass-loader node-sass --save-dev
   npm i -D html-webpack-plugin
+  npm install --save-dev file-loader
 </code>
 <details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><code>
 module.exports = {
@@ -72,5 +73,21 @@ module.exports = {
   npm run build  // сборка на продакшн
   npm run dev  // для разработки
 
+.editorconfig //файл
+[*]
+indent_size = 2
+indent_style = spase
+
+[*.json]
+...
 </code></pre>
+
+<details><summary>eslint</summary><pre><code>
+  npm install --save-dev eslint
+
+  .eslintrc.json
+
+node_modules/.bin/eslint --fix
+</code></pre></details>
+stylelint
 </article>

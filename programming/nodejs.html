@@ -5,6 +5,7 @@
     <li><a href="https://youtu.be/GYVGbqSyxiQ">Основы Node.js Сергей Гоголев (2016)</a></li>
     <li><a href="https://itvdn.com/ru/video/node_js">Уроки Node.js</a></li>
     <li><a href="https://youtu.be/3aGSqasVPsI">Node.js Владилен Минин (2019)</a></li>
+    .emit()
 </div>
 
     <pre><code>
@@ -24,12 +25,35 @@ npm install packName // in node_modules
 npm install packName@2.5.0 //конкретную версию
 npm install --save // зависимость запишется в манифест
 npm install --save-dev // устанавливает зависимость для разработки
+npm uninstall packName
+npm list
+npm dedupe // устраняет дупликаты
+npm outdated --depth=1 // находит устаревшие
+npm update  // обновляет на латест
+npm cache
+npm cache clean
+npm publish
+
+.npmrc
+save-exact=true //зависимость от конкретной версии
+progress=false
+
 
     </code></pre>
 <div>
 
 встроенные модули: <br>
+<details><summary>assert</summary><pre><code>
+//проверяет на равенство
+assert(true);
+assert.ok(true);
+assert.ok('mu');
+assert.ok({});
 
+assert.equal(,); // ==
+assert.strictEqual(,); // ===
+assert.deepEqual(,); // сравнить объекты
+</code></pre></details>
 <details><summary>net</summary><pre><code>
 // TCP
 </code></pre></details>

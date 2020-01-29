@@ -10,10 +10,13 @@
 	Репликация<br>
 	Шардирование:<br>
 Range Based, Hash Based <br>
+connect(url) <br>
+db.collection('') <br>
 </div>
 
 <div>
-	<details><summary>insert() // create</summary><pre><code>
+db.dbName
+	<details><summary>.insert() // create</summary><pre><code>
 db.students.insert({
 	name: 'Дарья',
 	nickname: 'Пиратка',
@@ -24,7 +27,7 @@ db.students.insert({
 	}
 })
 	</code></pre></details>
-	<details><summary>find() // read</summary><pre><code>
+	<details><summary>.find() // read</summary><pre><code>
 db.students.find(
 	{ group: 'ПИ-401' }, //1й аргумент
 	{ nickname: 1},   //2й аргумент
@@ -50,7 +53,7 @@ e52c94 - mid //machine id
 3bf6 - pid //
 2fff72 - inc //счетчик
 	</code></pre></details>
-	<details><summary>update() // update</summary><pre><code>
+	<details><summary>.update() // update</summary><pre><code>
 db.students.update(
 	{ group: /3\d{2}/ }, //параметры поиска
 	{ $set: { course: "3" } }, //параметры обновления
@@ -60,24 +63,24 @@ db.students.update(
 2е параметры:
 $inc: { course: 1 } // += 1
 	</code></pre></details>
-	<details><summary>remove() // delete</summary><pre><code>
+	<details><summary>.remove() // delete</summary><pre><code>
 db.students.remove(
 	{ course: 1 }
 )
 	</code></pre></details>
-	<details><summary>explain()</summary><pre><code>
+	<details><summary>.explain()</summary><pre><code>
 db.phones.find(
 	{ display: "+1 800-5650001" }
 ).explain() //выведет инфо о запросе(кол-во объектов, время поиска,...)
 	</code></pre></details>
-	<details><summary>createIndex() // add index</summary><pre><code>
+	<details><summary>.createIndex() // add index</summary><pre><code>
 	// дорогая операция!!!
 db.phones.createIndex(
 	{ display: 1 },
 	{ unique: true }
 )
 	</code></pre></details>
-	<details><summary>help()</summary><pre><code>
+	<details><summary>.help()</summary><pre><code>
 	</code></pre></details>
 	<details><summary>операторы</summary><pre><code>
 $ne  // !=
@@ -94,13 +97,16 @@ $set // установить
 
 <pre><code>
 function insertStudent(name, nickname, group) {
-	let year = group.split('-').pop().slice(0, 1...
-	db.students.insert({
-		name: name,
-		nickname: nickname,
-		group: group,
-		year: year
-	});
+  MongoClient.connect(url)
+  .then((db) => {
+    let year = group.split('-').pop().slice(0, 1...
+    db.students.insert({
+      name,
+      nickname,
+      group,
+      year
+    });
+  });
 }
 insertStudent('Петр', 'petr', 'MT-204')
 </code></pre>

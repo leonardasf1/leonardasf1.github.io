@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", function() {
   setContentFn();
   setFooterScrollTop();
   setFooter();
+  // registerSW();
 });
 
 function q(id) { return document.querySelector(id) }
@@ -16,7 +17,7 @@ function setHeader() {
   .then(response => response.text())
   .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
   .then(() => window.addEventListener( "scroll", () => {
-    if (window.scrollY > 50) q('#headerMenu').style.height = '42px';
+    if (window.scrollY > 50) q('#headerMenu').style.height = '48px';
     if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}))
   .then(() => qAll('.headerLink').forEach(
     a => a.onclick = function() { load(this) }));
@@ -24,25 +25,27 @@ function setHeader() {
 
 function setContentFn() {
 
-  if (q('details')) qAll("details").forEach(
-    i => i.ontoggle = function() {
-      this.firstElementChild.classList.toggle('hover')});
-
-  qAll('a[href*="://"]').forEach(
-    link => link.setAttribute("target", "_blank"));
-
-  if (q('code')) qAll('code').forEach(
-    block => hljs.highlightBlock(block));
-
-  if (q('nav>a')) qAll('nav>a').forEach(
-    a => a.onclick = function() { load(this) });
-
   if (q('.import_Data')) {
     qAll('.import_Data *[src^=".."]').forEach(
     i => i.src = `${import_DataUrl + i.getAttribute('src')}`);
     qAll('.import_Data *[href^=".."]').forEach(
     i => i.href = `${import_DataUrl + i.getAttribute('href')}`);
   }
+  
+  if (q('details')) qAll("details").forEach(
+    i => i.ontoggle = function() {
+      this.firstElementChild.classList.toggle('darker')});
+
+  qAll('a[href*="://"]').forEach(link => {
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  });
+
+  if (q('code')) qAll('code').forEach(
+    block => hljs.highlightBlock(block));
+
+  if (q('nav>a')) qAll('nav>a').forEach(
+    a => a.onclick = function() { load(this) });
 
   if (q('[data-lightbox]')) lb_init();
 
@@ -93,3 +96,9 @@ function load(a) {
     q('main').style.opacity = 1;
   });
 }
+
+// function registerSW() {
+//   if('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('../JS/sw.js');
+//   }
+// }

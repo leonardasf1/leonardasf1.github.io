@@ -23,23 +23,24 @@ app.js
 
 <div>Routing<pre><code>
 routes.js
-	const express = require('express');
-	const app = express();
-	const pages = require('./controllers/pages');
-	const notes = require('./controllers/notes');
+  const express = require('express');
+  const app = express();
+  const pages = require('./controllers/pages');
+  const notes = require('./controllers/notes');
 
-	module.exports = (app) => {
-		app.get('/', pages.index);
-		app.get('/notes', notes.list);
-		app.get('/notes/:name', notes.item);
-		app.get('*', pages.error404);
-	};
+  module.exports = (app) => {
+    app.post('/notes', notes.create);
+    app.get('/', pages.index);
+    app.get('/notes', notes.list);
+    app.get('/notes/:name', notes.item);
+    app.get('*', pages.error404);
+  };
 ---
 app.get('/name/:name', (req, res) => { //запрос на путь
-	res.send(`Hello, < b>${req.params.name}< /b>`); //ответ
+  res.send(`Hello, < b>${req.params.name}< /b>`); //ответ
 });
 app.get('*', (req, res) => { //остальные маршруты
-	res.sendStatus(404);  // ответ 404
+  res.sendStatus(404);  // ответ 404
 });
 
 .get('/', () => {}); // (путь, обработчик)
@@ -53,56 +54,56 @@ app.get('*', (req, res) => { //остальные маршруты
 </code></pre></div>
 <div>MVC<pre><code>
 models/note.js
-	class Note {
-		constructor(data) { this._data = data; }
-		save() {} // save note
-		static findByName(name) {}
-		static findAll {} //return all notes
-	}
-	module.exports = Note;
+  class Note {
+    constructor(data) { this._data = data; }
+    save() {} // save note
+    static findByName(name) {}
+    static findAll {} //return all notes
+  }
+  module.exports = Note;
 
 controllers/notes.js
-	const Note = require('../models/note');
-	exports.list = (req, res) => {
-		const notes = Note.findAll();
-		res.send(notes);
-	}
-	exports.item = (req, res) => {
-		const note = Note.find(req.params.name);
-		res.send(note);
-	}
+  const Note = require('../models/note');
+  exports.list = (req, res) => {
+    const notes = Note.findAll();
+    res.send(notes);
+  }
+  exports.item = (req, res) => {
+    const note = Note.find(req.params.name);
+    res.send(note);
+  }
 
 controllers/pages.js
-	exports.index = (req, res) => {res.send('Hello')}
-	//или
-	exports.index = (req, res) => {
-		res.render('index', {
-			message: 'Hello',
-			title: 'My notes',
-			meta: {
-				description: 'My awesome notes',
-				charset: 'utf-8'
-			}
-		});
-	}
-	exports.error404 = (req, res) => {res.sendStatus(404)}
+  exports.index = (req, res) => {res.send('Hello')}
+  //или
+  exports.index = (req, res) => {
+    res.render('index', {
+      message: 'Hello',
+      title: 'My notes',
+      meta: {
+        description: 'My awesome notes',
+        charset: 'utf-8'
+      }
+    });
+  }
+  exports.error404 = (req, res) => {res.sendStatus(404)}
 
 views/index.hbs
 	< h1>{{ message }}< /h1>
 
 views/layout.hbs
-	< !DOCTYPE html>
-	< html lang="en">
-	< head>
-		< meta charset="{{ meta.charset }}">
-		< meta name="description"
-			content="{{ meta.description }}">
-		< title>{{ title }}< /title>
-	< /head>
-	< body>
-		{{{ body }}}
-	< /body>
-	< /html>
+  < !DOCTYPE html>
+  < html lang="en">
+  < head>
+    < meta charset="{{ meta.charset }}">
+    < meta name="description"
+      content="{{ meta.description }}">
+    < title>{{ title }}< /title>
+  < /head>
+  < body>
+    {{{ body }}}
+  < /body>
+  < /html>
 
 </code></pre></div>
 <div>Templates</div>

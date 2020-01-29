@@ -332,7 +332,7 @@ repeating-radial-gradient
 
     grid-template-columns: 200px repeat(4, 1fr 2fr) minmax(150px, 250px);  // ширины столбцов
     grid-template-columns: repeat(auto-fill, 300px);  // auto-fill как wrap
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  // auto-fit 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  // auto-fit !
     grid-template-rows: minmax(200px, auto) 200px 100px;  // высоты рядов
     grid-template: 200px 150px 100px / 200px 300px 200px; // rows/columns
     grid-auto-rows: 50px;  // высота для оставшихся элементов
@@ -663,6 +663,7 @@ counter-reset: ;<a href="http://htmlbook.ru/css/counter-reset">счетчики 
 empty-cells: hide;
 
 mask: url(mask.svg);
+object-fit: cover;
 opacity: .5; прозрачность
 
 orphans: ;
