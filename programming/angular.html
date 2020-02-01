@@ -4,6 +4,7 @@
     <a href="https://angular.io"><img src="https://angular.io/assets/images/favicons/favicon.ico"></a><br>
     <a href="https://itvdn.com/ru/webinars/description/angular-jump-start">Angular 4 Jump Start. (2017)</a><br>
     <a href="https://itvdn.com/ru/video/angular2_essential"> Angular 2 Essential (2016)</a><br>
+    <a href="https://itvdn.com/ru/video/angular_cli">Angular CLI (2017)</a>
     <a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a><br>
     <a href="https://youtu.be/Rf54BH35yrY">Angular 8 Основы (2019)</a><br>
     <a href="https://youtu.be/-pb6_zRokKU">Создание приложения на Angular 4.ITVDN (2017)</a><br>
@@ -17,13 +18,21 @@
 sudo npm install -g @angular/cli
 ng v // версия
 <a href="https://update.angular.io/">update.angular.io</a>
-ng new name-app --routing
+ng new name-app --help
+  --routing
+  --style //смена типа стилей
+  --prefix//смена app.
+  --skip-install//не устанавливать npm-modules
+  --skip-git
+  --dry-run
+
 cd my-app
 ng serve --open //run+liveserver
 ---
-ng build
+ng build //для прода
 ng test
-ng lint
+ng lint //проверить
+  --fix // исправить
 ng e2e
 ng generate component xyz
 ng build --prod
@@ -168,10 +177,12 @@ export interface intName {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  moduleId: module.id, //базовый адрес относительно модуля?
+  selector: 'app-root',//тег для компонента
+  templateUrl: './app.component.html',//путь к шаблону
   styleUrls: ['./app.component.css'],
-  interpolation: ['{{', '}}'] // необязательно
+  interpolation: ['{{', '}}'], // необязательно
+  providers: [] //провайдеры для внедрения зависимостей
 })
 export class AppComponent implements OnInit {
   @Input() varName
@@ -239,13 +250,29 @@ app.component.html
   </code></pre>
 </div>
 
-  <div><pre><code>
+  <div>
+  <pre><code>// Интерполяция
+    {{ title }}
+    {{ getInfo() }}
+  </code></pre>
+  <pre><code>// Привязка свойств
+[src]="imgUrl"
+
+[ngClass]="{ //динамические классы
+  className: varName === 'blue',
+  className: условие
+}"
+  </code></pre>
+    <pre><code>// Привязка событий
 (click)="funcName()"
 (input)="inputHandler($event)"
 (ngModelChange)="funcName()"
 (ngModel)="varName"
   </code></pre>
-  <pre><code>
+  <pre><code>//двунаправленная привязка
+    [(ng-model)]="property"
+  </code></pre>
+  <pre><code>// Директивы
 *ngIf="varBoolName"
 *ngIf="varBoolName; else varName"
 < 

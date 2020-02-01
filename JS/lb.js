@@ -16,17 +16,19 @@ export function lb_init() {
         <img id="lb_img" src="" />
         <a id="lb_btn_prev"></a>
         <a id="lb_btn_next"></a>
+        <a id="lb_btn_close"></a>
       </div>`);
       q('#lightbox').classList.add('lb_show');
       lb_setImg(i);
       q('#lb_btn_prev').addEventListener('click', lb_prev);
       q('#lb_btn_next').addEventListener('click', lb_next);
+      q('#lb_btn_close').addEventListener('click', lb_close);
       q('#background_lb_remove').addEventListener('click', lb_close);
     }
   }
 }
 function lb_setImg(n) {
-    q('#lb_img').src = "../icons/loading.gif";
+    q('#lb_img').src = "../icons/loader.svg";
     q('#lb_img').src = `${lb_data[n].getAttribute('href')}`;
 }
 function lb_prev() {lb_setImg(--lb_img)}
@@ -35,4 +37,4 @@ function lb_close() {
     q('#lightbox').classList.replace('lb_show', 'lb_hide');
     setTimeout(() => { q('#lightbox').remove() }, 400);
 }
-// + : zoom, lb_btn_x, albums
+// + : zoom, albums

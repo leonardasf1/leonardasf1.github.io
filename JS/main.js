@@ -20,7 +20,9 @@ function setHeader() {
     if (window.scrollY > 50) q('#headerMenu').style.height = '48px';
     if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}))
   .then(() => qAll('.headerLink').forEach(
-    a => a.onclick = function() { load(this) }));
+    a => a.addEventListener("click",
+      function(e) { load(e, this) }
+  )));
 }
 
 function setContentFn() {
@@ -45,7 +47,7 @@ function setContentFn() {
     block => hljs.highlightBlock(block));
 
   if (q('nav>a')) qAll('nav>a').forEach(
-    a => a.onclick = function() { load(this) });
+    a => a.onclick = function(e) { load(e, this) });
 
   if (q('[data-lightbox]')) lb_init();
 
@@ -82,15 +84,17 @@ function setFooter() {
     'beforeend', `<div>${document.lastModified} </div>`);
 }
 
-function load(a) {
+function load(e, a) {
+  e.preventDefault();
   a.style.opacity = 0;
   q('#headerMenu').prepend(a);
   q('main').style.opacity = 0;
-  fetch(`${a.textContent.toLowerCase()}.html`)
+  fetch(`${a.getAttribute('href')}.html`)
+  // fetch(`${a.textContent.toLowerCase()}.html`)
   .then(response => response.text())
   .then(results => {
     q('main').innerHTML = results;
-    q('title').innerText = q('#pageTitle').innerHTML;
+    q('title').innerText = q('#pageTitle').textContent;
     setContentFn();
     a.style.opacity = 1;
     q('main').style.opacity = 1;
