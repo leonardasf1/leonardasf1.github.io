@@ -4,7 +4,7 @@
     <a href="https://angular.io"><img src="https://angular.io/assets/images/favicons/favicon.ico"></a><br>
     <a href="https://itvdn.com/ru/webinars/description/angular-jump-start">Angular 4 Jump Start. (2017)</a><br>
     <a href="https://itvdn.com/ru/video/angular2_essential"> Angular 2 Essential (2016)</a><br>
-    <a href="https://itvdn.com/ru/video/angular_cli">Angular CLI (2017)</a>
+    <a href="https://itvdn.com/ru/video/angular_cli">Angular CLI (2017)</a><br>
     <a href="https://www.youtube.com/watch?v=Jrer19KiDQg&list=PLVfMKQXDAhGW12JY3SfeDnEx7S5_tn11j"> Уроки Angular 7 (Web Developer Blog)</a><br>
     <a href="https://youtu.be/Rf54BH35yrY">Angular 8 Основы (2019)</a><br>
     <a href="https://youtu.be/-pb6_zRokKU">Создание приложения на Angular 4.ITVDN (2017)</a><br>
@@ -29,12 +29,32 @@ ng new name-app --help
 cd my-app
 ng serve --open //run+liveserver
 ---
+ng generate component name
+  ng g c name //name.component.ts
+ng generate service user-date //user-data.ts
+ng generate class user-model //user-model.ts
+  --flat //не создавать директорию
+  --inline-template //встроить в ts
+  --inline-style //встроить стили в ts
+  --spec false //не создавать тесты
+  --view-encapsulation //?
+  --change-detection
+  --dry-run
+component c
+directive d
+pipe P
+service s
+class cl
+guard g
+interface i
+enum e
+module m
+---
 ng build //для прода
 ng test
 ng lint //проверить
   --fix // исправить
 ng e2e
-ng generate component xyz
 ng build --prod
 ng add @angular/material
   </code></pre></div>
@@ -151,12 +171,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { XComponent } from './x/x.component';
 import { ZComponent } from './z/z.component';
-
+...
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'x' },
   { path: 'x', component: XComponent },
-  { path: 'z', component: ZComponent }
+  { path: 'z', component: ZComponent,
+    children: [
+      {path: '', component: CustomerManagerComponent},
+      {path: 'orders', component: OrderManagerComponent}
+    ]
+  }
 ];
 
 @NgModule({
@@ -169,7 +194,10 @@ export class AppRoutingModule { }
 
   <div>app.component.ts
     <pre><code>
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, OnInit,
+  ViewChild, ViewChildren, QueryList, ContentChildren
+} from '@angular/core';
 
 export interface intName {
   title: string
@@ -185,7 +213,20 @@ export interface intName {
   providers: [] //провайдеры для внедрения зависимостей
 })
 export class AppComponent implements OnInit {
-  @Input() varName
+  @Input("name") //свойство для привязки
+  counterName: number = 1;
+
+  @Output() // событие для привязки
+  tick: EventEmitter< number> = new EventEmitter();
+
+  @ViewChild(componentName) //обратиться к дочерниму
+  name: componentName;     // компоненту
+
+  @ViewChildren(componentName) //обратиться к дочерним
+  name: QueryList< componentName>;     // компонентам
+
+  @ContentChildren(componentName) //обратиться к ng-content
+  name: QueryList< componentName>;     // компонентам
 
   title = 'first-app';
   text: string = 'my sample text';
@@ -206,12 +247,25 @@ export class AppComponent implements OnInit {
 }
   </code></pre></div>
 
+<div>Component Lifecycle hooks
+  <pre><code>
+    ngOnChanges // изменение свойств
+    ngOnInit
+    ngDoCheck
+      ngAfterContentInit
+      ngAfterContentChecked
+      ngAfterViewInit
+      ngAfterViewChecked
+    ngOnDestroy
+  </code></pre>
+</div>
+
 <div>
 app.component.html
   <pre><code>
 < nav>
-  < a routerLink="xyz" routerLinkActive='selected'>xyz < /a>
-  < a routerLink="settings" routerLinkActive='selected'>Settings< /a>
+  < a routerLink="/customers" routerLinkActive='selected'>Customers < /a>
+  < a routerLink="/orders" routerLinkActive='active'>Orders< /a>
 < /nav>
 < router-outlet>< /router-outlet>
 
@@ -247,6 +301,8 @@ app.component.html
 < input type="text" (input)="inputHandler($event)" [value]="title">
 < input type="text" #myInput (input)="inputHandler2(myInput.value)" [value]="text">
 < input type="text" [(ngModel)]="title"> // нужен FormsModule
+
+< ng-content>< /ng-content>
   </code></pre>
 </div>
 
@@ -256,7 +312,8 @@ app.component.html
     {{ getInfo() }}
   </code></pre>
   <pre><code>// Привязка свойств
-[src]="imgUrl"
+[src]="imgUrl" //value
+[src]="'text'" //text
 
 [ngClass]="{ //динамические классы
   className: varName === 'blue',
@@ -281,4 +338,40 @@ app.component.html
   [varName2]="x + 1"
 >
   </code></pre>
+  <pre><code>
+<  interval="2000" >
+  </code></pre>
   </div>
+
+  <div>ng build<pre>
+    chunk {main} main.js, main.js.map
+    chunk {polyfills} polyfills.js, polyfills.js.map
+    chunk {runtime} runtime.js, runtime.js.map //webpack
+    chunk {styles} styles.js, styles.js.map
+    chunk {vendor} vendor.js, vendor.js.map //angular
+
+ng build --target=development --environment=dev
+ng build --dev -e=dev
+ng build --dev
+ng build  //одно и тоже
+
+ng build --target=production --environment=prod
+ng build --prod -e=prod
+ng build --prod
+
+  --sourcemap | -sm //генерировать map
+  --aot // убрать компилятор из бандла
+    </pre>
+  </div>
+
+  <div>ShadowDOM<pre>
+css selectors:
+    :host  // родитель компонента
+    :host-context(.class-name) //если у родителя есть такой класс
+    :host /deep/ p // игнорируя правила более вложенных компонентов
+
+View Encapsulations
+  native
+  emulated
+  none
+  </pre></div>
