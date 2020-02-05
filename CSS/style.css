@@ -180,7 +180,7 @@ footer {
 }
 .grid { display: grid }
 
-#pageTitle { display: none }
+#pageTitle, #pageLogo { display: none }
 
 [href*="youtu"] {
     background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0;

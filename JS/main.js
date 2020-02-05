@@ -1,6 +1,8 @@
 import { lb_init } from "./lb.js";
 
-  setHeader();
+if (location.hash) loadSubPage();
+setHeader();
+
 window.addEventListener("DOMContentLoaded", function() {
   setContentFn();
   setFooterScrollTop();
@@ -18,15 +20,11 @@ function setHeader() {
   .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
   .then(() => window.addEventListener( "scroll", () => {
     if (window.scrollY > 50) q('#headerMenu').style.height = '48px';
-    if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}))
-  .then(() => qAll('.headerLink').forEach(
-    a => a.addEventListener("click",
-      function(e) { load(e, this) }
-  )));
+    if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}));
 }
 
 function setContentFn() {
-
+  window.addEventListener('hashchange', loadSubPage);
   if (q('.import_Data')) {
     qAll('.import_Data *[src^=".."]').forEach(
     i => i.src = `${import_DataUrl + i.getAttribute('src')}`);
@@ -46,20 +44,17 @@ function setContentFn() {
   if (q('code')) qAll('code').forEach(
     block => hljs.highlightBlock(block));
 
-  if (q('nav>a')) qAll('nav>a').forEach(
-    a => a.onclick = function(e) { load(e, this) });
-
   if (q('[data-lightbox]')) lb_init();
 
-  // if (q('.lazy')) {
-  //   qAll('.lazy img').forEach(i => {
-  //     i.setAttribute("data-src", i.getAttribute("src"));
-  //     i.removeAttribute("src");
-  //     i.classList.add('lazyload');
-  //   });
-  //   // q('body').insertAdjacentHTML(
-  //   // 'beforeend', `<script src="../JS/lazysizes.min.js" async=""></script>`);
-  // };
+  if (q('.lazy')) {
+    qAll('.lazy img').forEach(i => {
+      i.setAttribute("data-src", i.getAttribute("src"));
+      i.removeAttribute("src");
+      i.classList.add('lazyload');
+    });
+    // q('body').insertAdjacentHTML('beforeend',
+    // `<script src="../JS/lazysizes.min.js" async></script>`);
+  };
 }
 
 function setFooterScrollTop() {
@@ -84,21 +79,26 @@ function setFooter() {
     'beforeend', `<div>${document.lastModified} </div>`);
 }
 
-function load(e, a) {
-  e.preventDefault();
-  a.style.opacity = 0;
-  q('#headerMenu').prepend(a);
+function loadSubPage() {
+if (location.hash) {
   q('main').style.opacity = 0;
-  fetch(`${a.getAttribute('href')}.html`)
-  // fetch(`${a.textContent.toLowerCase()}.html`)
+  fetch(`${location.hash.substr(1)}.html`)
   .then(response => response.text())
   .then(results => {
     q('main').innerHTML = results;
     q('title').innerText = q('#pageTitle').textContent;
+
+    if (q('#pageLogo')) {
+      let a = q('#pageLogo > a');
+      a.style.opacity = 0;
+      q('#headerMenu').prepend(a);
+      a.style.opacity = 1;
+    };
+
     setContentFn();
-    a.style.opacity = 1;
     q('main').style.opacity = 1;
   });
+} else {location.reload()}
 }
 
 // function registerSW() {

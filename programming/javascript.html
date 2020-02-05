@@ -1,4 +1,6 @@
 <div id="pageTitle">JavaScript</div>
+<div id="pageLogo"><a href="#javascript">
+    <img src="../icons/js.svg" alt="javascript"></a></div>
 
 <div id="links">
   <a href="https://learn.javascript.ru/js"><img src="http://learn.javascript.ru/img/favicon/favicon.png" alt="learn.javascript.ru"></a>
@@ -1591,6 +1593,7 @@ window.location.replace('url');  // направление на другой а�
     .location.host     // имя хоста
     .location.pathname // путь к запрашиваемому ресурсу
     .location.search   // строка запроса (после знака вопроса)
+    .location.hash  // #...
     plugins
     preferredStyleSheetSet
     readyState
@@ -1984,10 +1987,6 @@ window.location.replace('url');  // направление на другой а�
 			<pre><code>
 
 			</code></pre></details></li>
-		<li><details><summary>event loop</summary>
-			<pre><code>
-
-			</code></pre></details></li>
     <li><details><summary>Drag & Drop</summary>
       <pre><code>
     атрибут draggable="true"
@@ -2204,6 +2203,22 @@ window.location.replace('url');  // направление на другой а�
   }
 			</code></pre></details></li>
 	</ul>
+
+  <details>
+    <summary>Routing</summary><pre><code>
+window.onpopstate // event
+history.pushState() 
+history.replaceState()
+history.state //свойство
+
+window.history.back();
+window.history.forward();
+window.history.go(-1);
+
+location.hash
+window.addEventListener("hashchange", funcRef, false);
+    </code></pre>
+  </details>
 </div>
 
 <div>RegExp <a href="https://learn.javascript.ru/regular-expressions"><img src="http://learn.javascript.ru/img/favicon/favicon.png" alt="learn.javascript.ru"></a>
