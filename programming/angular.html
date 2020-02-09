@@ -160,7 +160,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService] //для внедрения зависимостей
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -211,7 +211,6 @@ export interface intName {
   templateUrl: './app.component.html',//путь к шаблону
   styleUrls: ['./app.component.css'],
   interpolation: ['{{', '}}'], // необязательно
-  providers: [] //провайдеры для внедрения зависимостей
 })
 export class AppComponent implements OnInit {
   @Input("name") //свойство для привязки
@@ -304,6 +303,15 @@ app.component.html
 < input type="text" [(ngModel)]="title"> // нужен FormsModule
 
 < ng-content>< /ng-content>
+
+< table *ngFor="let item of products; let i = index;">
+  < tr *ngIf="i <= 5">
+    < td>{{ i + 1 }}< /td>
+    < td>{{ item.name }}< /td>
+    < td>{{ item.price }}< /td>
+    < td>< button (click)="products.splice(i,1)">x< /button>< /td>
+  < /tr>
+< /table>
   </code></pre>
 </div>
 
@@ -315,11 +323,12 @@ app.component.html
   <pre><code>// Привязка свойств
 [src]="imgUrl" //value
 [src]="'text'" //text
+[attr.r]="value" //кастомные атрибуты
+[style.color]="getDivColor()"
+[style.display]="условие ? 'block':'none'"
 
-[ngClass]="{ //динамические классы
-  className: varName === 'blue',
-  className: условие
-}"
+//присвоить класс если true
+[class.className]="условие"
   </code></pre>
     <pre><code>// Привязка событий
 (click)="funcName()"
@@ -328,16 +337,38 @@ app.component.html
 (ngModel)="varName"
   </code></pre>
   <pre><code>//двунаправленная привязка
-    [(ng-model)]="property"
+[(ng-model)]="property"
   </code></pre>
   <pre><code>// Директивы
+  //структурные
 *ngIf="varBoolName"
 *ngIf="varBoolName; else varName"
-< 
-  *ngFor="let i of arrName; let x" 
-  [varName]="i"
-  [varName2]="x + 1"
->
+
+< *ngFor="let item of arrName;
+          let i = index;" >
+  {{i + 1}} - {{item}}
+</>
+
+< [ngSwitch]="choice">
+  < *ngSwitchCase="'1'"></>
+  ...
+  < *ngSwitchDefault></>
+</>
+
+  //атрибутивные
+ngStyle
+ngModel
+
+[ngClass]="{ //динамические классы
+  className: varName === 'blue',
+  className: условие
+}"
+[ngClass]="varName"
+  </code></pre>
+  <pre><code>//Template Ref Var
+< input #xInput >
+< input ref-yInput >
+< (click)="sum(xInput.value, yInput.value)">
   </code></pre>
   <pre><code>
 <  interval="2000" >
@@ -366,6 +397,8 @@ ng build --prod
   </div>
 
   <div>ShadowDOM<pre>
+<a href="https://creativerusbear.github.io/public_talks/presentations/Особенности_CSS_в_веб_компонентах.pdf">Особенности_CSS_в_веб_компонентах.pdf</a>
+
 css selectors:
     :host  // родитель компонента
     :host-context(.class-name) //если у родителя есть такой класс
@@ -376,3 +409,31 @@ View Encapsulations
   emulated
   none
   </pre></div>
+
+  <div>Dependency injection /сервисы
+    <pre><code>
+ng generate service name //name.service.ts
+</code></pre>
+    <pre><code class="ts">
+---name.service.ts
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NameService {
+  getName() {}
+}
+
+---app.component.ts
+
+import {NameService} from '../name.service';
+
+constructor(private nameService: NameService) {}
+
+    </code></pre>
+Dependency providers
+    <pre><code>
+providers: [Logger]
+[{ provide: Logger, useClass: Logger }]
+    </code></pre>
+  </div>
