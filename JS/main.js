@@ -24,14 +24,16 @@ function setHeader() {
 }
 
 function setContentFn() {
+
   window.addEventListener('hashchange', loadSubPage);
+
   if (q('.import_Data')) {
     qAll('.import_Data *[src^=".."]').forEach(
     i => i.src = `${import_DataUrl + i.getAttribute('src')}`);
     qAll('.import_Data *[href^=".."]').forEach(
     i => i.href = `${import_DataUrl + i.getAttribute('href')}`);
   }
-  
+
   if (q('details')) qAll("details").forEach(
     i => i.ontoggle = function() {
       this.firstElementChild.classList.toggle('darker')});
@@ -52,8 +54,6 @@ function setContentFn() {
       i.removeAttribute("src");
       i.classList.add('lazyload');
     });
-    // q('body').insertAdjacentHTML('beforeend',
-    // `<script src="../JS/lazysizes.min.js" async></script>`);
   };
 }
 

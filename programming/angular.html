@@ -166,31 +166,6 @@ import { AppComponent } from './app.component';
 export class AppModule { }
   </code></pre>
     </details>
-    <details><summary>app-routing.module.ts</summary>
-      <pre><code>
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { XComponent } from './x/x.component';
-import { ZComponent } from './z/z.component';
-...
-
-const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'x' },
-  { path: 'x', component: XComponent },
-  { path: 'z', component: ZComponent,
-    children: [
-      {path: '', component: CustomerManagerComponent},
-      {path: 'orders', component: OrderManagerComponent}
-    ]
-  }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-    </code></pre></details>
   </div>
 
   <div>app.component.ts
@@ -335,6 +310,7 @@ app.component.html
 (input)="inputHandler($event)"
 (ngModelChange)="funcName()"
 (ngModel)="varName"
+(keyup.enter)="funcName(.value)"
   </code></pre>
   <pre><code>//двунаправленная привязка
 [(ng-model)]="property"
@@ -436,4 +412,79 @@ Dependency providers
 providers: [Logger]
 [{ provide: Logger, useClass: Logger }]
     </code></pre>
+  </div>
+
+  <div><h2>Routing</h2>
+app-routing.module.ts
+  <pre><code>
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { XComponent } from './x/x.component';
+import { ZComponent } from './z/z.component';
+...
+
+const routes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'hero/:id',      component: HeroDetailComponent },
+  {
+    path: 'heroes',
+    component: HeroListComponent,
+    data: { title: 'Heroes List' }
+  },
+  { path: '',
+    redirectTo: '/heroes',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent },
+  { path: 'z', component: ZComponent,
+    children: [
+      {path: '', component: CustomerManagerComponent},
+      {path: 'orders', component: OrderManagerComponent}
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+</code></pre>
+component.ts
+  <pre><code>
+constructor(
+  private route: ActivatedRoute,
+  private router: Router,
+  private service: HeroService
+) {}
+
+ngOnInit() {
+  this.hero$ = this.route.paramMap.pipe(
+    switchMap((params: ParamMap) =>
+      this.service.getHero(params.get('id')))
+  );
+  let id = this.route.snapshot.paramMap.get('id');
+
+}
+
+this.router.navigate(['/heroes']);
+this.router.navigate([selected.id],
+  { relativeTo: this.activatedRoute });
+</code></pre>
+Guard
+<pre><code>
+CanActivate - to mediate navigation to a route.
+CanActivateChild - to mediate navigation to a child route.
+CanDeactivate - to mediate navigation away from the current route.
+Resolve - to perform route data retrieval before route activation.
+CanLoad - to mediate navigation to a feature module loaded asynchronously.
+
+ng generate module admin --routing
+ng generate component admin/admin-dashboard
+ng generate component admin/manage-heroes
+ng generate component admin/admin
+
+ng generate guard auth/auth
+
+</code></pre>
   </div>

@@ -1093,20 +1093,15 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
         funcName(result)));
   }
   Promise.all([funcName(), func2Name()]);
-  Promise.allSettled()
   Promise.prototype.finally()
-  Promise.race()
-			</code></pre></details></li>
-		<li><details><summary>promise-chaining</summary>
-			<pre><code>
 
-			</code></pre></details></li>
-		<li><details><summary>API</summary>
-			<pre><code>
-
-			</code></pre></details></li>
-		<li><details><summary>promisify</summary>
-			<pre><code>
+Promise.all(promises) – ожидает выполнения всех промисов и возвращает массив с результатами. Если любой из указанных промисов вернёт ошибку, то результатом работы Promise.all будет эта ошибка, результаты остальных промисов будут игнорироваться.
+Promise.allSettled(promises) (добавлен недавно) – ждёт, пока все промисы завершатся и возвращает их результаты в виде массива с объектами, у каждого объекта два свойства:
+    state: "fulfilled", если выполнен успешно или "rejected", если ошибка,
+    value – результат, если успешно или reason – ошибка, если нет.
+Promise.race(promises) – ожидает первый выполненный промис, который становится его результатом, остальные игнорируются.
+Promise.resolve(value) – возвращает успешно выполнившийся промис с результатом value.
+Promise.reject(error) – возвращает промис с ошибкой error.
 
 			</code></pre></details></li>
 		<li><details><summary>microtask queue</summary>
@@ -2206,17 +2201,18 @@ window.location.replace('url');  // направление на другой а�
 
   <details>
     <summary>Routing</summary><pre><code>
-window.onpopstate // event
-history.pushState() 
-history.replaceState()
-history.state //свойство
+< a href="#path"> < />
 
-window.history.back();
-window.history.forward();
-window.history.go(-1);
+if (location.hash) loadSubPage();
+window.addEventListener('hashchange', loadSubPage);
 
-location.hash
-window.addEventListener("hashchange", funcRef, false);
+function loadSubPage() {
+  if (location.hash) {
+    fetch(location.hash.substr(1))
+    .then(response => response.text())
+    .then( ...);
+  } else {location.reload()}
+}
     </code></pre>
   </details>
 </div>
