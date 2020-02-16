@@ -1,0 +1,72 @@
+<div id="pageTitle">C</div>
+<div id="pageLogo"><a href="#c">C</a></div>
+
+<div>
+	<a href="https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5">CS50 на русском (Гарвардский курс по основам программирования)</a>
+</div>
+
+<div>
+	<pre><code>
+if (сравнение) {}  // если
+else if (сравнение) {}
+else {}
+
+while (сравнение) { i++; x; }  пока
+do { x; i++; } while (сравнение);
+for (int i = 0; i < 10; i++) {}
+
+switch (varName)
+{
+	case varValueB: ab(); break;
+	case varValueC: c(); break;
+	default: d(); break;
+}
+	</code></pre>
+<pre><code>
+int  целые числа -2 147 483 648 до 2 147 483 647  (4 байта)
+short int короткие целые числа -32 768 до 32 767  (2 байта)
+float с плавающей точкой -2 147 483 648.0 до 2 147 483 647.0  (4 байта)
+double дробные двойной точности -9 223 372 036 854 775 808.0
+                                 9 223 372 036 854 775 807.0  (8 байт)
+long float то же самое что и double
+char символы 'Q'; 'f'; ':'; '@'  (1 байт)
+
+</code></pre>
+    <pre><code>
+#include < stdio.h> //import library
+#include < string.h>
+
+int main(void) 
+{
+    int x = GetInt();
+    int y = GetInt();
+    printf("The sum of %i and %i is %i!\n", x, y, x + y);
+    PrintName(s);
+}
+
+void PrintName(string name)
+{
+	printf("hello, %s\n", name);
+}
+
+int GetPositiveInt(void)
+{
+	int n;
+	do
+	{
+		printf("Please give me a positive int: ");
+		n = GetInt();
+	}
+	while (n < 1);
+	return n;
+}
+    </code></pre>
+    <pre><code>
+make hello.c
+clang hello.c
+./a.out
+./hello
+rm hello
+clang -o HELLO hello.c
+    </code></pre>
+</div>
