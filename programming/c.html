@@ -2,7 +2,19 @@
 <div id="pageLogo"><a href="#c">C</a></div>
 
 <div>
-	<a href="https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5">CS50 на русском (Гарвардский курс по основам программирования)</a>
+	<a href="https://www.youtube.com/playlist?list=PLawfWYMUziZqyUL5QDLVbe3j5BKWj42E5">CS50 на русском (Гарвардский курс по основам программирования)</a><br>
+	<a href="https://javarush.ru/quests/QUEST_HARVARD_CS50">javarush.ru CS50</a><br>
+</div>
+
+<div>
+    <pre><code>
+make hello.c
+clang hello.c
+./a.out
+./hello
+rm hello
+clang -o HELLO hello.c
+    </code></pre>
 </div>
 
 <div>
@@ -21,9 +33,23 @@ switch (varName)
 	case varValueC: c(); break;
 	default: d(); break;
 }
-	</code></pre>
+</code></pre>
+</div>
+
+<div>
+structs.h
+<pre><code>
+typedef struct {
+	string name;
+	string dorm;
+} student;
+</code></pre>
+</div>
+
+<div>Типы данных
 <pre><code>
 int  целые числа -2 147 483 648 до 2 147 483 647  (4 байта)
+unsigned int беззнаковые (положительные) целые
 short int короткие целые числа -32 768 до 32 767  (2 байта)
 float с плавающей точкой -2 147 483 648.0 до 2 147 483 647.0  (4 байта)
 double дробные двойной точности -9 223 372 036 854 775 808.0
@@ -32,16 +58,37 @@ long float то же самое что и double
 char символы 'Q'; 'f'; ':'; '@'  (1 байт)
 
 </code></pre>
+</div>
+
+<div>
     <pre><code>
 #include < stdio.h> //import library
 #include < string.h>
 
+#include "structs.h" //custom
+
+#define STUDENTS 3 //const
+
 int main(void) 
 {
-    int x = GetInt();
-    int y = GetInt();
-    printf("The sum of %i and %i is %i!\n", x, y, x + y);
-    PrintName(s);
+  int x = GetInt();
+  int y = GetInt();
+  printf("The sum of %i and %i is %i!\n", x, y, x + y);
+  PrintName(s);
+
+  strcmp(t, u); // сравнивает строки посимвольно
+  strlen(t); //длина строки
+
+  student students[STUDENTS];
+}
+
+// запись в файл
+FILE* file = fopen("students.csv", "w");
+if (file != NULL) {
+	for (int i = 0; i < STUDENTS; i++) {
+		fprintf(file, "%s,%s\n", students[i].name, students[i].dorm);
+	}
+	fclose(file);
 }
 
 void PrintName(string name)
@@ -61,12 +108,60 @@ int GetPositiveInt(void)
 	return n;
 }
     </code></pre>
-    <pre><code>
-make hello.c
-clang hello.c
-./a.out
-./hello
-rm hello
-clang -o HELLO hello.c
-    </code></pre>
+</div>
+
+<div>* & malloc()
+	<pre><code>
+{
+  char* t = GetString(); //указатель на ячейку в памяти где хранится строка
+  char* u = GetString();
+
+  char* t = malloc((strlen(u) + 1) * sizeof(char));
+  //выделяем необходимое количество байтов памяти
+  for (int i = 0, n = strlen(u); i <= n; i++)
+  {
+  	t[i] = u[i];
+  	*(t + i) = *(s + i); //альтернативная запись
+  } // и записываем туда u
+}
+
+void swap(int* a, int* b)
+{ //*принимает адреса переменных
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+swap(&x, &y);
+// & передаём адреса переменных
+
+{
+	int* x;
+	x = malloc(sizeof(int));
+	*x = 42;
+}
+{
+	string temp = realloc(buffer, capacity * sizeof(char));
+	if (temp ==NULL)
+	{
+		free(buffer);
+		return NULL;
+	}
+	buffer = temp;
+}
+
+int GetInt(void)
+{
+	int x;
+	scanf("%i", &x);
+	int n; char c;
+	if (sscanf(varName, " %i %c", &n, &c) == 1)
+	printf("%i\n", x);
+}
+int GetString(void)
+{
+	char buffer[16];
+	scanf("%s", buffer);
+	printf("%s\n", buffer);
+}
+	</code></pre>
 </div>

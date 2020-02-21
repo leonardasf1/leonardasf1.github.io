@@ -33,17 +33,73 @@
     <li><a href="https://youtu.be/sNQJfKYmRdo"> PHP Свой Фреймворк #1 - Введение, Структура</a></li>
     <li><a href="https://vk.com/doc74080069_484590435?hash=08493f67d4fccc62d4&dl=ab99cd2c3ee33df970">PHP 7 Дмитрий Котеров, Игорь Симдянов. Наиболее полное руководство (3-е издание) - 2016.pdf
   </a></li>
+    <li>Laravel</li>
+    <li>Simfony</li>
   </ul>
 </div>
 
-<article>
 <div>
   install: php, web-server(Apache) , database(MySQL) <br>
   launch: web-server(Apache) <br>
-    <li>Laravel</li>
-    <li>Simfony</li>
+<b>number</b>
+  <pre><code>
+    round($var,2);  // округляет, кол-во знаков после запятой
+    ceil($var);  // округляет до целого в большую сторону
+    floor($var);  // округляет до целого в меньшую сторону
+    min(arr);  // возвращает наименьшее значение
+    max(arr);  // возвращает наибольшее значение
+    pow(3,4);  // возводит первый аргумент в степень равную второму аргументу
+
+  </code></pre>
+<b>string</b>
+  <pre><code>
+    $address = "{$number}@txt.att.net";
+
+    explode(" ", $str);  // разбивает в " " строку в массив
+    parse_str($str, $obj);  // разобрать строку(запрос) в обьект $obj
+    strlen($var);  // длину строки в value
+    strpos($str,$var);  // возвращает первую позицию $var в строке $str
+    stripos();  // тоже самое ,без учета регистра
+    str_repeat($str, 8);  // повторяет $str 8 раз
+    str_replace($a,$b,$c);  // в $c заменяет $a на $b
+    str_split($str, 3);  // разбивает строку на элементы массива по 3 символа
+    strrev($str);  // строку наоборот
+    substr($str, -2, 3);  // часть $str с позиции -2 три символа
+    substr_count($str,$var,3,17);  // число вхождений $var с позиции3 на 17символов вперед
+
+  </code></pre>
+<b>array</b>
+  <pre><code>
+    $gas = array(1, 2);  // массив
+    $gas = [1,3,7];
+    echo $gas[0];
+
+    array_push($name); //добавить в массив
+    foreach ($lines as $line) {echo $line};
+
+  </code></pre>
+<b>files work</b>
+  <pre><code>
+    fopen("file.csv", "r"); //открыть файл для чтения
+    fgetcsv($name) // return array
+    fclose($name); // закрыть файл
+  </code></pre>
+</div>
+<div>
+    <pre><code>
+$_COOKIE
+$_GET
+$_POST
+$_SERVER
+$_SESSION
+    </code></pre>
+</div>
+<div>
   <pre><code>
 < ?php 
+
+    require("functions.php"); // import
+
     echo 'html-cod';  // может принимать список аргументов
     ''  // только текст
     $varName = "peremenna";  // перед именем переменной ставится $
@@ -52,6 +108,7 @@
     print("text< br>");
     printf("%d", $varName);  // %f- с плавающей точкой, %s- строка
     print_r($arr);
+    exit(1); //выйти
 
     if , else , elseif , switch;
 
@@ -63,14 +120,13 @@
     show("windy");
 
     точка с запятой обязательны везде;
+
 integer, float, string, array, object, bolean;
     var_dump($varName);  // показывает тип данных переменной
     echo gettype($varName);  //  тоже самое
     settype($varName, "integer");  // преобразование типа переменнной
 
-    $gas = array(1, 2);  // массив
-    echo $gas[0];
-    
+object
     $objName = new afClass();  // обьект
     $objName->duy = "feld";
     echo $objName->duy;
@@ -80,27 +136,22 @@ integer, float, string, array, object, bolean;
     define("constName", "konstanta");  // константа
     static $p = 5;  // запоминает значение
 
-    round($var,2);  // округляет, кол-во знаков после запятой
-    ceil($var);  // округляет до целого в большую сторону
-    floor($var);  // округляет до целого в меньшую сторону
-    min(arr);  // возвращает наименьшее значение
-    max(arr);  // возвращает наибольшее значение
-    pow(3,4);  // возводит первый аргумент в степень равную второму аргументу
-
-    strlen($var);  // длину строки в value
-    strpos($str,$var);  // возвращает первую позицию $var в строке $str
-    stripos();  // тоже самое ,без учета регистра
-    substr($str, -2, 3);  // часть $str с позиции -2 три символа
-    substr_count($str,$var,3,17);  // число вхождений $var с позиции3 на 17символов вперед
-    explode(" ", $str);  // разбивает в " " строку в массив
-    parse_str($str, $obj);  // разобрать строку(запрос) в обьект $obj
-    str_repeat($str, 8);  // повторяет $str 8 раз
-    echo $rep = str_replace($a,$b,$c);  // в $c заменяет $a на $b
-    str_split($str, 3);  // разбивает строку на элементы массива по 3 символа
-    strrev($str);  // строку наоборот
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->Host = "smtp.gmail.com";
+    $mail->Password = "";
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->SMTPDebug = 1;
+    $mail->SMTPSecure = "tls";
+    $mail->Username = "bot@cs50.net";
+    $mail->SetFrom("bot@cs50.net");
+    $mail->Body = "text";
+    $mail->addAddress("");
+    $mail->Send();
+    $mail->$ErrorInfo;
+    $mail->ClearAddresses();
 
 ?>
   </code></pre>
 </div>
-
-</article>
