@@ -10,19 +10,29 @@
   <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../CSS/lb_style.css">
   <script src="../JS/main.js" type="module"></script>
-  <!-- <script src="../JS/lazysizes.min.js" async=""></script> -->
+  <script src="../JS/lazysizes.min.js" async=""></script>
 
- <style>
-  [href*="archive.org"] {
-    background: url(https://archive.org/favicon.ico) no-repeat 0;
-    background-size: 16px;
-    padding-left: 20px;
+<style>
+[href*="archive.org"] {
+  background: url(https://archive.org/favicon.ico) no-repeat 0;
+  background-size: 16px;
+  padding-left: 20px;
 }
 nav {
-    display: block;
+  display: block;
 }
 nav>a {
-    font-size: inherit;
+  font-size: inherit;
+}
+.boatInfo {
+  float: left;
+  padding: 0 1rem 1rem 0;
+  width: 320px;
+}
+.boatInfo b {
+  color: orange;
+  padding-bottom: 14px;
+  display: inline-flex;
 }
 </style>
 </head>
@@ -33,7 +43,7 @@ nav>a {
     <div id="headerMenu"></div> 
 </header>
 
-<main class="flex import_Data">
+<main class="flex import_Data lazy">
 
 <div id="links" class="img16">
 <a href="http://www.rusyf.ru" title="Всероссийская Федерация Парусного Спорта"><img src="https://rusyf.ru/assets/new/favicons/favicon-7b47a1a1bcad5e3feeac3e982f155f0a.ico"> ВФПС</a> <br>
