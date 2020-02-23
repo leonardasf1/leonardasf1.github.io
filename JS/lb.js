@@ -41,12 +41,13 @@ function lb_setHTML() {
 }
 
 function lb_setImg(n) {
+  q('#lb_img').src = "../icons/loader.svg";
+
   if (n <= 0) {q('#lb_btn_prev').style.display = "none"}
   else {q('#lb_btn_prev').style.display = "block"};
   if (!lb_album[n + 1]) {q('#lb_btn_next').style.display = "none"}
   else {q('#lb_btn_next').style.display = "block"};
 
-  q('#lb_img').src = "../icons/loader.svg";
   q('#lb_img').src = `${lb_album[n].getAttribute('href')}`;
 }
 
@@ -56,4 +57,4 @@ function lb_close() {
   q('#lightbox').classList.replace('lb_show', 'lb_hide');
   setTimeout(() => { q('#lightbox').remove() }, 400);
 }
-// + : zoom, attr title, preloader
+// + : zoom, attr title
