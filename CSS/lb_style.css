@@ -25,7 +25,6 @@
 
 #lb_btn_prev, #lb_btn_next, #lb_btn_close {
   position: absolute;
-  /*cursor: pointer;*/
   height: 30%;
   opacity: 0;
   transition: opacity 0.6s;
@@ -43,12 +42,23 @@
 }
 #lb_btn_close {
   width: 20%;
-  right: 0;
-  top: 0;
+  right: 15px;
+  top: 15px;
   background: url(../icons/close.png) right 0 no-repeat;
 }
-#lb_btn_next:hover, #lb_btn_prev:hover, #lb_btn_close:hover {
+#lb_btn_next:hover, #lb_btn_prev:hover, #lb_btn_close:hover, #lb_attrTitle:hover {
   opacity: 1;
+}
+#lb_info {
+  position: absolute;
+  height: auto;
+  bottom: 0;
+  left: 10px;
+  z-index: 10300;
+}
+#lb_attrTitle {
+  opacity: 0;
+  transition: opacity 0.6s;
 }
 
 .lb_show { animation: lb_show 1s forwards}

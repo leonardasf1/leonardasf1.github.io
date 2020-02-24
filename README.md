@@ -3,8 +3,7 @@ my personal website
 
 to do:
 lb.js
-	zoom
-	attr title display + albums.length & index
+	mobile
 
 add sections:
 	f1(big)
