@@ -92,7 +92,7 @@ if (location.hash) {
     if (q('#pageLogo')) a = q('#pageLogo > a')
     else a = q('#pageTitle');
     a.style.opacity = 0;
-    a.style.display = "block";
+    a.style.display = "flex";
     q('#headerMenu').prepend(a);
     a.style.opacity = 1;
 
