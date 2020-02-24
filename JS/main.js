@@ -88,12 +88,13 @@ if (location.hash) {
     q('main').innerHTML = results;
     q('title').innerText = q('#pageTitle').textContent;
 
-    if (q('#pageLogo')) {
-      let a = q('#pageLogo > a');
-      a.style.opacity = 0;
-      q('#headerMenu').prepend(a);
-      a.style.opacity = 1;
-    };
+    let a;
+    if (q('#pageLogo')) a = q('#pageLogo > a')
+    else a = q('#pageTitle');
+    a.style.opacity = 0;
+    a.style.display = "block";
+    q('#headerMenu').prepend(a);
+    a.style.opacity = 1;
 
     setContentFn();
     q('main').style.opacity = 1;
