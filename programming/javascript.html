@@ -2215,6 +2215,48 @@ function loadSubPage() {
 }
     </code></pre>
   </details>
+
+  <details>
+    <summary>Validation</summary><pre><code>
+< form action="register.php" id="registration" method="post">
+  Email: < input name="email" type="text">
+  < br>
+  Password: < input name="password" type="password">
+  < br>
+  Password (again): < input name="confirmation" type="password">
+  < br>
+  I agree to the terms and conditions: < input name="agreement" type="checkbox">
+  < br>
+  < input type="submit" value="Register">
+< /form>
+
+let form = document.getElementById('registration');
+
+form.onsubmit = function() {
+  if (form.email.value == '')
+  {
+    alert('You must provide your email address!');
+    return false;
+  }
+  else if (form.password.value == '')
+  {
+    alert('You must provide a password!');
+    return false;
+  }
+  else if (form.password.value != form.confirmation.value)
+  {
+    alert('Passwords do not match!');
+    return false;
+  }
+  else if (!form.agreement.checked)
+  {
+    alert('You must agree to the terms and conditions!');
+    return false;
+  }
+  return true;
+}
+    </code></pre>
+  </details>
 </div>
 
 <div>RegExp <a href="https://learn.javascript.ru/regular-expressions"><img src="http://learn.javascript.ru/img/favicon/favicon.png" alt="learn.javascript.ru"></a>

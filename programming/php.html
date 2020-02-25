@@ -117,7 +117,6 @@ $_SESSION
 <div>
   <pre><code>
 < ?php 
-extract($data);
 require("functions.php"); // import
 
 echo 'html-cod';  // может принимать список аргументов
@@ -125,6 +124,7 @@ echo 'html-cod';  // может принимать список аргумент
 $varName = "peremenna";  // перед именем переменной ставится $
 echo "text $varName";  // переменная встраивается в текст с ""
 echo $varName.'='.$varName;  // конкатенация точкой
+$path = $tamplate . ".php";
 print("text< br>");
 printf("%d", $varName);  // %f- с плавающей точкой, %s- строка
 print_r($arr);
@@ -162,6 +162,11 @@ exit(1); //выйти
     $mail->$ErrorInfo;
     $mail->ClearAddresses();
 
+query("SQL-запрос", $_GET['username'], $_GET['name']);
+$username = $_POST["username"];
+$password = $_POST["password"];
+<s>query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");</s>
+query("SELECT * FROM users WHERE username=? AND password=?", $username, $password);
 ?>
   </code></pre>
 </div>
