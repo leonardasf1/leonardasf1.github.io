@@ -48,77 +48,153 @@ s { color: red; }
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js" async></script>
   <script src="../JS/main.js" type="module"></script>
 </head>
+
 <body>
+
 <header>
-    <div id="headerMenu"></div> 
+  <div id="headerMenu">
+        
+    <div class="logo"><a href="../" title="Home"><img src="../icons/favicon.ico" alt="home"></a></div>
+
+    <div><a>programming</a></div>
+
+    <div class="headDivTog"><a href="../programming/" title="programming"><img src="../icons/programing.png" alt="programming"> </a></div>
+
+    <div class="headDivTog"><a class="item">Языки программирования</a>
+      <div>
+<div><a href="#c"><span>C</span></a></div>
+<div><a href="#javascript">
+    <img src="../icons/js.svg" alt="javascript">
+    <span style="color: #f7df1e">JavaScript</span></a></div>
+<div><a href="#php">
+    <img src="https://www.php.net/images/logos/php-med-trans.png" alt="php">
+    <span>PHP</span></a></div>
+<div><a href="#python">
+    <img src="https://www.python.org/static/favicon.ico" alt="python">
+    <span class="pycon">python</span></a></div>
+<div><a href="#rust" style="filter: none">
+    <img src="https://www.rust-lang.org/static/images/favicon-32x32.png" alt="Rust">
+    <span>Rust</span></a></div>
+<div><a href="#golang">
+    <img src="https://golang.org/favicon.ico" alt="Golang">
+    <span>Golang</span></a></div>
+      </div>
+    </div>
+
+    <div class="headDivTog"><a class="item">JS-frameworks</a>
+      <div>
+<div><a href="#jquery">
+    <img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jquery">
+    <span>jQuery</span></a></div>
+<div><a href="#rxjs">
+    <img src="https://rxjs-dev.firebaseapp.com/assets/images/logos/logo.png" alt="RxJS">
+    <span class="hidden">RxJS</span></a></div>
+<div><a href="#angular">
+    <img src="https://angular.io/assets/images/favicons/favicon.ico" alt="angular">
+    <span style="color: #e23237">Angular</span></a></div>
+<div><a href="#react">
+    <img src="../icons/react.svg" alt="react">
+    <span style="color: #61dafb">React</span></a></div>
+<div><a href="#vue">
+    <img src="../icons/vue.svg" alt="vue">
+    <span style="color: #41b883">Vue</span></a></div>
+<div><a href="#nodejs">
+    <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js">
+    <span class="hidden">NodeJS</span></a></div>
+<div><a href="#expressjs">
+    <img src="https://expressjs.com/images/favicon.png" alt="ExpressJS">
+    <span>ExpressJS</span></a></div>
+      </div>
+    </div>
+
+    <div id="headerBar_toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+  </div>
+  <div id="headerBar">
+
+    <div>
+        <a href="../programming/" title="programming">
+            <img src="../icons/programing.png" alt="programming">
+        </a></div>
+
+    <div><a class="item">Языки программирования</a>
+      <div>
+<div><a href="#c"><span>C</span></a></div>
+<div><a href="#javascript">
+    <img src="../icons/js.svg" alt="javascript">
+    <span style="color: #f7df1e">JavaScript</span></a></div>
+<div><a href="#php">
+    <img src="https://www.php.net/images/logos/php-med-trans.png" alt="php">
+    <span>PHP</span></a></div>
+<div><a href="#python">
+    <img src="https://www.python.org/static/favicon.ico" alt="python">
+    <span class="pycon">python</span></a></div>
+<div><a href="#rust" style="filter: none">
+    <img src="https://www.rust-lang.org/static/images/favicon-32x32.png" alt="Rust">
+    <span>Rust</span></a></div>
+<div><a href="#golang">
+    <img src="https://golang.org/favicon.ico" alt="Golang">
+    <span>Golang</span></a></div>
+      </div>
+    </div>
+
+    <div><a class="item">JS-frameworks</a>
+      <div>
+<div><a href="#jquery">
+    <img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jquery">
+    <span>jQuery</span></a></div>
+<div><a href="#rxjs">
+    <img src="https://rxjs-dev.firebaseapp.com/assets/images/logos/logo.png" alt="RxJS">
+    <span class="hidden">RxJS</span></a></div>
+<div><a href="#angular">
+    <img src="https://angular.io/assets/images/favicons/favicon.ico" alt="angular">
+    <span style="color: #e23237">Angular</span></a></div>
+<div><a href="#react">
+    <img src="../icons/react.svg" alt="react">
+    <span style="color: #61dafb">React</span></a></div>
+<div><a href="#vue">
+    <img src="../icons/vue.svg" alt="vue">
+    <span style="color: #41b883">Vue</span></a></div>
+<div><a href="#nodejs">
+    <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js">
+    <span class="hidden">NodeJS</span></a></div>
+<div><a href="#expressjs">
+    <img src="https://expressjs.com/images/favicon.png" alt="ExpressJS">
+    <span>ExpressJS</span></a></div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="flex">
-<nav>
+<div class="img32">
 <a href="#html">
     <img src="../icons/html.svg" alt="html5">
-    <span>HTML</span></a>
+    <span>HTML</span></a><br>
 <a href="#css">
     <img src="../icons/css.svg" alt="css">
-    <span>CSS</span></a>
-</nav>
-<nav>
-<a href="#c"><span>C</span></a>
-<a href="#javascript">
-    <img src="../icons/js.svg" alt="javascript">
-    <span style="color: #f7df1e">JavaScript</span></a>
-<a href="#php">
-    <img src="https://www.php.net/images/logos/php-med-trans.png" alt="php">
-    <span>PHP</span></a>
-<a href="#python">
-    <img src="https://www.python.org/static/favicon.ico" alt="python">
-    <span class="pycon">python</span></a>
-<a href="#rust" style="filter: none">
-    <img src="https://www.rust-lang.org/static/images/favicon-32x32.png" alt="Rust">
-    <span>Rust</span></a>
-<a href="#golang">
-    <img src="https://golang.org/favicon.ico" alt="Golang">
-    <span>Golang</span></a>
-</nav>
-<nav>
+    <span>CSS</span></a><br>
+<a href="#regexp">RegExp</a>
+</div>
+
+<div class="img32">
 <a href="#git">
     <img src="https://git-scm.com/favicon.ico" alt="Git">
-    <span>Git</span></a>
+    <span>Git</span></a><br>
 <a href="#webpack">
     <img src="https://webpack.js.org/e0b5805d423a4ec9473ee315250968b2.svg" alt="webpack">
     <span class="hidden">webpack</span></a>
-</nav>
-<nav>
-<a href="#jquery">
-    <img src="https://jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico" alt="jquery">
-    <span>jQuery</span></a>
-<a href="#rxjs">
-    <img src="https://rxjs-dev.firebaseapp.com/assets/images/logos/logo.png" alt="RxJS">
-    <span class="hidden">RxJS</span></a>
-<a href="#angular">
-    <img src="https://angular.io/assets/images/favicons/favicon.ico" alt="angular">
-    <span style="color: #e23237">Angular</span></a>
-<a href="#react">
-    <img src="../icons/react.svg" alt="react">
-    <span style="color: #61dafb">React</span></a>
-<a href="#vue">
-    <img src="../icons/vue.svg" alt="vue">
-    <span style="color: #41b883">Vue</span></a>
-</nav>
-<nav>
-<a href="#nodejs">
-    <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js">
-    <span class="hidden">NodeJS</span></a>
-<a href="#expressjs">
-    <img src="https://expressjs.com/images/favicon.png" alt="ExpressJS">
-    <span>ExpressJS</span></a>
-<a href="#sql">SQL</a>
-<a href="#mongodb">
-    <img src="https://www.mongodb.com/assets/images/global/favicon.ico" alt="MongoDB">
-    MongoDB</a>
-<a href="#tests">Tests</a>
+</div>
+<div>
+<a href="#safety">Safety</a><br>
+<a href="#database">DB/SQL</a><br>
+<a href="#tests">Tests</a><br>
 <a href="#net">Net</a>
-</nav>
+</div>
 
 <div id="links">
     <a href="https://itvdn.com/ru/catalog" style="padding-left: 0; background: none"><img src="https://itvdn.com/Content/img/header/logo.svg" alt="itvdn"></a>
@@ -162,6 +238,7 @@ s { color: red; }
     <a href="https://frontendconf.ru/moscow/2019/abstracts/4782">RUST + WEBASSEMBLY (2019)</a><br>
     <a href="https://www.vugu.org/">Vugu: A modern UI library for Go+WebAssembly</a><br>
     Blazor <br>
+    <a href="https://youtu.be/EaJHp-c_HVk">WASM Meetup 2019</a><br>
 </div>
 
 <div>
@@ -185,7 +262,10 @@ window.parent.postMessage(await handle(location))
     </code></pre>
 </div>
 
-<div><a href="https://youtu.be/BX2M8t5BA3s">Machine Learning &</a><br>
+<div><h2>AI</h2>
+    ELIZA <br>
+    IBM Watson <br>
+    <a href="https://youtu.be/BX2M8t5BA3s">Machine Learning &</a><br>
     Deep Neural Networks<br>
     TensorflowJS<br>
 </div>
@@ -252,6 +332,7 @@ window.parent.postMessage(await handle(location))
 <a href="https://leetcode.com/problemset/all/?difficulty=Easy">leetcode.Больше практики</a><br>
 <a href="https://alexanderskulikov.github.io/files/algorithms_href.pdf">algorithms_href.pdf</a><br>
 <a href="http://bigocheatsheet.com">Шпаргалка по O-нотации</a><br>
+<a href="https://youtu.be/MWsfHQaUzI0">Алгоритмы и структуры данных (С++), лекция №1</a><br>
 </div>
 
 
@@ -282,6 +363,7 @@ window.parent.postMessage(await handle(location))
 
 <div class="img16">
     <h2>Hosting / Domain /<br> Deploy</h2>
+    <a href="https://www.youtube.com/playlist?list=PLVSuF-7tjVUgPSW-YAhrGjnShRsW9gA7_">знакомство с Kubernetes</a><br>
     <a href="https://youtu.be/bC-MUHhdiUk">Build, Deploy, CI – Сергей Гоголев, Сергей Жигалов</a><br>
     <a href="https://www.heroku.com/"><img src="https://brand.heroku.com/static/media/heroku-logo-stroke-gradient.bb410472.svg" alt="Heroku"> Heroku </a> . <a href="https://youtu.be/wG7hX8Np1Pg" title="деплой на heroku">.</a><br>
     DevOps: docker, CI/CD(Continuous Integration)<br>
@@ -299,6 +381,15 @@ window.parent.postMessage(await handle(location))
     <rect width="8" height="8" style="fill: #00A4EF; stroke-width: .2; stroke: black" y="8"></rect></svg> .Microsoft Azure</a><br>
     <a href="https://www.namecheap.com"><img src="https://www.namecheap.com/assets/img/nc-icon/namecheap-icon-72x72.png" height="16px" alt="namecheap.com"> namecheap.com</a><br>
     <a href="https://gpdhost.com"><img src="https://gpdhost.com/images/favicon/favicon-32x32.png" height="16px" alt="gpdhost.com"> gpdhost</a><br>
+</div>
+
+<div>
+    <h2>auth</h2>
+    <a href="https://github.com/leonardasf1/auth_redbeanPHP">auth_redbeanPHP</a>
+    <a href="https://youtu.be/vvgOPJQA8Zk"> PHP - 100% Защищённая Регистрация и Авторизация за 30 минут.</a><br>
+    <a href="https://youtu.be/eCItZh6uMVc"> Авторизация и регистрация с сессией на чистом PHP</a><br>
+    <a href="https://habr.com/ru/company/1cloud/blog/445534/">WebAuthn - проект закрыт</a><br>
+    <a href="https://github.com/Stanford/webauth">WebAuth - проект закрыт</a><br>
 </div>
 
 <div>
@@ -406,21 +497,11 @@ public class Home {
   <ul>
     <li><img src="https://electronjs.org/images/favicon.ico" alt="electronjs"><a href="https://electronjs.org/">electronjs.org</a></li>
     <li><a href="https://github.com/Tencent/omi"><img src="https://tencent.github.io/omi/assets/omi-logo2019.svg" alt="omi"> omi</a></li>
-    <li><a href="https://graphql.org/"><img src="https://graphql.org/img/logo.svg" alt="graphql.org"> GraphQL</a>
-        , <a href="https://habr.com/en/post/326986/">Habr</a>
-        , <a href="https://tproger.ru/translations/graphql-beginners-guide/">tproger</a><br>
-        , <a href="https://youtu.be/4diXbLnYrMs">GraphQL, или Новый взгляд на API / Илья Запруцкий(2018)</a><br>
-        , <a href="https://youtu.be/_vjSZhnYhfI">GraphQL в 2018 / Илья Климов / MYKOLAIV JS 2018</a><br>
-        , <a href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">graphql-shorthand-notation</a>
-    </li>
-    <li><a href="https://habr.com/ru/company/hexlet/blog/274675/">RESTful</a></li>
     <li><a href="https://youtu.be/fCQBMPjCgxE">Jira</a>, <a href="https://youtu.be/jj93FUQx-Ew">Slack</a></li>
     <li><a href="https://youtu.be/_ucQ8i-MOdM">Lodash</a></li>
     <li><a href="https://github.com/WICG/display-locking">display-locking</a></li>
     <li><a href="https://amp.dev/">AMP</a></li>
     <li><a href="https://ru.wikipedia.org/wiki/CURL">cURL</a></li>
-    <li>WebSQL</li>
-    <li>WebAuthn</li>
     <li>Apache Kafka / Nginx .webservers</li>
     <li>normalizr</li>
     <li>SSH</li>
@@ -434,8 +515,8 @@ public class Home {
     <li><a href="http://progopedia.ru/">progopedia.ru</a></li>
     <li><a href="https://almanac.httparchive.org">almanac.httparchive</a></li>
     <li><a href="https://vk.com/doc41637949_513701117">code complete Стива Макконнела. 2010</a></li>
-    <li><a href="https://htmlacademy.ru"><img src="https://htmlacademy.ru/favicon.svg" alt="htmlacademy"> htmlacademy.ru</a><span style="color: rgba(0,0,0,0);">e5744e2</span></li>
-    <li><a href="https://www.sololearn.com/Course/HTML/"><img src="https://www.sololearn.com/Images/favicon.ico" alt="sololearn"> sololearn.com</a> <span style="color: rgba(0,0,0,0);">ctepnoi</span> </li>
+    <li><a href="https://htmlacademy.ru"><img src="https://htmlacademy.ru/favicon.svg" alt="htmlacademy"> htmlacademy.ru</a></li>
+    <li><a href="https://www.sololearn.com/Course/HTML/"><img src="https://www.sololearn.com/Images/favicon.ico" alt="sololearn"> sololearn.com</a></li>
     <li><a href="https://youtu.be/RaiVatBqtGo">Качество кода: что это такое и зачем нужно знать? (Глеб Михеев)</a></li>
     <li><a href="https://vk.com/doc59859230_487463267">Малкольм Гладуэлл - Гении и аутсайдеры</a></li>
     <li><a href="https://tympanus.net/codrops/"><img src="https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/themes/codropstheme03/favicons/favicon-16x16.png" alt="tympanus"> tympanus.net</a>

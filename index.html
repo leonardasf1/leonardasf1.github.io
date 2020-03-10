@@ -8,22 +8,55 @@
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="manifest" href="manifest.webmanifest">
   <script src="JS/main.js" type="module"></script>
-  <script src="JS/lazysizes.min.js" async=""></script>
+  <!-- <script src="JS/lazysizes.min.js" async=""></script> -->
+  <style>
+    body {
+background: linear-gradient(135deg, #8360c3, #2ebf91);
+height: 100%;
+min-height: 100vh;
+    }
+    nav {
+color: #fff;
+padding: 30px 50px;
+    }
+    nav > * {
+width: calc(100vw - 100px);
+margin-bottom: .5rem;
+    }
+    hr {
+color: #fff2;
+height: 1px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div id="headerMenu"></div>
-</header>
+<nav class="img32">
 
-<main class="import_Data flex">
-  <style>
-    #headerMenu {
-      height: 100vh;
-    }
-  </style>
-</main>
-<footer></footer>
+<a><img src="icons/favicon.ico" alt="home"></a><hr>
+<!-- <a href="F1_Challenge/" title="formula 1"><img src="icons/f1.png" alt="formula 1"></a> -->
+<a href="sailing/" title="sailing"><img src="icons/sailing.png" alt="sailing"> Паруса</a><hr>
+<a href="programming/" title="programming"><img src="icons/programing.png" alt="programming"> Программирование</a><hr>
+<!-- <a href="Alpinism/" title="alpinisme"><img src="icons/alpinism.png" alt="alpinisme"></a> -->
+<a href="flamenco/" title="flamenco"><img src="icons/flamenco.png" alt="flamenco"> Фламенко</a><hr>
+<!-- <a href="13vek.html" title="medieval"><img src="icons/medieval.png" alt="medieval"></a> -->
+<a href="zdorovie/" title="Здоровье"><img src="icons/zdorovie.png" alt="Здоровье"> Здоровье</a><hr>
+<a href="Skateboard/" title="Лонгбординг"><img src="icons/skateboarding.png" alt="skateboarding"> Скейтборд</a><hr>
+<a href="surf/" title="Серфинг"><img src="icons/surf.png" alt="surf"> Сёрфинг</a><hr>
+<a href="guitar/" title="Guitar"><img src="icons/guitar.png" alt="guitar"> Гитара</a>
+<!-- <div>
+    <div class="item">старье</div>
+    <div class="submenu">
+<a href="games.html">Games</a>
+<a href="karting.html">Karting</a>
+<a href="upgrade.html">Upgrade</a>
+<a href="zametki.html">Заметки</a>
+<a href="nu/">nu</a>
+    </div>
+</div> -->
+
+</nav>
+<!-- <footer></footer> -->
 </body>
 </html>

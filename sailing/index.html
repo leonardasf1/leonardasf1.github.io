@@ -18,12 +18,12 @@
   background-size: 16px;
   padding-left: 20px;
 }
-nav {
-  display: block;
-}
-nav>a {
-  font-size: inherit;
-}
+nav { display: block }
+nav > a { font-size: inherit }
+
+.nav { opacity: .5 }
+.nav:hover { opacity: 1 }
+
 .boatInfo {
   float: left;
   padding: 0 1rem 1rem 0;
@@ -40,12 +40,174 @@ nav>a {
 <body>
 
 <header>
-    <div id="headerMenu"></div> 
+  <div id="headerMenu">
+
+    <div class="logo"><a href="../" title="Home"><img src="../icons/favicon.ico" alt="home"></a></div>
+
+    <div><a>Sailing</a></div>
+
+    <div class="headDivTog"><a href="../sailing/"><img src="../icons/sailing.png" alt="sailing"></a></div>
+
+    <div class="headDivTog"><a class="item">Парусники</a>
+      <div>
+<div><a href="#sailboats/Nau">Nau</a></div>
+<div><a href="#sailboats/Dau">Дау / Баггала</a></div>
+<div><a href="#sailboats/Carraca">Каррака</a></div>
+<div><a href="#sailboats/Caravela">Каравелла</a></div>
+<div><a href="#sailboats/Xebec">Щебека</a></div>
+<div><a href="#sailboats/Galeon">Галеон</a></div>
+<div><a href="#sailboats/HisWar">Исторические военные парусники</a></div>
+<div><a href="#sailboats/HisTrade">Исторические торговые парусники</a></div>
+<div><a href="#sailboats/HisSmallShip">Исторические малые суда</a></div>
+<div><a href="#sailboats/Clipper">Клипер</a></div>
+<div><a href="#sailboats/cutter">Тендер / Cutter</a></div>
+<div><a href="#sailboats/cutter93-37">Classic Yachts 1893-1937</a></div>
+<div><a href="#sailboats/maxi">Maxi</a></div>
+<div><a href="#sailboats/ocean-race-70">Ocean Race Yachts 60-70ft</a></div>
+<div><a href="#sailboats/Superyacht">Superyacht</a></div>
+<div><a href="#sailboats/china-sail">Китайский парус</a></div>
+<div><a href="#sailboats/grunvald" title="grunvald">格伦</a></div>
+      </div>
+    </div>
+    <div class="headDivTog"><a class="item">Обучение</a>
+      <div>
+<div><a href="#training_practice">Обучение и практика</a></div>
+<div><a href="#2">2. Общие сведения о парусных судах.</a></div>
+<div><a href="#3">3. Архитектура и устройство парусных судов.</a></div>
+<div><a href="#4">4. Парусное вооружение яхт.</a></div>
+<div><a href="#5">5. Теория парусного судна.</a></div>
+<div><a href="#6">6. Теория яхты.</a></div>
+<div><a href="#7">7. Гидрометеорология</a></div>
+<div><a href="#8">8. Управление парусной яхтой.</a></div>
+<div><a href="#9">9. Особые случаи при управлении парусным судном.</a></div>
+<div><a href="#10" title="10-11 seamanship">10-11. Судовождение. Навигация и Лоция</a></div>
+<div><a href="#12" >12. Правила безопасности плавания на яхтах</a></div>
+<div><a href="#13" >13. Судовые работы и организация судовой службы.</a></div>
+<div><a href="#14" >14. Такелажное дело и парусные работы</a></div>
+<!-- <div><a href="#15" >15. Правила и Регламенты парусных соревнований</a></div> -->
+<!-- <a >16. Сигнализация и радиосвязь</a><br> -->
+<a href="#law" title="sailing & law">17. Юридические аспекты яхтинга. Морское право</a><br>
+<!-- <a title="18 offshore safety">18. Основы выживания на море</a><br>
+<a >19. Медицинская помощь и судовая гигиена</a><br>
+<a >20. Снабжение и оборудование яхт</a><br>
+<a >21. Английский язык</a><br>
+<a >22. Мореходная астрономия</a><br> -->
+      </div>
+    </div>
+
+    <div class="headDivTog">
+      <a class="item">Литература</a>
+      <div>
+        <div><a href="#literM">1967 - 2011</a></div>
+        <div><a href="#literO">1670 - 1914</a></div>
+      </div>
+    </div>
+
+    <div id="headerBar_toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+  </div>
+  <div id="headerBar">
+    <div><a href="../sailing/"><img src="../icons/sailing.png" alt="sailing"></a> <a class="item">Парусники</a>
+      <div>
+<div><a href="#sailboats/Nau">Nau</a></div>
+<div><a href="#sailboats/Dau">Дау / Баггала</a></div>
+<div><a href="#sailboats/Carraca">Каррака</a></div>
+<div><a href="#sailboats/Caravela">Каравелла</a></div>
+<div><a href="#sailboats/Xebec">Щебека</a></div>
+<div><a href="#sailboats/Galeon">Галеон</a></div>
+<div><a href="#sailboats/HisWar">Исторические военные парусники</a></div>
+<div><a href="#sailboats/HisTrade">Исторические торговые парусники</a></div>
+<div><a href="#sailboats/HisSmallShip">Исторические малые суда</a></div>
+<div><a href="#sailboats/Clipper">Клипер</a></div>
+<div><a href="#sailboats/cutter">Тендер / Cutter</a></div>
+<div><a href="#sailboats/cutter93-37">Classic Yachts 1893-1937</a></div>
+<div><a href="#sailboats/maxi">Maxi</a></div>
+<div><a href="#sailboats/ocean-race-70">Ocean Race Yachts 60-70ft</a></div>
+<div><a href="#sailboats/Superyacht">Superyacht</a></div>
+<div><a href="#sailboats/china-sail">Китайский парус</a></div>
+<div><a href="#sailboats/grunvald" title="grunvald">格伦</a></div>
+      </div>
+    </div>
+    <div><a class="item">Обучение</a>
+      <div>
+<div><a href="#training_practice">Обучение и практика</a></div>
+<div><a href="#2">2. Общие сведения о парусных судах.</a></div>
+<div><a href="#3">3. Архитектура и устройство парусных судов.</a></div>
+<div><a href="#4">4. Парусное вооружение яхт.</a></div>
+<div><a href="#5">5. Теория парусного судна.</a></div>
+<div><a href="#6">6. Теория яхты.</a></div>
+<div><a href="#7">7. Гидрометеорология</a></div>
+<div><a href="#8">8. Управление парусной яхтой.</a></div>
+<div><a href="#9">9. Особые случаи при управлении парусным судном.</a></div>
+<div><a href="#10" title="10-11 seamanship">10-11. Судовождение. Навигация и Лоция</a></div>
+<div><a href="#12" >12. Правила безопасности плавания на яхтах</a></div>
+<div><a href="#13" >13. Судовые работы и организация судовой службы.</a></div>
+<div><a href="#14" >14. Такелажное дело и парусные работы</a></div>
+<!-- <div><a href="#15" >15. Правила и Регламенты парусных соревнований</a></div> -->
+<!-- <a >16. Сигнализация и радиосвязь</a><br> -->
+<a href="#law" title="sailing & law">17. Юридические аспекты яхтинга. Морское право</a><br>
+<!-- <a title="18 offshore safety">18. Основы выживания на море</a><br>
+<a >19. Медицинская помощь и судовая гигиена</a><br>
+<a >20. Снабжение и оборудование яхт</a><br>
+<a >21. Английский язык</a><br>
+<a >22. Мореходная астрономия</a><br> -->
+      </div>
+    </div>
+
+    <div>
+      <a class="item">Литература</a>
+      <div>
+        <div><a href="#literM">1967 - 2011</a></div>
+        <div><a href="#literO">1670 - 1914</a></div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="flex import_Data lazy">
 
-<div id="links" class="img16">
+<div class="nav"><a href="#sailboats/Nau">
+  <div><img src="../sailing/sailboats/Nau/32-200.jpg" alt="Nau"><h2>Nau</h2></div></a></div>
+<div class="nav"><a href="#sailboats/Dau">
+  <div><img src="../sailing/sailboats/Dau/baggala2-200.jpg" alt="Дау"><h2>Дау / Баггала</h2></div></a></div>
+<div class="nav"><a href="#sailboats/Carraca">
+  <div><img src="../sailing/sailboats/Carraca/MaryRose/18-200.jpg" alt="Каррака"><h2>Каррака</h2></div></a></div>
+<div class="nav"><a href="#sailboats/Caravela">
+  <div><img src="../sailing/sailboats/Caravela/37-200.jpg" alt="Каравелла"><h2>Каравелла</h2></div></a></div>
+<div class="nav"><a href="#sailboats/Xebec">
+  <div><img src="../sailing/sailboats/Xebec/shebeka-200.jpg" alt="Щебека"><h2>Щебека</h2></div></a></div>
+<div class="nav"><a href="#sailboats/Galeon">
+  <div><img src="../sailing/sailboats/Galeon/poPzLi7YztU.jpg" alt="Галеон" height="200px"><h2>Галеон</h2></div></a></div>
+<div class="nav"><a href="#sailboats/HisWar">
+  <div><img src="../sailing/sailboats/HisWar/Soleil-Royal/1-200.jpg" alt="Исторические военные парусники"><h4>Исторические военные парусники</h4></div></a></div>
+<div class="nav"><a href="#sailboats/HisTrade">
+  <div><img src="../sailing/sailboats/HisTrade/pinnasa-200.jpg" alt="Исторические торговые парусники"><h4>Исторические торговые парусники</h4></div></a></div>
+<div class="nav"><a href="#sailboats/HisSmallShip">
+  <div><img src="../sailing/sailboats/HisSmallShip/gukor-200.jpg" alt="Исторические малые суда"><h4>Исторические малые суда</h4></div></a></div>
+<div class="nav"><a href="#sailboats/Clipper">
+  <div><img src="../sailing/sailboats/Clipper/thermopylae/3-200.jpg" alt="Клипер"><h2>Клипер</h2></div></a></div>
+<div class="nav"><a href="#sailboats/cutter">
+  <div><img src="../sailing/sailboats/Cutter/Volunteer/2-200.jpg" alt="Тендер / Cutter"><h2>Тендер / Cutter</h2></div></a></div>
+<div class="nav"><a href="#sailboats/cutter93-37">
+  <div><img src="../sailing/sailboats/cutter93-37/Moonbeam-3/m6-200.jpg" alt="Classic Yachts 1893-1937"><h4>Classic Yachts 1893-1937</h4></div></a></div>
+<div class="nav"><a href="#sailboats/maxi">
+  <div><img src="../sailing/sailboats/maxi/Speedboat/Rambler_1002-200.jpg" alt="Maxi"><h2>Maxi</h2></div></a></div>
+<div class="nav"><a href="#sailboats/ocean-race-70">
+  <div><img src="../sailing/sailboats/ocean-race-70/2015-Populaire/1-200.jpg" alt="Ocean Race Yachts 60-70ft"><h4>Ocean Race Yachts 60-70ft</h4></div></a></div>
+<div class="nav"><a href="#sailboats/Superyacht">
+  <div><img src="../sailing/sailboats/Superyacht/Oceanco_Y-712/1-200.jpg" alt="Superyacht"><h2>Superyacht</h2></div></a></div>
+<div class="nav"><a href="#sailboats/china-sail">
+  <div><img src="../sailing/sailboats/china-sail/3-200.jpg" alt="Китайский парус"><h2>Китайский парус</h2></div></a></div>
+<div class="nav"><a href="#sailboats/grunvald" title="grunvald">
+  <div><img src="../sailing/sailboats/grunvald/the-house-of-seven-rivers-2.jpg" alt="grunvald" height="200px"><h2>格伦</h2></div></a></div>
+
+<div>
+  <details>
+    <summary>Ссылки</summary><div id="links" class="img16">
 <a href="http://www.rusyf.ru" title="Всероссийская Федерация Парусного Спорта"><img src="https://rusyf.ru/assets/new/favicons/favicon-7b47a1a1bcad5e3feeac3e982f155f0a.ico"> ВФПС</a> <br>
 <a href="http://www.sailing.org" title="International Sailing Federation"><img src="http://www.sailing.org/favicon.ico"> ISAF</a> <br>
 <a href="http://rya.org.uk" title="Royal Yachting Association"><img src="https://www.rya.org.uk/_layouts/15/rya/styles/img/site-images/icons/favicon/favicon-16x16.png"> RYA</a> <br>
@@ -74,111 +236,9 @@ nav>a {
 <a href="http://www.twirpx.com/files/physical_training/yachting/"><img src="http://www.twirpx.com/favicon.ico"> Книги.Яхтинг</a><br>
 <a href="http://www.morkniga.ru/" title="МОРКНИГА"><img src="http://www.morkniga.ru/anchor.ico"> morkniga.ru</a><br>
 <a href="http://nacekomie.ru/forum/viewtopic.php?f=67&t=10138"><img src="http://nacekomie.ru/favicon.ico"> Библиотека судомоделиста</a><br>
-</div>
+  </div></details>
 
-<nav>
-<a href="#training_practice">Обучение и практика</a>
- <h2>теория</h2>
-<a href="#2">2. Общие сведения о парусных судах.</a><br>
-<a href="#3">3. Архитектура и устройство парусных судов.</a><br>
-<a href="#4">4. Парусное вооружение яхт.</a><br>
-<a href="#5">5. Теория парусного судна.</a><br>
-<a href="#6">6. Теория яхты.</a><br>
-<a href="#7">7. Гидрометеорология</a><br>
-<a href="#8">8. Управление парусной яхтой.</a><br>
-<a href="#9">9. Особые случаи при управлении парусным судном.</a><br>
-<a href="#10" title="10-11 seamanship">10-11. Судовождение. Навигация и Лоция</a><br>
-<a href="#12" >12. Правила безопасности плавания на яхтах</a><br>
-<a href="#13" >13. Судовые работы и организация судовой службы.</a><br>
-<a href="#14" >14. Такелажное дело и парусные работы</a><br>
-<a href="#15" >15. Правила и Регламенты парусных соревнований</a><br>
-<!-- <a >16. Сигнализация и радиосвязь</a><br> -->
-<a href="#law" title="sailing & law">17. Юридические аспекты яхтинга. Морское право</a><br>
-<!-- <a title="18 offshore safety">18. Основы выживания на море</a><br>
-<a >19. Медицинская помощь и судовая гигиена</a><br>
-<a >20. Снабжение и оборудование яхт</a><br>
-<a >21. Английский язык</a><br>
-<a >22. Мореходная астрономия</a><br> -->
-</nav>
-
-<nav>
-<h2>Парусники</h2>
-<a href="#sailboats/Nau">Nau</a><br>
-<a href="#sailboats/Dau">Дау / Баггала</a><br>
-<a href="#sailboats/Carraca">Каррака</a><br>
-<a href="#sailboats/Caravela">Каравелла</a><br>
-<a href="#sailboats/Xebec">Щебека</a><br>
-<a href="#sailboats/Galeon">Галеон</a><br>
-<a href="#sailboats/HisWar">Исторические военные парусники</a><br>
-<a href="#sailboats/HisTrade">Исторические торговые парусники</a><br>
-<a href="#sailboats/HisSmallShip">Исторические малые суда</a><br>
-<a href="#sailboats/Clipper">Клипер</a><br>
-<a href="#sailboats/cutter">Тендер / Cutter</a><br>
-<a href="#sailboats/cutter93-37">Classic Yachts 1893-1937</a><br>
-<a href="#sailboats/maxi">Maxi</a><br>
-<a href="#sailboats/ocean-race-70">Ocean Race Yachts 60-70ft</a><br>
-<a href="#sailboats/Superyacht">Superyacht</a><br>
-<a href="#sailboats/china-sail">Китайский парус</a><br>
-<a href="#sailboats/grunvald" title="grunvald">格伦</a><br>
-</nav>
-
-<div class="import_Data">
- <h2>Литература</h2> 
-<li><a href="../sailing/books/l-petersson_takelazh_modelej_istoricheskikh_korabl.pdf">Такелаж моделей исторических кораблей . Л. Петерссон. </a> 32Mb</li>
-<li><a title="">Historic sail the glory of the sailing ship from the 13th to the 19h century </a></li>
-<li><a href="https://yadi.sk/i/6LgIQ3JV3Ssvdn">Чайные клипера . Кэмпбэлл . 2011</a> 168Mb</li>
-<li><a href="https://cloud.mail.ru/public/BnHk/YntkwiBBh">17th and 18th Century Ship Models from the Kriegstein Collection . 2007</a> 549Mb</li>
-<li><a href="../sailing/books/ferreiro_l_d_ships_and_science_the_birth_of_naval_.pdf">Ships and Science: The Birth of Naval Architecture in the Scientific Revolution, 1600-1800 . Ferreiro L.D. 2007 </a> 6Mb</li>
-<li><a href="https://yadi.sk/i/yfgTyYc63Sswt6">Русские императорские яхты . Знаменов В.В. 1997</a> 192Mb</li>
-<li><a href="https://yadi.sk/i/Y19GiFzR3SsxDU">Historic Ship Models . Mondfeld . 1989</a> 271Mb</li>
-<li><a href="../sailing/books/BBond.pdf">Справочник Яхтсмена . Бонд . 1989</a> 17Mb</li>
-<li><a href="https://yadi.sk/d/0ReTH6F63SsuP2">Постройка моделей судов . Курти О. 1989</a> 350Mb</li>
-<li><a href="../sailing/books/mitrofanov-shkoly_pod_parusami-uchebnyj_parusnyj_f.djvu">Школы под парусами. Учебный парусный флот XVIII-XX вв . Митрофанов . 1989</a> 10Mb</li>
-<li><a title="">Паруса . Ховард — Вильямс . 1988 </a></li>
-<li><a href="../sailing/books/Svensson.pdf">Справочник по такелажным работам . Свенссон . 1987 </a> 1Mb</li>
-<li><a href="https://yadi.sk/i/0Jl5Y85C3NMWyW">Постройка яхт . К. Рейнке. Л. Лютьен. И. Мус. 1986 </a>. 51Mb</li>
-<li><a href="../sailing/books/Leontyev_capitan.pdf">Школа Яхтеннго Капитана . Леонтьев . 1983 </a> 5.5Mb</li>
-<li><a href="../sailing/books/Proktor.pdf">Ветер, волнение и течения . Проктор . 1981 </a> 4Mb</li>
-<li><a href="../sailing/Leontyev_E_P_Shkola_yakhtennogo_rulevogo_1974.pdf">Школа Яхтеннго Рулевого . Леонтьев . 1974 </a> 5.5Mb</li>
-<li><a href="../sailing/books/Karlov.pdf">Учебник Судоводителя Любителя . Карлов . 1972 </a> 14Mb</li>
-<li><a href="../sailing/books/Elvstrem.pdf">Искусство Плавания под Парусами . Эльвстрем . 1971 </a> 10Mb</li>
-<li><a href="https://yadi.sk/i/n9_Lj2jc3VsYKu">Marlinspike Sailor . Hervey Garret Smith . 1971 </a> 57Mb</li>
-<li><a href="../sailing/books/The_Arts_of_the_Sailor.djvu">Arts of the Sailor . Hervey Garret Smith. </a> 5Mb</li>
-<li><a href="../sailing/books/kols-pod_parusom_v_shtorm.pdf">Под Парусом в Шторм . Колс . 1967 </a> 3Mb</li>
-</div>
-
-<div class="import_Data">
-<li><a href="../sailing/books/mjazgovskij.djvu">История Черноморского флота, 1696-1912 . Мязговский Е.А. 1914</a> 4Mb</li>
-<li><a href="https://archive.org/details/cu31924029947649">The "America's" Cup Races . Stone . 1914 </a> . <a href="https://yadi.sk/d/FLt9Liop3NMR9w"> jp2 zip </a> 120Mb</li>
-<li><a href="https://archive.org/details/americanyachting00steprich">American Yachting . Stephens . 1904 </a> . <a href="https://yadi.sk/d/SUslB5O93NMWqY"> jp2 zip </a> 168Mb</li>
-<li><a href="https://archive.org/details/historyofyachtin01clar">The history of yachting, 1600-1815 . 1904 </a> . <a href="https://yadi.sk/d/Hd13sr5W3NMQM7"> jp2 zip </a> 141Mb</li>
-<li><a href="https://archive.org/details/smallyachtconst00hopogoog">Small yacht construction and rigging . Hope . 1903 </a> . <a href="https://yadi.sk/d/VNYGT3f73NMVgJ"> jp2 zip </a> 49Mb</li>
-<li><a href="https://archive.org/details/lawsonhistoryofa00thomrich">The Lawson History of the America's Cup:... 1902 </a> . <a href="https://yadi.sk/d/lrz0Tmeg3NMWYc"> jp2 zip </a> 223Mb</li>
-<li><a href="https://archive.org/details/manualofyachtboa00kemp">A manual of yacht and boat sailing . Kemp . 1900 </a> . <a href="https://yadi.sk/d/381s6fvS3NMVd3"> jp2 zip </a> 511Mb</li>
-<li><a href="https://archive.org/details/yachtarchitectu00kempgoog">Yachting Wrinkles . Kenealy . 1899 </a> . <a href="https://yadi.sk/d/9AJMUnUY3NMSae"> pdf </a> 75Mb</li>
-<li><a href="https://archive.org/details/yachtarchitectu00kempgoog">Yacht architecture . Kemp . 1897 </a> . <a href="https://yadi.sk/d/SUQ-dCBO3NMTZ5"> jp2 zip </a> 166Mb</li></li>
-<li><a href="https://archive.org/details/badmintonlibrar00unkngoog">Yachting vol.1 . BLSP . 1894</a> . <a href="books/1894badmintonlibrar00unkngoog.pdf"> pdf </a> 19Mb</li>
-<li><a href="../sailing/books/sarychev_i-atlas_chertezhej_morskoj_praktiki-1889.pdf">Атлас чертежей морской практики . Сарычев И. 1889</a> 28Mb</li>
-<li><a href="../sailing/books/sarychev_i-objasnenie_k_atlasu_chertezhej_morskoj_.pdf">Объяснение к атласу чертежей морской практики . Сарычев И. 1889</a> 28Mb</li>
-<li><a href="https://archive.org/details/yachtsyachting00cozz_0">Yachts and yachting . Cozzens . 1887 </a> . <a href="https://yadi.sk/i/5svMN5lo3NMM9g"> pdf </a> 77Mb</li>
-<li><a href="https://archive.org/details/amateuryachting00adam">Amateur yachting . Adams . 1886 </a></li>
-<li><a href="../sailing/books/bogoljubov_n.p-istorija_korablja-t-2.pdf">Исторiа корабля. том 2. Боголюбов . 1880</a> 27Mb</li>
-<li><a href="../sailing/books/bogoljubov_n.p-istorija_korablja-t-1.pdf">Исторiа корабля. том 1. Боголюбов . 1879</a> 29Mb</li>
-<li>Dixon Kemp's Yacht Architecture (London, 1876)</li>
-<li>Marrett's Yachts and Yacht Building (London, 1865)</li>
-<li><a href="https://cloud.mail.ru/public/BvzH/7wNb3PAC6">Atlas du Genie Maritime </a> 101Mb</li>
-<li><a href="https://yadi.sk/i/IJLnXh_33St54d">Искуство делания мачтъ, стеньгъ, реевъ и прочихъ мачтовыхъ вещей . Зенков . 1828</a> 50Mb</li>
-<li><a href="https://yadi.sk/i/b1td4Myi3Ssvqq">О порядке производства работ при вооружении кораблей для плавания по морям . Миницкий . 1826</a> 55Mb</li>
-<li><a href="https://yadi.sk/i/bbotBQKm3SQKAD">Анатомия Кораблей Нельсона </a> 75Mb
- <a href="../sailing/books/anatomija_korablej_nelsona_chertezhi.pdf"> +чертежи </a> 20Mb</li>
-<li><a href="https://yadi.sk/i/YYsrMb073Ssw6T">Arming and Fitting of English Ships of War 1600-1815.</a> 233Mb</li>
-<li><a href="https://archive.hnsa.org/doc/steel/index.htm">The Elements and Practice of Rigging And Seamanship . 1794, by David Steel</a></li>
-<li>"Искусство или Главные начала и правила научающие искусству строения, вооружения, правления и вождения кораблей" . 1793</li>
-<li><a href="http://www.modelships.de/Schiffsplaene/Chapman_Architectura_dt.htm">Architectura navalis mercatoria . Chapman . 1768 </a></li>
-<li><a href="https://cloud.mail.ru/public/78V4/tFTUepREr">Album de Colbert . 1670</a> 291Mb</li>
-<li>Livro das Armadas</li>
-</div>
-
+<details><summary>разное</summary><div>
 <div>
  <h2>Offshore sailing races</h2>
  <img src="http://yacht-com.ru/favicon.ico" height="16"> <a href="http://yacht-com.ru/articles/cruise/rosiiskie-jahtsmeny-v-antarktide.html">Российские яхтсмены в Антарктиде</a><br>
@@ -237,6 +297,10 @@ Open 50 Adecco – «Etoile Horizon»<br>
 </div>
 
 EN 1385 for boating, rafting, hydro-speed
+</div>
+</div>
+
+
 </main>
 <footer></footer>
 

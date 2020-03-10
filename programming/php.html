@@ -5,13 +5,13 @@
 <div id="links">
   <a href="https://www.php.net/manual/ru/">php.net</a><br>
   <a href="http://www.php.su/learnphp/">php.su/learnphp</a><br>
+  <details>
+    <summary>Видеоуроки PHP</summary>
   <ul>
     <li><a href="https://itvdn.com/ru/specialities/php-developer">ITVDN - PHP Developer</a></li>
     <li><a href="https://itvdn.com/ru/video/php_start">ITVDN - php start</a></li>
     <li><a href="https://itvdn.com/ru/video/php-howto">ITVDN - How To PHP Starter</a></li>
     <li><a href="https://itvdn.com/ru/video/php_essential">ITVDN - PHP Essential</a></li>
-    <li><a href="https://itvdn.com/ru/video/postgresql">ITVDN - PostgreSQL</a></li>
-    <li><a href="https://itvdn.com/ru/video/mongodb">ITVDN - Основы MongoDB</a></li>
     <li><a href="https://itvdn.com/ru/video/laravel">ITVDN - Laravel</a></li>
     <li><a href="https://itvdn.com/ru/video/laravel-practice">ITVDN - Практический курс по Laravel</a></li>
     <li><a href="https://itvdn.com/ru/video/yii2_ess">ITVDN - YII2 Essential</a></li>
@@ -27,21 +27,25 @@
     <li><a href="https://youtu.be/a6xtQQqx1tg"> Учим PHP за 1 Час! #От Профессионала</a></li>
     <li><a href="https://youtu.be/vJRL_MKoX9M"> Учим PHP за 1 Час! ► Часть 2 ► Работа с СУБД</a></li>
     <li><a href="https://youtu.be/xihMCwARRpk"> Учим PHP за 1 Час! ► Часть 3 ► Делаем свой блог!</a></li>
+    <li><a href="https://youtu.be/eCItZh6uMVc"> Авторизация и регистрация с сессией на чистом PHP</a></li>
     <li><a href="https://youtu.be/5l7jRgo9cnQ"> Как устроен PHP?</a></li>
     <li><a href="https://youtu.be/vvgOPJQA8Zk"> PHP - 100% Защищённая Регистрация и Авторизация за 30 минут.</a></li>
     <li><a href="https://youtu.be/q35W2GXfcVo"> 100% Защита от SQL Инъекций!</a></li>
     <li><a href="https://youtu.be/sNQJfKYmRdo"> PHP Свой Фреймворк #1 - Введение, Структура</a></li>
-    <li><a href="https://vk.com/doc74080069_484590435?hash=08493f67d4fccc62d4&dl=ab99cd2c3ee33df970">PHP 7 Дмитрий Котеров, Игорь Симдянов. Наиболее полное руководство (3-е издание) - 2016.pdf
-  </a></li>
-    <li>Laravel</li>
-    <li>Simfony</li>
+    <li><a href="https://youtu.be/M08umlZZXY8"> PHP: основы безопасности сайта. SQL-инъекции, XSS-атаки и защита от них</a></li>
+  </ul>
+  </details>
+    <a href="https://vk.com/doc74080069_484590435?hash=08493f67d4fccc62d4&dl=ab99cd2c3ee33df970">PHP 7 Дмитрий Котеров, Игорь Симдянов.2016.pdf</a><br>
+    Laravel<br>
+    Simfony<br>
+    <a href="https://redbeanphp.com/index.php">RedBeanPHP</a><br>
   </ul>
 </div>
 
 <div>
   install: php, web-server(Apache) , database(MySQL) <br>
   launch: web-server(Apache) <br>
-
+<br>
 <b>типы данных</b>
 <pre><code>
 integer, float, string, array, object, bolean;
@@ -112,12 +116,21 @@ $_POST
 $_SERVER
 $_SESSION
     </code></pre>
+_
+    <pre><code>
+empty($varName);
+var_dump($varName);
+unset();
+header();
 </div>
 
 <div>
   <pre><code>
 < ?php 
 require("functions.php"); // import
+require_once "";
+include "";
+include_once "";
 
 echo 'html-cod';  // может принимать список аргументов
 ''  // только текст
@@ -161,7 +174,47 @@ exit(1); //выйти
     $mail->Send();
     $mail->$ErrorInfo;
     $mail->ClearAddresses();
+  </code></pre>
+</div>
 
+<div>mysqli
+  <pre><code>
+$connection = mysqli_connect('сервер', 'логин', 'пароль', 'название БД');
+if ( $connection == false )
+{
+  echo mysqli_connect_error();
+  exit();
+}
+$result = mysqli_query($connection, "SQL-запрос");
+$r1 = mysqli_fetch_assoc($result); 
+//при каждом вызове передает очередной элемент ассоциативного массива
+print_r($f1); // Array( [id] => 1 [title] => Sport )
+
+echo 'записей найдено: ' . mysqli_num_rows($result);
+
+if (mysqli_num_rows($result) == 0)
+{
+  echo 'не найдено';
+} else {
+?>
+  < ul>< ?php
+    while(($record = mysqli_fetch_assoc($result)))
+    {
+      $articles_count = mysqli_query(
+$connection, "SELECT COUNT(id) AS total_count FROM articles WHERE categorie_id = " . $record['id']);
+      $articles_count_result = mysqli_fetch_assoc($articles_count);
+      echo '< li>' . $record['title'] . '('. $articles_count_result['total_count'] .')< /li>';
+    }
+  ?>< /ul>
+< ?php
+}
+
+mysqli_close($connection);
+  </code></pre>
+</div>
+
+<div>query (нет такого!)
+  <pre><code>
 query("SQL-запрос", $_GET['username'], $_GET['name']);
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -180,4 +233,50 @@ query("SELECT * FROM users WHERE username=? AND password=?", $username, $passwor
 < h1>< ?= $title ?>< /h1>
 < h1>< ?= funcName() ?>< /h1>
     </code></pre>
+</div>
+
+<div><h2>authorization</h2>
+  index.php
+  <pre><code>
+< ?php
+include('./db.php');
+?>
+< form action="./handle.php" method="POST">
+  < input type="text" name="login">
+  < input type="text" name="password">
+  < input type="submit">
+< /form>
+  </code></pre>
+handle.php
+  <pre><code>
+< ?php
+include('./db.php');
+
+$login = $_POST['login'];
+if(!strpbrk($_POST['password'], "'="))
+{
+  $password = $_POST['password'];
+}  //защита от sql-injection (asd' OR '1' = '1)
+
+$count = mysqli_query($connection, "SELECT * FROM users WHERE login= '$login' AND password= '$password'");
+
+if(mysqli_num_rows($count) == 0)
+{
+  echo 'вы не зарегистрированы';
+} else {
+  echo 'Привет, ' . $login . '!';
+}
+?>
+  </code></pre>
+db.php
+  <pre><code>
+< ?php
+$connection = mysqli_connect('127.0.0.1', 'root', '', 'test_db');
+if ($connection == false)
+{
+  echo mysqli_connect_error();
+  exit();
+}
+?>
+  </code></pre>
 </div>

@@ -1,12 +1,49 @@
-<div id="pageTitle">MongoDB</div>
-<div id="pageLogo"><a href="#mongodb">
-    <img src="https://www.mongodb.com/assets/images/global/favicon.ico" alt="MongoDB"></a></div>
+<div id="pageTitle">Data Base</div>
 
-<div id="links">
+<div>SQL
+	<pre><code>
+INSERT INTO users (username, name) VALUES('".$_POST['username']."', 'David Malan');
+INSERT INTO users (username, name) VALUES(?, ?);
+INSERT INTO articles_categories (title, date) VALUES ('Nature', NOW());
+
+SELECT * FROM users;
+SELECT * FROM users WHERE username = ?;
+SELECT name FROM users WHERE username = ?;
+SELECT * FROM users JOIN zips ON users.zip = zips.zip
+SELECT id,title,pubdate,views FROM articles WHERE title = '';
+SELECT * FROM articles WHERE views < 100;
+SELECT * FROM articles ORDER BY views; //сортировка по полю views
+SELECT * FROM articles ORDER BY views DESC; // обратная сортировка
+SELECT * FROM articles ORDER BY views DESC LIMIT 0,10; //top10
+SELECT COUNT(id) AS total_count FROM articles WHERE categorie_id = 5;
+
+UPDATE articles SET title = '', views = views + 1 WHERE id = 2;
+UPDATE articles SET views = views + 1 WHERE id = 2;
+
+DELETE FROM articles WHERE id = 4 OR id = 5;
+DELETE FROM articles WHERE title = '' AND views = 0;
+
+	</code></pre>
+</div>
+
+<div>
+	<a href="https://relay.dev/"><img src="https://relay.dev/img/favicon.png" alt="relay"> relay.dev</a><br>
+	<a href="https://graphql.org/"><img src="https://graphql.org/img/logo.svg" alt="graphql.org"> GraphQL</a><br>
+  <a href="https://habr.com/en/post/326986/">Habr</a><br>
+  <a href="https://tproger.ru/translations/graphql-beginners-guide/">tproger</a><br>
+  <a href="https://youtu.be/4diXbLnYrMs">GraphQL, или Новый взгляд на API / Илья Запруцкий(2018)</a><br>
+  <a href="https://youtu.be/_vjSZhnYhfI">GraphQL в 2018 / Илья Климов / MYKOLAIV JS 2018</a><br>
+  <a href="https://raw.githubusercontent.com/sogko/graphql-shorthand-notation-cheat-sheet/master/graphql-shorthand-notation-cheat-sheet.png">graphql-shorthand-notation</a><br>
+</div>
+
+<div>
+	<img src="https://www.mongodb.com/assets/images/global/favicon.ico" alt="MongoDB"> MongoDB
+	<div id="links">
 	<a href="https://youtu.be/CZKl22peGJk">основы MongoDB - Олег Мохов (2016)</a><br>
 	<a href="https://youtu.be/8bE_PBRriyU">NodeJS, Express, MongoDB - Приложение целиком (2019)</a><br>
 	<a href="https://youtu.be/ivDjWYcKDZI">MERN - с Нуля до Деплоя (Mongo, Express, React, Node) (2019)</a><br>
 	<a href="https://youtu.be/_I9vLOAsFew">Базы данных. MongoDB. Технострим(2017)</a><br>
+  <a href="https://itvdn.com/ru/video/mongodb">ITVDN - Основы MongoDB</a><br>
 	<hr>
 	Денормализация<br>
 	Репликация<br>
@@ -14,9 +51,7 @@
 Range Based, Hash Based <br>
 connect(url) <br>
 db.collection('') <br>
-</div>
-
-<div>
+	</div>
 db.dbName
 	<details><summary>.insert() // create</summary><pre><code>
 db.students.insert({
@@ -95,7 +130,6 @@ $or  // или
 $nor // не или
 $set // установить
 	</code></pre></details>
-</div>
 
 <pre><code>
 function insertStudent(name, nickname, group) {
@@ -112,3 +146,11 @@ function insertStudent(name, nickname, group) {
 }
 insertStudent('Петр', 'petr', 'MT-204')
 </code></pre>
+</div>
+
+<div>
+  <a href="https://habr.com/ru/company/hexlet/blog/274675/">RESTful</a><br>
+  <a href="https://redbeanphp.com/index.php">RedBeanPHP</a><br>
+  <a href="https://itvdn.com/ru/video/postgresql">ITVDN - PostgreSQL</a><br>
+  WebSQL - проект закрыт в 2010 <br>
+</div>

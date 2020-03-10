@@ -3,6 +3,7 @@ import { lb_init } from "./lb.js";
 if (location.hash) loadSubPage();
 setHeader();
 
+window.addEventListener('hashchange', loadSubPage);
 window.addEventListener("DOMContentLoaded", function() {
   setContentFn();
   setFooterScrollTop();
@@ -14,18 +15,51 @@ function q(id) { return document.querySelector(id) }
 function qAll(id) { return document.querySelectorAll(id) }
 const import_DataUrl = "http://leonardasf1.narod.ru/";
 
+let headHeight = '95px';
+
 function setHeader() {
-  fetch("../JS/header.html")
-  .then(response => response.text())
-  .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
-  .then(() => window.addEventListener( "scroll", () => {
-    if (window.scrollY > 50) q('#headerMenu').style.height = '48px';
-    if (window.scrollY < 51) q('#headerMenu').style.height = '95px';}));
+  // fetch("../JS/header.html")
+  // .then(response => response.text())
+  // .then(header => q('#headerMenu').insertAdjacentHTML('beforeend', header))
+  // .then(() =>
+  // qAll('.item').forEach(i => i.parentNode.addEventListener("mouseover",
+  //   () => { i.nextElementSibling.style.display = "block";}));
+  function nextShow(i) {
+    i.nextElementSibling.style.display = "block";
+  }
+  function nextHide(i) {
+    i.nextElementSibling.style.display = "none";
+  }
+
+  qAll('.item').forEach(i => {
+    i.parentNode.addEventListener("mouseover", () => nextShow(i));
+    i.parentNode.addEventListener("mouseout", () => nextHide(i));
+    window.addEventListener('hashchange', () => {
+      let t = q('.headBarTouch');
+      nextHide(i); if (t) t.classList.remove('headBarTouch');
+    });
+    i.addEventListener("touchstart", () => {
+      let t = q('.headBarTouch');
+      if (t) { nextHide(t); t.classList.remove('headBarTouch');
+      } else { nextShow(i); i.classList.add('headBarTouch');}
+    }, false);
+  });
+
+  window.addEventListener( "scroll", () => {
+    if (window.scrollY > 50) headHeight = '48px';
+    if (window.scrollY < 51) headHeight = '95px';
+    q('#headerMenu').style.height = headHeight;
+    q('#headerBar').style.top = headHeight;
+    qAll('#headerMenu .item~*').forEach(i => i.style.top = headHeight);
+  });
+  
+  q('#headerBar_toggle').addEventListener("touchstart", () => {
+    q('#headerBar').classList.toggle('show');
+    q('#headerBar').style.top = headHeight;
+  });
 }
 
 function setContentFn() {
-
-  window.addEventListener('hashchange', loadSubPage);
 
   if (q('.import_Data')) {
     qAll('.import_Data *[src^=".."]').forEach(
@@ -80,26 +114,27 @@ function setFooter() {
 }
 
 function loadSubPage() {
-if (location.hash) {
-  q('main').style.opacity = 0;
-  fetch(`${location.hash.substr(1)}.html`)
-  .then(response => response.text())
-  .then(results => {
-    q('main').innerHTML = results;
-    q('title').innerText = q('#pageTitle').textContent;
+  if (q('.show')) {q('#headerBar').classList.remove('show');}
+  if (location.hash) {
+    q('main').style.opacity = 0;
+    fetch(`${location.hash.substr(1)}.html`)
+    .then(response => response.text())
+    .then(results => {
+      q('main').innerHTML = results;
+      q('title').innerText = q('#pageTitle').textContent;
 
-    let a;
-    if (q('#pageLogo')) a = q('#pageLogo > a')
-    else a = q('#pageTitle');
-    a.style.opacity = 0;
-    a.style.display = "flex";
-    q('#headerMenu').prepend(a);
-    a.style.opacity = 1;
+      let a;
+      if (q('#pageLogo')) a = q('#pageLogo > a').innerHTML
+      else a = q('#pageTitle').textContent;
+      // a.style.opacity = 0;
+      // a.style.display = "flex";
+      q('#headerMenu > div:nth-child(2)').innerHTML = a;
+      // a.style.opacity = 1;
 
-    setContentFn();
-    q('main').style.opacity = 1;
-  });
-} else {location.reload()}
+      setContentFn();
+      q('main').style.opacity = 1;
+    });
+  } else {location.reload()}
 }
 
 // function registerSW() {
