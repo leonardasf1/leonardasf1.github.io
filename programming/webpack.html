@@ -7,22 +7,25 @@
   <a href="https://www.youtube.com/watch?v=eSaF8NXeNsA">webpack. Владилен Минин.2020</a><br>
   <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Антон Кастрицкий</a> <br>
   <a href="https://yadi.sk/i/9oydqY8iwcY__A">Вебпак, вид сквозь монокль.pdf</a><br>
+  webpack-bundle-analyzer <br>
+  yarn <br>
+  yarn outdated //проверка пакетов на актуальность
+  yarn audit --fix//проверка на уязвимость и исправление
 </div>
 
 <article>
 <pre><code>
-  npm init // 
-
-  npm install --save-dev webpack
-  npm install --save-dev webpack-cli
-  npm install webpack-dev-server --save-dev
+npm init
+npm install -D webpack webpack-cli webpack-dev-server
+npm install -D html-webpack-plugin
+npm install -D clean-webpack-plugin
+npm install -D style-loader css-loader
 
   npm install -D babel-loader @babel/core @babel/preset-env  // установка babel
   npm install cache-loader style-loader css-loader sass-loader node-sass --save-dev
-  npm i -D html-webpack-plugin
   npm install --save-dev file-loader
 </code>
-<details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><code>
+<details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><pre><code>
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -53,43 +56,96 @@ module.exports = {
       },
     ]
   }
+  devtool: /* Карты кода */,
   plugins: [
     new HtmlWebpackPlugin({
       title: 'My App'
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: true,
+      reportFilename: 'webpack-bundle-analyzer- report.html',
+      statsFilename: 'webpack-bundle-analyzer-stats.json',
+      openAnalizer: false,
     })
-  ]
-};</code>
+  ],
+  optimizations: /* Настройка оптимизации */,
+};
+</code></pre>
 </div></details>
 
-<details><summary>package.json</summary><div><code>
+<details><summary>package.json</summary><div><pre><code>
   {
     ...
     "scripts": {
-      "build": "webpack --config webpack.config.js",
+      "start": "webpack-dev-server --mode development --open",
+      "build": "webpack --mode production",
+      <!-- "build": "webpack --config webpack.config.js", -->
       "dev": "webpack --watch"
     },
     ...
-  }</code>
+  }</code></pre>
 </div></details>
-<code>
+<pre><code>
   npm run build  // сборка на продакшн
   npm run dev  // для разработки
 
 .editorconfig //файл
 [*]
+end_of_line = lf
+insert_final_newline = true
 indent_size = 2
 indent_style = spase
+charset = 'utf-8'
+trim_trailing_whitespace = true
 
-[*.json]
-...
 </code></pre>
 
-<details><summary>eslint</summary><pre><code>
+<details><summary>.eslintrc.js</summary><pre><code>
   npm install --save-dev eslint
 
-  .eslintrc.json
+module.exports = {
+  extends: ["airbnb-typescript"],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2018,
+    ...
+  }
+};
 
 node_modules/.bin/eslint --fix
 </code></pre></details>
-stylelint
+<details><summary>.stylelint.json</summary><pre><code>
+{
+  "extends": "stylelint-config-standart"
+}
+</code></pre></details>
+<details>
+  <summary>.env</summary><pre><code>
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=password
+STRIPE_SECRET_KEY=secret
+GOOGLE_API_KEY=value
+  </code></pre>
+</details>
+<details>
+  <summary>jest.config.js //tests</summary><pre><code>
+module.exports = {
+  preset: 'ts-jest',
+  ...
+};
+</code></pre></details>
+<details>
+  <summary>Sentry.io //errors tracking</summary><pre><code>
+import * as Sentry from '@sentry/browser';
+Sentry.init({ dsn: `https://${key}@sentry.io/${project}`});
+
+//use
+try {...} catch (err) {
+  Sentry.captureException(err);
+}
+  </code></pre></details>
+}
+}
 </article>

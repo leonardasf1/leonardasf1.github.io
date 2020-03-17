@@ -66,9 +66,10 @@ header {
 
 #headerBar_toggle {
     display: none;
-    width: 22px;
+    width: 48px;
     cursor: pointer;
     margin: 0 11px 0 auto;
+    padding: 15px 13px;
 }
 #headerBar_toggle span {
     display: block;
