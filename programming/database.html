@@ -1,5 +1,9 @@
 <div id="pageTitle">Data Base</div>
 
+<div>
+	<a href="https://developer.mozilla.org/ru/docs/Learn/Server-side/Express_Nodejs/mongoose">Использование базы данных</a>
+</div>
+
 <div>SQL
 	<pre><code>
 INSERT INTO users (username, name) VALUES('".$_POST['username']."', 'David Malan');
@@ -44,6 +48,7 @@ DELETE FROM articles WHERE title = '' AND views = 0;
 	<a href="https://youtu.be/ivDjWYcKDZI">MERN - с Нуля до Деплоя (Mongo, Express, React, Node) (2019)</a><br>
 	<a href="https://youtu.be/_I9vLOAsFew">Базы данных. MongoDB. Технострим(2017)</a><br>
   <a href="https://itvdn.com/ru/video/mongodb">ITVDN - Основы MongoDB</a><br>
+  <a href="https://mongoosejs.com/">Mongoose ODM for node.js</a>
 	<hr>
 	Денормализация<br>
 	Репликация<br>
@@ -151,10 +156,17 @@ insertStudent('Петр', 'petr', 'MT-204')
 <div><h2>Firebase</h2>
 	<a href="https://firebase.google.com/"><img src="https://www.gstatic.com/devrel-devsite/prod/v35095b53655653106712feb44f96c6929ce012ae38486ad7db1de265cbd9b7ec/firebase/images/favicon.png" alt="firebase"> firebase.google.com</a><br>
 	Google Cloud Platform (GCP)
-	
+	<pre><code>
+sudo npm install -g firebase-tools
+firebase login
+firebase init
+npm run build
+firebase deploy
+	</code></pre>
 </div>
 
 <div>
+
   <a href="https://habr.com/ru/company/hexlet/blog/274675/">RESTful</a><br>
   <a href="https://redbeanphp.com/index.php">RedBeanPHP</a> ORM<br>
   <a href="https://itvdn.com/ru/video/postgresql">ITVDN - PostgreSQL</a><br>

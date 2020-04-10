@@ -1,0 +1,175 @@
+<div id="pageTitle">Authentication</div>
+
+<div>
+    <a href="https://youtu.be/eCItZh6uMVc"> Авторизация и регистрация с сессией на чистом PHP</a><br>
+    <a href="https://habr.com/ru/company/1cloud/blog/445534/">WebAuthn</a>/
+    <a href="https://github.com/Stanford/webauth">WebAuth</a> - проекты закрыты<br>
+</div>
+
+<div>
+	Регистрация login signin<br>
+	Авторизация signup<br>
+	Сессия session<br>
+	Выход logout<br>
+</div>
+
+<div>небезопасная auth<br>
+	сессионные куки<br>
+	длительные сессии<br>
+	GET<br>
+	перебор через форму логина<br>
+</div>
+
+<div>
+	session menegement libruary<br>
+	<a href="http://www.passportjs.org"><img src="http://www.passportjs.org/images/favicon/favicon-16x16.png" alt="favicon">passportjs.org</a><br>
+</div>
+
+<div>
+  <a href="https://firebase.google.com/docs/reference/rest/auth"><img src="https://www.gstatic.com/devrel-devsite/prod/vf4743e4237527d72f4be8582639e4a529166b52e9bb628e797b1ed38800b278b/firebase/images/favicon.png" alt="favicon"> Firebase Auth REST API</a> JS<br>
+  <pre><code>
+//регистрация
+fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
+	method: 'POST',
+	body: JSON.stringify({
+		email, password, returnSecureToken: true
+	}),
+	headers: {
+		'Content-Type': 'application/json'
+	}
+})
+//возможные ошибки
+data.error.message == 'EMAIL_EXISTS'
+data.error.message == 'OPERATION_NOT_ALLOWED'
+
+//авторизация
+fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
+	method: 'POST',
+	body: JSON.stringify({
+		email, password, returnSecureToken: true
+	}),
+	headers: {
+		'Content-Type': 'application/json'
+	}
+})
+//возможные ошибки
+data.error.message == 'EMAIL_NOT_FOUND'
+data.error.message == 'INVALID_PASSWORD'
+
+//сессия
+sessionStorage.setItem("idToken", data.idToken)
+
+//create (add to db with auth)
+fetch(`https://my-ap.firebaseio.com/questions.json?auth=${sessionStorage.idToken}`, {
+  method: 'POST',
+  body: JSON.stringify(question),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
+//logout
+sessionStorage.clear()
+  </code></pre>
+</div>
+
+<div>
+	<a href="https://redbeanphp.com/index.php"><img src="https://redbeanphp.com/favicon.gif" alt="favicon"> RedBeanPHP (ORM)</a>
+    <a href="https://github.com/leonardasf1/auth_redbeanPHP">auth_redbeanPHP</a><br>
+    <a href="https://youtu.be/vvgOPJQA8Zk"> PHP - 100% Защищённая Регистрация и Авторизация .2016</a><br>
+    <pre><code>
+require 'rb.php';
+
+R::setup( 'mysql:host=localhost;dbname=mydatabase', 'myusername', 'mypassword' );
+
+//проверки в базе
+$data = $_POST;
+R::count('users', "email = ?", array($data['email'])) > 0
+R::count('users', "tel = ?", array($data['tel'])) > 0
+
+//регистрация
+$user = R::dispense( 'users' );
+$user->name = $data['name'];
+$user->email = $data['email'];
+$user->tel = $data['tel'];
+$user->password = password_hash($data['password'], PASSWORD_DEFAULT);
+R::store( $user );
+
+//авторизация
+$user = R::findOne('users', 'email = ?', array($data['email']));
+password_verify($data['password'], $user->password)
+
+//сессии <a href="https://www.php.net/manual/ru/refs.basic.session.php">php.net</a>
+$_SESSION['logged_user'] = $user;
+
+//logout
+unset($_SESSION['logged_user']);
+    </code></pre>
+</div>
+
+<div>
+	JS
+	<pre><code>
+	sessionStorage.setItem("user", data)
+	sessionStorage.getItem("user").email
+	</code></pre>
+	<a href="https://xsltdev.ru/nodejs/tutorial/sessions/">session.node.js</a><br>
+</div>
+
+<div>
+  <pre><code>
+query("SQL-запрос", $_GET['username'], $_GET['name']);
+$username = $_POST["username"];
+$password = $_POST["password"];
+<s>query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");</s>
+query("SELECT * FROM users WHERE username=? AND password=?", $username, $password);
+?>
+  </code></pre>
+</div>
+
+
+<div><h2>PHP</h2>
+  index.php
+  <pre><code>
+< ?php
+include('./db.php');
+?>
+< form action="./handle.php" method="POST">
+  < input type="text" name="login">
+  < input type="text" name="password">
+  < input type="submit">
+< /form>
+  </code></pre>
+handle.php
+  <pre><code>
+< ?php
+include('./db.php');
+
+$login = $_POST['login'];
+if(!strpbrk($_POST['password'], "'="))
+{
+  $password = $_POST['password'];
+}  //защита от sql-injection (asd' OR '1' = '1)
+
+$count = mysqli_query($connection, "SELECT * FROM users WHERE login= '$login' AND password= '$password'");
+
+if(mysqli_num_rows($count) == 0)
+{
+  echo 'вы не зарегистрированы';
+} else {
+  echo 'Привет, ' . $login . '!';
+}
+?>
+  </code></pre>
+db.php
+  <pre><code>
+< ?php
+$connection = mysqli_connect('127.0.0.1', 'login', 'pass', 'db_name');
+if ($connection == false)
+{
+  echo mysqli_connect_error();
+  exit();
+}
+?>
+  </code></pre>
+</div>

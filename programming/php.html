@@ -213,17 +213,6 @@ mysqli_close($connection);
   </code></pre>
 </div>
 
-<div>query (нет такого!)
-  <pre><code>
-query("SQL-запрос", $_GET['username'], $_GET['name']);
-$username = $_POST["username"];
-$password = $_POST["password"];
-<s>query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");</s>
-query("SELECT * FROM users WHERE username=? AND password=?", $username, $password);
-?>
-  </code></pre>
-</div>
-
 <div>
     <pre><code>
 < ?php require("header.php"); ?>
@@ -233,50 +222,4 @@ query("SELECT * FROM users WHERE username=? AND password=?", $username, $passwor
 < h1>< ?= $title ?>< /h1>
 < h1>< ?= funcName() ?>< /h1>
     </code></pre>
-</div>
-
-<div><h2>authorization</h2>
-  index.php
-  <pre><code>
-< ?php
-include('./db.php');
-?>
-< form action="./handle.php" method="POST">
-  < input type="text" name="login">
-  < input type="text" name="password">
-  < input type="submit">
-< /form>
-  </code></pre>
-handle.php
-  <pre><code>
-< ?php
-include('./db.php');
-
-$login = $_POST['login'];
-if(!strpbrk($_POST['password'], "'="))
-{
-  $password = $_POST['password'];
-}  //защита от sql-injection (asd' OR '1' = '1)
-
-$count = mysqli_query($connection, "SELECT * FROM users WHERE login= '$login' AND password= '$password'");
-
-if(mysqli_num_rows($count) == 0)
-{
-  echo 'вы не зарегистрированы';
-} else {
-  echo 'Привет, ' . $login . '!';
-}
-?>
-  </code></pre>
-db.php
-  <pre><code>
-< ?php
-$connection = mysqli_connect('127.0.0.1', 'root', '', 'test_db');
-if ($connection == false)
-{
-  echo mysqli_connect_error();
-  exit();
-}
-?>
-  </code></pre>
 </div>
