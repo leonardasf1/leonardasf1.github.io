@@ -12,7 +12,7 @@
   <a href="https://eloquentjavascript.net"><img src="https://eloquentjavascript.net/favicon.ico" alt="EJS"></a>
   <a href="https://skillbox.ru/media/code/javascript_glavnyy_instrument_frontend/"><img src="https://skillbox.ru/favicon.ico" alt="Skillbox"></a>
   <br><br>
-  <a href="https://youtu.be/KS2ngnRAKlg">Чистый JavaScript. Практика. Авторизация, сборка, деплой .2020</a>
+  <a href="https://youtu.be/KS2ngnRAKlg">Чистый JavaScript. Практика. Авторизация, сборка, деплой .2020</a><br>
   <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3l4oPjsB9chrJmlhZ-zOzWT">Сложный JavaScript простым языком. Владилен Минин (2019)</a><br>
   <a href="https://youtu.be/v6AVfIupNB8">Композиция или Наследование в JavaScript?</a><br>
   <a href="https://www.youtube.com/channel/UCIo6TsJzLVRGbRZxKzoNeFQ">MoscowJS</a><br>
@@ -1627,6 +1627,9 @@ window.location.replace('url');  // направление на другой а�
 
 	document.attachEvent();  // for IE<=8
           .dispatchEvent(event)
+  
+  e.target
+  e.currentTarget
 
   abort   // прерывание загрузки img
   animationcancel    
@@ -1689,7 +1692,7 @@ window.location.replace('url');  // направление на другой а�
   .create​Event  // Создаёт новое событие
   .init​Event   // Инициализация значений события
   .prevent​Default();         // отменяет стандартное действие
-  .stop​Immediate​Propagation   // ля конкретного события не будет больше вызвано обработчиков.
+  .stop​Immediate​Propagation   // для конкретного события не будет больше вызвано обработчиков.
   .stop​Propagation();        // останавливает перемещение события по DOM
 
 	codepen: <a href="https://codepen.io/leonardasf1/pen/bGbpYjO">Event-add-remove</a>
