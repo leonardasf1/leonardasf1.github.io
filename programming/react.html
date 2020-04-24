@@ -34,10 +34,12 @@
 </div>
 <div>
     <a href="https://youtu.be/xJZa2_aldDs">React JS. Полный Курс 2020</a><br>
+    <a href="https://youtu.be/bFVAVXWySzM">React Hooks - зачем придумали</a><br>
     <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3n6YO3BDSQIg35GGKn_ImFD">Введение в React Hooks .2019</a><br>
     <a href="https://youtu.be/V1rhxheJg4A">React JS - Приложение целиком (Контекст, Хуки, Анимации, Деплой)</a><br>
     <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript. Введение в Типизацию (+ React Router DOM)</a><br>
     <a href="https://youtu.be/G3GGXIhggGs">React Redux + Saga. Практический Курс</a><br>
+    <a href="https://habr.com/en/post/269831/">С 0 до 1. Разбираемся с Redux</a><br>
     <a href="https://youtu.be/YdYyYMFPa44">Redux. Полный Курс 2020</a><br>
     <a href="https://itvdn.com/ru/video/isomorphic-application">Изоморфные приложения на React</a><br>
     <a href="https://youtu.be/1kopPz0Fhlk">Первое веб-приложение с React.JS (2019)</a><br>
@@ -45,10 +47,78 @@
 
 <div>
     <pre><code>
+npm i -g yarn
 npx create-react-app appName
+yarn add node-sass react-router-dom bootstrap axios
+yarn add react-transition-group //animation <a href="https://reactcommunity.org/react-transition-group/">reactcommunity.org</a>
+yarn start
+yarn build
 
 npm install prop-types
     </code></pre>
+</div>
+
+<div>index.js
+    <pre><code>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  < React.StrictMode>
+    < App />
+  < /React.StrictMode>,
+  document.getElementById('root')
+);
+    </code></pre>
+</div>
+
+<div>App.js
+    <pre><code>
+import React, {useEffect} from 'react'
+
+//динамический импорт
+const ComponentName = React.lazy(() => import('./ComponentName'))
+
+function App() {
+  const [todos, setTodos] = React.useState([])
+    // {id: 1, completed: false, title: 'Купить хлеб'}
+
+  const [loading, setLoading] = React.useState(true)
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    .then(response => response.json())
+    .then(todos => {
+      setTodos(todos)
+      setLoading(false)
+    })
+  }, [])
+
+  return (
+    < Context.Provider value={{ removeTodo }} style={{ marginBottom: '1rem' }}>
+      < div className="wrapper">
+        < h1>React tutorial< /h1>
+        < Modal>< /Modal>
+
+        < React.Suspense fallback={< p>Loading....< /p>}>
+          < AddTodo onCreate={addTodo}>< /AddTodo>
+        < /React.Suspense>
+
+        {loading && < Loader />}
+        {todos.length ? (
+          < TodoList todos={todos} onToggle={toggleTodo} />
+        ) : (
+          loading ? null : < p>No todos!< /p>
+        )}
+      < /div>
+    < /Context.Provider>
+  )
+}
+    </code></pre>
+</div>
+
+<div>
     <pre><code>
 const styles = {
     ul: {
@@ -66,5 +136,14 @@ export default function TemplateFuncName(props) {
 }
 < TemplateFuncName arrName={arrName} />
 
+< React.Suspense fallback={< p>Loading....< /p>}>
+  < AddTodo onCreate={addTodo}>< /AddTodo>
+< /React.Suspense>
+
+React.useState()
+React.useEffect()
+useContext()
+
+React.lazy()
     </code></pre>
 </div>
