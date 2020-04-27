@@ -7,56 +7,61 @@
     <a href="https://nextjs.org/"><img src="https://nextjs.org/static/favicon/favicon-32x32.png" alt="next.js"></a><br>
     <a href="https://flow.org/"><img src="https://flow.org/static/favicon.png" alt="flow" style="height: 16px"> Flow</a><br>
     <a href="https://ru.reactjs.org/docs/static-type-checking.html">ru.reactjs.org</a><br>
+    <a href="https://en.wikipedia.org/wiki/Redux_(JavaScript_library)">Redux</a><br>
 </div>
+
 <div>
-    <a href="https://itvdn.com/ru/video/react-js-essential">ReactJS Essential</a>
-    <ul>
-        <li>Введение в React . <a href="https://youtu.be/gbTSl88k5pk"></a> <!-- <a href="primery/react1.html">result</a> --></li>
-        <li>Подробнее о компонентах</li>
-        <li>Окружение</li>
-        <li>Роутинг и ES2015</li>
-        <li>Архитектура Flux, взаимодействие с API</li>
-        <li>Написание полноценного SPA</li>
-        <li>Deploy</li>
-    </ul>
-    <a href="https://github.com/krambertech/react-essential-course">krambertech/react-essential-course</a>
-</div>
-<div>
-    <a href="https://itvdn.com/ru/video/react_adv">React Advanced</a>
-    <ul>
-        <li>Redux Introduction</li>
-        <li>Настройка окружения</li>
-        <li><a href="https://en.wikipedia.org/wiki/Redux_(JavaScript_library)">Redux</a></li>
-        <li>Оптимизация и производительность React приложений</li>
-        <li>Тестирование React и Redux</li>
-        <li>Изоморфные приложения на React и Server Side Rendering</li>
-    </ul>
-</div>
-<div>
-    <a href="https://youtu.be/xJZa2_aldDs">React JS. Полный Курс 2020</a><br>
-    <a href="https://youtu.be/bFVAVXWySzM">React Hooks - зачем придумали</a><br>
-    <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3n6YO3BDSQIg35GGKn_ImFD">Введение в React Hooks .2019</a><br>
-    <a href="https://youtu.be/V1rhxheJg4A">React JS - Приложение целиком (Контекст, Хуки, Анимации, Деплой)</a><br>
-    <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript. Введение в Типизацию (+ React Router DOM)</a><br>
+    * <a href="https://itvdn.com/ru/video/react-js-essential">ReactJS Essential Without ES6</a> <!-- <a href="primery/react1.html">result</a> --> 
+    <a href="https://github.com/krambertech/react-essential-course">krambertech/</a><br>
+    <a href="https://youtu.be/-k8w0x-rp80">Уроки React JS. webDeveloperBlog.2020</a><br>
+    * <a href="https://youtu.be/xJZa2_aldDs">React JS. Полный Курс 2020</a><br>
+    * <a href="https://youtu.be/bFVAVXWySzM">React Hooks - зачем придумали</a><br>
+    * <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3n6YO3BDSQIg35GGKn_ImFD">Введение в React Hooks .2019</a><br>
+    * <a href="https://youtu.be/V1rhxheJg4A">React JS. Контекст, Хуки, Анимации, Деплой</a><br>
+    <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript (+ React Router DOM)</a><br>
+    <a href="https://itvdn.com/ru/video/react_adv">React Advanced</a><br>
     <a href="https://youtu.be/G3GGXIhggGs">React Redux + Saga. Практический Курс</a><br>
     <a href="https://habr.com/en/post/269831/">С 0 до 1. Разбираемся с Redux</a><br>
     <a href="https://youtu.be/YdYyYMFPa44">Redux. Полный Курс 2020</a><br>
     <a href="https://itvdn.com/ru/video/isomorphic-application">Изоморфные приложения на React</a><br>
-    <a href="https://youtu.be/1kopPz0Fhlk">Первое веб-приложение с React.JS (2019)</a><br>
 </div>
 
 <div>
     <pre><code>
 npm i -g yarn
-npx create-react-app appName
+npx create-react-app appName //или
+yarn create react-app app-name
 yarn add node-sass react-router-dom bootstrap axios
 yarn add react-transition-group //animation <a href="https://reactcommunity.org/react-transition-group/">reactcommunity.org</a>
 yarn start
 yarn build
 
 npm install prop-types
+
+<a href="https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets">snippets</a>
     </code></pre>
 </div>
+
+<!-- <div>props
+<pre><code>
+</code></pre></div> -->
+
+<div>state
+<pre><code>
+this.setState({})
+this.setState((state, props) => ({}))
+this.setState(function(state, props) { return {} })
+</code></pre>
+</div>
+
+<div>lifecycle
+<pre><code>
+componentDidMount()
+shouldComponentUpdate() //если extends 
+//React.PureComponent то не надо
+componentDidUpdate()
+componentWillUnmount()
+</code></pre></div>
 
 <div>index.js
     <pre><code>
