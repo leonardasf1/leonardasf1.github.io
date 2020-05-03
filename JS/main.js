@@ -1,5 +1,5 @@
 import { lb_init } from "./lb.js";
-import { footer } from './footer'
+import { footer } from './footer.js'
 
 if (location.hash) loadSubPage();
 setHeader();
