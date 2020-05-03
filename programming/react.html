@@ -15,14 +15,15 @@
     <a href="https://github.com/krambertech/react-essential-course">krambertech/</a><br>
     <a href="https://youtu.be/-k8w0x-rp80">Уроки React JS. webDeveloperBlog.2020</a><br>
     * <a href="https://youtu.be/xJZa2_aldDs">React JS. Полный Курс 2020</a><br>
+    * <a href="https://youtu.be/Z7_7xvJ7Cjc">React. Иммутабельность данных</a><br>
     * <a href="https://youtu.be/bFVAVXWySzM">React Hooks - зачем придумали</a><br>
     * <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3n6YO3BDSQIg35GGKn_ImFD">Введение в React Hooks .2019</a><br>
     * <a href="https://youtu.be/V1rhxheJg4A">React JS. Контекст, Хуки, Анимации, Деплой</a><br>
     <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript (+ React Router DOM)</a><br>
     <a href="https://itvdn.com/ru/video/react_adv">React Advanced</a><br>
-    <a href="https://youtu.be/G3GGXIhggGs">React Redux + Saga. Практический Курс</a><br>
+    * <a href="https://youtu.be/G3GGXIhggGs">React Redux + Saga. Практический Курс</a><br>
     <a href="https://habr.com/en/post/269831/">С 0 до 1. Разбираемся с Redux</a><br>
-    <a href="https://youtu.be/YdYyYMFPa44">Redux. Полный Курс 2020</a><br>
+    * <a href="https://youtu.be/YdYyYMFPa44">Redux. Полный Курс 2020</a><br>
     <a href="https://itvdn.com/ru/video/isomorphic-application">Изоморфные приложения на React</a><br>
 </div>
 
@@ -150,5 +151,58 @@ React.useEffect()
 useContext()
 
 React.lazy()
+    </code></pre>
+</div>
+
+<div><h2>Redux</h2>
+    <pre><code>
+yarn add redux react-redux
+npm i redux
+npm i redux-thunk //async
+    </code></pre>
+index.js
+    <pre><code>
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+const reducer = (state, action) => {}
+const store = createStore(reducer)
+
+export default class App extends Component {
+    render() {
+        return(
+        < Provider store={store}>
+            < div>< /div>
+        < /Provider>
+        )
+    }
+}
+    </code></pre>
+actions.js
+    <pre><code>
+export function createPost(post) {
+    return {
+        type: 'CREATE_POST',
+        payload: post
+    }
+}
+    </code></pre>
+reducer.js
+    <pre><code>
+const initialState = {
+    posts: [],
+    fetchedPosts: []
+}
+
+export const postsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'CREATE_POST':
+            return { ...state, posts: state.posts.concat([action.payload]) }
+            // return { ...state, posts: [...state.posts, action.payload] }
+        case 'FETCH_POSTS':
+            return { ...state, fetchedPosts: action.payload}
+        default: return state
+    }
+}
     </code></pre>
 </div>

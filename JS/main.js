@@ -1,4 +1,5 @@
 import { lb_init } from "./lb.js";
+import { footer } from './footer'
 
 if (location.hash) loadSubPage();
 setHeader();
@@ -110,7 +111,7 @@ function setFooterScrollTop() {
 
 function setFooter() {
   q('footer').insertAdjacentHTML(
-    'beforeend', `<div>${document.lastModified} </div>`);
+    'beforeend', footer);
 }
 
 function loadSubPage() {

@@ -104,6 +104,15 @@ footer {
     justify-content: space-evenly;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.footer > * {
+  margin-right: 1rem;
+}
+
 .hidden {
     display: inline-block;
     width: 0;

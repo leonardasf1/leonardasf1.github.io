@@ -30,11 +30,11 @@ function lb_setHTML() {
     `<div id="lightbox" >
       <div id="background_lb_remove"></div>
       <img id="lb_img" src="" />
-      <a id="lb_btn_prev"></a>
-      <a id="lb_btn_next"></a>
-      <a id="lb_btn_close"></a>
+      <a id="lb_btn_prev">&lang;</a>
+      <a id="lb_btn_next">&rang;</a>
+      <a id="lb_btn_close">&#65794;</a>
       <div id="lb_info">
-        <a id="lb_zoom" href="" target="_blank" rel="noopener noreferrer">+</a>
+        <a id="lb_zoom" href="" target="_blank" rel="noopener noreferrer">&#128270;</a>
         <div id="lb_count"></div>
         <div id="lb_attrTitle"></div>
       </div>
@@ -46,9 +46,9 @@ function lb_setImg(n) {
   q('#lb_img').src = "../icons/loader.svg";
 
   if (n <= 0) {q('#lb_btn_prev').style.display = "none"}
-  else {q('#lb_btn_prev').style.display = "block"};
+  else {q('#lb_btn_prev').style.display = "inline-flex"};
   if (!lb_album[n + 1]) {q('#lb_btn_next').style.display = "none"}
-  else {q('#lb_btn_next').style.display = "block"};
+  else {q('#lb_btn_next').style.display = "inline-flex"};
 
   q('#lb_img').src = lb_album[n].href;
 
