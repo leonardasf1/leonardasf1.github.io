@@ -6,9 +6,9 @@ setHeader();
 
 window.addEventListener('hashchange', loadSubPage);
 window.addEventListener("DOMContentLoaded", function() {
+  setFooter();
   setContentFn();
   setFooterScrollTop();
-  setFooter();
   // registerSW();
 });
 

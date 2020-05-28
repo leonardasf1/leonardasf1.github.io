@@ -3,11 +3,11 @@
     <img src="../icons/react.svg" alt="react"></a></div>
 
 <div id="links">
-    <a href="https://reactjs.org/"><img src="../icons/react.svg" alt="reactjs.org"></a>
-    <a href="https://nextjs.org/"><img src="https://nextjs.org/static/favicon/favicon-32x32.png" alt="next.js"></a><br>
+    <a href="https://reactjs.org/"><img src="../icons/react.svg" alt="reactjs.org">Документация</a><br>
     <a href="https://flow.org/"><img src="https://flow.org/static/favicon.png" alt="flow" style="height: 16px"> Flow</a><br>
     <a href="https://ru.reactjs.org/docs/static-type-checking.html">ru.reactjs.org</a><br>
-    <a href="https://en.wikipedia.org/wiki/Redux_(JavaScript_library)">Redux</a><br>
+    <a href="https://redux.js.org/">redux.js.org</a><br>
+    <a href="https://nextjs.org/"><img src="https://nextjs.org/static/favicon/favicon-32x32.png" alt="next.js">nextjs.org</a><br>
 </div>
 
 <div>
@@ -29,10 +29,10 @@
 
 <div>
     <pre><code>
-npm i -g yarn
 npx create-react-app appName //или
+npm i -g yarn
 yarn create react-app app-name
-yarn add node-sass react-router-dom bootstrap axios
+yarn add node-sass <a href="https://reacttraining.com/react-router/web/guides/quick-start">react-router-dom</a> bootstrap axios
 yarn add react-transition-group //animation <a href="https://reactcommunity.org/react-transition-group/">reactcommunity.org</a>
 yarn start
 yarn build
@@ -43,28 +43,7 @@ npm install prop-types
     </code></pre>
 </div>
 
-<!-- <div>props
-<pre><code>
-</code></pre></div> -->
-
-<div>state
-<pre><code>
-this.setState({})
-this.setState((state, props) => ({}))
-this.setState(function(state, props) { return {} })
-</code></pre>
-</div>
-
-<div>lifecycle
-<pre><code>
-componentDidMount()
-shouldComponentUpdate() //если extends 
-//React.PureComponent то не надо
-componentDidUpdate()
-componentWillUnmount()
-</code></pre></div>
-
-<div>index.js
+<div>
     <pre><code>
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -73,11 +52,301 @@ import App from './App';
 
 ReactDOM.render(
   < React.StrictMode>
-    < App />
+    < App
+        name="Igor"
+        article={article}
+        onClick={activateLasers}
+    />
   < /React.StrictMode>,
   document.getElementById('root')
 );
     </code></pre>
+</div>
+
+<div>
+    <details>
+        <summary>функциональные компоненты</summary>
+        <pre><code>
+const Example = (props) => {
+  // Тут мог бы быть ваш хук!
+  return < h1>Привет, {props.name}< /h1>;
+}
+function Example(props) {
+  // Тут мог бы быть ваш хук!
+  return < h1>Привет, {props.name}< /h1>;
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  return (
+    < ul>
+      {numbers.map((number) =>
+        < ListItem
+            key={number.toString()}
+            value={number}
+        />
+      )}
+    < /ul>
+  );
+}
+        </code></pre>
+    </details>
+    <h2>Хуки</h2>
+    <details>
+        <summary>useState</summary>
+        <pre><code>
+import React, { useState } from 'react';
+
+function Example() {
+  // Объявление новой переменной состояния «count»
+  const [count, setCount] = useState(0);
+
+  return (
+    < div>
+      < p>Вы кликнули {count} раз(а)< /p>
+      < button onClick={() => setCount(count + 1)}>< /button>
+    < /div>
+  );
+}
+//-----------
+
+const [state, setState] = useState({ left: 0, top: 0, width: 100, height: 100 });
+
+useEffect(() => {
+    function handleWindowMouseMove(e) {
+        // Использование "...state" гарантирует, что мы не потеряем width и height
+        setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
+    }
+}
+        </code></pre>
+    </details>
+    <details>
+        <summary>useEffect</summary>
+        <pre><code>
+function FriendStatusWithCounter(props) {
+  const [count, setCount] = useState(0);
+        // Аналогично componentDidMount и componentDidUpdate:
+  useEffect(() => {
+    document.title = `Вы нажали ${count} раз`;
+  }, [count]); // Перезапускать эффект только если count поменялся
+
+  const [isOnline, setIsOnline] = useState(null);
+
+  useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+    ChatAPI.subscrFriendSt(
+        props.friend.id,
+        handleStatusChange
+    );
+    return () => {
+      ChatAPI.unsubscrFriendSt(
+        props.friend.id,
+        handleStatusChange
+      );
+    }; //сброс, чтобы не случилось утечек памяти
+  }, [props.friend.id]);
+  // Повторно подписаться, только если props.friend.id изменился
+
+  return ()
+}
+        </code></pre>
+    </details>
+    <details>
+        <summary>Композиция</summary>
+        <pre><code>
+function SplitPane(props) {
+  return (
+    < div className="SplitPane">
+      < div className="SplitPane-left">
+        {props.left}
+      < /div>
+      < div className="SplitPane-right">
+        {props.right}
+      < /div>
+    < /div>
+  );
+}
+
+function App() {
+  return (
+    < SplitPane
+      left={< Contacts />}
+      right={< Chat />}
+    />
+  );
+}
+        </code></pre>
+    </details>
+    <details>
+        <summary></summary>
+        <pre><code></code></pre>
+    </details>
+</div>
+
+<div><h2>Классовые компоненты</h2>
+    <details>
+        <summary>state / setState</summary>
+        <pre><code>
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  render() {
+    return (
+      < div>
+        < p>Вы кликнули {this.state.count} раз(а)< /p>
+        < button onClick={() => this.setState({ count: this.state.count + 1 })}>< /button>
+      < /div>
+    );
+  }
+}
+//---------
+
+this.setState({})
+this.setState((state, props) => ({}))
+this.setState(function(state, props) { return {} })
+
+Компонент может передать вниз setState,
+передав в пропсы функцию с setState !
+        </code></pre>
+    </details>
+    <details>
+        <summary>lifecycle</summary>
+        <pre><code>
+class Example extends React.Component {
+    constructor(props) {}
+
+    componentDidMount() {
+        document.title = `Вы нажали ${this.state.count} раз`;
+    }
+    componentDidUpdate() {
+        document.title = `Вы нажали ${this.state.count} раз`;
+    }
+    componentWillUnmount() {
+        ChatAPI.unsubscribeFromFriendStatus(
+          this.props.friend.id,
+          this.handleStatusChange
+        );
+    } //сброс, чтобы не случилось утечек памяти
+
+    render() {}
+}
+//-------------
+shouldComponentUpdate() //если extends 
+//React.PureComponent то не надо
+        </code></pre>
+    </details>
+    <details>
+        <summary>this.callback</summary>
+        <pre><code>
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // Эта привязка обязательна для работы `this` в колбэке.
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+  render() {
+    return (
+      < button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'Включено' : 'Выключено'}
+      < /button>
+    );
+  }
+}
+
+ReactDOM.render(
+  < Toggle />,
+  document.getElementById('root')
+);
+        </code></pre>
+    </details>
+    <details>
+        <summary>events</summary>
+        <pre><code>
+rfc < button onClick={() => setCount(count + 1)}>...
+rcc < button onClick={this.handleClick}>...
+rcc < button onClick={(e) => this.deleteRow(id, e)}>...
+rcc < button onClick={this.deleteRow.bind(this, id)}>...
+rcc < button onClick={() => this.setState({ count: this.state.count + 1 })}>...
+        </code></pre>
+    </details>
+    <details>
+        <summary>forms</summary>
+        <pre><code>
+< textarea value={this.state.value} onChange={this.handleChange} />
+
+< select value={this.state.value} onChange={this.handleChange}>
+    < option value="grapefruit">Грейпфрут< /option>
+    ...
+< /select>
+
+< select multiple={true} value={['Б', 'В']}>
+
+<a href="https://jaredpalmer.com/formik">formik библиотека</a>
+        </code></pre>
+    </details>
+    <details>
+        <summary>Композиция</summary>
+        <pre><code>
+function Dialog(props) {
+  return (
+    < FancyBorder color="blue">
+      < h1 className="Dialog-title">
+        {props.title}
+      < /h1>
+      < p className="Dialog-message">
+        {props.message}
+      < /p>
+      {props.children}
+    < /FancyBorder>
+  );
+}
+
+class SignUpDialog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.state = {login: ''};
+  }
+
+  render() {
+    return (
+      < Dialog title="Программа исследования Марса"
+              message="Как к вам обращаться?">
+        < input value={this.state.login}
+               onChange={this.handleChange} /> 
+        < button onClick={this.handleSignUp}>
+          Запишите меня!
+        < /button>
+      < /Dialog>
+    );
+  }
+
+  handleChange(e) {
+    this.setState({login: e.target.value});
+  }
+
+  handleSignUp() {
+    alert(`Добро пожаловать на борт, ${this.state.login}!`);
+  }
+}
+        </code></pre>
+    </details>
 </div>
 
 <div>App.js
@@ -146,11 +415,7 @@ export default function TemplateFuncName(props) {
   < AddTodo onCreate={addTodo}>< /AddTodo>
 < /React.Suspense>
 
-React.useState()
-React.useEffect()
 useContext()
-
-React.lazy()
     </code></pre>
 </div>
 
