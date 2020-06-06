@@ -4,118 +4,158 @@
 
 <div>
     <h2><img src="https://git-scm.com/favicon.ico" alt="git"> Git</h2>
+    <a href="https://github.com/arslanbilal/git-cheat-sheet">git-cheat-sheet</a><br>
     <a href="http://git-init.ru">git-init</a><br>
     <a href="https://git-scm.com/book/ru/v2">Pro Git — Скотт Чакон, Бен Штрауб</a><br>
     <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/ru/">Волшебство Git — Бен Линн</a><br>
     <a href="http://think-like-a-git.net">Думай как Git</a><br>
-    <a href="https://www.atlassian.com/git">Getting Git Right</a>
-    <a href="https://www.youtube.com/playlist?list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR">Базовый курс по Git (devcolibri. 2016)</a><br>
-    <a href="https://youtu.be/PEKN8NtBDQ0">Git - для новичков (loftblog. 2015)</a><br>
+    <a href="https://www.atlassian.com/git">Getting Git Right</a><br>
+    <a href="https://youtu.be/nKZsA4T7QPg">Git — инструмент для совместной работы (ШРИ 2019-20)</a><br>
     <a href="https://youtu.be/yDSs80lu3ak">Git — с нуля и до регламента в команде (Сергей Сергеев. 2018)</a><br>
     <a href="https://youtu.be/mvVsrB46zkc">Github. Командная разработка - Роман Парадеев и Олег Мохов</a><br>
     <a href="https://youtu.be/nRXacgNHNVw">GIT-практикум (ITVDN)</a><br>
-    <a href="https://youtu.be/iQqDce_9y3k">Как пользоваться GIT в Phpstorm. Инструкция</a><br>
-    <a href="https://youtu.be/nHjKXiRLAQY">PhpStorm + Git + GitHub - Настройка контроля версий</a><br>
-    "fast forward"<br>
-    "workflow"<br>
     <a href="https://learngitbranching.js.org">learngitbranching</a><br>
     <a href="https://try.github.io">try.github</a><br>
     <a href="http://marklodato.github.io/visual-git-guide/index-ru.html">visual-git-guide</a><br>
     staging-сервера <br>
+    Blob, tree, commit <br>
+    "fast forward", "workflow"<br>
 </div>
+
+<pre><code>
+git init    // Create an empty Git repository or reinitialize an existing one
+
+git status  // проверяем
+
+git add fileName , * , . , --all, -p
+git reset fileName // untracked file
+
+git commit -m'комментарий'
+git commit --amend // перетирает последний коммит
+
+git mv ??? Move or rename a file, a directory, or a symlink
+git rm ? Remove files from the working tree and from the index
+</code></pre>
+
+<div>добавить репозиторий на github<pre><code>
+git remote add origin url.git //добавляет сервер
+git push origin master
+// загружаем в удаленный репозиторий в мастер-ветку
+
+git remote -v //покажет список серверов
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git //изменяет url сервера
+
+git clone url   // скачать репозиторий с гитхаба
+</code></pre></div>
+
+<pre><code>
+git branch имяветки // создаем ветку
+git checkout -b newbranch  // создание новой ветки с переключением на неё
+git checkout master  // переключение на ветку мастер
+git merge branch2  // слияние в настоящую ветку ветки branch2
+git branch -d имяветки //удаляем ветку
+</code></pre>
+
+<pre><code>
+git log -2  // показывает два последних коммита
+git log -p  // просмотреть разницу
+git log --oneline --graph --decorate
+git checkout 7efcf00  // возвращение к определенному коммиту
+
+cat .git/refs/heads/master
+// посмотреть хеш мастер-ветки
+
+cat .git/HEAD //в какой ветке
+git show 7efcf00 , @ , @~2^2
+</code></pre>
+
+<pre><code>
+.gitignore
+
+node_modules
+*.log
+</code></pre>
+
+<pre><code>
+git config -—global user.name "John Doe" 
+git config -—global user.email johndoe@example.com
+git config -—global -l
+git config core.autocrlf false // ?
+git config --list
+</code></pre>
+
+<pre><code>
+git rebase branch2  // копирование комитов ветки к другой ветке
+git rebase --skip //
+git rebase --abort //
+git rebase --continue //
+git rebase -i HEAD~7 // схлопнуть(squash) 7 коммитов в один
+</code></pre>
+
+<pre><code>
+git pull --rebase upstream master
+// скачиваем из удаленного репозитория отсутствующие у нас изменения
+
+git fetch //download objects and refs from another repository
+</code></pre>
+
+<pre><code>
+git tag v1.0.0
+git tag -a v1.0.0 -m "release v1.0.0"
+</code></pre>
+
+<pre><code>
+//удаляет конкретный коммит создавая новый
+git revert HEAD~1 //удаление изменений предыдущего коммита
+git revert @
+git revert HEAD --no-edit  // ?удаление последнего коммита
+git revert --abort  // отменяем если возник конфликт
+</code></pre>
+
+<pre><code>
+git reset @~2 [ --soft | --mixed | --hard ]
+//отменяет два последних коммита
+git reflog //история ресетов
+git reset хешРесета // отменяет ресет
+</code></pre>
+
+<pre><code>
+git stash  // сохраняем working dir перед pull
+git stash pop //возвращаем отложеный workDir
+git stash list
+</code></pre>
+
+<pre><code>
+git diff // показывает изменения в workDir
+git diff @~1 //в глубь
+git diff @^1 //в ширь
+
+//git clean -n // покажет что будет удалено из workDir
+//git clean -f // удалит все из workDir
+</code></pre>
 
 <div>
 <img src="img/git-upstream.png" alt="git-upstream" style="background-color: white">
 <pre><code>
 git remote -v // просмотр какие репозитории есть локально
 git remote add upstream url.git // добавление репозитория
-git pull --rebase upstream master //
-git rebase -i HEAD~7
-git push -f origin task-3
+git pull --rebase upstream master //обновляем локальный
+git rebase -i HEAD~7 //схлопываем
+git push origin task-3 // отправляем
 </code></pre>
 </div>
 
-    <pre><code> 
+<pre><code>
 
-    git config -—global user.name "John Doe" 
-    git config -—global user.email johndoe@example.com
-    git config -—global -l
-    git config core.autocrlf false
+    switch  Switch branches
 
-    git clone url   // Clone a repository into a new directory 
-    git init    // Create an empty Git repository or reinitialize an existing one 
-
-    git add имяфайла
-    git add -p
-    mv  Move or rename a file, a directory, or a symlink 
-    rm  Remove files from the working tree and from the index 
-
-    diff    Show changes between commits, commit and working tree, etc 
-    git diff @~1 //в глубь
-    git diff @^1 //в ширь
-
-    git log -2  // показывает два последних коммита
-    git log -p  // просмотреть разницу
-    git log --oneline --graph --all
-    show    Show various types of objects 
-    git status  // проверяем
-
-    git branch  List, create, or delete branches 
-    git branch -d имяветки //удаляем ветку
-
-    git commit -m'комментарий'
-
-    git checkout hash  // возвращение к определенному коммиту
-    git checkout master  // переключение на ветку мастер
-    git checkout -b newbranch  // создание новой ветки с переключением на неё
-
-    git merge branch2  // слияние в настоящую ветку ветки branch2
-
-    git rebase branch2  // перебазирование комитов ветки к другой ветке
-    git rebase --continue //
-    git rebase -i HEAD~7 // схлопнуть(squosh?) 7 коммитов в один
-
-    git reset   Reset current HEAD to the specified state 
-    switch  Switch branches 
-    tag     Create, list, delete or verify a tag object signed with GPG 
-
-collaborate (see also: git help workflows) 
-    git fetch   Download objects and refs from another repository 
-    git pull origin branch2 // скачиваем из удаленного репозитория отсутствующие у нас изменения
-    git pull --rebase
-    git push origin master  // загружаем в удаленный репозиторий в мастер-ветку
-
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help < command>' or 'git help < concept>'
-to read about a specific subcommand or concept. 
-See 'git help git' for an overview of the system.
-    git config --list
-    
-create .gitignore /tmp 
     git restore --staged index.html  // убираем файл из staged area
-    git revert HEAD --no-edit  // удаление последнего коммита
-    git revert --abort  // отменяем если возник конфликт
 
-    git stash  // сохраняем working dir перед pull
-    git stash pop
-    git stash list
     git cat-file -p папка имяфайла //посмотреть содержимое файла
-    cat .git/HEAD
-    vi имяфайла
     git hist
-    git reflog
     git rev-parse 08ddf8e~2
 
     bisect  Use binary search to find the commit that introduced a bug
     grep    Print lines matching a pattern 
 
-    git --help
-usage: git [--version] [--help] [-C < path>] [-c < name>=< value>] 
-       [--exec-path[=< path>]] [--html-path] [--man-path] [--info-path]
-       [-p | —paginate | -P | —no-pager] [--no-replace-objects] [--bare] 
-       [--git-dir=< path>] [--work-tree=< path>] [--namespace=< name>] 
-       < command> [< args>] 
-
-    git remote -v
-    git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 </code></pre>
