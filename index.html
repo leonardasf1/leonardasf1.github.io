@@ -17,15 +17,11 @@ min-height: 100vh;
     }
     nav {
 color: #fff;
-padding: 30px 50px;
+padding: 30px 0;
     }
     nav > * {
-width: calc(100vw - 100px);
+width: 100vw;
 margin-bottom: .5rem;
-    }
-    hr {
-color: #fff2;
-height: 1px;
     }
   </style>
 </head>
@@ -33,18 +29,29 @@ height: 1px;
 <body>
 
 <nav class="img32">
-
-<a><img src="icons/favicon.ico" alt="home"></a><hr>
+<table>
+<tr>
+  <td><a><img src="icons/favicon.ico" alt="home"></a></td><td></td>
+</tr>
+<tr>
+  <td><a href="sailing/" title="sailing"><img src="icons/sailing.png" alt="sailing"></a></td><td><a href="sailing/"> Паруса</a></td></tr>
+<tr>
+  <td><a href="programming/" title="programming"><img src="icons/programing.png" alt="programming"></a></td><td><a href="programming/"> Программирование</a></td></tr>
+<tr>
+  <td><a href="flamenco/" title="flamenco"><img src="icons/flamenco.png" alt="flamenco"></a></td><td><a href="flamenco/"> Фламенко</a></td></tr>
+<tr>
+  <td><a href="zdorovie/" title="Здоровье"><img src="icons/zdorovie.png" alt="Здоровье"></a></td><td><a href="zdorovie/"> Здоровье</a></td></tr>
+<tr>
+  <td><a href="Skateboard/" title="Лонгбординг"><img src="icons/skateboarding.png" alt="skateboarding"></a></td><td><a href="Skateboard/"> Скейтборд</a></td></tr>
+<tr>
+  <td><a href="surf/" title="Серфинг"><img src="icons/surf.png" alt="surf"></a></td><td><a href="surf/"> Сёрфинг</a></td></tr>
+<tr>
+  <td><a href="guitar/" title="Guitar"><img src="icons/guitar.png" alt="guitar"></a></td><td><a href="guitar/"> Гитара</a></td></tr>
+<tr>
+  <td><a href="13century/" title="13century"><img src="icons/medieval.png" alt="13century"></a></td><td><a href="13century/"> 13й Век</a></td></tr>
 <!-- <a href="F1_Challenge/" title="formula 1"><img src="icons/f1.png" alt="formula 1"></a> -->
-<a href="sailing/" title="sailing"><img src="icons/sailing.png" alt="sailing"> Паруса</a><hr>
-<a href="programming/" title="programming"><img src="icons/programing.png" alt="programming"> Программирование</a><hr>
 <!-- <a href="Alpinism/" title="alpinisme"><img src="icons/alpinism.png" alt="alpinisme"></a> -->
-<a href="flamenco/" title="flamenco"><img src="icons/flamenco.png" alt="flamenco"> Фламенко</a><hr>
 <!-- <a href="13vek.html" title="medieval"><img src="icons/medieval.png" alt="medieval"></a> -->
-<a href="zdorovie/" title="Здоровье"><img src="icons/zdorovie.png" alt="Здоровье"> Здоровье</a><hr>
-<a href="Skateboard/" title="Лонгбординг"><img src="icons/skateboarding.png" alt="skateboarding"> Скейтборд</a><hr>
-<a href="surf/" title="Серфинг"><img src="icons/surf.png" alt="surf"> Сёрфинг</a><hr>
-<a href="guitar/" title="Guitar"><img src="icons/guitar.png" alt="guitar"> Гитара</a>
 <!-- <div>
     <div class="item">старье</div>
     <div class="submenu">
@@ -55,7 +62,7 @@ height: 1px;
 <a href="nu/">nu</a>
     </div>
 </div> -->
-
+</table>
 </nav>
 <!-- <footer></footer> -->
 </body>

@@ -351,6 +351,18 @@ class SignUpDialog extends React.Component {
     </details>
 </div>
 
+<div>
+  <details>
+    <summary>паттерн Render Props</summary>
+    <code><pre>
+const Component = ({ render }) => render('some text')
+
+< Component render={text => (
+  < div>{text}< /div>
+)} /></pre></code>
+  </details>
+</div>
+
 <div>App.js
     <pre><code>
 import React, {useEffect} from 'react'

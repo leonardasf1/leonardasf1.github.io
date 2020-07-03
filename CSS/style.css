@@ -54,6 +54,15 @@ a:hover {
 }
 
 .img32 img, #headerMenu img, #links img { height: 32px }
+.img32 tr {
+    height: 48px;
+}
+.img32 td {
+    padding: 0 0 0 2rem;
+}
+.img32 td:first-of-type {
+    text-align: right;
+}
 
 #links.img16 img, summary img, ul img, .img16 img { height: 16px }
 
