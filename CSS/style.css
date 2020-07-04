@@ -52,7 +52,9 @@ a {
 a:hover {
     filter: drop-shadow(0 2px 2px black);
 }
-
+.img200 img {
+    height: 200px;
+}
 .img32 img, #headerMenu img, #links img { height: 32px }
 .img32 tr {
     height: 48px;
