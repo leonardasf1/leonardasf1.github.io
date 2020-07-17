@@ -7,7 +7,7 @@
   <a href="https://www.youtube.com/watch?v=eSaF8NXeNsA">webpack. Владилен Минин.2020</a><br>
   <a href="https://www.youtube.com/watch?v=Tg8IVbvturM">Антон Кастрицкий</a> <br>
   <a href="https://yadi.sk/i/9oydqY8iwcY__A">Вебпак, вид сквозь монокль.pdf</a><br>
-  webpack-bundle-analyzer <br>
+  <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a><br>
   yarn outdated //проверка пакетов на актуальность<br>
   yarn audit --fix//проверка на уязвимость и исправление<br>
 </div>
@@ -15,21 +15,266 @@
 <article>
 <pre><code>
 npm init
-npm install -D webpack webpack-cli webpack-dev-server
-npm install -D html-webpack-plugin
-npm install -D clean-webpack-plugin
-npm install -D style-loader css-loader
+npm i -D webpack webpack-cli webpack-dev-server
+npm i -D html-webpack-plugin
+npm i -D clean-webpack-plugin // delete old files in dist
+npm i -D style-loader css-loader
+npm i -D file-loader // для картинок и шрифтов
+npm i normalize.css // кроссбраузерность
+npm i -D xml-loader
+npm i -D csv-loader papaparse
+npm i -D copy-webpack-plugin // copy files to dist
+npm i -D mini-css-extract-plugin
+npm i -D cross-env
+npm i -D terser-webpack-plugin // js optimize
+npm i -D optimize-css-assets-webpack-plugin // css optimize
+npm i -D less-loader
+npm i -D node-sass sass-loader
+npm i -D babel-loader @babel/core @babel/preset-env  @babel/polyfill // установка babel
+npm i -D typescript ts-loader
+npm i -D @babel/preset-typescript // typescript
+npm i -D @babel/preset-react
+  npm i -D @babel/plugin-proposal-class-properties //плагин для бабеля (для примера)
+npm i -D eslint
+npm i -D eslint-loader
+npm i -D babel-eslint
+настроить .eslintrc
+npm i lodash
+npm i -D webpack-bundle-analyzer
 
-  npm install -D babel-loader @babel/core @babel/preset-env  // установка babel
+
+npm i -S jquery
+
   npm install cache-loader style-loader css-loader sass-loader node-sass --save-dev
-  npm install --save-dev file-loader
 </code>
-<details><summary>webpack.config.js : <a href="https://github.com/tehcookies/bundlers-comparison/tree/master/webpack-advanced">webpack-advanced</a></summary><div><pre><code>
+webpack.config.js
+<code>
+const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+
+const isDev = process.env.NODE_ENV === 'development'
+const isProd = !isDev
+
+const optimization = () => {
+    const config = {
+        splitChunks: { // чтоб не дублировались библиотеки
+            chunks: "all"
+        }
+    }
+    if (isProd) {
+        config.minimizer = [
+            new OptimizeCssPlugin(),
+            new TerserWebpackPlugin()
+        ]
+    }
+    return config
+}
+
+const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
+
+const cssLoaders = extra => {
+     const loaders = [
+        {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                hmr: isDev, // hot module replace
+                reloadAll: true
+            }
+        },
+        'css-loader'
+    ]
+    if (extra) {
+        loaders.push(extra)
+    }
+    return loaders
+}
+
+const babelOptions = preset => {
+    const opts = {
+        presets: [
+            '@babel/preset-env'
+        ],
+        plugins: ['@babel/plugin-proposal-class-properties']
+    }
+    if (preset) {
+        opts.presets.push(preset)
+    }
+    return opts
+}
+
+const jsLoaders = () => {
+    const loaders = [{
+        loader: 'babel-loader',
+        options: babelOptions()
+    }]
+    if (isDev) {
+        loaders.push('eslint-loader')
+    }
+    return loaders
+}
+
+const plugins = () => {
+    const base = [
+        new HTMLWebpackPlugin({ // add hashbundles in html
+            // title: 'Webpack2020',
+            template: './index.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new CleanWebpackPlugin(), // delete old files in dist
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/assets/favicon.ico'),
+                    to: path.resolve(__dirname, 'dist')
+                }
+            ]
+        }),
+        new MiniCssExtractPlugin({
+            filename: filename('css')
+        })
+    ]
+
+    if (isProd) {
+        base.push(new BundleAnalyzerPlugin())
+    }
+
+    return base
+}
+
 module.exports = {
-  entry: './src/index.js',
+    context: path.resolve(__dirname, 'src'),
+    mode: 'development',
+    entry: {
+        main: ['@babel/polyfill','./index.jsx'],
+        analytics: './analytics.ts',
+    },
+    output: {
+        filename: filename('js'), // hashbundle
+        path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        extensions: ['.js', '.json', '.png'], // автоподстановка расширений в импортах
+        alias: { // пути импортов
+            '@models': path.resolve(__dirname, 'src/models'),
+            '@': path.resolve(__dirname, 'src')
+        }
+    },
+    optimization: optimization(),
+    devServer: {
+        port: 4200
+        // hot: isDev // перестает работать
+    },
+    devtool: isDev ? 'source-map' : '',
+    plugins: plugins(),
+    module: {
+        rules: [
+            { // css
+                test: /\.css$/,
+                use: cssLoaders()
+            },
+            { // less
+                test: /\.less$/,
+                use: cssLoaders('less-loader')
+            },
+            { // sass
+                test: /\.s[ac]ss$/,
+                use: cssLoaders('sass-loader')
+            },
+            { // img
+                test: /\.(png|jpg|svg|gif)$/,
+                use: ['file-loader']
+            },
+            { // fonts
+                test: /\.(ttf|woff|woff2|eot)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.xml$/,
+                use: ['xml-loader']
+            },
+            {
+                test: /\.csv$/,
+                use: ['csv-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: jsLoaders()
+            },
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: babelOptions('@babel/preset-typescript')
+                }
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: babelOptions('@babel/preset-react')
+                }
+            }
+        ]
+    }
+}
+</code>
+
+package.json
+<pre><code>
+{
+  ...
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
+    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+  },
+  "browserslist": "> 0.25%, not dead",
+  ...
+}</code></pre>
+
+.eslintrc
+<pre><code>
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "no-unused-vars": "warn"
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ]
+}
+</code></pre>
+
+<details><summary>webpack.config.js //*</summary><div><pre><code>
+const path = require('path')
+
+module.exports = {
+  mode: 'development',
+  entry: {
+      main: './src/index.js',
+      analytics: './src/analytics.js',
+  },
   output: {
-    filename: 'build.js',
-    path: __dirname + '/assets'
+      filename: '[name].[contenthash].js',
+      path: path.resolve(__dirname, 'dist')
   }
   module: {
     rules: [
@@ -73,23 +318,8 @@ module.exports = {
 </code></pre>
 </div></details>
 
-<details><summary>package.json</summary><div><pre><code>
-  {
-    ...
-    "scripts": {
-      "start": "webpack-dev-server --mode development --open",
-      "build": "webpack --mode production",
-      <!-- "build": "webpack --config webpack.config.js", -->
-      "dev": "webpack --watch"
-    },
-    ...
-  }</code></pre>
-</div></details>
-<pre><code>
-  npm run build  // сборка на продакшн
-  npm run dev  // для разработки
-
-.editorconfig //файл
+<details>
+  <summary>.editorconfig //*</summary><pre><code>
 [*]
 end_of_line = lf
 insert_final_newline = true
@@ -97,10 +327,9 @@ indent_size = 2
 indent_style = spase
 charset = 'utf-8'
 trim_trailing_whitespace = true
-
 </code></pre>
-
-<details><summary>.eslintrc.js</summary><pre><code>
+</details>
+<details><summary>.eslintrc.js //*</summary><pre><code>
   npm install --save-dev eslint
 
 module.exports = {
@@ -114,13 +343,13 @@ module.exports = {
 
 node_modules/.bin/eslint --fix
 </code></pre></details>
-<details><summary>.stylelint.json</summary><pre><code>
+<details><summary>.stylelint.json //*</summary><pre><code>
 {
   "extends": "stylelint-config-standart"
 }
 </code></pre></details>
 <details>
-  <summary>.env</summary><pre><code>
+  <summary>.env //*</summary><pre><code>
 DB_HOST=127.0.0.1
 DB_USER=root
 DB_PASSWORD=password
@@ -145,6 +374,5 @@ try {...} catch (err) {
   Sentry.captureException(err);
 }
   </code></pre></details>
-}
-}
+
 </article>
