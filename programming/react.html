@@ -21,7 +21,7 @@
     * <a href="https://youtu.be/bFVAVXWySzM">React Hooks - зачем придумали</a><br>
     * <a href="https://www.youtube.com/playlist?list=PLqKQF2ojwm3n6YO3BDSQIg35GGKn_ImFD">Введение в React Hooks .2019</a><br>
     * <a href="https://youtu.be/V1rhxheJg4A">React JS. Контекст, Хуки, Анимации, Деплой</a><br>
-    <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript (+ React Router DOM)</a><br>
+    * <a href="https://youtu.be/OvLWWvjoi8s">React JS + TypeScript (+ React Router DOM)</a><br>
     <a href="https://itvdn.com/ru/video/react_adv">React Advanced</a><br>
     * <a href="https://youtu.be/G3GGXIhggGs">React Redux + Saga. Практический Курс</a><br>
     <a href="https://habr.com/en/post/269831/">С 0 до 1. Разбираемся с Redux</a><br>
@@ -35,8 +35,10 @@
 npx create-react-app appName //или
 npm i -g yarn
 yarn create react-app app-name
+  yarn create react-app my-app --template typescript // with typescript
 yarn add node-sass <a href="https://reacttraining.com/react-router/web/guides/quick-start">react-router-dom</a> bootstrap axios
 yarn add react-transition-group //animation <a href="https://reactcommunity.org/react-transition-group/">reactcommunity.org</a>
+yarn add typescript @types/node @types/react @types/react-dom @types/react-router-dom @types/jest // add typescript
 yarn start
 yarn build
 
@@ -153,6 +155,24 @@ function FriendStatusWithCounter(props) {
   // Повторно подписаться, только если props.friend.id изменился
 
   return ()
+}
+        </code></pre>
+    </details>
+    <details>
+        <summary>useRef</summary>
+        <pre><code>
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+  const onButtonClick = () => {
+    // `current` указывает на смонтированный элемент `input`
+    inputEl.current.focus();
+  };
+  return (
+    <>
+      < input ref={inputEl} type="text" />
+      < button onClick={onButtonClick}>Установить фокус на поле ввода< /button>
+    < />
+  );
 }
         </code></pre>
     </details>
@@ -353,6 +373,45 @@ class SignUpDialog extends React.Component {
 </div>
 
 <div>
+    <details>
+        <summary>react-router-dom</summary>
+        <pre><code>
+  return (
+  < BrowserRouter>
+      < Switch>
+        < Route component={HomePage} path="/" exact />
+        < Route component={AboutPage} path="/about" />
+      < /Switch>
+  < /BrowserRouter>
+  )
+
+const history = useHistory()
+< button className="btn" onClick={() => history.push('/')}>Главная< /button>
+< NavLink to="/list">Список дел< /NavLink>
+-----------------
+
+    < BrowserRouter>
+        < Link to="/">Home< /Link>
+        < Link to="/about">About< /Link>
+        < Link to="/dashboard">Dashboard< /Link>
+      < Switch>
+          < Route exact path="/">
+            < Home />
+          < /Route>
+          < Route path="/about">
+            < About />
+          < /Route>
+      < /Switch>
+    < /BrowserRouter>
+    < button
+        onClick={(e) => {
+           e.preventDefault()
+           window.location.href = "/"
+        }}
+    >На главную< /button>
+        </code></pre>
+    </details>
+
   <details>
     <summary>паттерн Render Props</summary>
     <code><pre>

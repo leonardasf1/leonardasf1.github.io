@@ -67,63 +67,6 @@ ng e2e
 ng add @angular/material
   </code></pre></div>
 
-<div><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"><img src="https://www.typescriptlang.org/icons/icon-48x48.png" alt="TypeScript" height="32px"></a> TypeScript<br>
-  <a href="https://itvdn.com/ru/video/typescript-fundamentals">TypeScript Fundamentals Updated (2018)</a><br>
-  <a href="https://itvdn.com/ru/video/typescriptfundamentals">TypeScript Fundamentals (2016)</a>
-  <pre><code>
-boolean
-string
-null
-undefined
-never
-
-let varName: number = 10; //number
-let varName: number[] = [1, 2, 3]; //array
-
-let varName: Array< number> = [1, 2, 3];
-  //generic array
-let varName: [string, number]; // tuple
-
-let varName: any = 4; // any
-
-  </code></pre>
-
-<details>
-  <summary>enum</summary><pre><code class="ts">
-enum enumName { //перечисление
-  prop1 = 1,
-  prop2 = 2,
-  prop3 = 3
-};
-let varName: enumName = enumName.prop2;
-</code></pre></details>
-<details>
-  <summary>function</summary><pre><code>
-function warnUser(): void {
-    console.log("This is my warning message");
-} //void - функция ничего не возвращает
-function funcName(a: number, b: string): boolean { return ...;}
-</code></pre></details>
-<details>
-  <summary>interface</summary><pre><code>
-interface IntName {
-  title: string
-  text: string
-}
-function funcName(name: IntName) {
-  console.log(name.title)
-}
-class className implements IntName {}
-</code></pre>
-</details>
-<details>
-  <summary>@ декораторы</summary><pre><code>
-@enumerable(false)
-func() {}
-</code></pre>
-</details>
-
-</div>
 
   <div>
     <details><summary>index.html</summary>

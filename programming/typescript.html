@@ -1,0 +1,268 @@
+<div id="pageTitle">TypeScript</div>
+<div id="pageLogo"><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html"><img src="https://www.typescriptlang.org/assets/images/icons/favicon-32x32.png" alt="typescript"></a></div>
+
+<div>
+    <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">typescriptlang.org</a><br>
+    * <a href="https://youtu.be/nyIpDs2DJ_c">TypeScript - Полный Курс за 70 минут (2019)</a><br>
+    <a href="https://youtu.be/7NU6K4170As">Продвинутый TypeScript. Декораторы, Компилятор, Generic Types, Namespaces (2019)</a><br>
+    <a href="https://itvdn.com/ru/video/typescript-fundamentals">TypeScript Fundamentals Updated (2018)</a><br>
+    <a href="https://itvdn.com/ru/video/typescriptfundamentals">TypeScript Fundamentals (2016)</a><br>
+    <a href="https://youtu.be/_-tSzfGkrew">Дмитрий Харитонов — Подход к типобезопасной разработке на TypeScript (2019)</a><br>
+    <a href="https://youtu.be/cT-VOwWjJJs">Проектирование предметной области на TypeScript в функциональном стиле (2019)</a><br>
+    <a href="https://youtu.be/m0uRxCCno00">Продвинутый TypeScript / Михаил Башуров (Syncro) (2019)</a><br>
+
+    <pre><code>
+: any
+: boolean
+: string
+: number
+
+: Array< number> // generic array
+: number[] // array
+: [string, number] // tuple
+
+: void
+: () => void
+: object
+
+: never // error | infinity
+: null
+: undefined
+
+let varName: number = 10
+function funcName(): void {}
+  </code></pre>
+</div>
+
+<div>
+    <pre><code>
+tsc -v
+sudo npm i -g typescript
+tsc file.ts
+node file.js
+tsc --init
+tsc --watch // (-w)
+    </code></pre>
+</div>
+
+<div>
+    <h3>function</h3>
+    <pre><code>
+function warnUser(): void {
+    console.log("This is my warning message");
+} //void - функция ничего не возвращает
+function funcName(a: number, b: string): boolean { return ...;}
+    </code></pre>
+</div>
+
+<div>
+    <h3>never</h3>
+    <pre><code>
+function throwError(message: string): never {
+    throw new Error(message)
+}
+function infinite(): never {
+    while (true) {}
+}
+    </code></pre>
+</div>
+
+<div>
+    <h3>enum</h3>
+    <pre><code class="ts">
+enum enumName { //перечисление
+  prop1,
+  prop2,
+  prop3
+};
+let varName: enumName = enumName.prop2; // 1 (index)
+let varName = enumName[2] // prop3
+    </code></pre>
+</div>
+
+<div>
+     <h3>type</h3>
+     <pre><code>
+type TodoListProps = {
+    todos: ITodo[]
+    onToggle(id: number): void
+    onRemove: (id: number) => void
+}
+type Id = string | number
+
+interface Person {
+    name: string
+    age: number
+    id: number
+    createdAt: Date
+}
+type PersonKeys = keyof Person
+let key: PersonKeys = 'name'
+key = 'age'
+
+type KeysNoMeta = Exclude< keyof Person, 'id' | 'createdAt'>
+type KeysNoMeta2 = Pick< Person, 'name' | 'age'>
+    </code></pre>
+</div>
+
+<div>
+    <h3>interface</h3>
+    <pre><code>
+interface IRect {
+    readonly id: string
+    color?: string
+    size: {
+        width: number
+        height: number
+    }
+}
+const rect1: IRect = {
+    id: 'asd',
+    size: {
+        width: 23,
+        height: 12
+    }
+}
+function funcName(name: IRect) {
+  console.log(name.id)
+}
+const rect2 = {} as IRect
+const rect3 = < IRect>{}
+
+interface RectWithArea extends IRect {
+    getArea: () => number
+}
+class className implements IRect {}
+
+interface Styles {
+    [key: string]: string
+}
+    </code></pre>
+</div>
+
+<div>
+    <h3>Classes</h3>
+    <pre><code>
+class Car {
+    readonly numberOfWeels: number = 4
+    protected voice: string = ''
+    public color: string = 'black'
+
+    constructor(readonly model: string) {}
+
+    private go() {}
+}
+class Cat extends Car {
+    setVoice(voice:string): void {
+        this.voice = voice
+    }
+}
+-------------------
+
+abstract class Component {
+    abstract render(): void
+    abstract info(): string
+}
+
+class AppComponent extends Component {
+    render(): void {
+        console.log('Component on render')
+    }
+    info(): string {
+        return "This is info";
+    }
+}
+    </code></pre>
+</div>
+
+<div>
+    <h3>@ декораторы</h3>
+    <pre><code>
+@enumerable(false)
+func() {}
+    </code></pre>
+</div>
+
+<div>
+    <h3>Generic</h3>
+    <pre><code>
+const arrayOfNumbers: Array< number> = [1, 1, 2, 3, 5]
+const arrayOfStrings: Array< string> = ['a', 's', 'd']
+
+function reverse< T>(array: T[]): T[] {
+    return array.reverse()
+}
+
+reverse(arrayOfNumbers)
+reverse(arrayOfStrings)
+-----------------
+
+const promise = new Promise< number>(resolve => {})
+const promise: Promise< number> = new Promise(resolve => {})
+promise.then(data => {console.log(data * 2)})
+-----------------
+
+function merge< T, R>(a: T, b: R) {}
+function mergeObjects< T extends object, R extends object>(a: T, b: R) {
+    return Object.assign({}, a, b)
+}
+-----------------
+
+interface ILength {
+    length: number
+}
+function withCount< T extends ILength>(value: T): {value: T, count: string} {
+    return {
+        value,
+        count: `in this object ${value.length} symbols`
+    }
+}
+-----------------
+
+function getObjectValue< T extends object, R extends keyof T>(obj: T, key: R) {
+    return obj[key]
+}
+const person = {
+    name: 'Myname',
+    age: 26
+}
+console.log(getObjectValue(person, 'name'))
+-----------------
+
+class Collection< T> {
+    constructor(private _items: T[] = []) {}
+    add(item: T) {
+        this._items.push(item)
+    }
+    remove(item: T) {
+        this._items = this._items.filter(i => i !== item)
+    }
+    get items(): T[] {
+        return this._items
+    }
+}
+const string = new Collection(['I', 'Am', 'String'])
+string.add('!')
+string.remove('Am')
+console.log(string.items)
+-----------------
+
+interface Car {
+    model: string
+    year: number
+}
+
+function f(model: string, year: number): Car {
+    const car: Partial< Car> = {} //с пустыми полями
+    if (model.length > 3) {
+        car.model = model
+    }
+    if (year > 2000) {
+        car.year = year
+    }
+    return car as Car
+}
+------------------
+const cars: Readonly< Array< string>> = ['sad', 'qwe']
+    </code></pre>
+</div>
