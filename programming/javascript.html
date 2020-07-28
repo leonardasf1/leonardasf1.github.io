@@ -10,7 +10,6 @@
   <a href="http://plnkr.co/"><img src="http://plnkr.co/img/plunker.png" alt="plunker"></a>
   <a href="https://jsfiddle.net/"><img src="http://jsfiddle.net/img/favicon.png" alt="jsfiddle"></a>
   <a href="https://eloquentjavascript.net"><img src="https://eloquentjavascript.net/favicon.ico" alt="EJS"></a>
-  <a href="https://skillbox.ru/media/code/javascript_glavnyy_instrument_frontend/"><img src="https://skillbox.ru/favicon.ico" alt="Skillbox"></a>
   <br><br>
   <a href="https://youtu.be/i4O5Ej6CG7M">JavaScript - Part I: from beginner to expert (2020)</a>
   <a href="https://www.youtube.com/channel/UCIo6TsJzLVRGbRZxKzoNeFQ">MoscowJS</a><br>
@@ -983,14 +982,14 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
   document.write(box1.volume() + ", " + box2.volume() + ", ");
   document.write(box1.Equals(box2));
 			</code></pre></details></li>
-		<li><details><summary>function-prototype</summary>
-			<pre><code>
+<!--		<li><details><summary>function-prototype</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
-		<li><details><summary>native-prototypes</summary>
-			<pre><code>
+<!--			</code></pre></details></li>-->
+<!--		<li><details><summary>native-prototypes</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
+<!--			</code></pre></details></li>-->
 		<li><details><summary>prototype-methods</summary>
 			<pre><code>
   // переопределение метода valueOf из Object
@@ -1005,17 +1004,19 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
 	<ul>
 		<li><details><summary>class</summary>
 			<pre><code>
-  class MyClass {
-    prop = value; // свойство
-    constructor(...) { // конструктор
-      // ...
+    class Car {
+        public readonly numberOfWeels = 4
+        protected voice = '' // в пределах класса и наследников
+        public color = 'black'
+        static volume = 12 // общее для всех экземпляров
+        [a + d]() {} // метод с вычисляемым именем
+
+        constructor(readonly model) {}
+
+        private go() {}
+        get height() {return this.voice}
+        set height(voice) {this.voice = voice}
     }
-    method(...) {} // метод
-    get something(...) {} // геттер
-    set something(...) {} // сеттер
-    [a + d]() {} // метод с вычисляемым именем
-    ...
-  }
 
   class User {
     lastName = "Аноним";
@@ -1068,14 +1069,6 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
       }
   }
 			</code></pre></details></li>
-		<li><details><summary>Static</summary>
-			<pre><code>
-
-			</code></pre></details></li>
-		<li><details><summary>Private, protected</summary>
-			<pre><code>
-
-			</code></pre></details></li>
 		<li><details><summary>instanceof</summary>
 			<pre><code>
   instanceof // оператор для проверки типа объекта
@@ -1083,10 +1076,10 @@ obj1Name.obj1MethodName.apply(obj2Name, [prop3Val, prop4Val]);
   let task = new Task();
   console.log(task instanceof Task);
 			</code></pre></details></li>
-		<li><details><summary>Mixins</summary>
-			<pre><code>
+<!--		<li><details><summary>Mixins</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
+<!--			</code></pre></details></li>-->
 	</ul>
 </div>
 
@@ -1131,10 +1124,10 @@ Promise.resolve(value) – возвращает успешно выполнив�
 Promise.reject(error) – возвращает промис с ошибкой error.
 
 			</code></pre></details></li>
-		<li><details><summary>microtask queue</summary>
-			<pre><code>
+<!--		<li><details><summary>microtask queue</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
+<!--			</code></pre></details></li>-->
 		<li><details><summary>async/await</summary>
 			<pre><code>
     // await можно использовать только внутри async–функций
@@ -1297,18 +1290,18 @@ let p = new Proxy({}, varName);
 p.a = 1;
 console.log(p.a, p.b); // 1, 42
 			</code></pre></details></li>
-		<li><details><summary>Eval</summary>
-			<pre><code>
+<!--		<li><details><summary>Eval</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
-		<li><details><summary>Carrying</summary>
-			<pre><code>
+<!--			</code></pre></details></li>-->
+<!--		<li><details><summary>Carrying</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
-		<li><details><summary>Intl</summary>
-			<pre><code>
+<!--			</code></pre></details></li>-->
+<!--		<li><details><summary>Intl</summary>-->
+<!--			<pre><code>-->
 
-			</code></pre></details></li>
+<!--			</code></pre></details></li>-->
     <li><details><summary>WebSocket</summary>
       <pre><code>npm i ws -save
         WSS://
@@ -1320,10 +1313,10 @@ console.log(p.a, p.b); // 1, 42
 
 webSocket.send(data) //отправка данных на сервер
       </code></pre></details></li>
-    <li><details><summary>Web Components</summary>
-      <pre><code>
+<!--    <li><details><summary>Web Components</summary>-->
+<!--      <pre><code>-->
 
-      </code></pre></details></li>
+<!--      </code></pre></details></li>-->
       <li><details><summary>Service Worker API</summary>
       <pre><code>
         <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">mozilla</a>
@@ -2294,8 +2287,7 @@ console.warn()
     представляет свойства объекта «object» как локальные переменные. 
     
     Оператор with является устаревшим и его использование не желательно. 
-    Его использование запрещено в Strict Mode. 
-    Подробнее: http://habrahabr.ru/post/118666/">with </a>
+    Его использование запрещено в Strict Mode.">with </a>
 
             .anchors[0].name
 

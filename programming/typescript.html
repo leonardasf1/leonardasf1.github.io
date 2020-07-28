@@ -3,14 +3,37 @@
 
 <div>
     <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">typescriptlang.org</a><br>
-    * <a href="https://youtu.be/nyIpDs2DJ_c">TypeScript - Полный Курс за 70 минут (2019)</a><br>
-    <a href="https://youtu.be/7NU6K4170As">Продвинутый TypeScript. Декораторы, Компилятор, Generic Types, Namespaces (2019)</a><br>
-    <a href="https://itvdn.com/ru/video/typescript-fundamentals">TypeScript Fundamentals Updated (2018)</a><br>
-    <a href="https://itvdn.com/ru/video/typescriptfundamentals">TypeScript Fundamentals (2016)</a><br>
-    <a href="https://youtu.be/_-tSzfGkrew">Дмитрий Харитонов — Подход к типобезопасной разработке на TypeScript (2019)</a><br>
-    <a href="https://youtu.be/cT-VOwWjJJs">Проектирование предметной области на TypeScript в функциональном стиле (2019)</a><br>
-    <a href="https://youtu.be/m0uRxCCno00">Продвинутый TypeScript / Михаил Башуров (Syncro) (2019)</a><br>
+    <br>
+    Видеоуроки:
+    <ul>
+        <li><a href="https://itvdn.com/ru/video/typescript-fundamentals">TypeScript Fundamentals Updated (2018)</a></li>
+        <li>* <a href="https://youtu.be/nyIpDs2DJ_c">TypeScript - Полный Курс за 70 минут (2019)</a></li>
+        <li>* <a href="https://youtu.be/7NU6K4170As">Продвинутый TypeScript. Декораторы, Компилятор, Generic Types, Namespaces (2019)</a></li>
+        <li><a href="https://itvdn.com/ru/video/typescriptfundamentals">TypeScript Fundamentals (2016)</a></li>
+    </ul>
+    Доклады:
+    <ul>
+        <li><a href="https://youtu.be/_-tSzfGkrew">Дмитрий Харитонов — Подход к типобезопасной разработке на TypeScript (2019)</a></li>
+        <li><a href="https://youtu.be/cT-VOwWjJJs">Проектирование предметной области на TypeScript в функциональном стиле (2019)</a></li>
+        <li><a href="https://youtu.be/m0uRxCCno00">Продвинутый TypeScript / Михаил Башуров (Syncro) (2019)</a></li>
+    </ul>
+    Доп.библиотеки:
+    <ul>
+        <li><a href="https://github.com/typestack/class-transformer">class-transformer</a> // JSON to Class</li>
+        <li><a href="https://github.com/typestack/class-validator">class-validator</a></li>
+    </ul>
+    <br>
+    <pre><code>
+tsc -v
+sudo npm i -g typescript
+tsc file.ts
+node file.js
+tsc --init
+tsc --watch // (-w)
+    </code></pre>
+</div>
 
+<div><h3>Типизация</h3>
     <pre><code>
 : any
 : boolean
@@ -19,7 +42,7 @@
 
 : Array< number> // generic array
 : number[] // array
-: [string, number] // tuple
+: [string, number] // tuple(кортеж)
 
 : void
 : () => void
@@ -31,28 +54,21 @@
 
 let varName: number = 10
 function funcName(): void {}
+
+// Type assertion - утверждение типов, это операция,
+// которая напоминает приведение типов в других языках программирования.
+// С помощью утверждения типов можно подсказать компилятору,
+// конкретный тип с которым мы сейчас работаем.
+
+let someData: any = "Hello world";
+let strLength1: number = (< string>someData).length;
+        // утверждение, что значение someData является типом string
+        //использование синтаксиса "angle-bracket"
+let strLength2: number = (someData as string).length;
+        // утверждение, что значение someData является типом string
+        //использование синтаксиса "as"
+
   </code></pre>
-</div>
-
-<div>
-    <pre><code>
-tsc -v
-sudo npm i -g typescript
-tsc file.ts
-node file.js
-tsc --init
-tsc --watch // (-w)
-    </code></pre>
-</div>
-
-<div>
-    <h3>function</h3>
-    <pre><code>
-function warnUser(): void {
-    console.log("This is my warning message");
-} //void - функция ничего не возвращает
-function funcName(a: number, b: string): boolean { return ...;}
-    </code></pre>
 </div>
 
 <div>
@@ -68,21 +84,67 @@ function infinite(): never {
 </div>
 
 <div>
-    <h3>enum</h3>
-    <pre><code class="ts">
-enum enumName { //перечисление
-  prop1,
-  prop2,
-  prop3
-};
-let varName: enumName = enumName.prop2; // 1 (index)
-let varName = enumName[2] // prop3
+    <h3>function</h3>
+    <pre><code>
+let myAdd: (x: number, y: number) => number;
+let myProc: () => void;
+
+function warnUser(): void {
+    console.log("This is my warning message");
+} //void - функция ничего не возвращает
+function funcName(a: number, b: string): boolean { return ...;}
+function funcName(a: number, b?: number): number { return ...;}
+    // ? необязательный параметр, обязательно в конце
+function funcName(a: number, b: string = "text"): number { return ...;}
+    // default value
+-------------------
+
+// параметр функции в начале имени которого используется ...
+        // является rest параметром.
+// rest параметр - это набор опциональных параметров. При вызове
+        // такого метода, количество параметров не ограничивается.
+// тип данной функции - (message:string, ...names: string[]) => void
+function printValue(message: string, ...names: string[]) : void {
+    console.log(message);
+    for(let i = 0; i < names.length; i++) {
+        console.log(names[i]);
+    }
+}
+// вызов функции с rest параметрами
+printValue("sample 1");
+printValue("sample 2", "1", "2");
+printValue("sample 3", "1", "2", "abc");
+-------------------
+
+function showMessage(message: string); // первая перегрузка функции,
+        // которая принимает один параметр типа string
+function showMessage(message: number); // вторая перегрузка функции,
+        // которая принимает один параметр типа number
+function showMessage(message: any) { // непосредственно реализация
+        // функции, не является перегрузкой
+    if (typeof message == "number") {
+        switch (message) {
+            case 1: {
+                console.log("Hello world");
+            } break;
+            case 2: {
+                console.log("Привет мир");
+            } break;
+        }
+    }
+    else if (typeof message == "string") {
+        console.log(message);
+    }
+}
+showMessage(1);
+showMessage("test");
+// showMessage(true); // compile error
     </code></pre>
 </div>
 
 <div>
-     <h3>type</h3>
-     <pre><code>
+    <h3>type</h3>
+    <pre><code>
 type TodoListProps = {
     todos: ITodo[]
     onToggle(id: number): void
@@ -144,13 +206,16 @@ interface Styles {
     <h3>Classes</h3>
     <pre><code>
 class Car {
-    readonly numberOfWeels: number = 4
-    protected voice: string = ''
+    public readonly numberOfWeels: number = 4
+    protected voice: string = '' // в пределах класса и наследников
     public color: string = 'black'
+    static volume: number = 12 // общее для всех экземпляров
 
     constructor(readonly model: string) {}
 
     private go() {}
+    get height() {return this.voice}
+    set height(voice: string) {this.voice = voice}
 }
 class Cat extends Car {
     setVoice(voice:string): void {
@@ -159,27 +224,39 @@ class Cat extends Car {
 }
 -------------------
 
-abstract class Component {
-    abstract render(): void
-    abstract info(): string
+abstract class Department {
+
+    constructor(public name: string) {
+    }
+
+    printName(): void {
+        console.log("Department name: " + this.name);
+    }
+
+    abstract printMeeting(): void; // must be implemented in derived classes
 }
 
-class AppComponent extends Component {
-    render(): void {
-        console.log('Component on render')
+class AccountingDepartment extends Department {
+
+    constructor() {
+        super("Accounting and Auditing"); // constructors in derived classes must call super()
     }
-    info(): string {
-        return "This is info";
+
+    printMeeting(): void {
+        console.log("The Accounting Department meets each Monday at 10am.");
+    }
+
+    generateReports(): void {
+        console.log("Generating accounting reports...");
     }
 }
-    </code></pre>
-</div>
 
-<div>
-    <h3>@ декораторы</h3>
-    <pre><code>
-@enumerable(false)
-func() {}
+let department: Department; // ok to create a reference to an abstract type
+department = new Department(); // error: cannot create an instance of an abstract class
+department = new AccountingDepartment(); // ok to create and assign a non-abstract subclass
+department.printName();
+department.printMeeting();
+department.generateReports(); // error: method doesn't exist on declared abstract type
     </code></pre>
 </div>
 
@@ -264,5 +341,173 @@ function f(model: string, year: number): Car {
 }
 ------------------
 const cars: Readonly< Array< string>> = ['sad', 'qwe']
+    </code></pre>
+</div>
+
+<div><h3>enum</h3>
+    <pre><code>
+// enum - перечисление, тип данных, который позволяет набору
+        // целочисленных значений присвоить имена.
+// по умолчанию перечисления нумеруют свои элементы начиная с 0
+// Red = 0, Green = 1, Blue = 2
+enum Color { Red, Green, Blue }
+let c1: Color = Color.Green;
+console.log(c1);
+
+// каждому элементу перечисления явно устанавливается значение
+enum Status { Success = 1, Error = 5, Rejected = 10}
+let c2: Status = Status.Success;
+console.log(c2);
+
+// так как первому элементу явно установлено значение 2,
+        // все последующие будут продолжать нумерацию с 2
+// Circle = 2, Triangle = 3, Square = 4
+enum Shape { Circle = 2, Triangle, Square }
+let c3: Shape = Shape.Square;
+console.log(c3);
+
+let c4: string = Status[1]; // обращаясь к перечислению
+        // через индексатор и указывая целочисленное
+// значение можно получить строковое представление этого значения
+console.log(c4);
+
+/////////////////////////////////////////////////////////////////
+// Пример использования перечислений
+/////////////////////////////////////////////////////////////////
+
+enum Fruit {
+    Apple,
+    Orange,
+    Tomato
+}
+
+function drawImage1(fruit: number) {
+    let domElement: HTMLImageElement = document.createElement("img");
+
+    switch(fruit) {
+        case 0:
+            domElement.src = "/images/apple.jpg";
+        break;
+        case 1:
+            domElement.src = "/images/orange.jpg";
+        break;
+        case 2:
+            domElement.src = "/images/tomato.jpg";
+        break;
+    }
+
+    document.body.appendChild(domElement);
+}
+
+function drawImage2(fruit: Fruit) {
+    let domElement: HTMLImageElement = document.createElement("img");
+
+    switch(fruit) {
+        case Fruit.Apple:
+            domElement.src = "/images/apple.jpg";
+        break;
+        case Fruit.Orange:
+            domElement.src = "/images/orange.jpg";
+        break;
+        case Fruit.Tomato:
+            domElement.src = "/images/tomato.jpg";
+        break;
+    }
+
+    document.body.appendChild(domElement);
+}
+
+drawImage1(0); // создать изображение с яблоком (не очевидно)
+drawImage2(Fruit.Orange); // с апельсином (код  самодокументируемый)
+    </code></pre></div>
+
+<div><h3>Namespaces</h3>
+    <pre><code>
+/// < reference path="form-namespace.ts" />
+
+namespace FormSpace {
+    class MyForm {
+        private type: FormType = 'inline'
+        private state: FormState = 'active'
+
+        constructor(public email: string) {
+        }
+        getInfo(): FormInfo {
+            return {
+                type: this.type,
+                state: this.state
+            }
+        }
+    }
+    const form = new MyForm('v@mail.ru')
+}
+
+//----------------------------
+
+namespace FormSpace {
+    export type FormType ='inline' | 'block'
+    export type FormState ='active' | 'disabled'
+
+    export interface FormInfo {
+        type: FormType
+        state: FormState
+    }
+}
+    </code></pre>
+</div>
+
+<div>
+    <h3>@ декораторы</h3>
+    <pre><code>
+// experimental
+@enumerable(false)
+func() {}
+------------------
+@Component({
+  selector: 'app-bank-account',
+  inputs: ['bankName', 'id: account-id'],
+  template: `
+    Bank Name: {{ bankName }}
+    Account Id: {{ id }}
+  `
+})
+export class BankAccountComponent {
+  bankName: string|null = null;
+  id: string|null = null;
+
+  // this property is not bound, and won't be automatically updated by Angular
+  normalizedBankName: string|null = null;
+}
+------------------
+function Log(constructor: Function) {
+    console.log(constructor)
+}
+function Log2(target: any, propName: string | Symbol) {
+    console.log(target)
+    console.log(propName)
+}
+function Log3(target: any, propName: string | Symbol, descriptor: PropertyDescriptor) {
+    console.log(target)
+    console.log(propName)
+    console.log(descriptor)
+}
+
+@Log // class @
+class Component {
+    @Log2 // prop @
+    name: string
+
+    @Log3 // get @
+    get componentName() {
+        return this.name
+    }
+    constructor(name: string) {
+        this.name = name
+    }
+    @Log3 // method @
+    logName(): void {
+        console.log(`Component Name: ${this.name}`)
+    }
+}
     </code></pre>
 </div>
