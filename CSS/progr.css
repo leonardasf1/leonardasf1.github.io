@@ -1,0 +1,24 @@
+
+h2 {margin-top: 0px}
+.pycon {
+    background: linear-gradient(135deg ,#3b709c 40%, #fad149 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+s { color: red; }
+
+[href*="developer.mozilla"]:before {
+    content: url(https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png);
+}
+[href*="itvdn"]:before {
+    content: url(../icons/itvdn.svg);
+}
+main [href*="github"]:before {
+    content: url(../icons/github.svg);
+}
+[href*="frontendconf.ru"]:before {
+    content: url(https://frontendconf.ru/i/frontendconf/2019/favicon.ico);
+}
+[href*="habr.com"]:before {
+    content: url(https://habr.com/images/favicon-16x16.png);
+}

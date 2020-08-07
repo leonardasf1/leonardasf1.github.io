@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" height="32" width="32">
+    <g transform="matrix(0.35277777,0,0,-0.35277777,-401.24389,314.93518)" >
+      <g clip-path="url(#clipPath44)">
+        <g transform="translate(1159.6709,887.3208)">
+          <path d="m 0,0 -4.526,4.531 c -0.375,0.375 -0.98,0.375 -1.355,0 l -7.342,-7.336 -7.332,-7.325 c -0.378,-2.349 -0.766,-4.708 -1.144,-7.057 l 7.024,1.172 c 3.798,3.801 5.593,5.59 7.404,7.396 1.811,1.807 3.593,3.583 7.271,7.264 0.425,0.317 0.375,0.98 0,1.355 z"
+          style="fill:none;stroke:#666666;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"/>
+        </g>
+        <g transform="translate(1150.7803,888.6841)">
+          <path d="M 0,0 5.603,-5.489"
+          style="fill:none;stroke:#666666;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"/>
+        </g>
+        <g transform="translate(1140.2119,877.3677)">
+          <path d="M 0,0 5.107,-5.129"
+          style="fill:none;stroke:#666666;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1 "/>
+        </g>
+      </g>
+    </g>
+</svg>

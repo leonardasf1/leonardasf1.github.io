@@ -150,16 +150,12 @@ footer {
 
 #pageTitle, #pageLogo { display: none }
 
-[href*="youtu"] {
-    background: url(https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) no-repeat 0;
-    padding-left: 20px;
+[href*="youtu"]:before {
+    content: url(../icons/youtu.svg);
 }
-[href*="yadi.sk"] {
-    background: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png) no-repeat 0;
-    padding-left: 20px;
+[href*="yadi.sk"]:before {
+    content: url(https://yastatic.net/disk/public3/_/5hb_sU044zVfPgNsMKf8pNs2_6H.png);
 }
-[href*="wikipedia.org"] {
-    background: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico) no-repeat 0;
-    background-size: 16px;
-    padding-left: 20px;
+[href*="wikipedia.org"]:before {
+    content: url(https://ru.wikipedia.org/static/favicon/wikipedia.ico);
 }

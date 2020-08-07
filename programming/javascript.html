@@ -465,6 +465,16 @@ document.write("a / b = " + result); // деление на 0 дает +/- бе�
         function funcName(prevElem, curElem, index, array) {
           return prevElem * curElem;
         }
+    groupBy(array, prop) {
+        return array.reduce((acc, i) => {
+            const key = prop(i)
+            if (!acc[key]) {
+                acc[key] = []
+            }
+            acc[key].push(i)
+            return acc
+        }, {})
+    }
   .reduceRight() // тоже самое в обратную сторону
   .reverse() // revers original array
   .shift() //delete first element, return deleting element
