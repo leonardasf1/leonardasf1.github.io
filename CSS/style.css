@@ -46,7 +46,6 @@ a {
     min-width: 48px;
     color: #D8D7D4;
     text-decoration: none;
-    /*cursor: pointer;*/
     background-position-y: center;
 }
 a:hover {
@@ -79,6 +78,7 @@ summary {
     font-family: monospace;
     padding: 10px;
     list-style: none;
+    cursor: pointer;
 }
 summary:hover { background: rgba(0,0,0,.2); }
 

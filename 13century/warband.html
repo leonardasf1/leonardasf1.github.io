@@ -16,8 +16,63 @@
 </div>
 
 <div>
-    <h3>module_parties</h3>
-    Менять/добавлять города и поселения <br>
-    pt_town_22 <br>
-    give_center_lord <br>
+    <h3>culture_mamluke</h3>
+</div>
+
+<div>
+    <h3>kingdom_42</h3>
+    module_factions.py<br>
+    <details>
+        <summary>module_scripts.py</summary>
+        <code>
+            fac_kingdom_42, slot_faction_culture, fac_culture_mamluke <br>
+            fac_kingdom_42, slot_faction_leader, trp_kingdom_42_lord <br>
+            //scn рандомные для фракции <br>
+            //:center, regional_party_template <br>
+            //:center, spec_mercs2_party_template <br>
+            //faction_adjective <br>
+            //faction_banner <br>
+            //starting_town_faction <br>
+            //region_mamluk<br>
+        </code>
+    </details>
+    <details>
+        <summary>module_troops.py</summary>
+        kingdom_42_lord (1)<br>
+        knight_42_1 <br>
+        kingdom_42_lady_1 <br>
+        merchant_kingdom_42 (1)<br>
+    </details>
+</div>
+<div>
+    <h3>p_town_22_1</h3>
+    module_parties.py
+    <details>
+        <summary>module_scripts.py</summary>
+        <code>
+            give_center_to_faction_aux, p_town_42_1, fac_kingdom_42 <br>
+            center_culture <br>
+            center_original_faction <br>
+            give_center_to_lord, p_town_42_1, trp_kingdom_42_lord <br>
+            town_arena_melee <br>
+            p_town_42_1, slot_center_ex_faction, fac_kingdom_37 <br>
+        </code>
+    </details>
+
+    module_troops.py <br>
+</div>
+<div>
+    <h3>pt_castle_22_1</h3>
+    module_parties
+    <details>
+        <summary>module_scripts.py</summary>
+        <code>
+            give_center_to_faction_aux, p_castle_42_1, fac_kingdom_42 <br>
+            give_center_to_lord, p_castle_42_1, trp_knight_42_1 <br>
+            castle_exterior, scn_walls_ <br>
+            center_siege_with_belfry <br>
+        </code>
+    </details>
+
+    module_troops.py <br>
 </div>
