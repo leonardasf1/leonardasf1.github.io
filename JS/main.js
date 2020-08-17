@@ -53,11 +53,13 @@ function setHeader() {
     q('#headerBar').style.top = headHeight;
     qAll('#headerMenu .item~*').forEach(i => i.style.top = headHeight);
   });
-  
-  q('#headerBar_toggle').addEventListener("touchstart", () => {
-    q('#headerBar').classList.toggle('show');
-    q('#headerBar').style.top = headHeight;
-  });
+
+  if (q('#headerBar_toggle')) {
+    q('#headerBar_toggle').addEventListener("touchstart", () => {
+      q('#headerBar').classList.toggle('show');
+      q('#headerBar').style.top = headHeight;
+    });
+  }
 }
 
 function setContentFn() {

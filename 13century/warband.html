@@ -3,7 +3,7 @@
 
 <div>
     <a href="https://commando.com.ua/commando/gmpr/2529-spravochnik-mododela.html">СПРАВОЧНИК МОДОДЕЛА</a><br>
-    <a href="http://rusmnb.ru"><img src="http://rusmnb.ru/favicon.ico"> Всадники Кальрадии</a><br>
+    <a href="https://rusmnb.ru/index.php?board=312.0"><img src="http://rusmnb.ru/favicon.ico"> Всадники Кальрадии</a><br>
     <a href="http://www.taleworlds.com/"><img src="http://www.taleworlds.com/favicon.ico"> TaleWorlds</a><br>
     <a href="http://russia13.rusmnb.ru/">Русь. 13 век</a><br>
     <a href="https://rusmnb.ru/index.php?topic=4418.0">Battle for Hindustan (v0.83)</a><br>
@@ -17,6 +17,11 @@
 
 <div>
     <h3>culture_mamluke</h3>
+    scripts: <br>
+    faction_tier (рекруты в деревнях)
+    faction_town_walker (население города)
+    faction_village_walker (население деревень)
+    faction_guard (городская стража)
 </div>
 
 <div>
@@ -24,17 +29,21 @@
     module_factions.py<br>
     <details>
         <summary>module_scripts.py</summary>
-        <code>
+        <div>
             fac_kingdom_42, slot_faction_culture, fac_culture_mamluke <br>
             fac_kingdom_42, slot_faction_leader, trp_kingdom_42_lord <br>
-            //scn рандомные для фракции <br>
-            //:center, regional_party_template <br>
-            //:center, spec_mercs2_party_template <br>
-            //faction_adjective <br>
-            //faction_banner <br>
-            //starting_town_faction <br>
-            //region_mamluk<br>
-        </code>
+            cur_faction :start_towns :end_towns <br>
+            :center, regional_party_template <br>
+            :center, spec_mercs2_party_template <br>
+            faction_object <br>
+            mtf_culture_ <br>
+            ?? faction_adjective <br>
+            faction_banner <br>
+            slot_troop_banner_scene_prop <br>
+            starting_town_faction <br>
+            region_mamluk<br>
+            slot_town_castle <br>
+        </div>
     </details>
     <details>
         <summary>module_troops.py</summary>
@@ -49,29 +58,44 @@
     module_parties.py
     <details>
         <summary>module_scripts.py</summary>
-        <code>
-            give_center_to_faction_aux, p_town_42_1, fac_kingdom_42 <br>
-            center_culture <br>
-            center_original_faction <br>
-            give_center_to_lord, p_town_42_1, trp_kingdom_42_lord <br>
-            town_arena_melee <br>
-            p_town_42_1, slot_center_ex_faction, fac_kingdom_37 <br>
-        </code>
+        <div>
+            give_center_to_faction_aux <br>
+            give_center_to_lord <br>
+            <hr>
+            # center_culture <br>
+            # center_original_faction <br>
+            # town_arena_melee <br>
+            # slot_center_ex_faction <br>
+            # slot_town_center <br>
+            # slot_town_walls <br>
+            # slot_center_siege_with_belfry <br>
+        </div>
     </details>
-
-    module_troops.py <br>
+    <details>
+        <summary>module_troops.py</summary>
+        <pre><div>
+            town_25_1_arena_master
+            town_25_1_armorer
+            town_25_1_weaponsmith
+            town_25_1_tavernkeeper
+            town_25_1_merchant
+            town_25_1_horse_merchant
+            town_25_1_mayor
+            town_25_1_master_craftsman
+        </div></pre>
+    </details>
 </div>
 <div>
     <h3>pt_castle_22_1</h3>
     module_parties
     <details>
         <summary>module_scripts.py</summary>
-        <code>
+        <div>
             give_center_to_faction_aux, p_castle_42_1, fac_kingdom_42 <br>
             give_center_to_lord, p_castle_42_1, trp_knight_42_1 <br>
             castle_exterior, scn_walls_ <br>
             center_siege_with_belfry <br>
-        </code>
+        </div>
     </details>
 
     module_troops.py <br>

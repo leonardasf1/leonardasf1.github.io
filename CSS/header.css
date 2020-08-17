@@ -20,8 +20,6 @@ header {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
     font-size: 13px;
     color: #fff;
-    /*flex-wrap: wrap;*/
-    /*justify-content: space-around;*/
 }
 
 #headerMenu a {
@@ -29,10 +27,8 @@ header {
 }
 #headerMenu > div > a {
     padding: 38px 16px;
-    /*display: inline;*/
 }
 
-#headerMenu > .logo {padding: 30px 36px 30px 0;}
 #headerMenu > .logo > a {
     padding: 0;
     display: flex;
@@ -68,7 +64,7 @@ header {
     display: none;
     width: 48px;
     cursor: pointer;
-    margin: 0 11px 0 auto;
+    margin: 0 0 0 auto;
     padding: 15px 13px;
 }
 #headerBar_toggle span {
