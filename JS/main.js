@@ -117,9 +117,11 @@ function setFooter() {
 }
 
 function loadSubPage() {
-  if (q('.show')) {q('#headerBar').classList.remove('show');}
+  if (q('.show')) {
+    q('#headerBar').classList.remove('show')
+  }
   if (location.hash) {
-    q('main').style.opacity = 0;
+    // q('main').style.opacity = 0;
     fetch(`${location.hash.substr(1)}.html`)
     .then(response => response.text())
     .then(results => {
@@ -127,15 +129,16 @@ function loadSubPage() {
       q('title').innerText = q('#pageTitle').textContent;
 
       let a;
-      if (q('#pageLogo')) a = q('#pageLogo > a').innerHTML
-      else a = q('#pageTitle').textContent;
+      if (q('#pageLogo')) {
+        a = q('#pageLogo > a').innerHTML
+      } else a = q('#pageTitle').textContent;
       // a.style.opacity = 0;
       // a.style.display = "flex";
       q('#headerMenu > div:nth-child(2)').innerHTML = a;
       // a.style.opacity = 1;
 
       setContentFn();
-      q('main').style.opacity = 1;
+      // q('main').style.opacity = 1;
     });
   } else {location.reload()}
 }

@@ -36,25 +36,43 @@
 <article>
      
   <pre><code>
-        IDLE
-        >>> print("")
-
 a = 1 + 1 # integer
 b = 1.0 + 1.0 # float
+c = 5**2 # 25
+d = 20//6 # 3 часное
 string = "John" # string
 string = "John" * 2 # JohnJohn
 string = "John" + 2 # error
-string = "John" + str(2)
-users = ["John", "Artur", "Kate"] #list
-users[0] # John
-users[1] # Artur
-users[2] # Kate
-users[-2] # Artur
+</code></pre>
 
+<details>
+    <summary>преобразование типов</summary>
+<pre><code>
+string = "John" + str(2)
+int(b) # 1
+float(a) # 1.0
+list(range(100)) # [0,1,2,...,99]
+</code></pre>
+</details>
+
+<pre><code>
+del c # удаление переменной
+
+foo
+bar
+# метасинтаксические переменные
+</code></pre>
+
+<pre><code>
 true_test = 10 > 5 # True
 false_test = 10 != 5 # True
-false_test = 10 == 5 # false
+false_test = 10 == 5 # False
+and_or = c == 5 and (a == 7 or b > 4)
+</code></pre>
 
+<details>
+    <summary>if, else, elif, if in</summary>
+<pre><code>
 a = input("1st number >>> ")
 b = input("2nd number >>> ")
 
@@ -63,12 +81,28 @@ if a > b:
 elif a == b:
     print("equals")
 else:
-    print(b)
+    if not test == 9:
+        print(b)
 
+if 'Artur' in users:
+    print('Artur is in users!')
+if '4' not in users:
+    print('4 is not in users!')
+
+</code></pre>
+</details>
+
+<details>
+    <summary>while, for in</summary>
+<pre><code>
 number = 200
 while number < 500:
-    print("Not ready")
-    number += 2
+    number += 1
+    if number == 205:
+        break
+    if (number % 2) != 0:
+        continue
+    print(number)
 else:
     print("ready")
 
@@ -77,6 +111,43 @@ users = ["John", "Artur", "Kate"]
 for user in users:
     print(f"hello, {user}!")
 
+for i in range(15):
+    print(i)
+</code></pre>
+</details>
+
+<details>
+    <summary>list, range</summary>
+<pre><code>
+users = ["John", "Artur", "Kate"]
+users[0] # John
+users[-2] # Artur
+
+users * 2 # ["John", "Artur", "Kate", "John", "Artur", "Kate"]
+users + [4, 5, 6] # ["John", "Artur", "Kate", 4, 5, 6]
+
+len(users) # длина списка
+max(users) # максимальное значение
+min(users) # минимальное значение
+
+users.append('Ghbd')
+users.append(7)
+users.append([1,2,3])
+users.count(5) # количество вхождений 5ки
+users.insert(0, 4) # вставить 4 на индекс 0
+users.remove('Ghbd')
+users.reverse() # переворачивает список
+
+numbers = range(100) # диапазон от 0 до 99
+numbers = range(50, 100) # диапазон от 50 до 99
+numbers = range(0, 101, 2) # 0,2,4,6,...,100
+numbers_list = list(range(100)) # список чисел в диапазоне
+</code></pre>
+</details>
+
+<details>
+    <summary>def (function)</summary>
+<pre><code>
 def hello_user(name):     // объявление функции
     print(f"hello, {name}!")
 
@@ -91,7 +162,23 @@ def string_multiple(value, count):
 
 temp_string = string_multiple("Text0", 3)  # Text0Text0Text0
 print(temp_string)
+</code></pre>
+</details>
 
+<details>
+    <summary>__doc__</summary>
+<pre><code>
+def func_name():
+    ''' Описание функции '''
+    print()
+
+print( func_name.__doc__ )
+</code></pre>
+</details>
+
+<details>
+    <summary>class</summary>
+<pre><code>
 class User:
     name: str
 
@@ -144,7 +231,8 @@ artur = User("Artur")
 # artur.hello()
 # print(john)
 print(john._passport)
----
+</code></pre></details>
+<pre><code>
 import requests
 
 response = requests.get('https://jsonplaceholder.typicode.com/users')
