@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <style>
+            .clock {
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+                background-color: #f2f2f2;
+                position: relative;
+            }
+
+            .arrow {
+                width: 90px;
+                height: 1px;
+                background-color: red;
+                position: absolute;
+                top: 50%;
+                left: 50%;    
+                transform-origin: left center;
+                transform: rotate(-90deg);
+            }
+
+            .button {
+                padding: 10px 20px;
+                background-color: #FED546;
+                border-radius: 4px;
+                font: 14px sans-serif;
+                display: inline-block;
+                margin: 10px;
+                cursor: pointer;
+                user-select: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script>"use strict";
+            class Arrow {
+                constructor(id, { length = 90, weight = 1, color = '#000' }) {
+                    if (!(typeof id === 'string') || !id) {
+                        throw new Error(`invalir arrow id: ${id}`);
+                    }
+                    ;
+                    this.id = id;
+                    this.rotateFactor = 0;
+                    this.weight = weight;
+                    this.length = length;
+                    this.color = color;
+                }
+                get pos() {
+                    return this._getPos ? (this._getPos() % 360 + 360) % 360 : undefined;
+                }
+            }
+            class Button {
+                constructor(text, onPress) {
+                    this.text = text;
+                    this.onPress = onPress;
+                }
+            }
+            function addElement(className, container) {
+                const el = document.createElement('div');
+                el.className = className;
+                container.appendChild(el);
+                return el;
+            }
+            class Clock {
+                constructor() {
+                    this.arrows = [];
+                    this.buttons = [];
+                }
+                onBeforeTick() {
+                }
+                onAfterTick() {
+                }
+            }
+            class Ticker {
+                start(onAfterTick) {
+                    return setInterval(onAfterTick, INTERVAL);
+                }
+                stop(timerId) {
+                    clearInterval(timerId);
+                }
+            }
+            // tick spacing
+            const INTERVAL = 100;
+            // arrow rotation speed when rotateFactor is 1 (degrees per tick)
+            const SPEED = 30;
+            // maximum arrow speed
+            const MAX_SPEED = 115;
+            const render = (clock, container, ticker) => {
+                const body = addElement('clock', container);
+                const t = ticker || new Ticker();
+                const arrows = clock.arrows.map(props => {
+                    const el = addElement('arrow', body);
+                    el.style.transition = `transform ${INTERVAL}ms linear`;
+                    el.style.height = `${props.weight}px`;
+                    el.style.width = `${props.length}px`;
+                    el.style.backgroundColor = props.color;
+                    const arrowData = { el, props, pos: 0 };
+                    props._getPos = () => arrowData.pos;
+                    return arrowData;
+                });
+                clock.buttons.forEach(b => {
+                    const el = addElement('button', container);
+                    el.innerText = b.text;
+                    el.onclick = b.onPress;
+                });
+                const onAfterTick = () => {
+                    clock.onBeforeTick();
+                    arrows.forEach(arrow => {
+                        const distance = SPEED * arrow.props.rotateFactor;
+                        if (Math.abs(distance) > Math.abs(MAX_SPEED))
+                            throw new Error('maximum permissible speed exceeded');
+                        const newPos = arrow.pos + distance;
+                        arrow.pos = newPos;
+                        arrow.el.style.transform = `rotate(${newPos - 90}deg)`;
+                    });
+                    clock.onAfterTick();
+                };
+                const timerId = t.start(onAfterTick);
+                return () => { t.stop(timerId); };
+            };
+            const Framework = {
+                INTERVAL,
+                SPEED,
+                MAX_SPEED,
+                Arrow,
+                Button,
+                Clock,
+                Ticker,
+                render
+            };
+            Object.freeze(Framework);
+        </script>
+
+        <!-- в качестве решения предоставьте файл solution.js -->
+        <script src="solution.js"></script>    
+
+        <script>// v1
+            const app = new MyClock();
+            const destruct = Framework.render(app, document.getElementById('root'));
+            setTimeout(destruct, 120000);
+        </script>
+    </body>
+</html>
