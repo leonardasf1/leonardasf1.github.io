@@ -37,13 +37,11 @@
 #lb_btn_prev {
   width: 34%;
   left: 0;
-  /*background: url(../icons/prev.png) left 48% no-repeat;*/
 }
 #lb_btn_next {
   width: 64%;
   right: 0;
   justify-content: end;
-  /*background: url(../icons/next.png) right 48% no-repeat;*/
 }
 #lb_btn_close {
   width: 20%;
@@ -52,10 +50,10 @@
   display: block;
   text-align: right;
   line-height: 0;
-  /*background: url(../icons/close.png) right 0 no-repeat;*/
 }
 #lb_btn_next:hover, #lb_btn_prev:hover, #lb_btn_close:hover, #lb_attrTitle:hover {
   opacity: 1;
+  cursor: pointer;
 }
 #lb_info {
   position: absolute;
