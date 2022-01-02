@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 function q(id) { return document.querySelector(id) }
 function qAll(id) { return document.querySelectorAll(id) }
-const import_DataUrl = "http://leonardasf1.narod.ru/";
+const import_DataUrl = "https://leonardasf1.narod.ru/";
 
 let headHeight = '95px';
 
