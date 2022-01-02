@@ -319,8 +319,9 @@ func pointer(x *int) { *x = 2 }
 
 func funcName(varName ...int) int {} //arg - slice
 
-panic()
-recover()?
+panic() // останавливает основную и выполняет отложенные(defer)
+        // функции если в ней был запущен recover()
+Только отсроченные функции могут использовать recover
     </code></pre>
 </details>
 
@@ -477,14 +478,14 @@ func funcName(s interface{}) {
 <details><summary>& * указатели</summary>
   <pre><code>
 <a href="https://youtu.be/Gvf6b3ayaUo"></a>
+&varName -  //адрес ячейки в памяти, куда записана переменная
 myInt := new(int)
 var myIntPointer *int
 
 func main() {
   var number int = 8
   setFivePtr(&number) //передаем адрес
-  fmt.Println(number)
-  fmt.Println(&number) //адрес ячейки в памяти
+  fmt.Println(number, &number)
 }
 func setFivePtr(numPtr *int) {
   *numPtr = 5 //изменяем var number в ячейке
