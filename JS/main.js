@@ -121,7 +121,6 @@ function loadSubPage() {
     q('#headerBar').classList.remove('show')
   }
   if (location.hash) {
-    // q('main').style.opacity = 0;
     fetch(`${location.hash.substr(1)}.html`)
     .then(response => response.text())
     .then(results => {
@@ -132,13 +131,9 @@ function loadSubPage() {
       if (q('#pageLogo')) {
         a = q('#pageLogo > a').innerHTML
       } else a = q('#pageTitle').textContent;
-      // a.style.opacity = 0;
-      // a.style.display = "flex";
       q('#headerMenu > div:nth-child(2)').innerHTML = a;
-      // a.style.opacity = 1;
 
       setContentFn();
-      // q('main').style.opacity = 1;
     });
   } else {location.reload()}
 }
