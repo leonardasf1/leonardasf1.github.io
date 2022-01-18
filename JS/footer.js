@@ -9,7 +9,7 @@ export const footer = `
 			</a>
 		</div>
 		<div>
-			<a href="../js/assets/qr900.png" data-lightbox="E" title="ПЕРЕВОД НА СБЕР ПО НОМЕРУ ТЕЛЕФОНА ПО СМС , СУММУ ВЫБЕРИТЕ САМИ , СПАСИБО!)">
+			<a href="../JS/assets/qr900.png" data-lightbox="E" title="ПЕРЕВОД НА СБЕР ПО НОМЕРУ ТЕЛЕФОНА ПО СМС , СУММУ ВЫБЕРИТЕ САМИ , СПАСИБО!)">
 				<button style="background: inherit;color: inherit;font-size: inherit;border: 0;">
 					💳 Поддержать
 				</button>
