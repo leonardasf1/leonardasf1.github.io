@@ -150,7 +150,7 @@ footer {
 
 #pageTitle, #pageLogo { display: none }
 
-[href*="youtu"] {
+[href*="yewtu"] {
     background: url(../icons/youtu.svg) no-repeat 0;
     padding-left: 20px;
 }
