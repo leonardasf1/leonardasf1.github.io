@@ -10,9 +10,7 @@ export const footer = `
 		</div>
 		<div>
 			<a href="../JS/assets/qr900.png" data-lightbox="E" title="ПЕРЕВОД НА СБЕР ПО НОМЕРУ ТЕЛЕФОНА ПО СМС , СУММУ ВЫБЕРИТЕ САМИ , СПАСИБО!)">
-				<button style="background: inherit;color: inherit;font-size: inherit;border: 0;">
-					💳 Поддержать
-				</button>
+				<span class="w500">💳 Поддержать</span><span class="w320">💳</span>
 			</a>
 		</div>
   </div>

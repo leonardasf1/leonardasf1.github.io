@@ -163,3 +163,9 @@ footer {
     padding-left: 20px;
     background-size: 16px;
 }
+.w320 {display: none;}
+
+@media (max-width:500px) {
+    .w500 {display: none;}
+    .w320 {display: initial;}
+}
