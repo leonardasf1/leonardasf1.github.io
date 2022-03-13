@@ -62,11 +62,19 @@ assert.deepEqual(,); // сравнить объекты
 <details><summary>http</summary><pre><code>
 --- server.js
 const http = require('http');
-const server = new <b>http.Server()</b>;
-server.listen(8080);
-server.on('request', function(req, res) {
-	res.end('Hello, User!');
+const fs = require('fs');
+const path = require('path');
+
+const server = http.createServer((req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    if (req.url = '/') {
+      fs.readFile('./index.html', (err, data) => {
+        if (err) { console.log(err); res.end(); }
+        else { res.write(data); res.end(); }
+      })
+    }
 });
+server.listen(3000)
 
 req instanceof http.IncomingMessage
 req.method; // GET
@@ -97,7 +105,20 @@ reqName.on('response', function(response) {
 });
 </code></pre></details>
 <details><summary>https</summary><pre><code>
+<a href="https://nodejs.org/api/https.html">nodejs.org/api/https.html</a>
 
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  pfx: fs.readFileSync('test/fixtures/test_cert.pfx'),
+  passphrase: 'sample'
+};
+
+https.createServer(options, (req, res) => {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(8000);
 </code></pre></details>
 <details><summary>url</summary><pre><code>
 const url = require('url');

@@ -6,6 +6,7 @@
 		<a href="https://golang.org/">Golang.org</a><br>
 		<a href="https://youtu.be/53ULpInm988">Почему GO?</a><br>
 		<a href="https://youtu.be/2fxNbhy2gt0">Плюсы и минусы Go</a>, <a href="https://ater.me/conf/techtrain2018.pdf">презентация</a><br>
+    <a href="https://golangify.com/errors">golangify.com/errors</a><br>
 		<a href="https://itproger.com/course/one-lesson/14"> go за полчаса</a><br>
 		<a href="https://itvdn.com/ru/video/golang">Видео уроки Golang (ITVDN)</a><br>
         <a href="https://geekbrains.ru/events/2287#">напишем на Go простой сканер погоды</a><br>
@@ -375,8 +376,8 @@ type structName struct {
   happiness float64
   Firstname string `json:"firstname"` //tag
 }
-func (cat *structName) test() float64 {
-  return float64(cat.age) * cat.happiness
+func (a *structName) test() float64 {
+  return float64(a.age) * cat.happiness
 }  //метод структуры
 
 var varName structName
@@ -593,6 +594,7 @@ fmt.Println(web, "is cool website\n\t", z1, z2, z3, yu)
 fmt.Printf("%t", isDone)
 fmt.Printf("Факториал числа %d равен %d\n", n, f)
 
+%T-тип
 %t-bool
 %d-int,uint,rune,byte
 %f-float64,float32
@@ -616,6 +618,45 @@ fmt.Printf("Факториал числа %d равен %d\n", n, f)
   <details>
     <summary>"strcony"</summary>
   </details>
+  <details>
+    <summary>"net/http"</summary>
+    <pre><code>
+http.ResponseWriter
+http.Request
+http.HandleFunc("/", home_page)
+http.ListenAndServe(":8080", nil) //запуск сервера
+// для остановки сервера - ctrl+c
+    </code></pre>
+  </details>
+  <details>
+    <summary>"database"</summary>
+    <pre><code>
+
+import (
+  "fmt"
+  "database/sql"
+  _ "github.com/go-sql-driver/mysql"
+)
+func main() {
+  db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:8889)/golang")
+  if err != nil { panic(err) }
+  defer db.Close()
+
+  insert, err := db.Query("INSERT INTO `users` (`name`, `age`) VALUES('Bob', 35)")
+  if err != nil { panic(err) }
+  defer insert.Close()
+
+  res, err := db.Query("SELECT `name`, `age` FROM `users`")
+  if err != nil { panic(err) }
+  for res.Next() {
+    var user User
+    err = res.Scan(&user.Name, &user.Age)
+    if err != nil { panic(err) }
+    fmt.Println(fmt.Sprintf("User: %s with age %d", user.Name, user.Age))
+  }
+}
+    </code></pre>
+  </details>
 </div>
 
 <div>
@@ -636,6 +677,24 @@ func main() {
   }
   fmt.Printf("sort %d count %d \n", nums, counter)
 }
+    </code></pre>
+  </details>
+</div>
+
+<div>
+  <details>
+    <summary>Шаблонизаторы</summary>
+    <pre><code>
+
+  < h1>Главная страница</ h1>
+
+{{ if eq .Name "Bob"}}
+< span>Ну привет!< /span>
+{{ else }}
+< span>А ты кто?< /span>
+{{ end }}
+
+  < p>Пользователь: {{ .Name }}< /p>
     </code></pre>
   </details>
 </div>

@@ -1,0 +1,72 @@
+<div id="pageTitle">VPS</div>
+<div id="pageLogo"></div>
+
+<div><h3>ubuntu nodejs</h3>
+	<a href="https://github.com/nodesource/distributions">nodesource</a>
+	<pre><code>
+ssh root@0.0.0.0 -p 22
+
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+mkdir webserver1
+cd webserver1
+
+editor server.js
+---
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    if (req.url = '/') {
+      fs.readFile('./index.html', (err, data) => {
+        if (err) { console.log(err); res.end(); }
+        else { res.write(data); res.end(); }
+      })
+    }
+});
+server.listen(3000)
+---
+editor index.html
+
+node server
+ctrl c //выключение сервера
+exit //завершение сеанса SSH
+
+---
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+const server = http.createServer((req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  const createPath = (page) => path.resolve(__dirname, 'views', `${page}.html`);
+
+  let basePath = createPath('index');
+
+  switch(req.url) {
+    case '/home':
+    case '/index':
+    case '/': basePath = createPath('index'); break;
+    case '/old-page-redirect':
+        res.statusCode = 301;
+        res.setHeader('Location', '/');
+        res.end(); break;
+    default: res.statusCode = 404; break;
+  }
+
+  fs.readFile(basePath, (err, data) => {
+    if (err) {
+        console.log(err);
+        res.statusCode = 500;
+        res.end();
+    }
+    else { res.write(data); res.end(); }
+  })
+});
+
+server.listen(3000)
+---
+	</code></pre>
+</div>
