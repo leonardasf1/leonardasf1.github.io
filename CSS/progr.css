@@ -24,6 +24,6 @@ main [href*="github"] {
     padding-left: 20px;
 }
 [href*="habr.com"] {
-    background: url(https://habr.com/images/favicon-16x16.png) no-repeat 0;
+    background: url(../icons/habr.png) no-repeat 0;
     padding-left: 20px;
 }

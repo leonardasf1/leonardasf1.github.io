@@ -106,8 +106,8 @@ function setFooterScrollTop() {
     "click", () => window.scroll(0, 0));
 
   window.addEventListener( "scroll", () => {
-    if (window.scrollY > 1200) q('#footerScrollTop').style.right = "22px";
-    if (window.scrollY < 1000) q('#footerScrollTop').style.right = "-52px";
+    if (window.scrollY > 1200) q('#footerScrollTop').style.transform = "translateX(-22px)";
+    if (window.scrollY < 1000) q('#footerScrollTop').style.transform = "translateX(52px)";
   });
 }
 
@@ -117,14 +117,23 @@ function setFooter() {
 }
 
 function loadSubPage() {
+
   if (q('.show')) {
     q('#headerBar').classList.remove('show')
   }
   if (location.hash) {
+    q('main').style.opacity = '0';
     fetch(`${location.hash.substr(1)}.html`)
     .then(response => response.text())
     .then(results => {
-      q('main').innerHTML = results;
+      // q('main').innerHTML = results;
+      while (q('main').firstChild){
+        q('main').firstChild.remove()
+      }
+      q('main').insertAdjacentHTML('afterbegin', results);
+      // lb_init();
+      q('main').style.opacity = '1';
+
       q('title').innerText = q('#pageTitle').textContent;
 
       let a;

@@ -95,12 +95,12 @@ summary+* {
 #footerScrollTop {
     z-index: 100;
     position: fixed;
-    right: -52px;
+    right: 0px;
     top: 74px;
     width: 30px;
     height: 30px;
     color: #bfbfbf;
-    transition: right .5s;
+    transition: transform .5s;
 }
 #footerScrollTop:hover {
     color: white;
