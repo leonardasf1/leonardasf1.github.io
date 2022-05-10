@@ -29,6 +29,7 @@
 <a href="https://geekbrains.ru/events/2287#">напишем на Go простой сканер погоды</a><br>
 <a href="https://tube.cthd.icu/channel/UCQBFSUV_BdxGCxeg9Th4EjQ/videos">Gopher School</a><br>
 <a href="https://tube.cthd.icu/channel/UCq-OB01F8YnS-FJpeJRCvMQ/">GopherCon Russia</a><br>
+<a href="https://vk.com/video-147415323_456239709">VK Tech Talks · Go, 14 апреля 2022</a><br>
 <a href="https://tube.cthd.icu/p1ILhiq5Clw">Работа с сетью в Go (2018)</a><br>
 <a href="https://tube.cthd.icu/CX4GSErFenI">Как устроен garbage collector в Go 1.9 (2017)</a><br>
 <a href="https://tube.cthd.icu/HtQLBdD82vE">Кодогенерация в Go (2017)</a><br>
@@ -730,7 +731,7 @@ func sum(input <-chan int) (res int) {
   return
 }
 
-func generatorData() <-chan int {
+func generatorData() <-chan int { // Возвращаем канал чисел только для чтения.
   j := make(chan int)
   go func() {
     i := 0
@@ -742,6 +743,20 @@ func generatorData() <-chan int {
   }()
   return j
 }
+
+go func() {
+  for {
+    select {
+    case msg1 := <-c1:
+      fmt.Println(msg1)
+    case msg2 := <-c2:
+      fmt.Println(msg2)
+    // time.After возвращает канал, в который запись произойдет через 1 секунду
+    case <-time.After(time.Second):
+      fmt.Println("timeout")
+    }
+  }
+}()
   </code></pre>
 </details>
 
@@ -788,32 +803,43 @@ fmt.Printf("Факториал числа %d равен %d\n", n, f)
 \n //новая линия
 \t //большой пробел
   </code></pre></details>
-  "math/rand"
-  <details><summary>"time"</summary><pre>  
+
+  <details><summary>"math/rand"</summary><pre><code>
+  rand.Intn(1000)
+  </code></pre></details>
+
+  <details><summary>"time"</summary><pre><code>
   time.Since(time.Now) //прошедшее время
   time.Sleep(time.Second) //timeout 1sec
+  time.Sleep(time.Second * 2) //timeout 2sec
   time.Time
   time.Date(2000,4,22,0,0,0,0,time.UTC)
-  </pre></details>
-  <details><summary>"runtime"</summary><pre>  
+  time.Duration(rand.Intn(1000))
+  time.Millisecond
+  </code></pre></details>
+
+  <details><summary>"runtime"</summary><pre><code>
   runtime.Stack(varName, false)
-  </pre></details>
-  <details>
-    <summary>"strcony"</summary>
+  runtime.Gosched() //меня можно прервать
+  runtime.NumCPU() // количество CPU
+  runtime.GOMAXPROCS(runtime.NumCPU())
+  </code></pre></details>
+
+  <details><summary>"strcony"</summary>
   </details>
-  <details>
-    <summary>"net/http"</summary>
-    <pre><code>
+
+  <details><summary>"sync"</summary><pre><code>
+  sync.WaitGroup
+  </code></pre></details>
+
+  <details><summary>"net/http"</summary><pre><code>
 http.ResponseWriter
 http.Request
 http.HandleFunc("/", home_page)
 http.ListenAndServe(":8080", nil) //запуск сервера
 // для остановки сервера - ctrl+c
-    </code></pre>
-  </details>
-  <details>
-    <summary>"database"</summary>
-    <pre><code>
+  </code></pre></details>
+  <details><summary>"database"</summary><pre><code>
 
 import (
   "fmt"
